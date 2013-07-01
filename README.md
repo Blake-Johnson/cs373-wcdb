@@ -1,30 +1,21 @@
-World Crisis
-============
+CS w373 (UID 90826): World Crisis - team
+========================================
 
-Repo:
------
+Repo Info:
+----------
 Name: cs373-wcdb
 Description: Create a Django app with Python that emulates IMDB to track world crises.
 
-Course:
--------
-CS w373 - Software Engineering  
-ID - 90826
-
-Group:
-------
-team
-
 Members:
 --------
-| First Name | Last Name  | CS Username | EID     | Email                     |
-| ---------- | ---------- | ----------- | ------- | ------------------------- |
-| Aaron      | Stacy      | astacy      |         | aaron.r.stacy@gmail.com   |
-| Blake      | Johnson    | bjj586      | slc3438 | blakejohnson92@utexas.edu |
-| David      | Coon       | djc977      | slc3438 | david.coon@utexas.edu     |
-| Jason      | Brown      | zaphod      | slc3438 | jbnetaccounts@yahoo.com   |
-| Qunvar     | Arora      | qarora      | slc3438 | qarora@utexas.edu         |
-| Stephen    | Chiang     | stephenc    | slc3438 | stephenchiang@utexas.edu  |
+| First Name | Last Name  | CS Username | EID      | Email                     |
+| ---------- | ---------- | ----------- | -------  | ------------------------- |
+| Aaron      | Stacy      | astacy      |          | aaron.r.stacy@gmail.com   |
+| Blake      | Johnson    | bjj586      | slc3438  | blakejohnson92@utexas.edu |
+| David      | Coon       | djc977      | slc3438  | david.coon@utexas.edu     |
+| Jason      | Brown      | zaphod      | brownjb1 | jbnetaccounts@yahoo.com   |
+| Qunvar     | Arora      | qarora      | slc3438  | qarora@utexas.edu         |
+| Stephen    | Chiang     | stephenc    | slc3438  | stephenchiang@utexas.edu  |
 
 Crises:
 -------
