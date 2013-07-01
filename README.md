@@ -11,7 +11,7 @@ Members:
 | First Name | Last Name  | CS Username | EID      | Email                     |
 | ---------- | ---------- | ----------- | -------  | ------------------------- |
 | Aaron      | Stacy      | astacy      | ars2963  | aaron.r.stacy@gmail.com   |
-| Blake      | Johnson    | bjj586      |          | blakejohnson92@utexas.edu |
+| Blake      | Johnson    | bjj586      | djj586   | blakejohnson92@utexas.edu |
 | David      | Coon       | djc977      | djc977   | david.coon@utexas.edu     |
 | Jason      | Brown      | zaphod      | brownjb1 | jbnetaccounts@yahoo.com   |
 | Qunvar     | Arora      | qarora      | qa443    | qarora@utexas.edu         |
@@ -29,26 +29,31 @@ Crises:
 -------
 * [Space Shuttle Challenger Disaster](http://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster)
 * [Exxon Valdez Oil Spill](http://en.wikipedia.org/wiki/Exxon_Valdez_oil_spill)
-* [Great Recession](http://en.wikipedia.org/wiki/Great_Recession)
 * [Savar Building Collapse](http://en.wikipedia.org/wiki/2013_Savar_building_collapse)
 * [2010 Haiti Earthquake](http://en.wikipedia.org/wiki/2010_Haiti_earthquake)
 * [HIV/AIDS](http://en.wikipedia.org/wiki/HIV/AIDS)
 
-People:
--------
+
+Unique People:
+--------------
 * US President [Barack Obama](http://en.wikipedia.org/wiki/Barack_Obama)
-* Federal Reserve Chair [Ben Bernanke](http://en.wikipedia.org/wiki/Ben_Bernanke)
-* Chinese President [Xi Jinping](http://en.wikipedia.org/wiki/Xi_Jinping)
+* [Pope Francis](http://en.wikipedia.org/wiki/Pope_Francis)
+* Businessman, Bangladeshi owner of Rana Plaza building [Sohel Rana](http://en.wikipedia.org/wiki/Sohel_Rana_(businessman))
 * Russian President [Vladimir Putin](http://en.wikipedia.org/wiki/Vladimir_Putin)
 * German Chancellor [Angela Merkel](https://en.wikipedia.org/wiki/Angela_Merkel)
+* American mechanical engineer [Roger Boisjoly](http://en.wikipedia.org/wiki/Roger_Boisjoly)
+* American physicist and astronaut [Sally Ride](http://en.wikipedia.org/wiki/Sally_Ride)
+* Former Exxon CEO [Lawrence G. Rawl](https://en.wikipedia.org/wiki/Lawrence_G._Rawl)
+* American Sailor [Joseph Hazelwood](http://en.wikipedia.org/wiki/Joseph_Hazelwood)
+
+People:
+-------
 * Oklahoma Governor [Mary Fallin](http://en.wikipedia.org/wiki/Mary_Fallin)
+* Republican Senator of Oklahoma [Jim Inhofe](http://en.wikipedia.org/wiki/Jim_Inhofe)
 * Boston Bombers [Dzhokhar and Tamaerlan Tsarnaev](http://en.wikipedia.org/wiki/Dzhokhar_and_Tamerlan_Tsarnaev)
 * CEO of TEPCO [Masataka Shimizu](http://en.wikipedia.org/wiki/Masataka_Shimizu)
 * Haitian President [Renè Prèval](http://en.wikipedia.org/wiki/Ren%C3%A9_Pr%C3%A9val)
-* Republican Speaker of the House [John Boehner](http://en.wikipedia.org/wiki/John_Boehner)
-* Senate Republican Minority Leader [Mitch McConnell](http://en.wikipedia.org/wiki/Mitch_McConnell)
-* President of European Central Bank [Mario Draghi](http://en.wikipedia.org/wiki/Mario_Draghi)
-* Supreme Leader of North Korea [Kim Jong-un](http://en.wikipedia.org/wiki/Kim_Jong-un)
+
 
 Organizations:
 --------------
