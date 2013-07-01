@@ -1,10 +1,7 @@
-CS w373 (UID 90826): World Crisis - team
-========================================
+World Crisis - team
+===================
 
-Repo Info:
-----------
-Name: cs373-wcdb
-Description: Create a Django app with Python that emulates IMDB to track world crises.
+Create a Django app with Python that emulates IMDB to track world crises.
 
 Members:
 --------
