@@ -10,27 +10,29 @@ Members:
 --------
 | First Name | Last Name  | CS Username | EID      | Email                     |
 | ---------- | ---------- | ----------- | -------  | ------------------------- |
-| Aaron      | Stacy      | astacy      |          | aaron.r.stacy@gmail.com   |
+| Aaron      | Stacy      | astacy      | ars2963  | aaron.r.stacy@gmail.com   |
 | Blake      | Johnson    | bjj586      |          | blakejohnson92@utexas.edu |
-| David      | Coon       | djc977      |          | david.coon@utexas.edu     |
+| David      | Coon       | djc977      | djc977   | david.coon@utexas.edu     |
 | Jason      | Brown      | zaphod      | brownjb1 | jbnetaccounts@yahoo.com   |
-| Qunvar     | Arora      | qarora      |          | qarora@utexas.edu         |
+| Qunvar     | Arora      | qarora      | qa443    | qarora@utexas.edu         |
 | Stephen    | Chiang     | stephenc    | slc3438  | stephenchiang@utexas.edu  |
+
+Unique Crises:
+--------------
+* [Boston Marathon Bombings](https://en.wikipedia.org/wiki/Boston_Marathon_bombings)
+* [Fukushima Daiichi Nuclear Disaster](http://en.wikipedia.org/wiki/Fukushima_Daiichi_nuclear_disaster)
+* [Syrian Civil War](http://en.wikipedia.org/wiki/Syrian_civil_war)
+* [Hurricane Sandy](http://en.wikipedia.org/wiki/Hurricane_Sandy)
+* [2013 Moore Tornado](http://en.wikipedia.org/wiki/2013_Moore_tornado)
 
 Crises:
 -------
-* [Boston Marathon Bombings](https://en.wikipedia.org/wiki/Boston_Marathon_bombings)
-* [2013 United States Debt-Ceiling Debate](http://en.wikipedia.org/wiki/United_States_debt-ceiling_crisis_of_2013)
-* [Fukushima Daiichi Nuclear Disaster](http://en.wikipedia.org/wiki/Fukushima_Daiichi_nuclear_disaster)
-* [Syrian Civil War](http://en.wikipedia.org/wiki/Syrian_civil_war)
+* [Space Shuttle Challenger Disaster](http://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster)
+* [Exxon Valdez Oil Spill](http://en.wikipedia.org/wiki/Exxon_Valdez_oil_spill)
 * [Great Recession](http://en.wikipedia.org/wiki/Great_Recession)
-* [United States Housing Bubble](http://en.wikipedia.org/wiki/Great_Recession)
-* [2013 Moore Tornado](http://en.wikipedia.org/wiki/2013_Moore_tornado)
-* [Cyberwarfare](https://en.wikipedia.org/wiki/Cyberwarfare) - [ABC article](http://www.abc.net.au/news/2013-05-29/reports-chinese-hackers-targeted-us/4719352)
+* [Savar Building Collapse](http://en.wikipedia.org/wiki/2013_Savar_building_collapse)
 * [2010 Haiti Earthquake](http://en.wikipedia.org/wiki/2010_Haiti_earthquake)
 * [HIV/AIDS](http://en.wikipedia.org/wiki/HIV/AIDS)
-* [Nuclear Proliferation](http://en.wikipedia.org/wiki/Nuclear_proliferation)
-* [Butterfly Population on Decline](http://planetsave.com/2013/06/25/monarch-butterfly-many-birds-facing-bigdeclines-possible-extinction/)
 
 People:
 -------
