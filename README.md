@@ -8,7 +8,7 @@ Description: Create a Django app with Python that emulates IMDB to track world c
 
 Course:
 -------
-CS w373 - Software Engineering
+CS w373 - Software Engineering<br />
 ID - 90826
 
 Group:
