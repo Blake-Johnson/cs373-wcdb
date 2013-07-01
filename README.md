@@ -1,7 +1,6 @@
 World Crisis - team
 ===================
-
-Create a Django app with Python that emulates IMDB to track world crises.
+Create a Django site that emulates IMDB to track world crises.
 
 Resources:
 ----------
