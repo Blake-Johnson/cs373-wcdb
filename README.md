@@ -3,6 +3,10 @@ World Crisis - team
 
 Create a Django app with Python that emulates IMDB to track world crises.
 
+Resources:
+----------
+* [WCDB1](http://www.cs.utexas.edu/users/downing/cs373/drupal/wcdb1)
+
 Members:
 --------
 | First Name | Last Name  | CS Username | EID      | Email                     |
