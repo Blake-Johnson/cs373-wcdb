@@ -8,10 +8,10 @@ Members:
 | First Name | Last Name  | CS Username | EID      | Email                     |
 | ---------- | ---------- | ----------- | -------  | ------------------------- |
 | Aaron      | Stacy      | astacy      |          | aaron.r.stacy@gmail.com   |
-| Blake      | Johnson    | bjj586      | slc3438  | blakejohnson92@utexas.edu |
-| David      | Coon       | djc977      | slc3438  | david.coon@utexas.edu     |
+| Blake      | Johnson    | bjj586      |          | blakejohnson92@utexas.edu |
+| David      | Coon       | djc977      |          | david.coon@utexas.edu     |
 | Jason      | Brown      | zaphod      | brownjb1 | jbnetaccounts@yahoo.com   |
-| Qunvar     | Arora      | qarora      | slc3438  | qarora@utexas.edu         |
+| Qunvar     | Arora      | qarora      |          | qarora@utexas.edu         |
 | Stephen    | Chiang     | stephenc    | slc3438  | stephenchiang@utexas.edu  |
 
 Crises:
