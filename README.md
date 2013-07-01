@@ -2,17 +2,21 @@ World Crisis
 ============
 
 Repo:
+-----
 Name: cs373-wcdb
 Description: Create a Django app with Python that emulates IMDB to track world crises.
 
 Course:
+-------
 CS w373 - Software Engineering
 ID - 90826
 
 Group:
+------
 team
 
 Members:
+--------
 First name: Stephen
 Last name: Chiang
 CS username: stephenc
@@ -20,6 +24,7 @@ EID: slc3438
 Email: StephenChiang@utexas.edu
 
 Crises:
+-------
 2013 Boston Bombings
 2013 Debt Crisis
 Fukushima 2011
@@ -34,6 +39,7 @@ Nuclear Proliferation
 Butterfly Population on Decline
 
 People:
+-------
 US President Barack Obama
 Federal Reserve Chair Ben Bernanke
 Chinese President Xi Jinping
@@ -50,6 +56,7 @@ President of European Central Bank Mario Draghi
 Supreme Leader of North Korea Kim Jong-un
 
 Organizations:
+--------------
 Federal Reserve and Board
 European Central Bank
 American Red Cross
@@ -67,7 +74,9 @@ North Korea
 International Union for Conservation of Nature (IUCN)
 
 Time Estimated:
+---------------
 A Lot
 
 Time Log:
+---------
 Home page design - 16 hours
