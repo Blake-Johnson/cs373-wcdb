@@ -64,11 +64,3 @@ Organizations
 * [National Aeronautics and Space Administration](http://en.wikipedia.org/wiki/NASA)
 * [Joint United Nations Programme on HIV/AIDS](https://en.wikipedia.org/wiki/Joint_United_Nations_Programme_on_HIV/AIDS) (UNAIDS)
 * [Catholic Church](http://en.wikipedia.org/wiki/Catholic_Church)
-
-Time Estimated
---------------
-A Lot
-
-Time Log
---------
-Home page design - 16 hours
