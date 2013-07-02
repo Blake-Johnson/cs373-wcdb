@@ -1,5 +1,5 @@
 Create a new file per crisis so we don't accidentally override each other's work!
-Name the file the crisis name with the following replacements:
+Name the file cri_*, replacing * with the crisis name with the following replacements:
 	All letters are lowercase
 	Any non-letter and non-digit value becomes an underscore
 	e.g. HIV/AIDS becomes hiv_aids
