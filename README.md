@@ -33,7 +33,6 @@ Crises
 * [2010 Haiti Earthquake](http://en.wikipedia.org/wiki/2010_Haiti_earthquake)
 * [HIV/AIDS](http://en.wikipedia.org/wiki/HIV/AIDS)
 
-
 Unique People
 -------------
 * Boston Bombers [Dzhokhar and Tamaerlan Tsarnaev](http://en.wikipedia.org/wiki/Dzhokhar_and_Tamerlan_Tsarnaev)
