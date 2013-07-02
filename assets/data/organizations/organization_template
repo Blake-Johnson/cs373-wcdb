@@ -1,0 +1,21 @@
+Create only one file per organization!
+	i.e. only have one file called american_red_cross even though it has to do with Hurricane Sandy and Haiti
+	Along those lines, be careful when merging!
+File naming scheme is same as crisis.
+
+For each organization, include at a minimum the following:
+name: 
+kind: 
+location: 
+history: 
+contact_info: 
+citations: 
+external_links: 
+
+images: 
+videos: 
+maps: 
+social: 
+
+crises: 
+people: 

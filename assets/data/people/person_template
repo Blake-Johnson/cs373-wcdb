@@ -1,0 +1,19 @@
+Create only one file per person!
+	i.e. only have one file called barack_obama even though he has to do with Hurricane Sandy and Haiti
+	Along those lines, be careful when merging!
+File naming scheme is same as crisis.
+
+For each person, include at a minimum the following:
+name: 
+kind: 
+location: 
+citations: 
+external_links: 
+
+images: 
+videos: 
+maps: 
+social: 
+
+crises: 
+organizations: 
