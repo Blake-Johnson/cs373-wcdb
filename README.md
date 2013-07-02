@@ -39,7 +39,7 @@ Unique People
 * Boston Bombers [Dzhokhar and Tamaerlan Tsarnaev](http://en.wikipedia.org/wiki/Dzhokhar_and_Tamerlan_Tsarnaev)
 * CEO of TEPCO [Masataka Shimizu](http://en.wikipedia.org/wiki/Masataka_Shimizu)
 * American mechanical engineer [Roger Boisjoly](http://en.wikipedia.org/wiki/Roger_Boisjoly)
-* [Ahmedou Ould-Abdallah](http://en.wikipedia.org/wiki/Ahmedou_Ould-Abdallah)
+* United Nations envoy for Somalia [Ahmedou Ould-Abdallah](http://en.wikipedia.org/wiki/Ahmedou_Ould-Abdallah)
 * American Sailor [Joseph Hazelwood](http://en.wikipedia.org/wiki/Joseph_Hazelwood)
 
 People
