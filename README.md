@@ -35,7 +35,7 @@ Crises
 
 Unique People
 -------------
-* Boston Bombers [Dzhokhar and Tamaerlan Tsarnaev](http://en.wikipedia.org/wiki/Dzhokhar_and_Tamerlan_Tsarnaev)
+* Boston Bombers [Dzhokhar and Tamerlan Tsarnaev](http://en.wikipedia.org/wiki/Dzhokhar_and_Tamerlan_Tsarnaev)
 * CEO of TEPCO [Masataka Shimizu](http://en.wikipedia.org/wiki/Masataka_Shimizu)
 * American mechanical engineer [Roger Boisjoly](http://en.wikipedia.org/wiki/Roger_Boisjoly)
 * United Nations envoy for Somalia [Ahmedou Ould-Abdallah](http://en.wikipedia.org/wiki/Ahmedou_Ould-Abdallah)
