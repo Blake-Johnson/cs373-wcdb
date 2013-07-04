@@ -1,0 +1,25 @@
+name: Pope Francis
+kind: Pope
+location: Vatican City, Italy
+citations:
+ - http://en.radiovaticana.va/news/2013/03/18/pope_francis_:_miserando_atque_eligendo.../en1-674605
+ - http://www.nydailynews.com/news/world/popebio-article-1.1287994
+external_links:
+ - http://en.wikipedia.org/wiki/Pope_Francis
+
+images:
+ - http://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Pope_Francis_in_March_2013.jpg/230px-Pope_Francis_in_March_2013.jpg
+ - http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Jorge_Mario_Bergoglio_attended_a_salesian_school_between_1948_and_1949.jpg/330px-Jorge_Mario_Bergoglio_attended_a_salesian_school_between_1948_and_1949.jpg
+ - http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Pope_Francis_with_Cristina_Fernandez_de_Kirchner_9.jpg/220px-Pope_Francis_with_Cristina_Fernandez_de_Kirchner_9.jpg
+videos:
+ - http://www.youtube.com/watch?v=rNmerd1IDmw
+ - http://www.youtube.com/watch?v=_rHL4P1_GFM
+maps:
+ - https://maps.google.com/maps?q=vatican+City&hl=en&sll=41.902916,12.453389&sspn=0.018813,0.029998&hnear=Vatican+City&t=m&z=15
+social:
+ - https://twitter.com/Pontifex
+
+crises:
+ - CRI_SVRBLD
+organizations: []
+
