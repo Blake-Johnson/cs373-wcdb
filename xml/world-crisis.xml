@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE WorldCrisis SYSTEM "https://raw.github.com/aaronj1335/cs373-wcdb1-schema/master/WorldCrises.xsd.xml">
-
 <WorldCrises>
   <Crisis ID="CRI_BOSBOM" Name="Boston Marathon bombings">
     <People>
