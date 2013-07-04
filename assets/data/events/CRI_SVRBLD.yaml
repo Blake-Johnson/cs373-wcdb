@@ -13,7 +13,7 @@
 # note that you need to format dates according to iso 8601, so if you have a
 # date like "Apr 24, 2013, and you don't know how to format it, run this:
 #
-#   python -c "import yaml; print yaml.load(open('assets/data/crises/CRI_SVRBLD.yaml').read())"
+#   python -c 'import dateutil.parser; print dateutil.parser.parse("Apr 24, 2013").isoformat()'
 #
 name: Savar building collapse
 kind: structural failure
