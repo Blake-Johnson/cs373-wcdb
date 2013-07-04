@@ -17,7 +17,7 @@ Members
 | Qunvar     | Arora      | qarora      | qa443    | qarora@utexas.edu         |
 | Stephen    | Chiang     | stephenc    | slc3438  | stephenchiang@utexas.edu  |
 
-Unique Crises
+Unique Events
 -------------
 * [Boston Marathon Bombings](https://en.wikipedia.org/wiki/Boston_Marathon_bombings)
 * [Fukushima Daiichi Nuclear Disaster](http://en.wikipedia.org/wiki/Fukushima_Daiichi_nuclear_disaster)
@@ -25,7 +25,7 @@ Unique Crises
 * [Hurricane Sandy](http://en.wikipedia.org/wiki/Hurricane_Sandy)
 * [Space Shuttle Challenger Disaster](http://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster)
 
-Crises
+Events
 ------
 * [Piracy in Somalia](http://en.wikipedia.org/wiki/Piracy_in_Somalia)
 * [Exxon Valdez Oil Spill](http://en.wikipedia.org/wiki/Exxon_Valdez_oil_spill)
