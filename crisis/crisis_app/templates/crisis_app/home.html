@@ -1,0 +1,14 @@
+{% extends "crisis_app/base_site.html" %}
+
+{% block content %}
+<article>
+  <div id="chart"></div>
+  <div class="well container">
+    <h4 class="inline">Size: </h4>
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button id="btnPop" class="btn active" type="button">Popular</button>
+      <button id="btnEqual" class="btn" type="button">Equal</button>
+    </div>
+  </div>
+</article>
+{% endblock %}

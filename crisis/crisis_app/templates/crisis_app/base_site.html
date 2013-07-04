@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" href="{{ STATIC_URL }}crisis_app/css/my_bootstrap.css" rel="stylesheet" />
+<link type="image/ico" href="{{ STATIC_URL }}crisis_app/img/favicon.ico" rel="shortcut icon" />
+<script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<title>Crisis</title>
+</head>
+<body>
+<header>
+  <div class="navbar navbar-static-top">
+    <div class="navbar-inner">
+      <ul class="nav pull-right">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Events</a></li>
+        <li><a href="#">People</a></li>
+        <li><a href="#">Organizations</a></li>
+        <li class="divider-vertical"></li>
+        <form class="navbar-search">
+          <input type="text" class="search-query" placeholder="Search Crises" />
+        </form>
+      </ul>
+    </div>
+  </div>
+</header>
+{% block content %}
+{% endblock %}
+<footer class="container">
+  <hr />
+  <div class="span4">
+    <span>World Crisis Database</span><br />
+    <span>&#169;2013 team</span><br />
+  </div>
+  <div class="span4 offset1">
+    <span>For the best experience, view this page with <a href="http://www.chromium.org/Home" target="_blank">Chromium</a> with a minimum resolution of 1024x768.</span>
+  </div>
+  <div class="span4 offset1">
+    <span>About?</span><br />
+    <span>Contact?</span>
+  </div>
+</footer>
+
+<!-- CSS/JavaScript -->
+<link type="text/css" href="{{ STATIC_URL }}crisis_app/css/treemap.css" rel="stylesheet" />
+<link type="text/css" href="{{ STATIC_URL }}crisis_app/css/scrollbar.css" rel="stylesheet" />
+<script language="javascript" type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/bootstrap.js"></script> 
+<script language="javascript" type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/jquery.mousewheel.js"></script> 
+<script language="javascript" type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/scrollbar.js"></script> 
+<script language="javascript" type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/jit.js"></script> 
+<script language="javascript" type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/json.js"></script> 
+<script language="javascript" type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/treemap.js"></script> 
+<script language="javascript" type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/init.js"></script>
+<link type="text/css" href="{{ STATIC_URL }}crisis_app/css/custom.css" rel="stylesheet" />
+</body>
+</html>
