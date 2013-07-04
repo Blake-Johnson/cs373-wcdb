@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE WorldCrisis SYSTEM "https://raw.github.com/aaronj1335/cs373-wcdb1-schema/master/WorldCrises.xsd.xml">
+
+<WorldCrises>
+  <Crisis ID="CRI_BOSBOM" Name="Boston Marathon bombings">
+    <People>
+      <PersonID>PER_DZTSAR</PersonID>
+      <PersonID>PER_TATSAR</PersonID>
+    </People>
+
+    <Organizations>
+      <OrgID>ORG_REDCRS</OrgID>
+    </Organizations>
+
+    <PlaceID>PLC_BOSTON</PlaceID>
+
+    <Year>2013</Year>
+  </Crisis>
+
+  <Person ID="PER_DZTSAR" Name="Dzhokhar Tsarnaev">
+    <Born>1993</Born>
+    <Office>Boston Marathon bomber</Office>
+  </Person>
+
+  <Person ID="PER_TATSAR" Name="Tamerlan Tsarnaev">
+    <Born>1986</Born>
+    <Office>Boston Marathon bomber</Office>
+  </Person>
+
+  <Place ID="PLC_BOSTON" Name="Boston" />
+
+  <Organization ID="ORG_REDCRS" Name="Red Cross" />
+</WorldCrises>
