@@ -10,12 +10,12 @@ Members
 -------
 | First Name | Last Name  | CS Username | EID      | Email                     |
 | ---------- | ---------- | ----------- | -------  | ------------------------- |
-| Aaron      | Stacy      | astacy      | ars2963  | aaron.r.stacy@gmail.com   |
-| Blake      | Johnson    | bjj586      | djj586   | blakejohnson92@utexas.edu |
-| David      | Coon       | djc977      | djc977   | david.coon@utexas.edu     |
-| Jason      | Brown      | zaphod      | brownjb1 | jbnetaccounts@yahoo.com   |
 | Qunvar     | Arora      | qarora      | qa443    | qarora@utexas.edu         |
+| Jason      | Brown      | zaphod      | brownjb1 | jbnetaccounts@yahoo.com   |
 | Stephen    | Chiang     | stephenc    | slc3438  | stephenchiang@utexas.edu  |
+| David      | Coon       | djc977      | djc977   | david.coon@utexas.edu     |
+| Blake      | Johnson    | bjj586      | djj586   | blakejohnson92@utexas.edu |
+| Aaron      | Stacy      | astacy      | ars2963  | aaron.r.stacy@gmail.com   |
 
 Unique Events
 -------------
