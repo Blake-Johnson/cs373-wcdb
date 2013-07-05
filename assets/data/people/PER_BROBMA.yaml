@@ -1,0 +1,27 @@
+name: Barak Obama
+kind: President of the United States of America
+location: Washington, D.C, United States of America
+born: 1961-08-04T00:00:00
+citations:
+ - http://en.wikipedia.org/wiki/Barack_Obama
+external_links:
+ - http://www.whitehouse.gov/administration/president-obama/
+ - http://www.barackobama.com
+ - http://bioguide.congress.gov/scripts/biodisplay.pl?index=o000167
+
+images:
+ - http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/220px-President_Barack_Obama.jpg
+ - http://upload.wikimedia.org/wikipedia/en/thumb/3/33/Ann_Dunham_with_father_and_children.jpg/220px-Ann_Dunham_with_father_and_children.jpg
+ - http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flickr_Obama_Springfield_01.jpg/220px-Flickr_Obama_Springfield_01.jpg
+videos:
+ - http://commons.wikimedia.org/wiki/Obama_Administration_weekly_video_addresses
+ - http://www.youtube.com/user/BarackObamadotcom
+maps:
+ - https://maps.google.com/maps?q=1600+Pennsylvania+Avenue+Northwest,+Washington,+DC&hl=en&sll=30.307761,-97.753401&sspn=0.732698,0.95993&oq=1600+pen&hnear=1600+Pennsylvania+Ave+NW,+Washington,+District+of+Columbia+20500&t=m&z=16
+social:
+ - https://twitter.com/BarackObama
+ - https://www.facebook.com/barackobama
+
+crises:
+ - CRI_HURSAN
+organizations: []

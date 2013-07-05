@@ -22,5 +22,6 @@ social:
 
 crises:
  - CRI_SVRBLD
-organizations: []
+organizations:
+ - ORG_CATHLC
 

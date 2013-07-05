@@ -1,0 +1,37 @@
+name: Hurricane Sandy
+kind: natural disaster
+location: New York metropolitan area
+date_time: 2012-10-29T00:00:00
+human_impact: At least 286 people were killed along the path of the storm in seven countries.
+economic_impact: Estimates as of June 2013 assess damage to have been over $68 billion (2013 USD), a total surpassed only by Hurricane Katrina.
+
+resources_needed: |
+  clean-up and restoration of the areas hit hardest, temporary housing for thos
+  that lost their homes. clothing and shelter donations.
+ways_to_help: |
+  FEMA has been collaborating with many national, state, tribal, and local
+  partners in response to Hurricane Sandy, including the National Voluntary
+  Organizations Active in Disaster (NVOAD) and the Corporation for National and
+  Community Service. Learn more on how you can donate and volunteer responsibly
+  to assist the survivors of Hurricane Sandy here:
+  http://www.fema.gov/hurricane-sandy-donate-and-volunteer
+
+citations:
+ - http://www.fema.gov/hurricane-sandy
+external_links:
+ - http://en.wikipedia.org/wiki/Hurricane_Sandy
+ - http://crisiswiki.org/2012_Hurricane_Sandy
+
+images:
+ - http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sandy_Oct_25_2012_0400Z.JPG/546px-Sandy_Oct_25_2012_0400Z.JPG
+ - http://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/HurricaneSANDYCheltenham.jpg/220px-HurricaneSANDYCheltenham.jpg
+ - http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Sandy_Poweroutage_1.jpg/220px-Sandy_Poweroutage_1.jpg
+videos:
+ - http://www.youtube.com/watch?v=91ldZZiOqAs
+maps:
+ - http://google.org/crisismap/2012-sandy
+
+organizations:
+ - ORG_REDCRS
+people:
+ - PER_BROBMA
