@@ -1,7 +1,6 @@
 from django.db import models
 
 class Event(models.Model):
-	id = models.CharField(max_length=255, unique=True, primary_key=True)
 	name = models.CharField(max_length=255)
 	kind = models.CharField(max_length=255, verbose_name="type")
 	location = models.CharField(max_length=255)
@@ -20,7 +19,6 @@ class Event(models.Model):
 		get_latest_by = "date_time"
 
 class Person(models.Model):
-	id = models.CharField(max_length=255, unique=True, primary_key=True)
 	name = models.CharField(max_length=255)
 	kind = models.CharField(max_length=255, verbose_name="role")
 	location = models.CharField(max_length=255)
@@ -35,7 +33,6 @@ class Person(models.Model):
 		verbose_name_plural = "People"
 
 class Organization(models.Model):
-	id = models.CharField(max_length=255, unique=True, primary_key=True)
 	name = models.CharField(max_length=255)
 	kind = models.CharField(max_length=255, verbose_name="type")
 	location = models.CharField(max_length=255)
@@ -52,7 +49,6 @@ class Organization(models.Model):
 		verbose_name_plural = "Organizations"
 
 class Citation(models.Model):
-	id = models.AutoField(unique=True, primary_key=True)
 	name = models.CharField(max_length=255, verbose_name="citation")
 
 	event = models.ManyToManyField(Event, blank=True, null=True)
@@ -66,3 +62,18 @@ class Citation(models.Model):
 		verbose_name = "Citation"
 		verbose_name_plural = "Citations"
 		get_latest_by = "id"
+
+class About(models.Model):
+	first_name = models.CharField(max_length=31)
+	last_name = models.CharField(max_length=31)
+	github_id = models.CharField(max_length=31)
+	role = models.CharField(max_length=255)
+	quote = models.CharField(max_length=255)
+	image = models.CharField(max_length=255)
+
+	def __unicode__(self):
+		return self.first_name + " " + self.last_name
+
+	class Meta:
+		verbose_name = "Author"
+		verbose_name_plural = "Authors"

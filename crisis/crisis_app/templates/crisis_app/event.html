@@ -1,0 +1,56 @@
+{% extends "crisis_app/base_site.html" %}
+{% block title %}{{ event.name }}{% endblock %}
+
+{% block content %}
+<section class="container">
+  <h1>{{ event.name }}</h1>
+  <div class="well">
+    <aside class="span4 pull-right">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th colspan="2"><h4 class="text-center">{{ event.name }}</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2"><img src="http://lorempixel.com/400/400" /></td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>{{ event.kind }}</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>{{ event.location }}</td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td>{{ event.date_time }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </aside>
+    <h3>Human Impact</h3>
+    <hr />
+    <p>{{ event.human_impact }}</p>
+    <br />
+    <h3>Economic Impact</h3>
+    <hr />
+    <p>{{ event.economic_impact }}</p>
+    <br />
+    <h3>Resources Used</h3>
+    <hr />
+    <p>{{ event.resources_needed }}</p>
+    <br />
+    <h3>Aid</h3>
+    <hr />
+    <p>{{ event.ways_to_help }}</p>
+    <span class="clearfix"></span>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+$('#nav_events').addClass('active');
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "crisis_app/base_site.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<section class="container">
+  <h1>About the World Crisis Database</h1>
+  <div class="well">
+    <div class="span7">
+      <h2>WCDb Info</h2>
+      <blockquote>
+        <p>There cannot be a crisis next week. My schedule is already full.</p>
+        <small>Henry Kissinger in <em>The New York Times Magazine</em></small>
+      </blockquote>
+      <p class="indented">In the bustling world of the 21st century, there's hardly time for personal crises - let alone global ones. WCDb aims to amend that issue by giving you the power to control your life, allowing you to choose when to care about the rest of humanity and when to enjoy the more personal aspects of life.</p>
+      <p class="indented">Drought in Austrailia? But your swim meet is in 15 minutes. Hungry children in Africa? Unfortunately, you must attend an important dinner party with your coworkers. Afterwards, when the party (and after-party) is over and dust has settled, relive all the events suffered by people around the world - without the suffering, of course - on the WCDb website. Always here. Always ready when you are.</p>
+      <br />
+      <h2>team</h2>
+      <p class="indented">We're just a couple of people who like building interesting sites, and the WCDb just happens to be one of them. If you think this is cool, hit us up on GitHub! The contact links will point you in the right direction.</p>
+    </div>
+    <div class="span6 pull-right aside-right">
+      <h2>Contact Us</h2>
+      {% if author_list %}
+      {% for author in author_list %}
+      <div class="media"> <a class="pull-left" href="https://github.com/{{ author.github_id }}" target="_blank"> <img class="media-object" src="{{ STATIC_URL }}crisis_app/img/about/{{ author.image }}" /> </a>
+        <div class="media-body">
+          <h4 class="media-heading"><a href="https://github.com/{{ author.github_id }}" target="_blank">{{ author.first_name }} {{ author.last_name }}</a></h4>
+          <p>{{ author.role }}<br />
+            "{{ author.quote }}"</p>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %} </div>
+    <span class="clearfix"></span>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+$('#nav_about').addClass('active');
+{% endblock %}

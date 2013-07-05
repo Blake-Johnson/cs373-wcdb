@@ -1,4 +1,4 @@
-var labelType, useGradients, nativeTextSupport, animate;
+var labelType, useGradients, nativeTextSupport, animate, tooltip = true, inLeaf = false;
 
 (function () {
     var ua = navigator.userAgent,
@@ -24,20 +24,26 @@ function initTreeMap() {
         offset: 0,
 		//width & height (don't use css)
 		width: window.innerWidth,
-		height: 800,
+		height: 700,
         //Attach left and right click events
         Events: {
             enable: true,
             onClick: function (node) {
 				if(tm.leaf(node)){
-					$('.tip').css('visibility', 'hidden');
+                    inLeaf = true;
+                    if(tooltip){
+					   $('.tip').css('visibility', 'hidden');
+                    }
 				}
                 if(node){
 					tm.enter(node);
 				}
             },
             onRightClick: function () {
-				$('.tip').css('visibility', 'visible');
+                if(tooltip){
+                    $('.tip').css('visibility', 'visible');
+                }
+                inLeaf = false;
                 tm.out();
             }
         },
@@ -71,7 +77,8 @@ function initTreeMap() {
                 domElement.innerHTML = html;
                 $(domElement).addClass('content-node');
                 $(domElement).perfectScrollbar({
-                    wheelSpeed: 20
+                    wheelSpeed: 20,
+                    wheelPropagation: true
                 });
             } else {
                 // Non-leaf (title) node
@@ -88,7 +95,10 @@ function initTreeMap() {
 	
 	// Switch between size/equal visualization
 	var btnPop = $jit.id('btnPop'),
-		btnEqual = $jit.id('btnEqual'),
+        btnEqual = $jit.id('btnEqual'),
+        btnBack = $jit.id('btnBack'),
+        btnTipOn = $jit.id('btnTipOn'),
+        btnTipOff = $jit.id('btnTipOff'),
 		size = true;
 	$jit.util.addEvent(btnPop, 'click', function() {
 		if(!size){
@@ -101,13 +111,26 @@ function initTreeMap() {
 			size = true;
 		}
 	});
-	$jit.util.addEvent(btnEqual, 'click', function() {
-		if(size){
-			tm.graph.eachNode(function(node){
-				node.data.$area = 1;
-			});
-			tm.refresh();
-			size = false;
-		}
-	});
+    $jit.util.addEvent(btnEqual, 'click', function() {
+        if(size){
+            tm.graph.eachNode(function(node){
+                node.data.$area = 1;
+            });
+            tm.refresh();
+            size = false;
+        }
+    });
+    $jit.util.addEvent(btnTipOn, 'click', function() {
+        if(!inLeaf){
+            $('.tip').css('visibility', 'visible');
+        }
+        tooltip = true;
+    });
+    $jit.util.addEvent(btnTipOff, 'click', function() {
+        $('.tip').css('visibility', 'hidden');
+        tooltip = false;
+    });
+    $jit.util.addEvent(btnBack, 'click', function() {
+        tm.out();
+    });
 }

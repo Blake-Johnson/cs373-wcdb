@@ -1,0 +1,44 @@
+{% extends "crisis_app/base_site.html" %}
+{% block title %}{{ person.name }}{% endblock %}
+
+{% block content %}
+<section class="container">
+  <h1>{{ person.name }}</h1>
+  <div class="well">
+    <aside class="span4 pull-right">
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2"><h4 class="text-center">{{ person.name }}</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2"><img src="http://lorempixel.com/400/400" /></td>
+          </tr>
+          <tr>
+            <td>Role</td>
+            <td>{{ person.kind }}</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>{{ person.location }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </aside>
+    <h3>Related Events</h3>
+    <hr />
+    <p></p>
+    <br />
+    <h3>Organizations a Part of</h3>
+    <hr />
+    <p></p>
+    <span class="clearfix"></span>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+$('#nav_people').addClass('active');
+{% endblock %}

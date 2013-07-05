@@ -1,14 +1,44 @@
 {% extends "crisis_app/base_site.html" %}
 
 {% block content %}
-<article>
-  <div id="chart"></div>
-  <div class="well container">
+<div id="chart"></div>
+<div class="well container">
+  <div class="span4 offset2">
     <h4 class="inline">Size: </h4>
-    <div class="btn-group" data-toggle="buttons-radio">
+    <div id="tileSize" class="btn-group" data-toggle="buttons-radio">
       <button id="btnPop" class="btn active" type="button">Popular</button>
       <button id="btnEqual" class="btn" type="button">Equal</button>
     </div>
   </div>
-</article>
+  <div class="span3">
+    <button id="btnBack" class="btn" type="button">Go Back</button>
+  </div>
+  <div class="span4">
+    <h4 class="inline">Tooltip: </h4>
+    <div class="btn-group" data-toggle="buttons-radio">
+      <button id="btnTipOn" class="btn active" type="button">On</button>
+      <button id="btnTipOff" class="btn" type="button">Off</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block tail_imports %}
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/jquery.mousewheel.js"></script> 
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/scrollbar.js"></script> 
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/jit.js"></script> 
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/json.js"></script> 
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/treemap.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/treemap.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/scrollbar.css" />
+{% endblock %}
+
+{% block script %}
+$('#nav_home').addClass('active');
+$('#btnPop').tooltip({ animation: false, placement: 'bottom', title: 'Tiles are sized by popularity'});
+$('#btnEqual').tooltip({ animation: false, placement: 'bottom', title: 'Tiles are sized equally'});
+$('#btnBack').tooltip({ animation: false, placement: 'bottom', title: 'Go up one level (right click)'});
+$('#btnTipOn').tooltip({ animation: false, placement: 'bottom', title: 'Tooltips will appear on hover'});
+$('#btnTipOff').tooltip({ animation: false, placement: 'bottom', title: 'Tooltips will not appear on hover'});
+window.onload = initTreeMap;
 {% endblock %}

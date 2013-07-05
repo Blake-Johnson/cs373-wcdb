@@ -2,21 +2,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="static/crisis_app/css/my_bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}/crisis_app/css/my_bootstrap.css" />
 <link rel="icon" type="image/png" href="{{ STATIC_URL }}crisis_app/img/favicons/favicon.png" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-<title>Crisis</title>
+{% block head_imports %}
+{% endblock %}
+<title>WCDb: {% block title %}World Crisis Database{% endblock %}</title>
 </head>
 <body>
 <header>
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <ul class="nav pull-right">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Events</a></li>
-        <li><a href="#">People</a></li>
-        <li><a href="#">Organizations</a></li>
+        <li id="nav_home"><a href="/">Home</a></li>
+        <li id="nav_about"><a href="/about">About</a></li>
+        <li id="nav_events"><a href="/events">Events</a></li>
+        <li id="nav_people"><a href="/people">People</a></li>
+        <li id="nav_orgs"><a href="/orgs">Organizations</a></li>
         <li class="divider-vertical"></li>
         <form class="navbar-search">
           <input type="text" class="search-query" placeholder="Search Crises" />
@@ -24,33 +26,30 @@
       </ul>
     </div>
   </div>
-</header>
-{% block content %}
-{% endblock %}
+  {% block error %}
+  {% endblock %} </header>
+<div class="contents"> {% block content %}
+  {% endblock %} </div>
 <footer class="container">
   <hr />
   <div class="span4">
-    <p>World Crisis Database<br />&#169;2013 team</p>
+    <p>World Crisis Database<br />
+      &#169;2013 <a href="/about">team</a></p>
   </div>
   <div class="span4 offset1">
-    <p>For the best experience, view this page with <a href="http://www.chromium.org/Home" target="_blank">Chromium</a> with a minimum resolution of 1024x768.</p>
-    <p>For the worst experience, view this page with <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">Internet Explorer</a> with a maximum resolution of 1024x768.</p>
+    <p>For the best experience, view this page in <a href="http://www.chromium.org/Home" target="_blank">Chromium</a> with a minimum resolution of 1024x768.</p>
   </div>
   <div class="span4 offset1">
-    <p>About?<br />Contact?</p>
+    <p>For the worst experience, view this page in <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" target="_blank">Internet Explorer</a> with a maximum resolution of 1024x768.</p>
   </div>
 </footer>
-
-<!-- CSS/JavaScript -->
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/bootstrap.js"></script> 
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/jquery.mousewheel.js"></script> 
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/scrollbar.js"></script> 
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/jit.js"></script> 
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/json.js"></script> 
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/treemap.js"></script> 
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/init.js"></script>
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/treemap.css" />
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/scrollbar.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/custom.css" />
+{% block tail_imports %}
+{% endblock %} 
+<script type="text/javascript">
+{% block script %}
+{% endblock %}
+</script>
 </body>
 </html>

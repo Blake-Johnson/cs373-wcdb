@@ -4,3 +4,17 @@
 .text-white {
 	color: #eee;
 }
+.indented {
+	text-indent: 2em;
+}
+.aside-left {
+	border-right: 1px solid #666;
+	padding-right: 1em;
+}
+.aside-right {
+	border-left: 1px solid #666;
+	padding-left: 1em;
+}
+td {
+	width: auto;
+}

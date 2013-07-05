@@ -1,0 +1,25 @@
+{% extends "crisis_app/base_site.html" %}
+{% block title %}{{ type }}{% endblock %}
+
+{% block content %}
+<section class="container">
+  <h1>{{ type }}</h1>
+  {% if content_list %}
+    {% for elem in content_list %}
+    <div class="media well">
+      <a class="pull-left" href="/{{ dir }}/{{ elem.id|lower }}">
+        <img class="media-object" src="http://lorempixel.com/100/100" />
+      </a>
+      <div class="media-body">
+      	<h3 class="media-heading"><a href="/{{ dir }}/{{ elem.id|lower }}">{{ elem.name }}</a></h3>
+      	<p>{{ elem.kind }}: {{ elem.location }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  {% endif %}
+</section>
+{% endblock %}
+
+{% block script %}
+$('#nav_{{ dir }}').addClass('active');
+{% endblock %}

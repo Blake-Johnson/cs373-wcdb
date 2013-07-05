@@ -1,0 +1,48 @@
+{% extends "crisis_app/base_site.html" %}
+{% block title %}{{ org.name }}{% endblock %}
+
+{% block content %}
+<section class="container">
+  <h1>{{ org.name }}</h1>
+  <div class="well">
+    <aside class="span4 pull-right">
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="2"><h4 class="text-center">{{ org.name }}</h4></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="2"><img src="http://lorempixel.com/400/400" /></td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>{{ org.kind }}</td>
+          </tr>
+          <tr>
+            <td>Location</td>
+            <td>{{ org.location }}</td>
+          </tr>
+          <tr>
+            <td>Contact</td>
+            <td>{{ org.contact_info }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </aside>
+    <h3>Related Events</h3>
+    <hr />
+    <p></p>
+    <br />
+    <h3>Influential People</h3>
+    <hr />
+    <p></p>
+    <span class="clearfix"></span>
+  </div>
+</section>
+{% endblock %}
+
+{% block script %}
+$('#nav_orgs').addClass('active');
+{% endblock %}
