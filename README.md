@@ -8,14 +8,14 @@ Resources
 
 Members
 -------
-| First Name | Last Name  | CS Username | EID      | Email                     |
-| ---------- | ---------- | ----------- | -------  | ------------------------- |
-| Qunvar     | Arora      | qarora      | qa443    | qarora@utexas.edu         |
-| Jason      | Brown      | zaphod      | brownjb1 | jbnetaccounts@yahoo.com   |
-| Stephen    | Chiang     | stephenc    | slc3438  | stephenchiang@utexas.edu  |
-| David      | Coon       | djc977      | djc977   | david.coon@utexas.edu     |
-| Blake      | Johnson    | bjj586      | djj586   | blakejohnson92@utexas.edu |
-| Aaron      | Stacy      | astacy      | ars2963  | aaron.r.stacy@gmail.com   |
+| Name           | CSID     | EID      | Git ID        | Email                     |
+| -------------- | -------- | -------  | ------------- | ------------------------- |
+| Qunvar Arora   | qarora   | qa443    | qarora        | qarora@utexas.edu         |
+| Jason Brown    | zaphod   | brownjb1 | zaphod-utcs   | jbnetaccounts@yahoo.com   |
+| Stephen Chiang | stephenc | slc3438  | UTAustin      | stephenchiang@utexas.edu  |
+| David Coon     | djc977   | djc977   | CaptainAnt    | david.coon@utexas.edu     |
+| Blake Johnson  | bjj586   | djj586   | Blake-Johnson | blakejohnson92@utexas.edu |
+| Aaron Stacy    | astacy   | ars2963  | aaronj1335    | aaron.r.stacy@gmail.com   |
 
 Unique Events
 -------------
