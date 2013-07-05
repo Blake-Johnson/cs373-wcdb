@@ -8,14 +8,14 @@ Resources
 
 Members
 -------
-| Name           | CSID     | EID      | Git ID        | Email                     |
-| -------------- | -------- | -------  | ------------- | ------------------------- |
-| Qunvar Arora   | qarora   | qa443    | [qarora](https://github.com/qarora)        | qarora@utexas.edu         |
-| Jason Brown    | zaphod   | brownjb1 | [zaphod-utcs](https://github.com/zaphod-utcs)   | jbnetaccounts@yahoo.com   |
-| Stephen Chiang | stephenc | slc3438  | [UTAustin](https://github.com/UTAustin)      | stephenchiang@utexas.edu  |
-| David Coon     | djc977   | djc977   | [CaptainAnt](https://github.com/CaptainAnt)    | david.coon@utexas.edu     |
-| Blake Johnson  | bjj586   | djj586   | [Blake-Johnson](https://github.com/Blake-Johnson) | blakejohnson92@utexas.edu |
-| Aaron Stacy    | astacy   | ars2963  | [aaronj1335](https://github.com/aaronj1335)    | aaron.r.stacy@gmail.com   |
+|Name          |CSID    |EID     |Git ID                                           |Email                    |
+|--------------|--------|------- |-------------------------------------------------|-------------------------|
+|Qunvar Arora  |qarora  |qa443   |[qarora](https://github.com/qarora)              |qarora@utexas.edu        |
+|Jason Brown   |zaphod  |brownjb1|[zaphod-utcs](https://github.com/zaphod-utcs)    |jbnetaccounts@yahoo.com  |
+|Stephen Chiang|stephenc|slc3438 |[UTAustin](https://github.com/UTAustin)          |stephenchiang@utexas.edu |
+|David Coon    |djc977  |djc977  |[CaptainAnt](https://github.com/CaptainAnt)      |david.coon@utexas.edu    |
+|Blake Johnson |bjj586  |djj586  |[Blake-Johnson](https://github.com/Blake-Johnson)|blakejohnson92@utexas.edu|
+|Aaron Stacy   |astacy  |ars2963 |[aaronj1335](https://github.com/aaronj1335)      |aaron.r.stacy@gmail.com  |
 
 Unique Events
 -------------
