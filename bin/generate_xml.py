@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
+import os
 from os.path import join, basename
 from xml.etree.ElementTree import ElementTree, Element, tostring
 from StringIO import StringIO
-import xml.dom.minidom
+from xml.dom import minidom
 
 import yaml
 
@@ -39,8 +40,7 @@ class Crisis(Item):
     def _add_data(self, el):
         super(Crisis, self)._add_data(el)
         self._add_relationship(el, 'People', 'people', 'PersonID')
-        self._add_relationship(el, 'Organizations', 'organizations',
-                'OrganizationID')
+        self._add_relationship(el, 'Organizations', 'organizations', 'OrgID')
         year = Element(tag='Year')
         year.text = str(self.data['date_time'].year)
         el.append(year)
@@ -49,22 +49,33 @@ class Crisis(Item):
 class Person(Item):
     tag = 'Person'
 
+    def _add_data(self, el):
+        super(Person, self)._add_data(el)
+        born = Element(tag='Born')
+        born.text = str(self.data['born'].year)
+        el.append(born)
+        office = Element(tag='Office')
+        office.text = self.data['kind']
+        el.append(office)
+
 
 class Organization(Item):
     tag = 'Organization'
 
 
+# the order of these is important because xsd is worthless
+dirs = ['assets/data/events', 'assets/data/people', 'assets/data/organizations']
 classes = {'CRI': Crisis, 'PER': Person, 'ORG': Organization}
 
 
 def run():
     root = ElementTree(file=StringIO("<WorldCrises />")).getroot()
-    for base, dirs, files in os.walk('assets/data'):
+    for d, files in ((d, os.listdir(d)) for d in dirs):
         for f in files:
             if f.startswith('.'): continue
-            classes[f.split('.')[0][:3]](fname=join(base, f)).append_to(root)
+            classes[f.split('.')[0][:3]](fname=join(d, f)).append_to(root)
     return root
 
 
 if __name__ == '__main__':
-    print xml.dom.minidom.parseString(tostring(run())).toprettyxml()
+    print minidom.parseString(tostring(run())).toprettyxml()
