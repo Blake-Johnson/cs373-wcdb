@@ -4,7 +4,7 @@ var json = {
 		"children": [
 		{
 			"data": {
-				"$color": "#0066af",
+				"$color": "#489500",
 				"$area": "183",
 				"popularity": "183",
 				"image": "http://ocdn.eu/images/pulscms/YzU7MDMsMjA4LDAsMCwx/a64d3ed9b298e6e0847cfd826000ffdd.jpg",
@@ -15,7 +15,7 @@ var json = {
 		},
 		{
 			"data": {
-				"$color": "#0066af",
+				"$color": "#489500",
 				"$area": "581",
 				"popularity": "581",
 				"image": "http://blogs.cas.suffolk.edu/kmnguyen5790/files/2012/01/Fukushima-Daiichi-Nuclear-Plant.jpg",
@@ -26,7 +26,7 @@ var json = {
 		},
 		{
 			"data": {
-				"$color": "#0066af",
+				"$color": "#489500",
 				"$area": "232",
 				"popularity": "232",
 				"image": "http://zhurnal.mk/data/news/ferrrr_2.jpg",
@@ -37,7 +37,7 @@ var json = {
 		},
 		{
 			"data": {
-				"$color": "#0066af",
+				"$color": "#489500",
 				"$area": "320",
 				"popularity": "320",
 				"image": "http://livedoor.4.blogimg.jp/karapaia_zaeega/imgs/7/7/77adf5a6.jpg",
@@ -48,7 +48,7 @@ var json = {
 		},
 		{
 			"data": {
-				"$color": "#0066af",
+				"$color": "#489500",
 				"$area": "372",
 				"popularity": "372",
 				"image": "http://images.nationalgeographic.com/wpf/media-live/photos/000/317/cache/challenger-disaster-myths-explosion_31734_600x450.jpg",
@@ -58,7 +58,7 @@ var json = {
 			"name": "Space Shuttle Challenger Disaster",
 		},
 		],
-		"data": { "$color": "#2a98e6", "$area": "1688", "popularity": "1688" },
+		"data": { "$color": "#6eba08", "$area": "1688", "popularity": "1688" },
 		"id": "Events",
 		"name": "Events",
 	},
@@ -69,7 +69,7 @@ var json = {
 				"$color": "#a20041",
 				"$area": "251",
 				"popularity": "251",
-				"image": "http://qzprod.files.wordpress.com/2013/04/suspect-at-large.jpg?w=585&h=604",
+				"image": "http://www.metro.us/wp-content/uploads/2013/04/Dzhokhar-Tsarnaev.jpg",
 				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut ligula sed nulla gravida ornare. Vestibulum at nunc faucibus, suscipit massa sit amet, lobortis sapien. Duis sed vulputate lorem, quis feugiat nunc. Praesent tincidunt fringilla rhoncus. Nullam aliquam dui eget felis dignissim auctor. Proin non interdum nulla, ut auctor orci. Phasellus sem sem, eleifend eget quam vel, feugiat euismod nunc. Donec sit amet tellus vel nibh suscipit congue. Nullam ultricies elit non fermentum posuere. Phasellus gravida ultricies magna, vel convallis dui aliquam sed. Nunc a felis vitae mauris molestie commodo vitae ac elit.",
 			},
 			"id": "Dzhokhar Tsarnaev",
@@ -80,7 +80,7 @@ var json = {
 				"$color": "#a20041",
 				"$area": "196",
 				"popularity": "196",
-				"image": "http://users.resist.ca/~kirstena/photomasatakashimizu",
+				"image": "http://www.feelfree.co/member/photos/art/816655527editorMasataka_Shimizu_president_of_Tokyo_Electric_Power_Co.jpg",
 				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut ligula sed nulla gravida ornare. Vestibulum at nunc faucibus, suscipit massa sit amet, lobortis sapien. Duis sed vulputate lorem, quis feugiat nunc. Praesent tincidunt fringilla rhoncus. Nullam aliquam dui eget felis dignissim auctor. Proin non interdum nulla, ut auctor orci. Phasellus sem sem, eleifend eget quam vel, feugiat euismod nunc. Donec sit amet tellus vel nibh suscipit congue. Nullam ultricies elit non fermentum posuere. Phasellus gravida ultricies magna, vel convallis dui aliquam sed. Nunc a felis vitae mauris molestie commodo vitae ac elit.",
 			},
 			"id": "Masataka Shimizu",
@@ -128,10 +128,10 @@ var json = {
 		"children": [
 		{
 			"data": {
-				"$color": "#989800",
+				"$color": "#a2a217",
 				"$area": "151",
 				"popularity": "151",
-				"image": "http://u.jimdo.com/www8/o/s34aad2fb74e0d2e9/img/i2a8743a587367850/1300301229/std/image.jpg",
+				"image": "http://advancetechnologytools.com/wp-content/uploads/2012/06/mezile-technology-in-lockheed-martin.jpg",
 				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut ligula sed nulla gravida ornare. Vestibulum at nunc faucibus, suscipit massa sit amet, lobortis sapien. Duis sed vulputate lorem, quis feugiat nunc. Praesent tincidunt fringilla rhoncus. Nullam aliquam dui eget felis dignissim auctor. Proin non interdum nulla, ut auctor orci. Phasellus sem sem, eleifend eget quam vel, feugiat euismod nunc. Donec sit amet tellus vel nibh suscipit congue. Nullam ultricies elit non fermentum posuere. Phasellus gravida ultricies magna, vel convallis dui aliquam sed. Nunc a felis vitae mauris molestie commodo vitae ac elit.",
 			},
 			"id": "Morton Thiokol",
@@ -139,7 +139,7 @@ var json = {
 		},
 		{
 			"data": {
-				"$color": "#989800",
+				"$color": "#a2a217",
 				"$area": "246",
 				"popularity": "246",
 				"image": "http://www.flightglobal.com/airspace/media/drewski2112/images/39604/general-electric-genx-2b-engine.jpg",
@@ -150,7 +150,7 @@ var json = {
 		},
 		{
 			"data": {
-				"$color": "#989800",
+				"$color": "#a2a217",
 				"$area": "156",
 				"popularity": "156",
 				"image": "http://issconline.com/images/upload/Image/IMO_LOGO.png",
@@ -161,7 +161,7 @@ var json = {
 		},
 		{
 			"data": {
-				"$color": "#989800",
+				"$color": "#a2a217",
 				"$area": "185",
 				"popularity": "185",
 				"image": "http://www.fema.gov/sites/default/files/images/noaa-logo.jpg",
@@ -172,7 +172,7 @@ var json = {
 		},
 		{
 			"data": {
-				"$color": "#989800",
+				"$color": "#a2a217",
 				"$area": "377",
 				"popularity": "377",
 				"image": "http://www.corpomir.ru/news/img/big/1097-tepco-zavershila-god-s-ubytkami.jpg",

@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^(?i)events$', 'crisis_app.views.events', name='events'),
     url(r'^(?i)people$', 'crisis_app.views.people', name='people'),
     url(r'^(?i)orgs$', 'crisis_app.views.orgs', name='orgs'),
+    url(r'^(?i)404$', 'crisis.views.my404', name='404'),
     # url(r'^$', 'crisis.views.home', name='home'),
     # url(r'^crisis/', include('crisis.foo.urls')),
 
@@ -23,3 +24,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 )
+
+handler404 = 'crisis.views.my404'

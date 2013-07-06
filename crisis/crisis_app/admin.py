@@ -1,5 +1,5 @@
 from django.contrib import admin
-from crisis_app.models import Event, Person, Organization, Citation, About
+from crisis_app.models import Event, Person, Organization, Embed, About
 
 class EventAdmin(admin.ModelAdmin):
 	list_display = ('name', 'kind', 'location', 'date_time')
@@ -20,10 +20,10 @@ class OrganizationAdmin(admin.ModelAdmin):
 	search_fields = ('name',)
 admin.site.register(Organization, OrganizationAdmin)
 
-class CitationAdmin(admin.ModelAdmin):
-	list_display = ('name',)
-	search_fields = ('name',)
-admin.site.register(Citation, CitationAdmin)
+class EmbedAdmin(admin.ModelAdmin):
+	list_display = ('kind', 'desc', 'html')
+	search_fields = ('kind',)
+admin.site.register(Embed, EmbedAdmin)
 
 class AboutAdmin(admin.ModelAdmin):
 	list_display = ('first_name', 'last_name', 'github_id', 'role', 'quote')

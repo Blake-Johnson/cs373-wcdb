@@ -5,21 +5,35 @@
 <section class="container">
   <h1>{{ type }}</h1>
   {% if content_list %}
+  <div id="mContainer" class="columns">
     {% for elem in content_list %}
-    <div class="media well">
-      <a class="pull-left" href="/{{ dir }}/{{ elem.id|lower }}">
-        <img class="media-object" src="http://lorempixel.com/100/100" />
-      </a>
-      <div class="media-body">
-      	<h3 class="media-heading"><a href="/{{ dir }}/{{ elem.id|lower }}">{{ elem.name }}</a></h3>
-      	<p>{{ elem.kind }}: {{ elem.location }}</p>
+    <a href="/{{ dir }}/{{ elem.id }}">
+      <div class="pin well">
+        <img class="media-object" src="http://lorempixel.com/200/300" />
+       	<h3>{{ elem.name }}</h3>
+     	  <p>{{ elem.kind }}: {{ elem.location }}</p>
       </div>
-    </div>
+    </a>
     {% endfor %}
+  </div>
   {% endif %}
 </section>
 {% endblock %}
 
+{% block tail_imports %}
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/masonry.pkgd.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/columns.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/webkit_scrollbar.css" />
+{% endblock %}
+
 {% block script %}
 $('#nav_{{ dir }}').addClass('active');
+function load(){
+  $('#mContainer>a>div').addClass('item');
+  var mContainer = document.querySelector('#mContainer');
+  var masonry = new Masonry(mContainer, {
+    itemSelector: '.item'
+  });
+}
+window.onload = load;
 {% endblock %}

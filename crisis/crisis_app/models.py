@@ -48,8 +48,22 @@ class Organization(models.Model):
 		verbose_name = "Organization"
 		verbose_name_plural = "Organizations"
 
-class Citation(models.Model):
-	name = models.CharField(max_length=255, verbose_name="citation")
+class Embed(models.Model):
+	CITATION = "CIT"
+	IMAGE = "IMG"
+	VIDEO = "VID"
+	MAP = "MAP"
+	FEED = "FEE"
+	EMBED_CHOICES = (
+		(CITATION, "Citation"),
+		(IMAGE, "Image"),
+		(VIDEO, "Video"),
+		(MAP, "Map"),
+		(FEED, "Feed")
+	)
+	kind = models.CharField(max_length=3, choices=EMBED_CHOICES, default=CITATION)
+	desc = models.CharField(max_length=255, verbose_name="description")
+	html = models.CharField(max_length=255)
 
 	event = models.ManyToManyField(Event, blank=True, null=True)
 	person = models.ManyToManyField(Person, blank=True, null=True)
@@ -59,8 +73,8 @@ class Citation(models.Model):
 		return self.name
 
 	class Meta:
-		verbose_name = "Citation"
-		verbose_name_plural = "Citations"
+		verbose_name = "Embed"
+		verbose_name_plural = "Embeds"
 		get_latest_by = "id"
 
 class About(models.Model):
