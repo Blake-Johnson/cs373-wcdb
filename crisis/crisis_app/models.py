@@ -1,7 +1,7 @@
 from django.db import models
 
 class Event(models.Model):
-	xml_id = models.CharField(max_length=10, unique=True)
+	xml_id = models.CharField(max_length=6, unique=True)
 	name = models.CharField(max_length=255)
 	kind = models.CharField(max_length=255, verbose_name="type")
 	location = models.CharField(max_length=255)
@@ -20,7 +20,7 @@ class Event(models.Model):
 		get_latest_by = "date_time"
 
 class Person(models.Model):
-	xml_id = models.CharField(max_length=10, unique=True)
+	xml_id = models.CharField(max_length=6, unique=True)
 	name = models.CharField(max_length=255)
 	kind = models.CharField(max_length=255, verbose_name="role")
 	location = models.CharField(max_length=255)
@@ -35,7 +35,7 @@ class Person(models.Model):
 		verbose_name_plural = "People"
 
 class Organization(models.Model):
-	xml_id = models.CharField(max_length=10, unique=True)
+	xml_id = models.CharField(max_length=6, unique=True)
 	name = models.CharField(max_length=255)
 	kind = models.CharField(max_length=255, verbose_name="type")
 	location = models.CharField(max_length=255)
