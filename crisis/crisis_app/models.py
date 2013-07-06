@@ -42,7 +42,6 @@ class Organization(models.Model):
 	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
 	kind = models.CharField(max_length=255, verbose_name="Type")
 	location = models.CharField(max_length=255, verbose_name="Location of Operation")
-	history = models.TextField(verbose_name="History")
 	contact_info = models.CharField(max_length=255, verbose_name="Contact (Phone/Email/Address/URL)")
 
 	event = models.ManyToManyField(Event, verbose_name="Associated Events")
@@ -57,28 +56,37 @@ class Organization(models.Model):
 
 class Embed(models.Model):
 	id = models.AutoField(primary_key=True, unique=True)
-	CITATION = "CIT"
-	IMAGE = "IMG"
-	VIDEO = "VID"
-	MAP = "MAP"
-	FEED = "FEE"
 	EMBED_CHOICES = (
-		(CITATION, "Citation"),
-		(IMAGE, "Image"),
-		(VIDEO, "Video"),
-		(MAP, "Map"),
-		(FEED, "Feed")
+		("CIT", "Citation"),
+		("IMG", "Image"),
+		("Video", (
+				("YTB", "YouTube"),
+				("VMO", "Vimeo")
+			)
+		),
+		("Map", (
+				("GMP", "Google Maps"),
+				("BMP", "Bing Maps"),
+				("MQT", "MapQuest")
+			)
+		),
+		("Feed", (
+				("TWT", "Twitter"),
+				("FBK", "Facebook"),
+				("GPL", "Google+")
+			)
+		)
 	)
-	kind = models.CharField(max_length=3, choices=EMBED_CHOICES, default=CITATION, verbose_name="Type")
+	kind = models.CharField(max_length=3, choices=EMBED_CHOICES, default="CIT", verbose_name="Type")
+	url = models.CharField(max_length=255, verbose_name="Embed URL")
 	desc = models.CharField(max_length=255, verbose_name="Human-Readable Description")
-	html = models.CharField(max_length=255, verbose_name="HTML of Embed")
 
 	event = models.ManyToManyField(Event, blank=True, null=True, verbose_name="Related Events")
 	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")
 	organization = models.ManyToManyField(Organization, blank=True, null=True, verbose_name="Related Organizations")
 
 	def __unicode__(self):
-		return self.name
+		return self.url
 
 	class Meta:
 		verbose_name = "Embed"
