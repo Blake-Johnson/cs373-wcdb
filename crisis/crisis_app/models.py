@@ -1,15 +1,16 @@
 from django.db import models
 
 class Event(models.Model):
-	xml_id = models.CharField(max_length=6, unique=True)
-	name = models.CharField(max_length=255)
-	kind = models.CharField(max_length=255, verbose_name="type")
-	location = models.CharField(max_length=255)
-	date_time = models.DateTimeField(verbose_name="date")
-	human_impact = models.TextField()
-	economic_impact = models.TextField()
-	resources_needed = models.TextField()
-	ways_to_help = models.TextField()
+	id = models.AutoField(primary_key=True, unique=True)
+	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID [A-Z]{6}")
+	name = models.CharField(max_length=255, unique=True, verbose_name="Event Name")
+	kind = models.CharField(max_length=255, verbose_name="Event Type")
+	location = models.CharField(max_length=255, verbose_name="Location of Occurrence")
+	date_time = models.DateTimeField(verbose_name="Date/Time (00:00:00 for no time)")
+	human_impact = models.TextField(verbose_name="Human Impact")
+	economic_impact = models.TextField(verbose_name="Economic Impact")
+	resources_needed = models.TextField(verbose_name="Resources Used")
+	ways_to_help = models.TextField(verbose_name="Aid Provided")
 
 	def __unicode__(self):
 		return self.name
@@ -20,12 +21,13 @@ class Event(models.Model):
 		get_latest_by = "date_time"
 
 class Person(models.Model):
-	xml_id = models.CharField(max_length=6, unique=True)
-	name = models.CharField(max_length=255)
-	kind = models.CharField(max_length=255, verbose_name="role")
-	location = models.CharField(max_length=255)
+	id = models.AutoField(primary_key=True, unique=True)
+	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID [A-Z]{6}")
+	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
+	kind = models.CharField(max_length=255, verbose_name="Role")
+	location = models.CharField(max_length=255, verbose_name="Primary Location")
 
-	event = models.ManyToManyField(Event)
+	event = models.ManyToManyField(Event, verbose_name="Associated Events")
 
 	def __unicode__(self):
 		return self.name
@@ -35,14 +37,15 @@ class Person(models.Model):
 		verbose_name_plural = "People"
 
 class Organization(models.Model):
-	xml_id = models.CharField(max_length=6, unique=True)
-	name = models.CharField(max_length=255)
-	kind = models.CharField(max_length=255, verbose_name="type")
-	location = models.CharField(max_length=255)
-	contact_info = models.CharField(max_length=255)
+	id = models.AutoField(primary_key=True, unique=True)
+	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID [A-Z]{6}")
+	name = models.CharField(max_length=255, unique=True, verbose_name="Title")
+	kind = models.CharField(max_length=255, verbose_name="Type")
+	location = models.CharField(max_length=255, verbose_name="Location of Operation")
+	contact_info = models.CharField(max_length=255, verbose_name="Contact (Phone/Email/Address/URL)")
 
-	event = models.ManyToManyField(Event)
-	person = models.ManyToManyField(Person, blank=True, null=True)
+	event = models.ManyToManyField(Event, verbose_name="Associated Events")
+	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")
 
 	def __unicode__(self):
 		return self.name
@@ -52,6 +55,7 @@ class Organization(models.Model):
 		verbose_name_plural = "Organizations"
 
 class Embed(models.Model):
+	id = models.AutoField(primary_key=True, unique=True)
 	CITATION = "CIT"
 	IMAGE = "IMG"
 	VIDEO = "VID"
@@ -64,13 +68,13 @@ class Embed(models.Model):
 		(MAP, "Map"),
 		(FEED, "Feed")
 	)
-	kind = models.CharField(max_length=3, choices=EMBED_CHOICES, default=CITATION)
-	desc = models.CharField(max_length=255, verbose_name="description")
-	html = models.CharField(max_length=255)
+	kind = models.CharField(max_length=3, choices=EMBED_CHOICES, default=CITATION, verbose_name="Type")
+	desc = models.CharField(max_length=255, verbose_name="Human-Readable Description")
+	html = models.CharField(max_length=255, verbose_name="HTML of Embed")
 
-	event = models.ManyToManyField(Event, blank=True, null=True)
-	person = models.ManyToManyField(Person, blank=True, null=True)
-	organization = models.ManyToManyField(Organization, blank=True, null=True)
+	event = models.ManyToManyField(Event, blank=True, null=True, verbose_name="Related Events")
+	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")
+	organization = models.ManyToManyField(Organization, blank=True, null=True, verbose_name="Related Organizations")
 
 	def __unicode__(self):
 		return self.name
@@ -81,12 +85,13 @@ class Embed(models.Model):
 		get_latest_by = "id"
 
 class About(models.Model):
-	first_name = models.CharField(max_length=31)
-	last_name = models.CharField(max_length=31)
-	github_id = models.CharField(max_length=31)
-	role = models.CharField(max_length=255)
-	quote = models.CharField(max_length=255)
-	image = models.CharField(max_length=255)
+	id = models.AutoField(primary_key=True, unique=True)
+	first_name = models.CharField(max_length=31, verbose_name="First Name")
+	last_name = models.CharField(max_length=31, verbose_name="Last Name")
+	github_id = models.CharField(max_length=31, verbose_name="GitHub ID")
+	role = models.CharField(max_length=255, verbose_name="Role")
+	quote = models.CharField(max_length=255, verbose_name="Quote")
+	image = models.CharField(max_length=255, verbose_name="Image")
 
 	def __unicode__(self):
 		return self.first_name + " " + self.last_name
