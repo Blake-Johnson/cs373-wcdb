@@ -2,9 +2,9 @@ from django.db import models
 
 class Event(models.Model):
 	id = models.AutoField(primary_key=True, unique=True)
-	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID [A-Z]{6}")
-	name = models.CharField(max_length=255, unique=True, verbose_name="Event Name")
-	kind = models.CharField(max_length=255, verbose_name="Event Type")
+	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID (CRI_*)")
+	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
+	kind = models.CharField(max_length=255, verbose_name="Type")
 	location = models.CharField(max_length=255, verbose_name="Location of Occurrence")
 	date_time = models.DateTimeField(verbose_name="Date/Time (00:00:00 for no time)")
 	human_impact = models.TextField(verbose_name="Human Impact")
@@ -22,7 +22,7 @@ class Event(models.Model):
 
 class Person(models.Model):
 	id = models.AutoField(primary_key=True, unique=True)
-	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID [A-Z]{6}")
+	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID (PER_*)")
 	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
 	kind = models.CharField(max_length=255, verbose_name="Role")
 	location = models.CharField(max_length=255, verbose_name="Primary Location")
@@ -38,8 +38,8 @@ class Person(models.Model):
 
 class Organization(models.Model):
 	id = models.AutoField(primary_key=True, unique=True)
-	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID [A-Z]{6}")
-	name = models.CharField(max_length=255, unique=True, verbose_name="Title")
+	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID (ORG_*)")
+	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
 	kind = models.CharField(max_length=255, verbose_name="Type")
 	location = models.CharField(max_length=255, verbose_name="Location of Operation")
 	contact_info = models.CharField(max_length=255, verbose_name="Contact (Phone/Email/Address/URL)")
