@@ -160,3 +160,7 @@ LOGGING = {
         },
     }
 }
+
+FIXTURE_DIRS = (
+    'crisis_app/fixtures/initial_data.json',
+)
