@@ -61,19 +61,22 @@ class Embed(models.Model):
 		("IMG", "Image"),
 		("Video", (
 				("YTB", "YouTube"),
-				("VMO", "Vimeo")
+				("VMO", "Vimeo"),
+				("VEX", "Other")
 			)
 		),
 		("Map", (
 				("GMP", "Google Maps"),
 				("BMP", "Bing Maps"),
-				("MQT", "MapQuest")
+				("MQT", "MapQuest"),
+				("MEX", "Other")
 			)
 		),
 		("Feed", (
 				("TWT", "Twitter"),
 				("FBK", "Facebook"),
-				("GPL", "Google+")
+				("GPL", "Google+"),
+				("FEX", "Other")
 			)
 		)
 	)
