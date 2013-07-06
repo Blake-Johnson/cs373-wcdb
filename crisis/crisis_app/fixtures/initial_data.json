@@ -1,1 +1,540 @@
-[{"pk": 1, "model": "crisis_app.event", "fields": {"date_time": "2012-10-29T05:00:00Z", "kind": "natural disaster", "xml_id": "HURSAN", "name": "Hurricane Sandy", "economic_impact": "Estimates as of June 2013 assess damage to have been over $68 billion (2013 USD), a total surpassed only by Hurricane Katrina.", "human_impact": "At least 286 people were killed along the path of the storm in seven countries.", "location": "New York metropolitan area", "ways_to_help": "FEMA has been collaborating with many national, state, tribal, and local partners in response to Hurricane Sandy, including the National Voluntary Organizations Active in Disaster (NVOAD) and the Corporation for National and Community Service. Learn more on how you can donate and volunteer responsibly to assist the survivors of Hurricane Sandy here: http://www.fema.gov/hurricane-sandy-donate-and-volunteer", "resources_needed": "clean-up and restoration of the areas hit hardest, temporary housing for those that lost their homes. clothing and shelter donations.\r\n"}}, {"pk": 1, "model": "crisis_app.person", "fields": {"event": [1], "kind": "President", "xml_id": "BROBMA", "name": "Barak Obama", "location": "Washington, D.C, United States of America"}}, {"pk": 1, "model": "crisis_app.organization", "fields": {"kind": "relief organization", "xml_id": "REDCRS", "name": "Red Cross", "contact_info": "http://www.redcross.org/contact-us/general-inquiry", "person": [1], "location": "Washington, D.C, United States of America", "event": [1], "history": "Issued a corporate charter by the United States Congress under Title 36 of the United States Code, Section 3001, the American National Red Cross is governed by volunteers and supported by community donations, income from health and safety training and products, and income from blood products. The American Red Cross is headquartered in Washington, D.C. The Chairman of the Board of Governors, serving her second three-year term, is Bonnie McElveen-Hunter. The current President and Chief Executive Officer is Gail J.  McGovern.\r\n"}}, {"pk": 1, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://www.fema.gov/hurricane-sandy", "person": [], "organization": [], "event": [1], "desc": "FEMA Hurricane sandy site"}}, {"pk": 2, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://en.wikipedia.org/wiki/Hurricane_Sandy", "person": [], "organization": [], "event": [1], "desc": "Wikipedia Hurricane Sandy site"}}, {"pk": 3, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://crisiswiki.org/2012_Hurricane_Sandy", "person": [], "organization": [], "event": [1], "desc": "Crisis Wiki Hurricane Sandy site"}}, {"pk": 4, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sandy_Oct_25_2012_0400Z.JPG/546px-Sandy_Oct_25_2012_0400Z.JPG", "person": [], "organization": [], "event": [1], "desc": "Satellite photo of hurricane Sandy"}}, {"pk": 5, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/HurricaneSANDYCheltenham.jpg/220px-HurricaneSANDYCheltenham.jpg", "person": [], "organization": [], "event": [1], "desc": "Damage to neighborhood caused by Hurricane Sandy"}}, {"pk": 6, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Sandy_Poweroutage_1.jpg/220px-Sandy_Poweroutage_1.jpg", "person": [], "organization": [], "event": [1], "desc": "Manhattan power outage caused by Hurricane Sandy"}}, {"pk": 7, "model": "crisis_app.embed", "fields": {"kind": "YTB", "url": "http://www.youtube.com/watch?v=91ldZZiOqAs", "person": [], "organization": [], "event": [1], "desc": "Hurricane Sandy radar loop"}}, {"pk": 8, "model": "crisis_app.embed", "fields": {"kind": "MEX", "url": "http://google.org/crisismap/2012-sandy", "person": [], "organization": [], "event": [1], "desc": "Crisis map of Hurricane Sandy"}}, {"pk": 9, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://en.wikipedia.org/wiki/Barack_Obama", "person": [1], "organization": [], "event": [], "desc": "Wikipedia page for Barak Obama"}}, {"pk": 10, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://www.whitehouse.gov/administration/president-obama/", "person": [1], "organization": [], "event": [], "desc": "Official Whitehouse page for Barak Obama"}}, {"pk": 11, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://www.barackobama.com", "person": [1], "organization": [], "event": [], "desc": "Barak Obama's campaign website"}}, {"pk": 12, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://bioguide.congress.gov/scripts/biodisplay.pl?index=o000167", "person": [1], "organization": [], "event": [], "desc": "Official Congressional page for Barak Obama"}}, {"pk": 13, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/220px-President_Barack_Obama.jpg", "person": [1], "organization": [], "event": [], "desc": "President Barak Obama"}}, {"pk": 14, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/en/thumb/3/33/Ann_Dunham_with_father_and_children.jpg/220px-Ann_Dunham_with_father_and_children.jpg", "person": [1], "organization": [], "event": [], "desc": "Young Barak Obama with family"}}, {"pk": 15, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flickr_Obama_Springfield_01.jpg/220px-Flickr_Obama_Springfield_01.jpg", "person": [1], "organization": [], "event": [], "desc": "President Obama and First Lady at a rally"}}, {"pk": 16, "model": "crisis_app.embed", "fields": {"kind": "VEX", "url": "http://commons.wikimedia.org/wiki/Obama_Administration_weekly_video_addresses", "person": [1], "organization": [], "event": [], "desc": "President Obama's first weekly video address"}}, {"pk": 17, "model": "crisis_app.embed", "fields": {"kind": "YTB", "url": "http://www.youtube.com/user/BarackObamadotcom", "person": [1], "organization": [], "event": [], "desc": "President Obama's youtube channel"}}, {"pk": 18, "model": "crisis_app.embed", "fields": {"kind": "GMP", "url": "https://maps.google.com/maps?q=1600+Pennsylvania+Avenue+Northwest,+Washington,+DC&hl=en&sll=30.307761,-97.753401&sspn=0.732698,0.95993&oq=1600+pen&hnear=1600+Pennsylvania+Ave+NW,+Washington,+District+of+Columbia+20500&t=m&z=16", "person": [1], "organization": [], "event": [], "desc": "The White House"}}, {"pk": 19, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://www.redcross.org/about-us/history", "person": [], "organization": [1], "event": [], "desc": "Red Cross history"}}, {"pk": 20, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://www.redcross.org/about-us/publications", "person": [], "organization": [1], "event": [], "desc": "Red Cross publications"}}, {"pk": 21, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://www.redcross.org", "person": [], "organization": [1], "event": [], "desc": "Official Red Cross website"}}, {"pk": 22, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://www.nps.gov/history/NR/twhp/wwwlps/lessons/27barton/27barton.htm", "person": [], "organization": [1], "event": [], "desc": "History of Red Cross founder"}}, {"pk": 23, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/commons/e/e9/Amer_redcross_2012_logo.png", "person": [], "organization": [1], "event": [], "desc": "Red Cross logo"}}, {"pk": 24, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/American_Red_Cross_headquarters.JPG/800px-American_Red_Cross_headquarters.JPG", "person": [], "organization": [1], "event": [], "desc": "Red Cross headquarters"}}, {"pk": 25, "model": "crisis_app.embed", "fields": {"kind": "CIT", "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/American_Red_Cross_Administrative_Headquarters.JPG/450px-American_Red_Cross_Administrative_Headquarters.JPG", "person": [], "organization": [1], "event": [], "desc": "Red Cross administrative headquarters"}}, {"pk": 26, "model": "crisis_app.embed", "fields": {"kind": "IMG", "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Clara_Barton1.jpg/509px-Clara_Barton1.jpg", "person": [], "organization": [1], "event": [], "desc": "Red Cross founder Clara Barton"}}, {"pk": 27, "model": "crisis_app.embed", "fields": {"kind": "YTB", "url": "http://www.youtube.com/watch?v=3yufZP-LZrk", "person": [], "organization": [1], "event": [], "desc": "Red Cross stories"}}, {"pk": 28, "model": "crisis_app.embed", "fields": {"kind": "GMP", "url": "https://maps.google.com/maps?q=2025+E+Street,+NW+Washington,+DC+20006&hl=en&sll=30.307761,-97.753401&sspn=0.698312,0.95993&hnear=2025+E+St+NW,+Washington,+District+of+Columbia,+20006&t=m&z=16", "person": [], "organization": [1], "event": [], "desc": "Location of Red Cross Headquarters"}}, {"pk": 29, "model": "crisis_app.embed", "fields": {"kind": "FBK", "url": "http://www.facebook.com/redcross", "person": [], "organization": [1], "event": [], "desc": "Red Cross Facebook page"}}, {"pk": 30, "model": "crisis_app.embed", "fields": {"kind": "TWT", "url": "http://www.twitter.com/redcross", "person": [], "organization": [1], "event": [], "desc": "Red Cross Twitter feed"}}]
+[
+{
+    "pk": 1, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2012-10-29T05:00:00Z", 
+        "kind": "natural disaster", 
+        "xml_id": "HURSAN", 
+        "name": "Hurricane Sandy", 
+        "economic_impact": "Estimates as of June 2013 assess damage to have been over $68 billion (2013 USD), a total surpassed only by Hurricane Katrina.", 
+        "human_impact": "At least 286 people were killed along the path of the storm in seven countries.", 
+        "location": "New York metropolitan area", 
+        "ways_to_help": "FEMA has been collaborating with many national, state, tribal, and local partners in response to Hurricane Sandy, including the National Voluntary Organizations Active in Disaster (NVOAD) and the Corporation for National and Community Service. Learn more on how you can donate and volunteer responsibly to assist the survivors of Hurricane Sandy here: http://www.fema.gov/hurricane-sandy-donate-and-volunteer", 
+        "resources_needed": "clean-up and restoration of the areas hit hardest, temporary housing for those that lost their homes. clothing and shelter donations.\r\n"
+    }
+},
+{
+    "pk": 1, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            1
+        ], 
+        "kind": "President", 
+        "xml_id": "BROBMA", 
+        "name": "Barack Obama", 
+        "location": "Washington, D.C, United States of America"
+    }
+},
+{
+    "pk": 1, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "relief organization", 
+        "xml_id": "REDCRS", 
+        "name": "Red Cross", 
+        "contact_info": "http://www.redcross.org/contact-us/general-inquiry", 
+        "person": [
+            1
+        ], 
+        "location": "Washington, D.C, United States of America", 
+        "event": [
+            1
+        ], 
+        "history": "Issued a corporate charter by the United States Congress under Title 36 of the United States Code, Section 3001, the American National Red Cross is governed by volunteers and supported by community donations, income from health and safety training and products, and income from blood products. The American Red Cross is headquartered in Washington, D.C. The Chairman of the Board of Governors, serving her second three-year term, is Bonnie McElveen-Hunter. The current President and Chief Executive Officer is Gail J.  McGovern.\r\n"
+    }
+},
+{
+    "pk": 1, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.fema.gov/hurricane-sandy", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            1
+        ], 
+        "desc": "FEMA Hurricane sandy site"
+    }
+},
+{
+    "pk": 2, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Hurricane_Sandy", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            1
+        ], 
+        "desc": "Wikipedia Hurricane Sandy site"
+    }
+},
+{
+    "pk": 3, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://crisiswiki.org/2012_Hurricane_Sandy", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            1
+        ], 
+        "desc": "Crisis Wiki Hurricane Sandy site"
+    }
+},
+{
+    "pk": 4, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sandy_Oct_25_2012_0400Z.JPG/546px-Sandy_Oct_25_2012_0400Z.JPG", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            1
+        ], 
+        "desc": "Satellite photo of hurricane Sandy"
+    }
+},
+{
+    "pk": 5, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/HurricaneSANDYCheltenham.jpg/220px-HurricaneSANDYCheltenham.jpg", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            1
+        ], 
+        "desc": "Damage to neighborhood caused by Hurricane Sandy"
+    }
+},
+{
+    "pk": 6, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Sandy_Poweroutage_1.jpg/220px-Sandy_Poweroutage_1.jpg", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            1
+        ], 
+        "desc": "Manhattan power outage caused by Hurricane Sandy"
+    }
+},
+{
+    "pk": 7, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=91ldZZiOqAs", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            1
+        ], 
+        "desc": "Hurricane Sandy radar loop"
+    }
+},
+{
+    "pk": 8, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "MEX", 
+        "url": "http://google.org/crisismap/2012-sandy", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            1
+        ], 
+        "desc": "Crisis map of Hurricane Sandy"
+    }
+},
+{
+    "pk": 9, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Barack_Obama", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Wikipedia page for Barak Obama"
+    }
+},
+{
+    "pk": 10, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.whitehouse.gov/administration/president-obama/", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Official Whitehouse page for Barak Obama"
+    }
+},
+{
+    "pk": 11, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.barackobama.com", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Barak Obama's campaign website"
+    }
+},
+{
+    "pk": 12, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://bioguide.congress.gov/scripts/biodisplay.pl?index=o000167", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Official Congressional page for Barak Obama"
+    }
+},
+{
+    "pk": 13, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/220px-President_Barack_Obama.jpg", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "President Barak Obama"
+    }
+},
+{
+    "pk": 14, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/en/thumb/3/33/Ann_Dunham_with_father_and_children.jpg/220px-Ann_Dunham_with_father_and_children.jpg", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Young Barak Obama with family"
+    }
+},
+{
+    "pk": 15, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flickr_Obama_Springfield_01.jpg/220px-Flickr_Obama_Springfield_01.jpg", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "President Obama and First Lady at a rally"
+    }
+},
+{
+    "pk": 16, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "VEX", 
+        "url": "http://commons.wikimedia.org/wiki/Obama_Administration_weekly_video_addresses", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "President Obama's first weekly video address"
+    }
+},
+{
+    "pk": 17, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/user/BarackObamadotcom", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "President Obama's youtube channel"
+    }
+},
+{
+    "pk": 18, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "GMP", 
+        "url": "https://maps.google.com/maps?q=1600+Pennsylvania+Avenue+Northwest,+Washington,+DC&hl=en&sll=30.307761,-97.753401&sspn=0.732698,0.95993&oq=1600+pen&hnear=1600+Pennsylvania+Ave+NW,+Washington,+District+of+Columbia+20500&t=m&z=16", 
+        "person": [
+            1
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "The White House"
+    }
+},
+{
+    "pk": 19, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.redcross.org/about-us/history", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross history"
+    }
+},
+{
+    "pk": 20, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.redcross.org/about-us/publications", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross publications"
+    }
+},
+{
+    "pk": 21, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.redcross.org", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Official Red Cross website"
+    }
+},
+{
+    "pk": 22, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.nps.gov/history/NR/twhp/wwwlps/lessons/27barton/27barton.htm", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "History of Red Cross founder"
+    }
+},
+{
+    "pk": 23, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/e/e9/Amer_redcross_2012_logo.png", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross logo"
+    }
+},
+{
+    "pk": 24, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/American_Red_Cross_headquarters.JPG/800px-American_Red_Cross_headquarters.JPG", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross headquarters"
+    }
+},
+{
+    "pk": 25, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/American_Red_Cross_Administrative_Headquarters.JPG/450px-American_Red_Cross_Administrative_Headquarters.JPG", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross administrative headquarters"
+    }
+},
+{
+    "pk": 26, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Clara_Barton1.jpg/509px-Clara_Barton1.jpg", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross founder Clara Barton"
+    }
+},
+{
+    "pk": 27, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=3yufZP-LZrk", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross stories"
+    }
+},
+{
+    "pk": 28, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "GMP", 
+        "url": "https://maps.google.com/maps?q=2025+E+Street,+NW+Washington,+DC+20006&hl=en&sll=30.307761,-97.753401&sspn=0.698312,0.95993&hnear=2025+E+St+NW,+Washington,+District+of+Columbia,+20006&t=m&z=16", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Location of Red Cross Headquarters"
+    }
+},
+{
+    "pk": 29, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "FBK", 
+        "url": "http://www.facebook.com/redcross", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross Facebook page"
+    }
+},
+{
+    "pk": 30, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "TWT", 
+        "url": "http://www.twitter.com/redcross", 
+        "person": [], 
+        "organization": [
+            1
+        ], 
+        "event": [], 
+        "desc": "Red Cross Twitter feed"
+    }
+},
+{
+    "pk": 1, 
+    "model": "crisis_app.about", 
+    "fields": {
+        "first_name": "Qunvar", 
+        "last_name": "Arora", 
+        "github_id": "qarora", 
+        "quote": "Life in plastic, it's fantastic!", 
+        "image": "barbie.jpg", 
+        "role": "Database"
+    }
+},
+{
+    "pk": 2, 
+    "model": "crisis_app.about", 
+    "fields": {
+        "first_name": "Jason", 
+        "last_name": "Brown", 
+        "github_id": "zaphod-utcs", 
+        "quote": "You can brush my hair, undress me everywhere!", 
+        "image": "barbie.jpg", 
+        "role": "XML"
+    }
+},
+{
+    "pk": 3, 
+    "model": "crisis_app.about", 
+    "fields": {
+        "first_name": "Stephen", 
+        "last_name": "Chiang", 
+        "github_id": "UTAustin", 
+        "quote": "I want more warheads, Tropical Skittles, and a Three Musketeers bar.", 
+        "image": "stephen_chiang.jpg", 
+        "role": "Design, Front end"
+    }
+},
+{
+    "pk": 4, 
+    "model": "crisis_app.about", 
+    "fields": {
+        "first_name": "David", 
+        "last_name": "Coon", 
+        "github_id": "CaptainAnt", 
+        "quote": "I'm a blond bimbo girl, in a fantasy world!", 
+        "image": "barbie.jpg", 
+        "role": "Database"
+    }
+},
+{
+    "pk": 5, 
+    "model": "crisis_app.about", 
+    "fields": {
+        "first_name": "Blake", 
+        "last_name": "Johnson", 
+        "github_id": "Blake-Johnson", 
+        "quote": "Kiss me here, touch me there, hanky panky!", 
+        "image": "barbie.jpg", 
+        "role": "Undeclared"
+    }
+},
+{
+    "pk": 6, 
+    "model": "crisis_app.about", 
+    "fields": {
+        "first_name": "Aaron", 
+        "last_name": "Stacy", 
+        "github_id": "aaronj1335", 
+        "quote": "Not in the face!", 
+        "image": "aaron_stacy.jpg", 
+        "role": "XML"
+    }
+}
+]

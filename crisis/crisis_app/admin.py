@@ -21,7 +21,7 @@ class OrganizationAdmin(admin.ModelAdmin):
 admin.site.register(Organization, OrganizationAdmin)
 
 class EmbedAdmin(admin.ModelAdmin):
-	list_display = ('kind', 'desc', 'url')
+	list_display = ('desc', 'kind', 'url')
 	search_fields = ('kind',)
 admin.site.register(Embed, EmbedAdmin)
 

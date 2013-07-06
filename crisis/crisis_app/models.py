@@ -57,6 +57,7 @@ class Organization(models.Model):
 
 class Embed(models.Model):
 	id = models.AutoField(primary_key=True, unique=True)
+	desc = models.CharField(max_length=255, verbose_name="Human-Readable Description")
 	EMBED_CHOICES = (
 		("CIT", "Citation"),
 		("IMG", "Image"),
@@ -82,8 +83,7 @@ class Embed(models.Model):
 		)
 	)
 	kind = models.CharField(max_length=3, choices=EMBED_CHOICES, default="CIT", verbose_name="Type")
-	url = models.CharField(max_length=255, verbose_name="Embed URL")
-	desc = models.CharField(max_length=255, verbose_name="Human-Readable Description")
+	url = models.CharField(max_length=255, unique="True", verbose_name="Embed URL")
 
 	event = models.ManyToManyField(Event, blank=True, null=True, verbose_name="Related Events")
 	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")
