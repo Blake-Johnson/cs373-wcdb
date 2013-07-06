@@ -43,6 +43,7 @@ class Organization(models.Model):
 	kind = models.CharField(max_length=255, verbose_name="Type")
 	location = models.CharField(max_length=255, verbose_name="Location of Operation")
 	contact_info = models.CharField(max_length=255, verbose_name="Contact (Phone/Email/Address/URL)")
+	history = models.TextField(verbose_name="History")
 
 	event = models.ManyToManyField(Event, verbose_name="Associated Events")
 	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")
