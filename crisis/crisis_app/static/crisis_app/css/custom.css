@@ -20,7 +20,6 @@
 .roll {
     display: inline-block;
     overflow: hidden;
-
     -webkit-perspective: 400px;
        -moz-perspective: 400px;
     -webkit-perspective-origin: 50% 50%;
@@ -29,7 +28,6 @@
 .roll span {
     display: block;
     padding: 0 2px;
-    
     -webkit-transition: all 200ms ease;
        -moz-transition: all 200ms ease;
     -webkit-transform-origin: 50% 0%;
@@ -39,7 +37,6 @@
 }
 .roll:hover span {
 	background-color: #33b5e5;
-
     -webkit-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
     -moz-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
 }
@@ -51,9 +48,27 @@
     padding: 0 2px;
     color: #fff;
     background-color: #33b5e5;
-
     -webkit-transform-origin: 50% 0%;
        -moz-transform-origin: 50% 0%;
     -webkit-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
        -moz-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+}
+
+/* Webkit Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: block;
+    background-color: #444;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: #333;
+    -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+    -webkit-border-radius: 6px;
 }
