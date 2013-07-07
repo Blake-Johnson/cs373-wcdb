@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <tr>
-            <td colspan="2"><img src="{{ image.url }}" /></td>
+            <td style="text-align: center;" class="text-center" colspan="2"><img src="{{ image.url }}" /></td>
           </tr>
           <tr>
             <td>Type</td>
@@ -46,6 +46,23 @@
     <h3>Aid Provided</h3>
     <hr />
     <p>{{ event.ways_to_help }}</p>
+    <br />
+    {% if people|length > 0 %}
+      <h3>Influential People</h3>
+      <hr />
+      {% for person in people %}
+      <p>{{ person.name }}</p>
+      {% endfor %}
+      <br />
+    {% endif %}
+    {% if orgs|length > 0 %}
+      <h3>Influential Organizations</h3>
+      <hr />
+      {% for org in orgs %}
+      <p>{{ org.name }}</p>
+      {% endfor %}
+      <br />
+    {% endif %}
   </div>
 </section>
 {% endblock %}

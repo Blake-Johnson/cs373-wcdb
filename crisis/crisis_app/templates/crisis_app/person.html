@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <tr>
-            <td colspan="2"><img src="{{ image.url }}" /></td>
+            <td style="text-align: center;" colspan="2"><img src="{{ image.url }}" /></td>
           </tr>
           <tr>
             <td>Role</td>
@@ -27,19 +27,22 @@
         </tbody>
       </table>
     </aside>
-    <h3>Associated Events</h3>
-    {% for event in events %}
-    <p>{{ event.name }}</p>
-    {% endfor %}
-    <hr />
-    <p></p>
-    <br />
-    <h3>Affiliated Organizations</h3>
-    {% for org in orgs %}
-    <p>{{ org.name }}</p>
-    {% endfor %}
-    <hr />
-    <p></p>
+    {% if events|length > 0 %}
+      <h3>Associated Events</h3>
+      <hr />
+      {% for event in events %}
+      <p>{{ event.name }}</p>
+      {% endfor %}
+      <br />
+    {% endif %}
+    {% if orgs|length > 0 %}
+      <h3>Affiliated Organizations</h3>
+      <hr />
+      {% for org in orgs %}
+      <p>{{ org.name }}</p>
+      {% endfor %}
+      <br />
+    {% endif %}
   </div>
 </section>
 {% endblock %}
