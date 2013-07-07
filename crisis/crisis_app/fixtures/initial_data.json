@@ -45,6 +45,21 @@
     }
 },
 {
+    "pk": 4, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2013-07-07T22:54:41Z", 
+        "kind": "test", 
+        "xml_id": "TEST", 
+        "name": "Test event", 
+        "economic_impact": "test", 
+        "human_impact": "test", 
+        "location": "Test", 
+        "ways_to_help": "test", 
+        "resources_needed": "test"
+    }
+},
+{
     "pk": 1, 
     "model": "crisis_app.person", 
     "fields": {
@@ -162,6 +177,32 @@
     }
 },
 {
+    "pk": 10, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            3
+        ], 
+        "kind": "Captain of the Exxon Valdez", 
+        "xml_id": "JOSHAZ", 
+        "name": "Joseph Hazelwood", 
+        "location": "Alaska"
+    }
+},
+{
+    "pk": 11, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            3
+        ], 
+        "kind": "Alaska governor", 
+        "xml_id": "STECOW", 
+        "name": "Steve Cowper", 
+        "location": "Alaska"
+    }
+},
+{
     "pk": 1, 
     "model": "crisis_app.organization", 
     "fields": {
@@ -259,6 +300,70 @@
             2
         ], 
         "history": "M\u00e9decins Sans Fronti\u00e8res was created in 1971, in the aftermath of the Biafra secession, by a small group of French doctors and journalists who believed that all people have the right to medical care regardless of race, religion, creed or political affiliation, and that the needs of these people outweigh respect for national borders."
+    }
+},
+{
+    "pk": 7, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "multinational oil and gas corporation", 
+        "xml_id": "EXXSHI", 
+        "name": "Exxon Shipping Company", 
+        "contact_info": "http://www.exxonmobil.com/", 
+        "person": [], 
+        "location": "Irving, Texas", 
+        "event": [
+            3
+        ], 
+        "history": "Exxon Mobil Corporation was formed in 1999 by the merger of two major oil companies, Exxon and Mobil. Both Exxon and Mobil were descendants of the John D. Rockefeller corporation, Standard Oil which was established in 1870. The reputation of Standard Oil in the public eye suffered badly after publication of Ida M. Tarbell's classic expos\u00e9 The History of the Standard Oil Company in 1904, leading to a growing outcry for the government to take action against the company."
+    }
+},
+{
+    "pk": 8, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "federal government", 
+        "xml_id": "USCON", 
+        "name": " United States Congress", 
+        "contact_info": "http://www.house.gov/", 
+        "person": [], 
+        "location": "Washington D.C., USA", 
+        "event": [
+            3
+        ], 
+        "history": "The First Continental Congress was a gathering of representatives from twelve of the thirteen British Colonies in North America. On July 4, 1776, the Second Continental Congress adopted the Declaration of Independence, referring to the new nation as the \"United States of America\". The Articles of Confederation in 1781 created a unicameral body with equal representation among the states in which each state had a veto over most decisions. With no executive or judiciary, and minimal authority, this government was weak and lacked authority to collect taxes, regulate commerce, or enforce laws"
+    }
+},
+{
+    "pk": 9, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "U.S. federal court ", 
+        "xml_id": "9CCA", 
+        "name": "9th Circuit Court of Appeals", 
+        "contact_info": "http://www.ca9.uscourts.gov/", 
+        "person": [], 
+        "location": "San Francisco, California, USA", 
+        "event": [
+            3
+        ], 
+        "history": "The large size of the current court is due to the fact that both the population of the western states and the geographic jurisdiction of the Ninth Circuit have increased dramatically since Congress, in 1891, created the United States Court of Appeals for the Ninth Circuit. The court was originally granted appellate jurisdiction over federal district courts in California, Idaho, Montana, Nevada, Oregon, and Washington. As new states and territories were added to the federal judicial hierarchy in the twentieth century, many of those in the West were placed in the Ninth Circuit: the newly acquired territory of Hawaii in 1900, Arizona upon its accession to statehood in 1912, the then-territory of Alaska in 1948, Guam in 1951, and the Commonwealth of the Northern Mariana Islands (CNMI) in 1977. The Ninth Circuit also had jurisdiction over China, in that it had jurisdiction over appeals from the United States Court for China during that court's existence from 1906 to 1943."
+    }
+},
+{
+    "pk": 10, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "agency of the U.S. federal government", 
+        "xml_id": "USEPA", 
+        "name": " United States Environmental Protection Agency ", 
+        "contact_info": "http://www.epa.gov/", 
+        "person": [], 
+        "location": "Washington, D.C., USA", 
+        "event": [
+            3
+        ], 
+        "history": "Beginning in the late 1950s and through the 1960s, Congress reacted to increasing public concern about the impact that human activity could have on the environment. A key legislative option to address this concern was the declaration of a national environmental policy.Advocates of this approach argued that without a specific policy, federal agencies were neither able nor inclined to consider the environmental impacts of their actions in fulfilling the agency\u2019s mission.[citation needed] The statute that ultimately addressed this issue was the National Environmental Policy Act of 1969 (NEPA, 42 U.S.C. \u00a7\u00a7 4321-4347).[6] Senator Henry M. Jackson proposed and helped write S 1075, the bill that eventually became the National Environmental Policy Act. The law was signed by President Nixon on January 1, 1970. "
     }
 },
 {
@@ -1245,7 +1350,9 @@
         "url": "http://www.onthisdeity.com/wp-content/uploads/2011/03/dead-whale1.jpg", 
         "person": [], 
         "organization": [], 
-        "event": [], 
+        "event": [
+            3
+        ], 
         "desc": "Dead Whale from oil spill"
     }
 },
@@ -1257,7 +1364,9 @@
         "url": "http://www.explorenorth.com/library/maps/images/exxonvaldezmap-adn.gif", 
         "person": [], 
         "organization": [], 
-        "event": [], 
+        "event": [
+            3
+        ], 
         "desc": "Spread of oil from Exxon Valdez"
     }
 },
@@ -1269,7 +1378,9 @@
         "url": "http://vimeo.com/1532967", 
         "person": [], 
         "organization": [], 
-        "event": [], 
+        "event": [
+            3
+        ], 
         "desc": "Exxon Valdez Oil Spill: Google Earth Field Trip"
     }
 },
@@ -1281,8 +1392,176 @@
         "url": "http://www.youtube.com/watch?v=YkzB1ZYcTwM", 
         "person": [], 
         "organization": [], 
-        "event": [], 
+        "event": [
+            3
+        ], 
         "desc": "Exxon Valdez Oil Spill 1989"
+    }
+},
+{
+    "pk": 74, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=MbjC9SMKClE", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "The Exxon Valdez Disaster: 20 Years Later"
+    }
+},
+{
+    "pk": 75, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=qS2FbvfnNDw", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "Hindsight and Foresight: 20 Years After the Exxon Valdez Spill"
+    }
+},
+{
+    "pk": 76, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://library.thinkquest.org/10867/spill/people/hazelwood.jpg", 
+        "person": [
+            10
+        ], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "hazelwood pic"
+    }
+},
+{
+    "pk": 77, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://cache.daylife.com/imageserve/071weEIcxP1ys/x500.jpg", 
+        "person": [
+            10
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "pic of Joseph Hazelwood"
+    }
+},
+{
+    "pk": 78, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.nypost.com/rw/nypost/2010/05/31/news/photos_stories/cropped/joseph_hazelwood--300x300.jpg", 
+        "person": [
+            10
+        ], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "old Joseph Hazelwood"
+    }
+},
+{
+    "pk": 79, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Joseph_Hazelwood", 
+        "person": [
+            10
+        ], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "Joseph Hazelwood Wiki page"
+    }
+},
+{
+    "pk": 80, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Steve_Cowper_1990.jpg/220px-Steve_Cowper_1990.jpg", 
+        "person": [
+            11
+        ], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "Steve Cowper"
+    }
+},
+{
+    "pk": 81, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.nndb.com/people/165/000120802/steve-cowper-1-sized.jpg", 
+        "person": [
+            11
+        ], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "Steve Cowper pic2"
+    }
+},
+{
+    "pk": 82, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Exxon_Shipping_Company", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "ExxonMobil Wiki page"
+    }
+},
+{
+    "pk": 83, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "FBK", 
+        "url": "https://www.facebook.com/pages/Exxon-Valdez-oil-spill/138016706227389", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "Exxon Valdez oil spill facebook page"
+    }
+},
+{
+    "pk": 84, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.epa.gov/osweroe1/content/learning/exxon.htm", 
+        "person": [], 
+        "organization": [
+            10
+        ], 
+        "event": [
+            3
+        ], 
+        "desc": "EPA webpage on oil spill"
     }
 },
 {

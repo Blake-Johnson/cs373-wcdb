@@ -7,11 +7,11 @@
   {% if content_list %}
   <div id="mContainer" class="columns">
     {% for elem in content_list %}
-    <a href="/{{ dir }}/{{ elem.id }}">
+    <a href="/{{ dir }}/{{ elem.0.id }}">
       <div class="pin well">
-        <img class="media-object" src="http://lorempixel.com/200/300" />
-       	<h3>{{ elem.name }}</h3>
-     	  <p>{{ elem.kind }}: {{ elem.location }}</p>
+        <img class="media-object" src="{{ elem.1.url }}" />
+       	<h3>{{ elem.0.name }}</h3>
+     	  <p>{{ elem.0.kind }}: {{ elem.0.location }}</p>
       </div>
     </a>
     {% endfor %}
