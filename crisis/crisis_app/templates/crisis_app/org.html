@@ -32,10 +32,16 @@
       </table>
     </aside>
     <h3>Associated Events</h3>
+    {% for event in events %}
+    <p>{{ event.name }}</p>
+    {% endfor %}
     <hr />
     <p></p>
     <br />
     <h3>Influential People</h3>
+    {% for person in people %}
+    <p>{{ person.name }}</p>
+    {% endfor %}
     <hr />
     <p></p>
   </div>

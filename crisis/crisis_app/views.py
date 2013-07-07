@@ -53,7 +53,9 @@ def people(request, person_id=''):
 			image = ''
 		else:
 			image = image[0]
-		context = { 'person': person, 'image': image }
+		events = Event.objects.filter(person__id=person.id)
+		orgs = Organization.objects.filter(person__id=person.id)
+		context = { 'person': person, 'image': image, 'events': events, 'orgs': orgs }
 		return render(request, 'crisis_app/person.html', context)
 
 def orgs(request, org_id=''):
@@ -76,5 +78,7 @@ def orgs(request, org_id=''):
 			image = ''
 		else:
 			image = image[0]
-		context = { 'org': org, 'image': image }
+		events = Event.objects.filter(organization__id=org.id)
+		people = Person.objects.filter(organization__id=org.id)
+		context = { 'org': org, 'image': image, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)

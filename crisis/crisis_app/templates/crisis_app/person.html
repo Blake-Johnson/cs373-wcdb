@@ -28,10 +28,16 @@
       </table>
     </aside>
     <h3>Associated Events</h3>
+    {% for event in events %}
+    <p>{{ event.name }}</p>
+    {% endfor %}
     <hr />
     <p></p>
     <br />
-    <h3>Organizations Affiliated with</h3>
+    <h3>Affiliated Organizations</h3>
+    {% for org in orgs %}
+    <p>{{ org.name }}</p>
+    {% endfor %}
     <hr />
     <p></p>
   </div>
