@@ -12,17 +12,20 @@ class PersonAdmin(admin.ModelAdmin):
 	list_display = ('name', 'kind', 'location')
 	list_filter = ('kind', 'location')
 	search_fields = ('name',)
+	filter_horizontal = ('event',)
 admin.site.register(Person, PersonAdmin)
 
 class OrganizationAdmin(admin.ModelAdmin):
 	list_display = ('name', 'kind', 'location', 'contact_info')
 	list_filter = ('kind', 'location')
 	search_fields = ('name',)
+	filter_horizontal = ('event', 'person')
 admin.site.register(Organization, OrganizationAdmin)
 
 class EmbedAdmin(admin.ModelAdmin):
 	list_display = ('desc', 'kind', 'url')
 	search_fields = ('kind',)
+	filter_horizontal = ('event', 'person', 'organization')
 admin.site.register(Embed, EmbedAdmin)
 
 class AboutAdmin(admin.ModelAdmin):
