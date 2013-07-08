@@ -33,7 +33,7 @@
           {% if event.date_time|time != "midnight" %}
           <tr>
             <td>Time</td>
-            <td>{{ event.date_time }}</td>
+            <td>{{ event.date_time|time }}</td>
           </tr>
           {% endif %}
         </tbody>
