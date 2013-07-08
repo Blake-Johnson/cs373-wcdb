@@ -53,10 +53,41 @@
       </ul>
       <br />
     {% endif %}
+    {% if images %}
+      <h3>Images</h3>
+      <ul id="mContainer" class="da-img">
+        {% for image in images %}
+        <li class="imageItem">
+          <a href="{{ image.url }}" target="_blank">
+            <img src="{{ image.url }}" />
+            <div><span>{{ image.desc }}</span></div>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </div>
 </section>
 {% endblock %}
 
+{% block tail_imports %}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/columns.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/da_img.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/modernizr.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/masonry.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/hoverdir.js"></script>
+{% endblock %}
+
 {% block script %}
 $('#nav_orgs').addClass('active');
+$('.da-img>li').each(function(){
+  $(this).hoverdir();
+});
+function load(){
+  var mContainer = document.querySelector('#mContainer');
+  var masonry = new Masonry(mContainer, {
+    itemSelector: '.imageItem'
+  });
+}
+window.onload = load
 {% endblock %}

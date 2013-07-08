@@ -29,6 +29,8 @@ def events(request, event_id=None):
 		if len(title_image) > 0:
 			if len(title_image) > 1:
 				images = title_image[1:]
+			else:
+				images = None
 			title_image = title_image[0]
 		people = Person.objects.filter(event__id=event.id)
 		orgs = Organization.objects.filter(event__id=event.id)
@@ -54,6 +56,8 @@ def people(request, person_id=None):
 		if len(title_image) > 0:
 			if len(title_image) > 1:
 				images = title_image[1:]
+			else:
+				images = None
 			title_image = title_image[0]
 		events = Event.objects.filter(person__id=person.id)
 		orgs = Organization.objects.filter(person__id=person.id)
@@ -79,6 +83,8 @@ def orgs(request, org_id=None):
 		if len(title_image) > 0:
 			if len(title_image) > 1:
 				images = title_image[1:]
+			else:
+				images = None
 			title_image = title_image[0]
 		events = Event.objects.filter(organization__id=org.id)
 		people = Person.objects.filter(organization__id=org.id)

@@ -3,7 +3,8 @@
 	margin: 0.2em;
 }
 .imageItem {
-	width: 24%;
+	width: auto;
+	max-width: 320px;
 	margin: 0.3em;
 }
 .columns {
