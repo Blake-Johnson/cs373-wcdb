@@ -37,8 +37,8 @@
         "kind": "human-caused environmental disasters", 
         "xml_id": "EXXVAL", 
         "name": "Exxon Valdez Oil Spill ", 
-        "economic_impact": "According to several studies funded by the state of Alaska, the spill had both short-term and long-term economic effects. These included the loss of recreational sports, fisheries, reduced tourism, and an estimate of what economists call \"existence value\", which is the value to the public of a pristine Prince William Sound.\r\nThe economy of the city of Cordova, Alaska was adversely affected after the spill damaged stocks of salmon and herring in the area.", 
-        "human_impact": "Several residents, including one former mayor, committed suicide after the spill.\r\n<WIP>", 
+        "economic_impact": "According to several studies funded by the state of Alaska, the spill had both short-term and long-term economic effects. These included the loss of recreational sports, fisheries, reduced tourism, and an estimate of what economists call \"existence value\", which is the value to the public of a pristine Prince William Sound.\r\nThe economy of the city of Cordova, Alaska was adversely affected after the spill damaged stocks of salmon and herring in the area.\r\nIn 1991, following the collapse of the local marine population (particularly clams, herring, and seals) the Chugach Alaska Corporation, an Alaska Native Corporation, filed for Chapter 11 bankruptcy protection. It has since recovered", 
+        "human_impact": "Several residents, including one former mayor, committed suicide after the spill.", 
         "location": "Prince William Sound, Alaska", 
         "ways_to_help": "\r\n<WIP>", 
         "resources_needed": "\r\n<WIP>"
@@ -364,6 +364,38 @@
             3
         ], 
         "history": "Beginning in the late 1950s and through the 1960s, Congress reacted to increasing public concern about the impact that human activity could have on the environment. A key legislative option to address this concern was the declaration of a national environmental policy.Advocates of this approach argued that without a specific policy, federal agencies were neither able nor inclined to consider the environmental impacts of their actions in fulfilling the agency\u2019s mission.[citation needed] The statute that ultimately addressed this issue was the National Environmental Policy Act of 1969 (NEPA, 42 U.S.C. \u00a7\u00a7 4321-4347).[6] Senator Henry M. Jackson proposed and helped write S 1075, the bill that eventually became the National Environmental Policy Act. The law was signed by President Nixon on January 1, 1970. "
+    }
+},
+{
+    "pk": 11, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "scientific agency", 
+        "xml_id": "NOAA", 
+        "name": "National Oceanic and Atmospheric Administration", 
+        "contact_info": "http://www.noaa.gov/", 
+        "person": [], 
+        "location": "Silver Spring, Maryland, USA", 
+        "event": [
+            3
+        ], 
+        "history": "NOAA was formed on October 3, 1970, after Richard Nixon proposed creating a new department to serve a national need \"\u2026 for better protection of life and property from natural hazards \u2026 for a better understanding of the total environment \u2026 [and] for exploration and development leading to the intelligent use of our marine resources \u2026\" NOAA formed a conglomeration of several existing agencies that were among the oldest in the federal government. They were the United States Coast and Geodetic Survey, formed in 1807; the Weather Bureau, formed in 1870 -- Geodetic Survey and Weather Service had been combined by a 1965 consolidation into the Environmental Science Services Administration (ESSA); and the Bureau of Commercial Fisheries, formed in 1871. NOAA was established within the Department of Commerce via the Reorganization Plan No. 4 of 1970. "
+    }
+},
+{
+    "pk": 12, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "specialized agency of the United Nations", 
+        "xml_id": "IMO", 
+        "name": "International Maritime Organization", 
+        "contact_info": "http://www.imo.org/", 
+        "person": [], 
+        "location": "London, United Kingdom", 
+        "event": [
+            3
+        ], 
+        "history": "Inter-Governmental Maritime Consultative Organization (IMCO) was formed to fulfill a desire to bring the regulation of the safety of shipping into an international framework, for which the creation of the United Nations provided an opportunity. Hitherto such international conventions had been initiated piecemeal, notably the Safety of Life at Sea Convention (SOLAS), first adopted in 1914 following the Titanic disaster.IMCO's first task was to update that Convention; the resulting 1960 Convention was subsequently recast and updated in 1974 and it is that Convention that has been subsequently modified and updated to adapt to changes in safety requirements and technology."
     }
 },
 {
@@ -864,7 +896,9 @@
         "url": "http://haitiearthquake.web.unc.edu/files/2010/11/800px-Haiti_earthquake_damage1.jpg", 
         "person": [], 
         "organization": [], 
-        "event": [], 
+        "event": [
+            2
+        ], 
         "desc": "Haiti Earthquake housing damage"
     }
 },
@@ -1044,7 +1078,9 @@
         "url": "http://www.bing.com/maps/?form=MPSRCH&cp=18.542811~-72.33903&lvl=18&style=a&app=50328~#Y3A9MTguNTQyODExfi03Mi4zMzkwMzAmbHZsPTE4JnN0eT1h", 
         "person": [], 
         "organization": [], 
-        "event": [], 
+        "event": [
+            2
+        ], 
         "desc": "Haiti Earthquake Bing Maps app (req. Silverlight)"
     }
 },
@@ -1156,9 +1192,7 @@
         "organization": [
             2
         ], 
-        "event": [
-            2
-        ], 
+        "event": [], 
         "desc": "United Nations Wiki page"
     }
 },
@@ -1204,9 +1238,7 @@
             5
         ], 
         "organization": [], 
-        "event": [
-            2
-        ], 
+        "event": [], 
         "desc": "Ren\u00e9 Pr\u00e9val photo"
     }
 },
@@ -1436,10 +1468,8 @@
             10
         ], 
         "organization": [], 
-        "event": [
-            3
-        ], 
-        "desc": "hazelwood pic"
+        "event": [], 
+        "desc": "Joseph Hazelwood pic"
     }
 },
 {
@@ -1466,9 +1496,7 @@
             10
         ], 
         "organization": [], 
-        "event": [
-            3
-        ], 
+        "event": [], 
         "desc": "old Joseph Hazelwood"
     }
 },
@@ -1482,9 +1510,7 @@
             10
         ], 
         "organization": [], 
-        "event": [
-            3
-        ], 
+        "event": [], 
         "desc": "Joseph Hazelwood Wiki page"
     }
 },
@@ -1498,9 +1524,7 @@
             11
         ], 
         "organization": [], 
-        "event": [
-            3
-        ], 
+        "event": [], 
         "desc": "Steve Cowper"
     }
 },
@@ -1514,9 +1538,7 @@
             11
         ], 
         "organization": [], 
-        "event": [
-            3
-        ], 
+        "event": [], 
         "desc": "Steve Cowper pic2"
     }
 },
@@ -1527,10 +1549,10 @@
         "kind": "CIT", 
         "url": "http://en.wikipedia.org/wiki/Exxon_Shipping_Company", 
         "person": [], 
-        "organization": [], 
-        "event": [
-            3
+        "organization": [
+            7
         ], 
+        "event": [], 
         "desc": "ExxonMobil Wiki page"
     }
 },
@@ -1541,7 +1563,9 @@
         "kind": "FBK", 
         "url": "https://www.facebook.com/pages/Exxon-Valdez-oil-spill/138016706227389", 
         "person": [], 
-        "organization": [], 
+        "organization": [
+            7
+        ], 
         "event": [
             3
         ], 
@@ -1562,6 +1586,922 @@
             3
         ], 
         "desc": "EPA webpage on oil spill"
+    }
+},
+{
+    "pk": 85, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://esa.un.org/techcoop/associateexperts/images/The-United-Nations.jpg", 
+        "person": [], 
+        "organization": [
+            2
+        ], 
+        "event": [], 
+        "desc": "United Nations building"
+    }
+},
+{
+    "pk": 86, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.cameraoncampus.org/middle-east-issues/united_nations_security_council.jpg", 
+        "person": [], 
+        "organization": [
+            2
+        ], 
+        "event": [], 
+        "desc": "United Nations empty council room"
+    }
+},
+{
+    "pk": 87, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://eurasianfinance.com/wp-content/uploads/2011/05/The-United-Nations-Security-Council1.jpg", 
+        "person": [], 
+        "organization": [
+            2
+        ], 
+        "event": [], 
+        "desc": "United Nations filled security council room"
+    }
+},
+{
+    "pk": 88, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://cdn2.shipspotting.com/photos/middle/8/8/1/976188.jpg", 
+        "person": [
+            10
+        ], 
+        "organization": [
+            7
+        ], 
+        "event": [
+            3
+        ], 
+        "desc": "Exxon Valdez ship"
+    }
+},
+{
+    "pk": 89, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://static.ddmcdn.com/gif/blogs/6a00d8341bf67c53ef016769462b79970b-640wi.jpg", 
+        "person": [], 
+        "organization": [
+            7
+        ], 
+        "event": [
+            3
+        ], 
+        "desc": "Exxon Valdez ship, back view"
+    }
+},
+{
+    "pk": 90, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.exxonmobil.com.tr/Corporate/Newsroom/Publications/XOMGlobalCap/images/intro1.jpg", 
+        "person": [], 
+        "organization": [
+            7
+        ], 
+        "event": [], 
+        "desc": "ExxonMobil corporate pic"
+    }
+},
+{
+    "pk": 91, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.1prime.ru/images/76116/13/761161389.jpg", 
+        "person": [], 
+        "organization": [
+            7
+        ], 
+        "event": [], 
+        "desc": "ExxonMobil signage"
+    }
+},
+{
+    "pk": 92, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.sharetrails.org/sites/default/files/NinthCircuitJan11.jpg", 
+        "person": [], 
+        "organization": [
+            9
+        ], 
+        "event": [], 
+        "desc": "9th Circuit Court of Appeals building pic"
+    }
+},
+{
+    "pk": 93, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.washlaw.edu/Map/circuits/9th%20Circuit.bmp", 
+        "person": [], 
+        "organization": [
+            9
+        ], 
+        "event": [], 
+        "desc": "9th Circuit Court of Appeals coverage map"
+    }
+},
+{
+    "pk": 94, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://disinfo.s3.amazonaws.com/wp-content/uploads/2010/02/JointSessionCongress.jpg", 
+        "person": [
+            1
+        ], 
+        "organization": [
+            8
+        ], 
+        "event": [], 
+        "desc": "United States Congress joint session"
+    }
+},
+{
+    "pk": 95, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.hannity.com/cimages/var/ezhannity/storage/images/repository/photos/united-states-congress/203974-1-eng-US/United-States-Congress.jpg", 
+        "person": [], 
+        "organization": [
+            8
+        ], 
+        "event": [], 
+        "desc": "United States Congress building"
+    }
+},
+{
+    "pk": 96, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.jpost.com/HttpHandlers/ShowImage.ashx?ID=137007", 
+        "person": [], 
+        "organization": [
+            5
+        ], 
+        "event": [
+            2
+        ], 
+        "desc": "In Haiti: This is the spirit of the IDF"
+    }
+},
+{
+    "pk": 97, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.ifrc.org/PageFiles/40573/haiti_2010_00661.jpg", 
+        "person": [], 
+        "organization": [
+            4
+        ], 
+        "event": [
+            2
+        ], 
+        "desc": "Generic IFRC pic"
+    }
+},
+{
+    "pk": 98, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.icrc.org/eng/assets/images/catalogue/publications/md_picto_cover-issue-2010-1.gif", 
+        "person": [], 
+        "organization": [
+            4
+        ], 
+        "event": [
+            2
+        ], 
+        "desc": "RCRC Mag front cover"
+    }
+},
+{
+    "pk": 99, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://humanitariancoalition.ca/sites/default/files/styles/large/public/images/primary/haiti-5243015106_606072f092_b.jpg", 
+        "person": [], 
+        "organization": [
+            3
+        ], 
+        "event": [
+            2
+        ], 
+        "desc": "Haiti Earthquake 2010 | Humanitarian Coalition"
+    }
+},
+{
+    "pk": 100, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.bard.edu/cep/portal/wp-content/uploads/2013/03/epa_logo.jpg", 
+        "person": [], 
+        "organization": [
+            10
+        ], 
+        "event": [], 
+        "desc": "EPA logo"
+    }
+},
+{
+    "pk": 102, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://c.gcaptain.com/wp-content/uploads/2011/07/1302184844-49.jpg", 
+        "person": [
+            10
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Joseph Hazelwood wearing a cap"
+    }
+},
+{
+    "pk": 103, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.belpoz.com/spa/_files/spa_album/pic_9295.jpg", 
+        "person": [
+            2
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Michel Martelly pic"
+    }
+},
+{
+    "pk": 104, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://i.cdn.turner.com/cnn/2011/WORLD/americas/04/05/haiti.martelly/t1larg.haiti.martelly.gi.jpg", 
+        "person": [
+            2
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Michel Martelly pic2"
+    }
+},
+{
+    "pk": 105, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.tnhtv.ht/wp-content/uploads/2013/05/b8dfd__Laurent-Lamothe-296x300.jpg", 
+        "person": [
+            3
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Laurent Lamothe"
+    }
+},
+{
+    "pk": 106, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.caribjournal.com/wp-content/uploads/2013/03/lamothe1.jpg", 
+        "person": [
+            3
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Laurent Lamothe"
+    }
+},
+{
+    "pk": 107, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=AKju8x4p-dA", 
+        "person": [
+            3
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Laurent Lamothe - Rebuilding Haiti"
+    }
+},
+{
+    "pk": 108, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=nf4lZCwiwX8", 
+        "person": [
+            2, 
+            3
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Sean Penn, Michel Joseph Martelly, Laurent Lamothe"
+    }
+},
+{
+    "pk": 109, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=vw3G85jzhKk", 
+        "person": [
+            2, 
+            3
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Progress Report of President Michel Martelly and Laurent Lamothe"
+    }
+},
+{
+    "pk": 110, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=J_9P8N8OqXk", 
+        "person": [
+            3
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "BBC News - PM insists Haiti is recovering from 2010 earthquake"
+    }
+},
+{
+    "pk": 111, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www3.pictures.zimbio.com/gi/Haitian+Prime+Minister+Jean+Max+Bellervie+N-mlwE0caabl.jpg", 
+        "person": [
+            4
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Jean-Max Bellerive"
+    }
+},
+{
+    "pk": 112, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://secretaryclinton.files.wordpress.com/2010/09/610x-42.jpg", 
+        "person": [
+            4
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Jean-Max Bellerive and H.Clinton"
+    }
+},
+{
+    "pk": 113, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.youtube.com/watch?v=mU41MbK1C-o", 
+        "person": [
+            4
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Foreign Ministers Discuss Recovery Efforts in Haiti"
+    }
+},
+{
+    "pk": 114, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://luvhaiti.files.wordpress.com/2010/08/jean-yves_jason.jpg", 
+        "person": [
+            6
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Jean-Yves Jason"
+    }
+},
+{
+    "pk": 115, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.france24.com/en/files/imagecache/france24_ct_player_thumbnail/interview-EN_0.jpg", 
+        "person": [
+            6
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Jean-Yves Jason, mayor of Port-au-Prince"
+    }
+},
+{
+    "pk": 116, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://haitiennemag.com/wp-content/uploads/2010/10/mayor.jpg", 
+        "person": [
+            6
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Haiti's Mayors hard at work raising funds for new Port Au Prince"
+    }
+},
+{
+    "pk": 117, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=soPVme4AEfU", 
+        "person": [
+            6
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Honorable Mayor Jean-Yves, Jason of Port-au-Prince"
+    }
+},
+{
+    "pk": 118, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=447BIGFvK_s", 
+        "person": [
+            6
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Frustration in Haiti"
+    }
+},
+{
+    "pk": 119, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=viaYXGr7H9Y", 
+        "person": [
+            6
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Jean Yves Jason CNN Interview"
+    }
+},
+{
+    "pk": 120, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=Oxy9PIdkf_A", 
+        "person": [
+            7
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Haiti Ambassador Raymond Joseph on earthquake"
+    }
+},
+{
+    "pk": 121, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=Aq-LpP2w2VU", 
+        "person": [
+            7
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Pat Robertson & Haitian Ambassador on earthquake"
+    }
+},
+{
+    "pk": 122, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=mHEk_qR5l1I", 
+        "person": [
+            7
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Haiti Ambassador on Disaster"
+    }
+},
+{
+    "pk": 123, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://cdn1.tabletmag.com/wp-content/files_mf/126393781220100119joseph.jpg", 
+        "person": [
+            7
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Raymond Joseph on Rachel Maddow"
+    }
+},
+{
+    "pk": 124, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://media.nj.com/ledgerupdates_impact/photo/raymond-joseph-haitijpg-150f663095c9ab1e_large.jpg", 
+        "person": [
+            7
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "RJ: earthquake gave country much needed attention"
+    }
+},
+{
+    "pk": 125, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.nj.com/news/index.ssf/2010/04/haitis_ambassador_to_us_says_e.html", 
+        "person": [
+            7
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Raymond Joseph article on NJ.com"
+    }
+},
+{
+    "pk": 126, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://i.telegraph.co.uk/multimedia/archive/01561/jean_1561579c.jpg", 
+        "person": [
+            8
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Wyclef Jean"
+    }
+},
+{
+    "pk": 127, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.telegraph.co.uk/news/worldnews/centralamericaandthecaribbean/haiti/7022556/Haiti-earthquake-Wyclef-Jean-calls-for-evacuation-of-Port-au-Prince.html", 
+        "person": [
+            8
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Wyclef Jean calls for evacuation"
+    }
+},
+{
+    "pk": 128, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://cdn.madamenoire.com/wp-content/uploads/2011/03/wyclef_jean.jpg", 
+        "person": [
+            8
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Wyclef Jean"
+    }
+},
+{
+    "pk": 129, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=0Q1ASN7Hy7k", 
+        "person": [
+            8
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Wyclef Jean reacts to earthquake"
+    }
+},
+{
+    "pk": 130, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=rAN29LoL21g", 
+        "person": [
+            8
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Wyclef Jean Discusses Haiti Earthquake Relief Efforts"
+    }
+},
+{
+    "pk": 131, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=BZxYSqrYv5E", 
+        "person": [
+            8
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "\"From The Ashes We Shall Rise\" Wyclef Jean"
+    }
+},
+{
+    "pk": 132, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.canada.com/cms/binary/2572466.jpg", 
+        "person": [
+            9
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Stephen Harper visits Haiti"
+    }
+},
+{
+    "pk": 133, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://cfp.canadafreepress.com/9_stephen_harper_canada_prime_minister.jpg", 
+        "person": [
+            9
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Stephen Harper"
+    }
+},
+{
+    "pk": 134, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.canada.com/news/Hard+power+needed+Haiti+Harper/2572453/story.html", 
+        "person": [
+            9
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "Stephen Harper article"
+    }
+},
+{
+    "pk": 135, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=JumCMHCQmrM", 
+        "person": [
+            9
+        ], 
+        "organization": [], 
+        "event": [
+            2
+        ], 
+        "desc": "PM statement on the situation in Haiti"
+    }
+},
+{
+    "pk": 136, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.alaskadispatch.com/article/former-gov-cowper-exxon-valdez-we-couldn-t-just-throw-towel", 
+        "person": [
+            11
+        ], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "Steve Cowper on Alaska Dispatch"
+    }
+},
+{
+    "pk": 137, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.nola.com/news/gulf-oil-spill/index.ssf/2010/06/alaskas_present_after_1989_exxon_valdez_oil_spill_might_be_gulf_coast_future.html", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            3
+        ], 
+        "desc": "NOLA article"
+    }
+},
+{
+    "pk": 138, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "https://en.wikipedia.org/wiki/National_Oceanic_and_Atmospheric_Administration", 
+        "person": [], 
+        "organization": [
+            11
+        ], 
+        "event": [], 
+        "desc": "NOAA Wiki page"
+    }
+},
+{
+    "pk": 139, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/NOAA.png", 
+        "person": [], 
+        "organization": [
+            11
+        ], 
+        "event": [], 
+        "desc": "NOAA logo"
+    }
+},
+{
+    "pk": 140, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://media.gulflive.com/mississippi-press-business/photo/ms0424noaa2webjpg-074145fa3a7304b9.jpg", 
+        "person": [], 
+        "organization": [
+            11
+        ], 
+        "event": [], 
+        "desc": "NOAA building in Mississippi"
+    }
+},
+{
+    "pk": 141, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.imo.org/OurWork/Environment/PublishingImages/MEDandtheenvironment.jpg", 
+        "person": [], 
+        "organization": [
+            12
+        ], 
+        "event": [], 
+        "desc": "IMO flyer pic"
+    }
+},
+{
+    "pk": 142, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://cruiseradio.net/wp-content/uploads/2012/05/IMO.gif", 
+        "person": [], 
+        "organization": [
+            12
+        ], 
+        "event": [], 
+        "desc": "IMO logo"
+    }
+},
+{
+    "pk": 143, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://2.bp.blogspot.com/-zt8B2kNkOA0/TnbqTWE4hnI/AAAAAAAAAzc/DlMhAajjAzM/s1600/IMO.jpg", 
+        "person": [], 
+        "organization": [
+            12
+        ], 
+        "event": [], 
+        "desc": "IMO building"
+    }
+},
+{
+    "pk": 144, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://usresponserestoration.files.wordpress.com/2011/06/imo-headquarters.jpg", 
+        "person": [], 
+        "organization": [
+            12
+        ], 
+        "event": [], 
+        "desc": "IMO headquarters"
+    }
+},
+{
+    "pk": 145, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://static.worldmaritimenews.com/wp-content/uploads/2012/05/IMO-Capacity-Building-to-Counter-Piracy-Off-The-Coast-of-Somalia.jpg", 
+        "person": [], 
+        "organization": [
+            12
+        ], 
+        "event": [], 
+        "desc": "IMO meeting room"
+    }
+},
+{
+    "pk": 146, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=0OYCnZhRPU0&list=FLoQbQE-aEhVBywNRB-XsHOQ&index=1", 
+        "person": [], 
+        "organization": [
+            12
+        ], 
+        "event": [], 
+        "desc": "Generic IMO video - not linked to event"
     }
 },
 {
