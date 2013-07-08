@@ -9,7 +9,9 @@
     {% for elem in content_list %}
     <a href="/{{ dir }}/{{ elem.0.id }}">
       <div class="pin well">
+        {% if elem.1 %}
         <img class="media-object" src="{{ elem.1.url }}" />
+        {% endif %}
        	<h3>{{ elem.0.name }}</h3>
      	  <p>{{ elem.0.kind }}: {{ elem.0.location }}</p>
       </div>

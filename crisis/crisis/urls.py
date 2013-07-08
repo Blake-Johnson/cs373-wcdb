@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^(?i)people$', 'crisis_app.views.people', name='people'),
     url(r'^(?i)orgs$', 'crisis_app.views.orgs', name='orgs'),
     url(r'^(?i)404$', 'crisis.views.my404', name='404'),
+    url(r'^(?i)500$', 'crisis.views.my500', name='500'),
     # url(r'^$', 'crisis.views.home', name='home'),
     # url(r'^crisis/', include('crisis.foo.urls')),
 
@@ -26,3 +27,4 @@ urlpatterns = patterns('',
 )
 
 handler404 = 'crisis.views.my404'
+handler500 = 'crisis.views.my500'

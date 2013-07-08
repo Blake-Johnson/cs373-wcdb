@@ -1,0 +1,37 @@
+{% extends "crisis_app/base_site.html" %}
+{% block title %}Server Error{% endblock %}
+
+{% block head_imports %}
+{% endblock %}
+
+{% block content %}
+<section class="container noGrav">
+  <h1 class="noGrav">500: Server Error</h1>
+  <hr class="noGrav" />
+  <div class="well">
+    <h3 class="text-center noGrav">Unfortunately, something broke. Well, maybe many things. What do you say we start fresh - no hard feelings, right?</h3>
+    <br class="noGrav" />
+    <div class="text-center noGrav">
+      <div class="btn-group noGrav">
+        <a href="/" class="btn btn-large btn-primary noGrav"><span class="noGrav">WCDb Home</span></a>
+        <a href="/about" class="btn btn-large btn-primary noGrav"><span class="noGrav">About WCDb</span></a>
+        <a href="/events" class="btn btn-large btn-primary noGrav"><span class="noGrav">Events</span></a>
+        <a href="/people" class="btn btn-large btn-primary noGrav"><span class="noGrav">People</span></a>
+        <a href="/orgs" class="btn btn-large btn-primary noGrav"><span class="noGrav">Organizations</span></a>
+       </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block tail_imports %}
+<script type="text/javascript" src="{{ STATIC_URL }}crisis/js/gravity.js"></script>
+{% endblock %}
+
+{% block script %}
+if(document.body.style['webkitPerspective'] !== undefined || document.body.style['MozPerspective'] !== undefined){
+    $('.roll').each(function(){
+      $(this).removeClass('roll');
+    });
+}
+{% endblock %}

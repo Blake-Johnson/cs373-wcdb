@@ -13,9 +13,11 @@
           </tr>
         </thead>
         <tbody>
+          {% if image %}
           <tr>
-            <td style="text-align: center;" class="text-center" colspan="2"><img src="{{ image.url }}" /></td>
+            <td style="text-align: center;" colspan="2"><img src="{{ image.url }}" /></td>
           </tr>
+          {% endif %}
           <tr>
             <td>Type</td>
             <td>{{ event.kind }}</td>
