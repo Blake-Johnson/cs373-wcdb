@@ -103,7 +103,7 @@ class About(models.Model):
 	last_name = models.CharField(max_length=31, verbose_name="Last Name")
 	github_id = models.CharField(max_length=31, verbose_name="GitHub ID")
 	role = models.CharField(max_length=255, verbose_name="Role")
-	quote = models.CharField(max_length=255, verbose_name="Quote")
+	quote = models.CharField(max_length=511, verbose_name="Quote")
 	image = models.CharField(max_length=255, verbose_name="Image")
 
 	def __unicode__(self):
