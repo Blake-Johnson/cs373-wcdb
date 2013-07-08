@@ -30,10 +30,10 @@
 {% block script %}
 $('#nav_{{ dir }}').addClass('active');
 function load(){
-  $('#mContainer>a>div').addClass('item');
+  $('#mContainer>a>div').addClass('contentItem');
   var mContainer = document.querySelector('#mContainer');
   var masonry = new Masonry(mContainer, {
-    itemSelector: '.item'
+    itemSelector: '.contentItem'
   });
 }
 window.onload = load;

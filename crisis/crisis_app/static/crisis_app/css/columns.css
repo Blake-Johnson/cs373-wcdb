@@ -1,6 +1,10 @@
-.item {
+.contentItem {
 	width: 16%;
 	margin: 0.2em;
+}
+.imageItem {
+	width: 24%;
+	margin: 0.3em;
 }
 .columns {
 	-webkit-column-count: 5;
