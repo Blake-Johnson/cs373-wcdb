@@ -45,21 +45,6 @@
     }
 },
 {
-    "pk": 4, 
-    "model": "crisis_app.event", 
-    "fields": {
-        "date_time": "2013-07-07T22:54:41Z", 
-        "kind": "test", 
-        "xml_id": "TEST", 
-        "name": "Test event", 
-        "economic_impact": "test", 
-        "human_impact": "test", 
-        "location": "Test", 
-        "ways_to_help": "test", 
-        "resources_needed": "test"
-    }
-},
-{
     "pk": 1, 
     "model": "crisis_app.person", 
     "fields": {
@@ -1787,7 +1772,7 @@
     "model": "crisis_app.embed", 
     "fields": {
         "kind": "IMG", 
-        "url": "http://www.icrc.org/eng/assets/images/catalogue/publications/md_picto_cover-issue-2010-1.gif", 
+        "url": "http://www.flipbooksoft.com/upload/books/0e900b86120f78e976635e61e6ef9e24/images/thumbs/page_1.jpg", 
         "person": [], 
         "organization": [
             4
@@ -1996,7 +1981,7 @@
     "pk": 113, 
     "model": "crisis_app.embed", 
     "fields": {
-        "kind": "IMG", 
+        "kind": "YTB", 
         "url": "http://www.youtube.com/watch?v=mU41MbK1C-o", 
         "person": [
             4
@@ -2559,8 +2544,8 @@
         "first_name": "Blake", 
         "last_name": "Johnson", 
         "github_id": "Blake-Johnson", 
-        "quote": "Kiss me here, touch me there, hanky panky!", 
-        "image": "barbie.jpg", 
+        "quote": "Three passions, simple but overwhelmingly strong, have governed my life: the longing for love, the search for knowledge, and unbearable pity for the suffering of mankind. These passions, like great winds, have blown me hither and thither, in a wayward course, over a great ocean of anguish, reaching to the very verge of despair.", 
+        "image": "blake_johnson.jpg", 
         "role": "Undeclared"
     }
 },
