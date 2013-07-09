@@ -8,7 +8,7 @@ class OutdatedException(Exception):
 def makeParent(name, color):
 	return {
 		'id': name,
-		'data': { '$color': color },
+		'data': { '$color': color, '$area': 0 },
 		'children': []
 	}
 
@@ -26,39 +26,38 @@ def addChild(parent, name, color, area, image, desc):
 
 def makeJSON(num_elements):
 	color_scheme = {
+		'root': '#222',
 		'event_title': '#6eba08',
 		'event_content': '#489500',
 		'people_title': '#d64569',
 		'people_content': '#a20041',
 		'organizations_title': '#dfd900',
-		'organizations_content': '#a2a217',
+		'organizations_content': '#a2a217'
 	}
 	events = makeParent('Events', color_scheme['event_title'])
 	people = makeParent('People', color_scheme['people_title'])
 	organizations = makeParent('Organizations', color_scheme['organizations_title'])
-	root_area = 0
+	total_area = 0
 
 	children = Event.objects.all()[:num_elements]
-	parent_area = 0
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", event__id=child.id)
 		desc = child.human_impact
 		area = len(desc)
 		addChild(events, child.name, color_scheme['event_content'], area, image, desc)
-		parent_area += area
-	events['data']['$area'] = events['data']['popularity'] = parent_area
-	root_area += parent_area
+		events['data']['$area'] += area
+	events['data']['popularity'] = events['data']['$area']
+	total_area += events['data']['$area']
 
 	children = Person.objects.all()[:num_elements]
-	parent_area = 0
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", person__id=child.id)
 		desc = child.kind + child.location
 		area = len(desc) * 10
 		addChild(people, child.name, color_scheme['people_content'], area, image, desc)
-		parent_area += area
-	people['data']['$area'] = people['data']['popularity'] = parent_area
-	root_area += parent_area
+		people['data']['$area'] += area
+	people['data']['popularity'] = people['data']['$area']
+	total_area += people['data']['$area']
 
 	children = Organization.objects.all()[:num_elements]
 	for child in children:
@@ -66,13 +65,13 @@ def makeJSON(num_elements):
 		desc = child.history
 		area = len(desc)
 		addChild(organizations, child.name, color_scheme['organizations_content'], area, image, desc)
-		parent_area += area
-	organizations['data']['$area'] = organizations['data']['popularity'] = parent_area
-	root_area += parent_area
+		organizations['data']['$area'] += area
+	organizations['data']['popularity'] = organizations['data']['$area']
+	total_area += organizations['data']['$area']
 
 	return json.dumps({
 		"id": "Crisis",
-		"data": { "$color": "#222", "$area": root_area },
+		"data": { "$color": color_scheme['root'], "$area": total_area },
 		"children": [events, people, organizations]
 	})
 
