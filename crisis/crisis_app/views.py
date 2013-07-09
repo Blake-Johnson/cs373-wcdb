@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from crisis_app.models import Event, Person, Organization, Embed, About
-import json
+import datetime, json
+
+class OutdatedException(Exception):
+	pass
 
 def makeParent(name, color):
 	return {
@@ -73,8 +76,25 @@ def makeJSON(num_elements):
 		"children": [events, people, organizations]
 	})
 
+def getJSON(path):
+	try:
+		json_info = open(path, 'r+')
+		date_created = datetime.datetime.strptime(json_info.readline(), '%m-%d-%Y %H:%M:%S\n')
+		if date_created + datetime.timedelta(days=1) < datetime.datetime.now():
+			json_info.close()
+			raise OutdatedException('The file ' + path + ' is outdated.')
+		else:
+			json = json_info.readline()
+	except:
+		json_info = open(path, 'w')
+		json_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
+		json = makeJSON(5)
+		json_info.write(json)
+	json_info.close()
+	return json
+
 def index(request):
-	json = makeJSON(5)
+	json = getJSON('crisis_app/json')
 	context = { 'json': json }
 	return render(request, 'crisis_app/home.html', context)
 
