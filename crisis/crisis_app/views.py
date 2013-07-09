@@ -2,106 +2,79 @@ from django.shortcuts import render, get_object_or_404
 from crisis_app.models import Event, Person, Organization, Embed, About
 import json
 
-def makeJSON():
+def makeParent(name, color):
+	return {
+		'id': name,
+		'data': { '$color': color },
+		'children': []
+	}
+
+def addChild(parent, name, color, area, image, desc):
+	parent['children'].append({
+		'id': name,
+		'data': {
+			'$color': color,
+			'$area': area,
+			'popularity': area,
+			'image': str(None if len(image) == 0 else image[0]),
+			'description': desc
+		}
+	})
+
+def makeJSON(num_elements):
 	color_scheme = {
-		'light_green': '#6eba08',
-		'dark_green': '#489500',
-		'light_red': '#d64569',
-		'dark_red': '#a20041',
-		'light_yellow': '#dfd900',
-		'dark_yellow': '#a2a217',
+		'event_title': '#6eba08',
+		'event_content': '#489500',
+		'people_title': '#d64569',
+		'people_content': '#a20041',
+		'organizations_title': '#dfd900',
+		'organizations_content': '#a2a217',
 	}
-	events = {
-		"children": [],
-		"data": { "$color": color_scheme['light_green'], "$area": "", "popularity": "" },
-		"id": "Events",
-		"name": "Events"
-	}
-	people = {
-		"children": [],
-		"data": { "$color": color_scheme['light_red'], "$area": "", "popularity": "" },
-		"id": "People",
-		"name": "People"
-	}
-	orgs = {
-		"children": [],
-		"data": { "$color": color_scheme['light_yellow'], "$area": "", "popularity": "" },
-		"id": "Organizations",
-		"name": "Organizations"
-	}
+	events = makeParent('Events', color_scheme['event_title'])
+	people = makeParent('People', color_scheme['people_title'])
+	organizations = makeParent('Organizations', color_scheme['organizations_title'])
 	root_area = 0
 
-	children = Event.objects.all()[:5]
+	children = Event.objects.all()[:num_elements]
 	parent_area = 0
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", event__id=child.id)
 		desc = child.human_impact
 		area = len(desc)
-		events['children'].append({
-			'data': {
-				'$color': color_scheme['dark_green'],
-				'$area': str(area),
-				'popularity': str(area),
-				'image': str(None if len(image) == 0 else image[0]),
-				'description': desc
-			},
-			'id': child.name,
-			'name': child.name
-		})
+		addChild(events, child.name, color_scheme['event_content'], area, image, desc)
 		parent_area += area
-	events['data']['$area'] = events['data']['popularity'] = str(parent_area)
+	events['data']['$area'] = events['data']['popularity'] = parent_area
 	root_area += parent_area
 
-	children = Person.objects.all()[:5]
+	children = Person.objects.all()[:num_elements]
 	parent_area = 0
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", person__id=child.id)
 		desc = child.kind + child.location
 		area = len(desc) * 10
-		people['children'].append({
-			'data': {
-				'$color': color_scheme['dark_red'],
-				'$area': str(area * 10),
-				'popularity': str(area * 10),
-				'image': str(None if len(image) == 0 else image[0]),
-				'description': desc
-			},
-			'id': child.name,
-			'name': child.name
-		})
+		addChild(people, child.name, color_scheme['people_content'], area, image, desc)
 		parent_area += area
-	people['data']['$area'] = people['data']['popularity'] = str(parent_area)
+	people['data']['$area'] = people['data']['popularity'] = parent_area
 	root_area += parent_area
 
-	children = Organization.objects.all()[:5]
+	children = Organization.objects.all()[:num_elements]
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", organization__id=child.id)
 		desc = child.history
 		area = len(desc)
-		orgs['children'].append({
-			'data': {
-				'$color': color_scheme['dark_yellow'],
-				'$area': str(area),
-				'popularity': str(area),
-				'image': str(None if len(image) == 0 else image[0]),
-				'description': desc
-			},
-			'id': child.name,
-			'name': child.name
-		})
+		addChild(organizations, child.name, color_scheme['organizations_content'], area, image, desc)
 		parent_area += area
-	orgs['data']['$area'] = orgs['data']['popularity'] = str(parent_area)
+	organizations['data']['$area'] = organizations['data']['popularity'] = parent_area
 	root_area += parent_area
 
 	return json.dumps({
-		"children": [events, people, orgs],
-		"data": { "$color": "#222", "$area": str(root_area) },
-		"id": "root",
-		"name": "Crisis",
+		"id": "Crisis",
+		"data": { "$color": "#222", "$area": root_area },
+		"children": [events, people, organizations]
 	})
 
 def index(request):
-	json = makeJSON()
+	json = makeJSON(5)
 	context = { 'json': json }
 	return render(request, 'crisis_app/home.html', context)
 

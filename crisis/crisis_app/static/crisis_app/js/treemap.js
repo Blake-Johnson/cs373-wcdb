@@ -55,7 +55,7 @@ function init_splash(){
             //implement the onShow method to add content
     		//to the tooltip when a node is hovered
             onShow: function (tip, node, isLeaf, domElement) {
-                var html = '<h4 class="inline">' + node.name + '</h4>';
+                var html = '<h4 class="inline">' + node.id + '</h4>';
                 if (node.data.popularity) {
                     html += '<div>Popularity: ' + node.data.popularity + '</div>';
                 }
@@ -71,7 +71,7 @@ function init_splash(){
                 // Leaf (content) node
     			var html = '<div class="content">';
     			html +=  '<img class="pull-right" src="' + node.data.image + '" />';
-    			html += '<h3>' + node.name + '</h3>';
+    			html += '<h3>' + node.id + '</h3>';
     			html += '<p class="text-white">' + node.data.description + '</p>';
     			html += '</div>';
                 domElement.innerHTML = html;
@@ -83,7 +83,7 @@ function init_splash(){
             } else {
                 // Non-leaf (title) node
     			var html = '<div class="title">';
-    			html += '<h2 class="inline">' + node.name + '</h2>';
+    			html += '<h2 class="inline">' + node.id + '</h2>';
     			html += '</div>';
     			domElement.innerHTML = html;
                 style.fontWeight = 'bold';
