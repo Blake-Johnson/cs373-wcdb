@@ -3561,9 +3561,9 @@
         "first_name": "Qunvar", 
         "last_name": "Arora", 
         "github_id": "qarora", 
-        "quote": "Life in plastic, it's fantastic!", 
-        "image": "barbie.jpg", 
-        "role": "Database"
+        "quote": "By any means necessary, whatever the cost.", 
+        "image": "qunvar_arora.jpg", 
+        "role": "Tester"
     }
 },
 {
@@ -3575,7 +3575,7 @@
         "github_id": "zaphod-utcs", 
         "quote": "I wanna be just like you. I figure all I need, is a lobotomy and some tights.", 
         "image": "jason_brown.jpg", 
-        "role": "XML"
+        "role": "Social"
     }
 },
 {
@@ -3587,7 +3587,7 @@
         "github_id": "UTAustin", 
         "quote": "I want more warheads, Tropical Skittles, and a Three Musketeers bar.", 
         "image": "stephen_chiang.jpg", 
-        "role": "Design, Front end"
+        "role": "Design, Front end, Database"
     }
 },
 {
@@ -3597,9 +3597,9 @@
         "first_name": "David", 
         "last_name": "Coon", 
         "github_id": "CaptainAnt", 
-        "quote": "I'm a blond bimbo girl, in a fantasy world!", 
-        "image": "barbie.jpg", 
-        "role": "Database"
+        "quote": "Is mayonnaise an instrument?", 
+        "image": "david_coon.jpg", 
+        "role": "Tester"
     }
 },
 {
@@ -3611,7 +3611,7 @@
         "github_id": "Blake-Johnson", 
         "quote": "Three passions, simple but overwhelmingly strong, have governed my life: the longing for love, the search for knowledge, and unbearable pity for the suffering of mankind. These passions, like great winds, have blown me hither and thither, in a wayward course, over a great ocean of anguish, reaching to the very verge of despair.", 
         "image": "blake_johnson.jpg", 
-        "role": "Undeclared"
+        "role": "XML"
     }
 },
 {
@@ -3623,7 +3623,7 @@
         "github_id": "aaronj1335", 
         "quote": "Not in the face!", 
         "image": "aaron_stacy.jpg", 
-        "role": "XML"
+        "role": "XML, Database"
     }
 }
 ]

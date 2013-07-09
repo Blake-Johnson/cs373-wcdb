@@ -1,5 +1,5 @@
 from django.contrib import admin
-from crisis_app.models import Event, Person, Organization, Embed, About, JSON
+from crisis_app.models import Event, Person, Organization, Embed, About
 
 class EventAdmin(admin.ModelAdmin):
 	list_display = ('name', 'kind', 'location', 'date_time')
@@ -33,9 +33,3 @@ class AboutAdmin(admin.ModelAdmin):
 	list_display = ('first_name', 'last_name', 'github_id', 'role', 'quote')
 	search_fields = ('first_name', 'last_name')
 admin.site.register(About, AboutAdmin)
-
-class JSONAdmin(admin.ModelAdmin):
-	list_display = ('name', 'element_type', 'size')
-	list_filter = ('element_type',)
-	search_fields = ('name',)
-admin.site.register(JSON, JSONAdmin)

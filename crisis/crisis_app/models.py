@@ -111,22 +111,3 @@ class About(models.Model):
 	class Meta:
 		verbose_name = "Author"
 		verbose_name_plural = "Authors"
-
-class JSON(models.Model):
-	ELEMENT_TYPES = (
-		("EVT", "Event"),
-		("PER", "Person"),
-		("ORG", "Organization")
-	)
-	element_type = models.CharField(max_length=3, choices=ELEMENT_TYPES, verbose_name="Element Type")
-	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
-	size = models.IntegerField(verbose_name="Size")
-	image = models.URLField(max_length=255, verbose_name="Image URL")
-	desc = models.TextField(max_length=4096, verbose_name="Description")
-
-	def __unicode__(self):
-		return self.name
-
-	class Meta:
-		verbose_name = "JSON"
-		verbose_name_plural = "JSON"
