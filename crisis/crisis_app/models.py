@@ -98,10 +98,9 @@ class Embed(models.Model):
 		get_latest_by = "id"
 
 class About(models.Model):
-	id = models.AutoField(primary_key=True, unique=True)
 	first_name = models.CharField(max_length=31, verbose_name="First Name")
 	last_name = models.CharField(max_length=31, verbose_name="Last Name")
-	github_id = models.CharField(max_length=31, verbose_name="GitHub ID")
+	github_id = models.CharField(max_length=31, unique=True, primary_key=True, verbose_name="GitHub ID")
 	role = models.CharField(max_length=255, verbose_name="Role")
 	quote = models.CharField(max_length=511, verbose_name="Quote")
 	image = models.CharField(max_length=255, verbose_name="Image")
@@ -112,3 +111,16 @@ class About(models.Model):
 	class Meta:
 		verbose_name = "Author"
 		verbose_name_plural = "Authors"
+
+class JSON(models.Model):
+	ELEMENT_TYPES = (
+		("EVT", "Event"),
+		("PER", "Person"),
+		("ORG", "Organization")
+	)
+	element_type = models.CharField(max_length=3, choices=ELEMENT_TYPES, verbose_name="Element Type")
+	element_id = models.IntegerField(verbose_name="Element ID")
+	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
+	size = models.IntegerField(verbose_name="Size")
+	image = models.URLField(max_length=255, verbose_name="Image URL")
+	desc = models.TextField(max_length=4096, verbose_name="Description")
