@@ -4,7 +4,7 @@
 {% block content %}
 <section class="container">
   <h1>{{ org.name }}</h1>
-  <div class="well">
+  <div class="well clearfix">
     <aside class="span4 pull-right">
       <table class="table">
         <thead>
@@ -13,9 +13,9 @@
           </tr>
         </thead>
         <tbody>
-          {% if images.0 %}
+          {% if embed.images.0 %}
           <tr>
-            <td style="text-align: center;" colspan="2"><a href="{{ images.0.url }}" ><img src="{{ images.0.url }}" /></a></td>
+            <td style="text-align: center;" colspan="2"><a href="{{ embed.images.0.url }}" ><img src="{{ embed.images.0.url }}" /></a></td>
           </tr>
           {% endif %}
           <tr>
@@ -53,15 +53,55 @@
       </ul>
       <br />
     {% endif %}
-    {% if images|length > 1 %}
+    {% if embed.images|length > 1 %}
       <h3>Images</h3>
       <ul id="mContainer" class="da-img">
-        {% for image in images|slice:"1:" %}
+        {% for image in embed.images|slice:"1:" %}
         <li class="imageItem">
           <a href="{{ image.url }}" target="_blank">
             <img src="{{ image.url }}" />
             <div><span>{{ image.desc }}</span></div>
           </a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if embed.videos %}
+      <h3>Videos</h3>
+      <ul>
+        {% for video in embed.videos %}
+        <li>
+          <a href="{{ video.url }}" target="_blank">{{ video.desc }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if embed.maps %}
+      <h3>Maps</h3>
+      <ul>
+        {% for map in embed.maps %}
+        <li>
+          <a href="{{ map.url }}" target="_blank">{{ map.desc }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if embed.feeds %}
+      <h3>Feeds</h3>
+      <ul>
+        {% for feed in embed.feeds %}
+        <li>
+          <a href="{{ feed.url }}" target="_blank">{{ feed.desc }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if embed.citations %}
+      <h3>References</h3>
+      <ul>
+        {% for citation in embed.citations %}
+        <li>
+          <a href="{{ citation.url }}" target="_blank">{{ citation.desc }}</a>
         </li>
         {% endfor %}
       </ul>

@@ -42,10 +42,15 @@ def people(request, person_id=None):
 		return render(request, 'crisis_app/content.html', context)
 	else:
 		person = get_object_or_404(Person, id=person_id)
-		images = Embed.objects.filter(kind="IMG", person__id=person.id)
+		embed = {}
+		embed['images'] = Embed.objects.filter(kind="IMG", person__id=person.id)
+		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), person__id=person.id)
+		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), person__id=person.id)
+		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), person__id=person.id)
+		embed['citations'] = Embed.objects.filter(kind="CIT", person__id=person.id)
 		events = Event.objects.filter(person__id=person.id)
 		orgs = Organization.objects.filter(person__id=person.id)
-		context = { 'person': person, 'images': images, 'events': events, 'orgs': orgs }
+		context = { 'person': person, 'embed': embed, 'events': events, 'orgs': orgs }
 		return render(request, 'crisis_app/person.html', context)
 
 def orgs(request, org_id=None):
@@ -59,8 +64,13 @@ def orgs(request, org_id=None):
 		return render(request, 'crisis_app/content.html', context)
 	else:
 		org = get_object_or_404(Organization, id=org_id)
-		images = Embed.objects.filter(kind="IMG", organization__id=org.id)
+		embed = {}
+		embed['images'] = Embed.objects.filter(kind="IMG", organization__id=org.id)
+		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), organization__id=org.id)
+		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), organization__id=org.id)
+		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), organization__id=org.id)
+		embed['citations'] = Embed.objects.filter(kind="CIT", organization__id=org.id)
 		events = Event.objects.filter(organization__id=org.id)
 		people = Person.objects.filter(organization__id=org.id)
-		context = { 'org': org, 'images': images, 'events': events, 'people': people }
+		context = { 'org': org, 'embed': embed, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)
