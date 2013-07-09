@@ -17,7 +17,7 @@ def events(request, event_id=None):
 			image = Embed.objects.filter(kind="IMG", event__id=event.id)
 			content_list.append((event, None if len(image) == 0 else image[0]))
 		context = { 'content_list': content_list, 'type': 'Events', 'dir': 'events' }
-		return render(request, 'crisis_app/content.html', context)
+		return render(request, 'crisis_app/list.html', context)
 	else:
 		event = get_object_or_404(Event, id=event_id)
 		embed = {}
@@ -39,7 +39,7 @@ def people(request, person_id=None):
 			image = Embed.objects.filter(kind="IMG", person__id=person.id)
 			content_list.append((person, None if len(image) == 0 else image[0]))
 		context = { 'content_list': content_list, 'type': 'People', 'dir': 'people' }
-		return render(request, 'crisis_app/content.html', context)
+		return render(request, 'crisis_app/list.html', context)
 	else:
 		person = get_object_or_404(Person, id=person_id)
 		embed = {}
@@ -61,7 +61,7 @@ def orgs(request, org_id=None):
 			image = Embed.objects.filter(kind="IMG", organization__id=org.id)
 			content_list.append((org, None if len(image) == 0 else image[0]))
 		context = { 'content_list': content_list, 'type': 'Organizations', 'dir': 'orgs' }
-		return render(request, 'crisis_app/content.html', context)
+		return render(request, 'crisis_app/list.html', context)
 	else:
 		org = get_object_or_404(Organization, id=org_id)
 		embed = {}
