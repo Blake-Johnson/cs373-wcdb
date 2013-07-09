@@ -20,10 +20,15 @@ def events(request, event_id=None):
 		return render(request, 'crisis_app/content.html', context)
 	else:
 		event = get_object_or_404(Event, id=event_id)
-		images = Embed.objects.filter(kind="IMG", event__id=event.id)
+		embed = {}
+		embed['images'] = Embed.objects.filter(kind="IMG", event__id=event.id)
+		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), event__id=event.id)
+		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), event__id=event.id)
+		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), event__id=event.id)
+		embed['citations'] = Embed.objects.filter(kind="CIT", event__id=event.id)
 		people = Person.objects.filter(event__id=event.id)
 		orgs = Organization.objects.filter(event__id=event.id)
-		context = { 'event': event, 'images': images, 'people': people, 'orgs': orgs }
+		context = { 'event': event, 'embed': embed, 'people': people, 'orgs': orgs }
 		return render(request, 'crisis_app/event.html', context)
 
 def people(request, person_id=None):
