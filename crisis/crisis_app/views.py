@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from django.template import RequestContext, loader
 from crisis_app.models import Event, Person, Organization, Embed, About
 
 def index(request):
@@ -63,3 +62,5 @@ def orgs(request, org_id=None):
 		people = Person.objects.filter(organization__id=org.id)
 		context = { 'org': org, 'images': images, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)
+
+def get_images()
