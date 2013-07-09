@@ -1,8 +1,109 @@
 from django.shortcuts import render, get_object_or_404
 from crisis_app.models import Event, Person, Organization, Embed, About
+import json
+
+def makeJSON():
+	color_scheme = {
+		'light_green': '#6eba08',
+		'dark_green': '#489500',
+		'light_red': '#d64569',
+		'dark_red': '#a20041',
+		'light_yellow': '#dfd900',
+		'dark_yellow': '#a2a217',
+	}
+	events = {
+		"children": [],
+		"data": { "$color": color_scheme['light_green'], "$area": "", "popularity": "" },
+		"id": "Events",
+		"name": "Events"
+	}
+	people = {
+		"children": [],
+		"data": { "$color": color_scheme['light_red'], "$area": "", "popularity": "" },
+		"id": "People",
+		"name": "People"
+	}
+	orgs = {
+		"children": [],
+		"data": { "$color": color_scheme['light_yellow'], "$area": "", "popularity": "" },
+		"id": "Organizations",
+		"name": "Organizations"
+	}
+	root_area = 0
+
+	children = Event.objects.all()[:5]
+	parent_area = 0
+	for child in children:
+		image = Embed.objects.filter(kind="IMG", event__id=child.id)
+		desc = child.human_impact
+		area = len(desc)
+		events['children'].append({
+			'data': {
+				'$color': color_scheme['dark_green'],
+				'$area': str(area),
+				'popularity': str(area),
+				'image': str(None if len(image) == 0 else image[0]),
+				'description': desc
+			},
+			'id': child.name,
+			'name': child.name
+		})
+		parent_area += area
+	events['data']['$area'] = events['data']['popularity'] = str(parent_area)
+	root_area += parent_area
+
+	children = Person.objects.all()[:5]
+	parent_area = 0
+	for child in children:
+		image = Embed.objects.filter(kind="IMG", person__id=child.id)
+		desc = child.kind + child.location
+		area = len(desc) * 10
+		people['children'].append({
+			'data': {
+				'$color': color_scheme['dark_red'],
+				'$area': str(area * 10),
+				'popularity': str(area * 10),
+				'image': str(None if len(image) == 0 else image[0]),
+				'description': desc
+			},
+			'id': child.name,
+			'name': child.name
+		})
+		parent_area += area
+	people['data']['$area'] = people['data']['popularity'] = str(parent_area)
+	root_area += parent_area
+
+	children = Organization.objects.all()[:5]
+	for child in children:
+		image = Embed.objects.filter(kind="IMG", organization__id=child.id)
+		desc = child.history
+		area = len(desc)
+		orgs['children'].append({
+			'data': {
+				'$color': color_scheme['dark_yellow'],
+				'$area': str(area),
+				'popularity': str(area),
+				'image': str(None if len(image) == 0 else image[0]),
+				'description': desc
+			},
+			'id': child.name,
+			'name': child.name
+		})
+		parent_area += area
+	orgs['data']['$area'] = orgs['data']['popularity'] = str(parent_area)
+	root_area += parent_area
+
+	return json.dumps({
+		"children": [events, people, orgs],
+		"data": { "$color": "#222", "$area": str(root_area) },
+		"id": "root",
+		"name": "Crisis",
+	})
 
 def index(request):
-	return render(request, 'crisis_app/home.html')
+	json = makeJSON()
+	context = { 'json': json }
+	return render(request, 'crisis_app/home.html', context)
 
 def about(request):
 	author_list = About.objects.order_by('last_name')

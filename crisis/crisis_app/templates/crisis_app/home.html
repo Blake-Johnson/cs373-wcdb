@@ -21,12 +21,12 @@
     </div>
   </div>
 </div>
+{{ json }}
 {% endblock %}
 
 {% block tail_imports %}
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/pScrollbar.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/jit.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/json.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/treemap.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/treemap.css" />
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/pScrollbar.css" />
@@ -34,9 +34,11 @@
 
 {% block script %}
 $('#nav_home').addClass('active');
+var json = {{ json|safe }};
 $('#btnPop').tooltip({ animation: false, placement: 'bottom', title: 'Tiles are sized by popularity'});
 $('#btnEqual').tooltip({ animation: false, placement: 'bottom', title: 'Tiles are sized equally'});
 $('#btnBack').tooltip({ animation: false, placement: 'bottom', title: 'Go up one level (right click)'});
 $('#btnTipOn').tooltip({ animation: false, placement: 'bottom', title: 'Tooltips will appear on hover'});
 $('#btnTipOff').tooltip({ animation: false, placement: 'bottom', title: 'Tooltips will not appear on hover'});
+setTimeout(init_splash, 500);
 {% endblock %}
