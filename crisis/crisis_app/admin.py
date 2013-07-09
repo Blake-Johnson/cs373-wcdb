@@ -24,6 +24,7 @@ admin.site.register(Organization, OrganizationAdmin)
 
 class EmbedAdmin(admin.ModelAdmin):
 	list_display = ('desc', 'kind', 'url')
+	list_filter = ('event', 'person', 'organization')
 	search_fields = ('kind',)
 	filter_horizontal = ('event', 'person', 'organization')
 admin.site.register(Embed, EmbedAdmin)
