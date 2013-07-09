@@ -25,16 +25,10 @@ def events(request, event_id=None):
 		return render(request, 'crisis_app/content.html', context)
 	else:
 		event = get_object_or_404(Event, id=event_id)
-		title_image = Embed.objects.filter(kind="IMG", event__id=event.id)
-		if len(title_image) > 0:
-			if len(title_image) > 1:
-				images = title_image[1:]
-			else:
-				images = None
-			title_image = title_image[0]
+		images = Embed.objects.filter(kind="IMG", event__id=event.id)
 		people = Person.objects.filter(event__id=event.id)
 		orgs = Organization.objects.filter(event__id=event.id)
-		context = { 'event': event, 'title_image': title_image, 'images': images, 'people': people, 'orgs': orgs }
+		context = { 'event': event, 'images': images, 'people': people, 'orgs': orgs }
 		return render(request, 'crisis_app/event.html', context)
 
 def people(request, person_id=None):
@@ -52,16 +46,10 @@ def people(request, person_id=None):
 		return render(request, 'crisis_app/content.html', context)
 	else:
 		person = get_object_or_404(Person, id=person_id)
-		title_image = Embed.objects.filter(kind="IMG", person__id=person.id)
-		if len(title_image) > 0:
-			if len(title_image) > 1:
-				images = title_image[1:]
-			else:
-				images = None
-			title_image = title_image[0]
+		images = Embed.objects.filter(kind="IMG", person__id=person.id)
 		events = Event.objects.filter(person__id=person.id)
 		orgs = Organization.objects.filter(person__id=person.id)
-		context = { 'person': person, 'title_image': title_image, 'images': images, 'events': events, 'orgs': orgs }
+		context = { 'person': person, 'images': images, 'events': events, 'orgs': orgs }
 		return render(request, 'crisis_app/person.html', context)
 
 def orgs(request, org_id=None):
@@ -79,14 +67,8 @@ def orgs(request, org_id=None):
 		return render(request, 'crisis_app/content.html', context)
 	else:
 		org = get_object_or_404(Organization, id=org_id)
-		title_image = Embed.objects.filter(kind="IMG", organization__id=org.id)
-		if len(title_image) > 0:
-			if len(title_image) > 1:
-				images = title_image[1:]
-			else:
-				images = None
-			title_image = title_image[0]
+		images = Embed.objects.filter(kind="IMG", organization__id=org.id)
 		events = Event.objects.filter(organization__id=org.id)
 		people = Person.objects.filter(organization__id=org.id)
-		context = { 'org': org, 'title_image': title_image, 'images': images, 'events': events, 'people': people }
+		context = { 'org': org, 'images': images, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)
