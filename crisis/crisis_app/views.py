@@ -16,10 +16,7 @@ def events(request, event_id=None):
 		image_list = []
 		for event in event_list:
 			image = Embed.objects.filter(kind="IMG", event__id=event.id)
-			if len(image) > 0:
-				image_list.append(image[0])
-			else:
-				image_list.append(None)
+			image_list.append(image[0] if len(image) > 1 else None)
 		content_list = zip(event_list, image_list)
 		context = { 'content_list': content_list, 'type': 'Events', 'dir': 'events' }
 		return render(request, 'crisis_app/content.html', context)
@@ -37,10 +34,7 @@ def people(request, person_id=None):
 		image_list = []
 		for person in person_list:
 			image = Embed.objects.filter(kind="IMG", person__id=person.id)
-			if len(image) > 0:
-				image_list.append(image[0])
-			else:
-				image_list.append(None)
+			image_list.append(image[0] if len(image) > 1 else None)
 		content_list = zip(person_list, image_list)
 		context = { 'content_list': content_list, 'type': 'People', 'dir': 'people' }
 		return render(request, 'crisis_app/content.html', context)
@@ -58,10 +52,7 @@ def orgs(request, org_id=None):
 		image_list = []
 		for org in org_list:
 			image = Embed.objects.filter(kind="IMG", organization__id=org.id)
-			if len(image) > 0:
-				image_list.append(image[0])
-			else:
-				image_list.append(None)
+			image_list.append(image[0] if len(image) > 1 else None)
 		content_list = zip(org_list, image_list)
 		context = { 'content_list': content_list, 'type': 'Organizations', 'dir': 'orgs' }
 		return render(request, 'crisis_app/content.html', context)
