@@ -62,5 +62,3 @@ def orgs(request, org_id=None):
 		people = Person.objects.filter(organization__id=org.id)
 		context = { 'org': org, 'images': images, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)
-
-def get_images()
