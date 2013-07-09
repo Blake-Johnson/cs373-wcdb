@@ -7,10 +7,10 @@ class Event(models.Model):
 	kind = models.CharField(max_length=255, verbose_name="Type")
 	location = models.CharField(max_length=255, verbose_name="Location of Occurrence")
 	date_time = models.DateTimeField(verbose_name="Date/Time (00:00:00 for no time)")
-	human_impact = models.TextField(verbose_name="Human Impact")
-	economic_impact = models.TextField(verbose_name="Economic Impact")
-	resources_needed = models.TextField(verbose_name="Resources Used")
-	ways_to_help = models.TextField(verbose_name="Aid Provided")
+	human_impact = models.TextField(max_length=4096, verbose_name="Human Impact")
+	economic_impact = models.TextField(max_length=4096, verbose_name="Economic Impact")
+	resources_needed = models.TextField(max_length=4096, verbose_name="Resources Used")
+	ways_to_help = models.TextField(max_length=4096, verbose_name="Aid Provided")
 
 	def __unicode__(self):
 		return self.name
@@ -43,7 +43,7 @@ class Organization(models.Model):
 	kind = models.CharField(max_length=255, verbose_name="Type")
 	location = models.CharField(max_length=255, verbose_name="Location of Operation")
 	contact_info = models.CharField(max_length=255, verbose_name="Contact (Phone/Email/Address/URL)")
-	history = models.TextField(verbose_name="History")
+	history = models.TextField(max_length=4096, verbose_name="History")
 
 	event = models.ManyToManyField(Event, verbose_name="Associated Events")
 	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")
@@ -83,7 +83,7 @@ class Embed(models.Model):
 		)
 	)
 	kind = models.CharField(max_length=3, choices=EMBED_CHOICES, default="CIT", verbose_name="Type")
-	url = models.TextField(unique="True", verbose_name="Embed URL")
+	url = models.URLField(max_length=255, unique="True", verbose_name="Embed URL")
 
 	event = models.ManyToManyField(Event, blank=True, null=True, verbose_name="Related Events")
 	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")
