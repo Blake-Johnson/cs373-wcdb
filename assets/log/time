@@ -1,4 +1,5 @@
 Estimated:
+48 hours (original guess)
 88 hours (spike solution)
 
 Actual:
@@ -7,3 +8,6 @@ About page - 4 hour(s)
 Content page - 2 hour(s)
 Static pages - 8 hour(s)
 404 page - 1 hour(s)
+500 page - 0.5 hour(s)
+Dynamic splash - 2 hour(s)
+Refactoring templates - 1 hour(s)
