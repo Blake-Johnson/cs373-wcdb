@@ -53,8 +53,8 @@ class Person(models.Model):
 
 class Organization(models.Model):
 	'''
-	Organization - Stores information about organizations which were influential
-		during events which led to world crises
+	Organization - contains information about organizations which were
+		influential during events which led to world crises
 	An ID field is used as the primary key due to the limitations invoked by
 		XML ID ([A-Z]{6})
 	Django TextFields are limited to 4096 characters to prevent abuse of
@@ -80,6 +80,12 @@ class Organization(models.Model):
 		verbose_name_plural = "Organizations"
 
 class Embed(models.Model):
+	'''
+	Embed - contains all information not directly hosted by the server
+	URL inputs are limited to 255 characters because Django does not allow
+		CharFields or TextFields over 255 characters to be unique
+	Embeds are identified by their URL
+	'''
 	id = models.AutoField(primary_key=True, unique=True)
 	desc = models.CharField(max_length=255, verbose_name="Human-Readable Description")
 	EMBED_CHOICES = (
@@ -122,6 +128,15 @@ class Embed(models.Model):
 		get_latest_by = "id"
 
 class About(models.Model):
+	'''
+	About - information about the authors of this site are stored in the
+		About table
+	Each user has their own GitHub ID, therefore github_id is set as the
+		table's primary key
+	Quote size limitations have been increased from 255 characters to 511
+		characters to accomodate for Blake's chosen quote.
+	Authors are identified by their full name (first and last name)
+	'''
 	first_name = models.CharField(max_length=31, verbose_name="First Name")
 	last_name = models.CharField(max_length=31, verbose_name="Last Name")
 	github_id = models.CharField(max_length=31, unique=True, primary_key=True, verbose_name="GitHub ID")
