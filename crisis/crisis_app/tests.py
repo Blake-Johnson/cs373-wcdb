@@ -4,6 +4,7 @@ from os.path import join
 from subprocess import call, Popen, PIPE
 
 from django.test import TestCase
+
 from crisis_app.converters import to_xml
 from crisis_app.models import Event, Organization, Person, Embed
 

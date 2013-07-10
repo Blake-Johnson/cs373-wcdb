@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from crisis_app.models import Event, Person, Organization, Embed, About
 
 '''
