@@ -1,6 +1,14 @@
 from django.db import models
 
 class Event(models.Model):
+	'''
+	Event - stores information about events which led to world crises
+	An ID field is used as the primary key due to the limitations invoked by
+		XML ID ([A-Z]{6})
+	Django TextFields are limited to 4096 characters to prevent abuse of
+		server resources
+	Events are identified by their name
+	'''
 	id = models.AutoField(primary_key=True, unique=True)
 	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID (CRI_*)")
 	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
@@ -21,6 +29,13 @@ class Event(models.Model):
 		get_latest_by = "date_time"
 
 class Person(models.Model):
+	'''
+	Person - contains information about influential persons' responses to events
+		which led to world crises
+	An ID field is used as the primary key due to the limitations invoked by
+		XML ID ([A-Z]{6})
+	People are identified by their name
+	'''
 	id = models.AutoField(primary_key=True, unique=True)
 	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID (PER_*)")
 	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
@@ -37,6 +52,15 @@ class Person(models.Model):
 		verbose_name_plural = "People"
 
 class Organization(models.Model):
+	'''
+	Organization - Stores information about organizations which were influential
+		during events which led to world crises
+	An ID field is used as the primary key due to the limitations invoked by
+		XML ID ([A-Z]{6})
+	Django TextFields are limited to 4096 characters to prevent abuse of
+		server resources
+	Organizations are identified by their name
+	'''
 	id = models.AutoField(primary_key=True, unique=True)
 	xml_id = models.CharField(max_length=6, unique=True, verbose_name="XML ID (ORG_*)")
 	name = models.CharField(max_length=255, unique=True, verbose_name="Name")
