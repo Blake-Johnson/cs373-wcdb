@@ -21,6 +21,10 @@ class Event(models.Model):
 	ways_to_help = models.TextField(max_length=4096, verbose_name="Aid Provided")
 
 	def __unicode__(self):
+		'''
+		As the most organic option, events are identified by their name,
+			which agrees with how they are referenced by society
+		'''
 		return self.name
 
 	class Meta:
@@ -45,6 +49,10 @@ class Person(models.Model):
 	event = models.ManyToManyField(Event, verbose_name="Associated Events")
 
 	def __unicode__(self):
+		'''
+		As the most organic option, people are identified by their name,
+			which agrees with how they are referenced by society
+		'''
 		return self.name
 
 	class Meta:
@@ -73,6 +81,11 @@ class Organization(models.Model):
 	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")
 
 	def __unicode__(self):
+		'''
+		As the most organic option, organizations are identified by
+			their name, often referred to as their title; this method
+			tends to agree with how they are referenced by society
+		'''
 		return self.name
 
 	class Meta:
@@ -120,6 +133,10 @@ class Embed(models.Model):
 	organization = models.ManyToManyField(Organization, blank=True, null=True, verbose_name="Related Organizations")
 
 	def __unicode__(self):
+		'''
+		As URLs are the only unique field in an Embed entry, they are
+			identified likewise
+		'''
 		return self.url
 
 	class Meta:
@@ -145,6 +162,11 @@ class About(models.Model):
 	image = models.CharField(max_length=255, verbose_name="Image")
 
 	def __unicode__(self):
+		'''
+		As the most organic option, site authors are identified
+			by their name, which agrees with how they are 
+			referenced by society
+		'''
 		return self.first_name + " " + self.last_name
 
 	class Meta:
