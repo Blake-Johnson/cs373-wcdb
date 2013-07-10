@@ -45,6 +45,10 @@ class EmbedAdmin(admin.ModelAdmin):
 	'''
 	Provides custom options for the Organization table in the Admin interface
 	'''
+	fieldsets = (
+		(None, { 'fields': ('kind', 'url', 'desc') }),
+		('Relations', { 'fields': ('event', 'person', 'organization') })
+	)
 	list_display = ('desc', 'kind', 'url')
 	list_filter = ('event', 'person', 'organization')
 	search_fields = ('kind',)
