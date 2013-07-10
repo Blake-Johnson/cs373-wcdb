@@ -1,5 +1,6 @@
 # Django settings for crisis project.
 
+import sys
 import os
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
@@ -12,9 +13,13 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+# use in-memory db for unit testing b/c it's effin slow otherwise
+ENGINE = 'sqlite3' if 'test' in sys.argv else 'mysql'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.' + ENGINE,
         'NAME': 'crisis',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'crisisuser',

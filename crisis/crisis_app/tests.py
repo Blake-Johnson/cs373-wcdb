@@ -1,16 +1,12 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
-"""
+import sys
 
 from django.test import TestCase
+from crisis_app.converters import to_xml
+from crisis_app.models import Event, Organization, Person, Embed
 
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+class ToXmlTestCase(TestCase):
+
+	def test_export(self):
+		self.assertGreater(len(Event.objects.all()), 0)
+
