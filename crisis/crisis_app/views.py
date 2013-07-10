@@ -130,16 +130,31 @@ def getJSON(path):
 	return json
 
 def index(request):
+	'''
+	Runs through the necessary logic to retrieve a JSON string for
+		the splash on the home page and sends it to the home.html
+		template
+	'''
 	json = getJSON('crisis_app/json')
 	context = { 'json': json }
 	return render(request, 'crisis_app/home.html', context)
 
 def about(request):
+	'''
+	The about page is given a list of site authors or display
+		to the user
+	'''
 	author_list = About.objects.order_by('last_name')
 	context = { 'author_list': author_list }
 	return render(request, 'crisis_app/about.html', context)
 
 def events(request, event_id=None):
+	'''
+	If called with no event ID, this function loads a list of all
+		events in the Event model
+	If called with an event ID, this function loads a content page
+		about the event
+	'''
 	if event_id == None:
 		event_list = Event.objects.order_by('date_time')
 		content_list = []
@@ -162,6 +177,12 @@ def events(request, event_id=None):
 		return render(request, 'crisis_app/event.html', context)
 
 def people(request, person_id=None):
+	'''
+	If called with no person ID, this function loads a list of all
+		people in the Person model
+	If called with a person ID, this function loads a content page
+		about the person
+	'''
 	if person_id == None:
 		person_list = Person.objects.order_by('name')
 		content_list = []
@@ -184,6 +205,12 @@ def people(request, person_id=None):
 		return render(request, 'crisis_app/person.html', context)
 
 def orgs(request, org_id=None):
+	'''
+	If called with no organization ID, this function loads a list of all
+		organizations in the Organization model
+	If called with an organization ID, this function loads a content page
+		about the organization
+	'''
 	if org_id == None:
 		org_list = Organization.objects.order_by('name')
 		content_list = []
