@@ -1,7 +1,20 @@
 from django.contrib import admin
 from crisis_app.models import Event, Person, Organization, Embed, About
 
+'''
+Registering custom models in admin.py allows their access and modification
+	in the admin section of the site
+The first element in list_display is the link to the edit page, so it is
+	specifically chosen to be unique
+ManyToMany fields are filtered horizontaly for ease of use
+Search options are limited to a table's most important column to prevent
+	abuse of the server's resources
+'''
+
 class EventAdmin(admin.ModelAdmin):
+	'''
+	Provides custom options for the Event table in the Admin interface
+	'''
 	list_display = ('name', 'kind', 'location', 'date_time')
 	list_filter = ('kind', 'location', 'date_time')
 	search_fields = ('name',)
@@ -9,6 +22,9 @@ class EventAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 
 class PersonAdmin(admin.ModelAdmin):
+	'''
+	Provides custom options for the Person table in the Admin interface
+	'''
 	list_display = ('name', 'kind', 'location')
 	list_filter = ('kind', 'location')
 	search_fields = ('name',)
@@ -16,6 +32,9 @@ class PersonAdmin(admin.ModelAdmin):
 admin.site.register(Person, PersonAdmin)
 
 class OrganizationAdmin(admin.ModelAdmin):
+	'''
+	Provides custom options for the Organization table in the Admin interface
+	'''
 	list_display = ('name', 'kind', 'location', 'contact_info')
 	list_filter = ('kind', 'location')
 	search_fields = ('name',)
@@ -23,6 +42,9 @@ class OrganizationAdmin(admin.ModelAdmin):
 admin.site.register(Organization, OrganizationAdmin)
 
 class EmbedAdmin(admin.ModelAdmin):
+	'''
+	Provides custom options for the Organization table in the Admin interface
+	'''
 	list_display = ('desc', 'kind', 'url')
 	list_filter = ('event', 'person', 'organization')
 	search_fields = ('kind',)
@@ -30,6 +52,9 @@ class EmbedAdmin(admin.ModelAdmin):
 admin.site.register(Embed, EmbedAdmin)
 
 class AboutAdmin(admin.ModelAdmin):
+	'''
+	Provides custom options for the About table in the Admin interface
+	'''
 	list_display = ('first_name', 'last_name', 'github_id', 'role', 'quote')
 	search_fields = ('first_name', 'last_name')
 admin.site.register(About, AboutAdmin)
