@@ -17,7 +17,7 @@ def e(tag, text=None, attr={}):
 		try:
 			e.text = s(text)
 		except Exception, e:
-			import pdb; pdb.set_trace()
+			# import pdb; pdb.set_trace()
 			raise e
 	[e.set(k, s(v)) for k, v in attr.items()]
 	return e
@@ -131,5 +131,4 @@ def convert():
 		for model in getattr(models, m).objects.all():
 			Conv().append_to(model, root)
 	return minidom.parseString(tostring(root, encoding='UTF-8')).toprettyxml()
-	# return tostring(root, encoding='UTF-8')
 
