@@ -3,9 +3,22 @@ from crisis_app.models import Event, Person, Organization, Embed, About
 import datetime, json
 
 class OutdatedException(Exception):
+	'''
+	Extension of Exception created primarly to be raised when the JSON
+		cache needs to be rebuilt; see the implementation below for
+		the threshold when an OutdatedException is raised
+	'''
 	pass
 
 def makeParent(name, color):
+	'''
+	Preconditions: a name (string) and color (string) are provided
+	Postconditions: a dictionary is returned containing the relevant
+		information for a parent node in a JSON tree representing
+		data from the Django models
+	The $area is initialized to 0; it will be increased over time as
+		nodes are added to the parent node
+	'''
 	return {
 		'id': name,
 		'data': { '$color': color, '$area': 0 },
