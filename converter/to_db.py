@@ -5,19 +5,28 @@ from datetime import datetime
 from crisis_app import models
 
 
-def kind(el):
-	if el.tag == 'Citation' or el.tag == 'ExternalLink':
+def kind(el, parent):
+	if 'citation' in parent.tag.lower() or 'external' in parent.tag.lower():
 		return 'CIT'
-	if el.tag == 'Image':
+	if 'imag' in parent.tag.lower() or 'img' in parent.tag.lower():
 		return 'IMG'
-	u = el.tag.lower()
+	u = el.get('href') or el.get('embed')
 	d = {'youtube': 'YTB', 'vimeo': 'VMO', 'maps.google': 'GMP',
 			'bing.com/map': 'BMP', 'mapq': 'MPQ', 'mapquest': 'MPQ', 'twitter':
 			'TWT', 'facebook': 'FBK', 'plus.google': 'GPL'}
 	for k, v in d.items():
 		if k in u:
 			return v
-	return 'NOTFOUND'
+	if 'video' in parent.tag.lower():
+		return 'VEX'
+	if 'map' in parent.tag.lower():
+		return 'MEX'
+	if 'feed' in parent.tag.lower():
+		return 'FEX'
+	# uncomment this if you want to drop into a debugger and figure out where
+	# the logic error is
+	# import pdb; pdb.set_trace()
+	raise Exception('couldnt figure out link type')
 
 
 def _process_link_set(self, el):
@@ -26,8 +35,12 @@ def _process_link_set(self, el):
 			url, desc = child.get('href'), child.text
 		else:
 			url, desc = child.get('embed'), child.get('text')
-		self.embeds.append(models.Embed(kind=kind(child), url=url,
+		self.embeds.append(models.Embed(kind=kind(child, el), url=url,
 			desc=desc))
+
+
+def _process_relation(self, el):
+	setattr(self, el.tag.lower(), [child.get('ID') for child in el])
 
 
 class ModelToXmlConversion(object):
@@ -37,7 +50,7 @@ class ModelToXmlConversion(object):
 	def __init__(self, root):
 		self.root = root
 		self.model = self.ModelClass()
-		self.model.xml_id = root.get('ID')
+		self.model.xml_id = root.get('ID')[4:]
 		self.model.name = root.get('Name')
 		self.model.date_time = datetime.now()
 		self.embeds = []
@@ -97,6 +110,10 @@ class ModelToXmlConversion(object):
 	_process_videos = _process_link_set
 	_process_feeds = _process_link_set
 
+	_process_crises = _process_relation
+	_process_people = _process_relation
+	_process_organizations = _process_relation
+
 
 class Event(ModelToXmlConversion): pass
 class Person(ModelToXmlConversion): pass
@@ -109,6 +126,16 @@ mapping = {'Crisis': Event, 'Person': Person, 'Organization': Organization}
 def convert(xml):
 	xml = xml.read() if hasattr(xml, 'read') else xml
 	conversions = [mapping[el.tag](el) for el in fromstring(xml)]
+
+	# save all of the models
+	[c.model.save() for c in conversions]
+
+	# save all of the embeds
+	[e.save() for c in conversions for e in c.embeds]
+
+	# link all of the embeds to their corresponding model
+	[c.model.embed_set.add(*c.embeds) for c in conversions]
+
 	return conversions
 
 
