@@ -111,11 +111,14 @@
 $('.da-img>li').each(function(){
   $(this).hoverdir();
 });
-function load(){
-  var mContainer = document.querySelector('#mContainer');
-  var masonry = new Masonry(mContainer, {
-    itemSelector: '.imageItem'
-  });
+// Masonry stalls scripts in Firefox, hence the hack... ugh :/
+if(!navigator.userAgent.match(/firefox/gi)){
+  function load(){
+    var mContainer = document.querySelector('#mContainer');
+    var masonry = new Masonry(mContainer, {
+      itemSelector: '.imageItem'
+    });
+  }
+  window.onload = load
 }
-window.onload = load
 {% endblock %}

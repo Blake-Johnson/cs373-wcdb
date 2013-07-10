@@ -31,12 +31,15 @@
 {% block script %}
 {{ block.super }}
 $('#nav_{{ dir }}').addClass('active');
-function load(){
-  $('#mContainer>a>div').addClass('contentItem');
-  var mContainer = document.querySelector('#mContainer');
-  var masonry = new Masonry(mContainer, {
-    itemSelector: '.contentItem'
-  });
+// Masonry stalls scripts in Firefox, hence the hack... ugh :/
+if(!navigator.userAgent.match(/firefox/gi)){
+  function load(){
+    $('#mContainer>a>div').addClass('listItem');
+    var mContainer = document.querySelector('#mContainer');
+    var masonry = new Masonry(mContainer, {
+      itemSelector: '.listItem'
+    });
+  }
 }
 window.onload = load;
 {% endblock %}

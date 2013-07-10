@@ -237,4 +237,19 @@ def orgs(request, org_id=None):
 		return render(request, 'crisis_app/org.html', context)
 
 def xml(request):
-    return HttpResponse(content=to_xml.convert(), mimetype='application/xml')
+	path = 'crisis_app/xml'
+	try:
+		xml_info = open(path, 'r+')
+		date_created = datetime.datetime.strptime(xml_info.readline(), '%m-%d-%Y %H:%M:%S\n')
+		if date_created + datetime.timedelta(days=1) < datetime.datetime.now():
+			xml_info.close()
+			raise OutdatedException('The file ' + path + ' is outdated.')
+		else:
+			xml = xml_info.read(2097152)
+	except:
+		xml_info = open(path, 'w')
+		xml_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
+		xml = to_xml.convert()
+		xml_info.write(xml)
+	xml_info.close()
+	return HttpResponse(content=xml, mimetype='application/xml')
