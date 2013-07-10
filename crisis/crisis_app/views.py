@@ -26,6 +26,12 @@ def makeParent(name, color):
 	}
 
 def addChild(parent, name, color, area, image, desc):
+	'''
+	Preconditions: a parent node is provided, along with sufficient
+		information to append a new child to that parent
+	Postconditions: a new child is appended to the parent node with
+		data consisting of the parameters passed into the function
+	'''
 	parent['children'].append({
 		'id': name,
 		'data': {
@@ -38,6 +44,12 @@ def addChild(parent, name, color, area, image, desc):
 	})
 
 def makeJSON(num_elements):
+	'''
+	Preconditions: the number of elements for each parent (events,
+		people, and organizations) is provided
+	Postconditions: returns a JSON string formatted for the splash
+		on the home page
+	'''
 	color_scheme = {
 		'root': '#222',
 		'event_title': '#6eba08',
@@ -89,6 +101,18 @@ def makeJSON(num_elements):
 	})
 
 def getJSON(path):
+	'''
+	Preconditions: a proper path to the JSON file to load is provided
+	Postconditions: a JSON string for the splash on the home page is
+		either generated with makeJSON() (if the file does not exist,
+		or if the file is outdated) or loaded from the cache file
+		(if the file is not outdated); this string is then returned
+		to the caller
+	Since makeJSON() is extremely expensive, any JSON files created
+		are cached for one day; getJSON() ensures that if the JSON
+		file was created less than one day ago, the JSON string is
+		loaded from the file rather than re-generated
+	'''
 	try:
 		json_info = open(path, 'r+')
 		date_created = datetime.datetime.strptime(json_info.readline(), '%m-%d-%Y %H:%M:%S\n')
