@@ -187,7 +187,7 @@
         "kind": "Natural Disaster", 
         "xml_id": "TOHOQU", 
         "name": "2011 Tohoku Earthquake and Tsunami", 
-        "economic_impact": "Early estimates placed insured losses from the earthquake alone at US$14.5 to $34.6 billion.", 
+        "economic_impact": "Early estimates placed insured losses from the earthquake alone at US$14.5 to $34.6 billion.The World Bank's estimated economic cost was US$235 billion, making it the costliest natural disaster in world history. By 12 April 2011 the Japanese government estimated that the cost of just the direct material damage could exceed \u00a525 trillion ($300 billion).", 
         "human_impact": "On 12 September 2012, a Japanese National Police Agency report confirmed 15,883 deaths, 6,145 injured, and 2,671 people missing across twenty prefectures, as well as 129,225 buildings totally collapsed, with a further 254,204 buildings 'half collapsed', and another 691,766 buildings partially damaged.", 
         "location": "Japan", 
         "ways_to_help": "Following the 2011 T?hoku earthquake and tsunami, Japan received messages of condolence and offers of assistance from a range of international leaders. According to Japan's foreign ministry, 116 countries and 28 international organizations had offered assistance to Japan. The magnitude of the earthquake was estimated at 9.0.", 
@@ -228,15 +228,15 @@
     "pk": 18, 
     "model": "crisis_app.event", 
     "fields": {
-        "date_time": "2012-12-14T15:30:00Z", 
-        "kind": "Mass shooting", 
-        "xml_id": "CRI_SH", 
-        "name": "Sandy Hook shooting", 
+        "date_time": "2012-12-14T15:35:00Z", 
+        "kind": "Spree shooting", 
+        "xml_id": "SHESSG", 
+        "name": "Sandy Hook Elementary School Shooting", 
         "economic_impact": "The shares of gun manufactures have decreased significantly (http://www.cnbc.com/id/100325110).  The number of gun and ammunition purchases rose over 180% the day after the shooting due to fear of harsher gun laws (http://www.investopedia.com/financial-edge/0113/sandy-hooks-consequences-for-the-gun-industry.aspx).  The school has been closed and a $57 million proposal has been made to demolish and rebuild the school.\r\n  ", 
-        "human_impact": "26 people killed, mostly children ages 6 to 7", 
-        "location": "Newtown, Connecticut ", 
-        "ways_to_help": "Sandy Hook students were invited to attend school at a nearby school, Chalk Hill Middle School.  The Red Cross has also been on the ground, offering food and water to affected families and first responders, and providing more than 50 units of blood to Danbury hospital where some of the victims were transported. They have set up a center for emergency grief counseling - and more than 100 Red Cross workers, including mental health professionals, are on the ground in Newtown helping to support the community. The Red Cross stresses it has what it needs to support efforts in Newtown, and is asking that those wishing to donate to families and the community, direct their contributions to the Sandy Hook School Support Fund (http://www.cnn.com/2012/12/15/us/iyw-help-for-victims-of-sandy-hook-shooting). In addition, the nonprofit mental health clinic Newtown Youth and Family Services is providing counseling for families, community members and school staff.  The band OneRepublic has also started a fund to raise money for those affected. The Sandy Hook School Support Fund, set up by the United Way of Western Connecticut will provide support services to families and the community. All donations to this fund will go directly to those affected.", 
-        "resources_needed": "Look at aid provided"
+        "human_impact": "28 total deaths.\r\n20 among the 28 were first grade students.\r\n6 among the 28 were school personnel.\r\n1 among the 28 was the perpetrator mother.\r\nThe 28th death was the suicide of the perpetrator.\r\n2 others were injured.", 
+        "location": "Newtown, Connecticut", 
+        "ways_to_help": "\"https://newtown.uwwesternct.org/\" Donate to the Sandy Hook School Support Fund\r\n\"https://www.facebook.com/SandyHookChildren?fref=ts\" Memoriam Facebook Page: R.I.P Sandy Hook Elementary School Children\r\n\r\nSandy Hook students were invited to attend school at a nearby school, Chalk Hill Middle School. ", 
+        "resources_needed": "Connecticut State Police received the first call at 9:41 am and with Newtown police they quickly mobilized local police dog, SWAP, a bomb squad, and a state helicopter.\r\nAt approximately 10:00 am, Danbury Hospital moved extra medical personnel in expectation of having to treat numerous victims.\r\nThe New York City medical examiner sent out a portable morgue to assist the authorities to remove the victims' bodies from the school.\r\nA state trooper was assigned to each victim's family to protect their privacy and provide them with information."
     }
 },
 {
@@ -273,7 +273,7 @@
     "pk": 21, 
     "model": "crisis_app.event", 
     "fields": {
-        "date_time": "1996-05-19T14:02:00Z", 
+        "date_time": "1996-04-19T14:02:00Z", 
         "kind": "Terrorist attack, national tragedy", 
         "xml_id": "CRI_OB", 
         "name": "Oklahoma City bombings", 
@@ -297,6 +297,231 @@
         "location": "West, Texas", 
         "ways_to_help": "fill in", 
         "resources_needed": "fill in"
+    }
+},
+{
+    "pk": 23, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2012-07-20T05:30:00Z", 
+        "kind": "Mass Shooting", 
+        "xml_id": "AURORA", 
+        "name": "2012 Aurora Shooting ", 
+        "economic_impact": "The Organization The Community First Foundation received substantial donations from Warner Bros. to aid the victims of the shooting. \r\nThe theater where the incident occurred was shut down for months before reopening on January 2013, resulting in a great loss for the theater owners. \r\nFuneral expenses incurred by the victim's families was paid for by Cinemark. Gun sales in Colorado, Washington, Florida, and several other states grew tremendously after the incident along with an increase in background checks. \r\nResources Needed: \r\nCinemas and theaters around the world began hiring more employees to fill out the roles needed in their security increase. \r\nCompanies associated with the film and theater, Warner Bros. and Cinemark, donated a great amount of time to aid the families of the victims. ", 
+        "human_impact": "Twelve people were killed at a multiplex Cinemark theater in Aurora Colorado during the midnight screening of the film The Dark Knight Rises. \r\nThis incident was considered the deadliest shooting since The Columbine massacre on April 20, 1999. \r\nSeveral other incidents followed this one at other theaters where several other men were arrested for acts of violence or attempting to carry through with an act of violence. \r\nThe Presidential Candidates at the time, Barrack Obama and Mitt Romney, suspended campaign advertising and visited victims at Hospitals. \r\nActor Christian Bale along with other sports teams visited several victims and expressed their condolences. \r\nThere was a great fear that similar incidents would occur in cinemas across the United States and the world resulting in an increase in security in cinemas throughout the country. \r\nThis once again brought the issue of gun control to the surface of news and politics. ", 
+        "location": "Aurora, Colorado ", 
+        "ways_to_help": "Companies associated with the film and theater, Warner Bros. and Cinemark, donated a great amount of time to aid the families of the victims.", 
+        "resources_needed": "Cinemas and theaters around the world began hiring more employees to fill out the roles needed in their security increase. \r\n"
+    }
+},
+{
+    "pk": 24, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2010-08-05T05:00:00Z", 
+        "kind": "Natural Disaster", 
+        "xml_id": "COPMAC", 
+        "name": "2010 Copiago mining accident", 
+        "economic_impact": "$20 Million dollars were spent on the several rescue plans implemented in an attempt to save the miners, with a third of that coming from private donations and the rest coming from the government and mine owners. ", 
+        "human_impact": "The country had just experienced an earthquake and tsunami earlier that year, so news of the workers predicament garnered much empathy from the population of Chile which led the national governments take over of search and rescue attempts. \r\nGovernment and international efforts to rescue the miners were greatly driven by the empathy and passion felt by the population of Chile and those around the world who expressed their sympathy.", 
+        "location": "Copiapo in northern Chile, South America ", 
+        "ways_to_help": "Miners have already been rescued but donations can probably still be made to an organization associated with helping the miners. ", 
+        "resources_needed": "The Government first used a Strata 950 model raise borer drilling rig to create an escape shaft but this plan was halted due to the danger falling rock debris. \r\nThey then used a Schramm Inc. T130XD air core drill, to widen one of the holes created by the previously used drill rig but was unfortunately wrecked upon hitting a metal bar in an old working, which was then followed by wearing out of the second drill. \r\nThe third and last attempt involved a Canadian made RIG-421 oil drilling rig which was able to drill large deep holes at faster rate than the mining drills. \r\nCooperation and resources of companies and individuals came from around the world such as Latin America, South America, United States and Canada, with developmental aid coming from NASA specialists. "
+    }
+},
+{
+    "pk": 25, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2013-01-29T21:00:00Z", 
+        "kind": "Mass Shooting", 
+        "xml_id": "ALABUN", 
+        "name": "2013 Alabama bunker hostage crisis ", 
+        "economic_impact": "No real economic impact stemmed from this event.", 
+        "human_impact": "Boy who was kidnapped garnered much sympathy from all those involved and everyone who heard of it on the news.\r\nThere was much confusion about the reason behind this incident, the perpetrator, Jimmy Lee Dykes, did not exhibit any prior motives regarding this event aside from some unusual behavior.", 
+        "location": "Midland City, Alabama ", 
+        "ways_to_help": "None", 
+        "resources_needed": "Food and medicine were provided to Dykes for the child who happened to suffer from several illnesses.\r\nTools used by the FBI to access and monitor the bunker before attempting a rescue."
+    }
+},
+{
+    "pk": 26, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2008-11-26T06:00:00Z", 
+        "kind": "Terrorist attack", 
+        "xml_id": "MUMBAI", 
+        "name": "2008 Mumbai attacks ", 
+        "economic_impact": "Government of Maharashtra gave around $8,600 as compensation to the families of the deceased and around $860 to those that were severely injured\r\nThe company and group that owned the bombed buildings received around $28 million from insurance claims.", 
+        "human_impact": "There were around 200 victims and 9 attackers killed during the attacks with at least 300 injured consisting of at least 28 foreign nationals and a number of recognized figures from business, media, and security services.\r\nPlans for an anti-terror force called \u201cForce One\u201d were put in place along with an upgrade to all weapons carried by police.\r\nLegal framework was strengthened by the Prime Minister and established a federal intelligence agency similar to the FBI\r\nIndians criticized political leaders after this event, stating their ineptness was responsible, which led to a range of resignations and political changes throughout the country.", 
+        "location": "Mumbai, India", 
+        "ways_to_help": "Donations provided to the families of the victims.\r\nMemorials held for the victims.", 
+        "resources_needed": "Man power in the form of police officers, Rapid Action Force personnel, Marine Commandos and National Security Guards.\r\nMaterial to rebuild damaged buildings.\r\nMoney spent on trials against the those affiliated with the attackers as well as the one attacker that was captured."
+    }
+},
+{
+    "pk": 27, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2013-07-09T05:00:00Z", 
+        "kind": "Natural Disaster", 
+        "xml_id": "WSAFRC", 
+        "name": "Water Scarcity in Africa", 
+        "economic_impact": "Loses 40 billion potential work hours per year collecting water. It's a burden on healthcare due to the cost of medicine to treat waterborne diseases.", 
+        "human_impact": "300 million live in a water stressed environment. It forces those living in water deprived regions to turn to unsafe water resources that contributes to the spread of waterborne diseases.", 
+        "location": "Africa", 
+        "ways_to_help": "To adequately address the issue of water scarcity in Africa, the United Nations Economic Commission for Africa emphasizes the need to invest in the development of Africa\u2019s potential water resources to reduce unnecessary suffering, ensure food security, and protect economic gains by effectively managing droughts, floods, and desertification. Some suggested and ongoing efforts to achieve this include an emphasis on infrastructural implementations and improvements of wells, rainwater catchment systems, and clean-water storage tanks.\r\n\r\nEfforts made by the United Nations in compliance with the Millennium Development Goals have targeted water scarcity not just for Africa, but globally. The compiled list includes eight international development goals, seven of which are directly impacted by water scarcity. Access to water affects poverty, food scarcity, educational attainment, social and economic capital of women, livelihood security, disease, and human and environmental health. Because addressing the issue of water is so integral to reaching the MDGs, one of the sub-goals includes halving the proportion of the globe\u2019s population without sustainable access to safe drinking water by 2015. In March 2012, the UN announced that this goal has been met almost four years in advance, suggesting that global efforts to reduce water scarcity are on a successful trend.\r\n\r\nAs one of the five permanent members of the United Nations Security Council, the United States plays an integral role in promoting solutions to aid with clean water scarcity. One of many efforts include USAID\u2019s WASH- the WASH for Life partnership with the Gates Foundation- that works to promote water, sanitation, and hygiene. With this, the U.S. \"will identify, test, and scale up evidence-based approaches for delivering these services to people in some of the poorest regions\". Additionally, in March 2012, Hillary Clinton announced the U.S. Water Partnership, which will bring together people from the private sector, the philanthropic community, non-governmental organizations, academics, experts, and the government in an attempt to look for system-wide solutions. The technologies and ability to tackle the issue of water scarcity and cleanliness are present, but it is highly a matter of accessibility. Thus, the partnership will aim at making these solutions available and obtainable at a local level.\r\n\r\nIn addition to the role the United States, the United Nations, and other international governmental bodies, a number of NGOs have formed water charities centered around the goal of providing clean water for the continent by 2015. These charities are based on individual and group donations, which are then invested in a variety of methods and technologies to bring clean water to regions in Africa.", 
+        "resources_needed": "Water."
+    }
+},
+{
+    "pk": 28, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2008-08-01T05:00:00Z", 
+        "kind": "Natural Disaster", 
+        "xml_id": "HURIKE", 
+        "name": "Hurricane Ike", 
+        "economic_impact": "37.5 billion (2008 USD)", 
+        "human_impact": "Fatalities: 103 direct, 92 indirect", 
+        "location": "Turks and Caicos, Bahamas, Haiti, Dominican Republic, Cuba, Florida Keys, Mississippi, Louisiana, Texas, Mississippi Valley, Ohio Valley, Great Lakes region, Eastern Canada", 
+        "ways_to_help": "There were a number of relief efforts set up to help those caught up in Ike, including one set up by Portlight and Weather Underground. Most of them raised at least $10,000 to help out. The Portlight/Wunderground effort created some initial controversy springing from the unexpected overwhelming response to requests for assistance..\r\n\r\nPortlight delivered over $500,000 worth of equipment to people with disabilities and outlying communities that were impacted by Hurricane Ike. They also delivered pizza to the residents of the hard hit Bolivar peninsula and helped provide a Christmas party for residents of Bridge City, Tx. \r\n\r\nIt should also be noted that AmeriCorps National Civilian Community Corps Members of Class XIV and the Southern Baptist Convention's Disaster Relief Program responded to aid in the Relief Effort by working with The Red Cross and Salvation Army throughout Texas.", 
+        "resources_needed": "N/A"
+    }
+},
+{
+    "pk": 29, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2003-03-20T06:00:00Z", 
+        "kind": "War", 
+        "xml_id": "BAGAIR", 
+        "name": "Baghdad Airstrike", 
+        "economic_impact": "Estimated to cost 1.7 trillion USD", 
+        "human_impact": "Estimated violent deaths: 601,027", 
+        "location": "New Baghdad, Baghdad, Iraq", 
+        "ways_to_help": "N/A", 
+        "resources_needed": "Weapons"
+    }
+},
+{
+    "pk": 30, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2009-10-01T05:00:00Z", 
+        "kind": "Pandemic", 
+        "xml_id": "SWNFLU", 
+        "name": "Influenza A virus subtype H1N1", 
+        "economic_impact": "N/A.", 
+        "human_impact": "Caused severe illness in 3\u20135 million people. 250,000\u2013500,000 deaths worldwide.", 
+        "location": "World Wide", 
+        "ways_to_help": "On 27 April 2009, the European Union health commissioner advised Europeans to postpone nonessential travel to the United States or Mexico. This followed the discovery of the first confirmed case in Spain. On 6 May 2009, the Public Health Agency of Canada announced that their National Microbiology Laboratory (NML) had mapped the genetic code of the swine flu virus, the first time that had been done. In the U.K., the National Health Service launched a website, the National Pandemic Flu Service, allowing patients to self-assess and get an authorisation number for antiviral medication. The system was expected to reduce the burden on general practitioners.\r\n\r\nU.S. officials observed that six years of concern about H5N1 avian flu did much to prepare for the current H1N1 flu outbreak, noting that after H5N1 emerged in Asia, ultimately killing about 60% of the few hundred people infected by it over the years, many countries took steps to try to prevent any similar crisis from spreading further. The CDC and other U.S. governmental agencies used the summer lull to take stock of the United States' response to H1N1 flu and attempt to patch any gaps in the public health safety net before flu season started in early autumn. Preparations included planning a second influenza vaccination program in addition to that for seasonal influenza, and improving coordination between federal, state and local governments and private health providers. On 24 October 2009, U.S. President Obama declared swine flu a national emergency, giving Secretary of Health and Human Services Kathleen Sebelius authority to grant waivers to requesting hospitals from usual federal requirements.", 
+        "resources_needed": "N/A."
+    }
+},
+{
+    "pk": 31, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2011-09-11T05:00:00Z", 
+        "kind": "Terrorism", 
+        "xml_id": "NINEOO", 
+        "name": "September 11 Attacks", 
+        "economic_impact": "indirectly to the U.S. wars in Afghanistan and Iraq, as well as additional homeland security spending, totaling at least $5 trillion\r\nNYC's GDP was estimated to have declined by $27.3 billion for the last three months of 2001 and all of 2002", 
+        "human_impact": "Deaths: 2,996; Injured: more than 6,000", 
+        "location": "New York City; Arlington County, Virginia; and near Shanksville, Pennsylvania", 
+        "ways_to_help": "American Red Cross", 
+        "resources_needed": "The New York City Fire Department deployed 200 units (half of the department) to the site. Their efforts were supplemented by numerous off-duty firefighters and emergency medical technicians. The New York City Police Department sent Emergency Service Units and other police personnel, and deployed its aviation unit. Civil Air Patrol, National Guard, US Marine Corps, and US Navy were also there."
+    }
+},
+{
+    "pk": 32, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2008-05-12T05:28:01Z", 
+        "kind": "Earthquake", 
+        "xml_id": "SCHERQ", 
+        "name": "2008 Sichuan earthquake", 
+        "economic_impact": "On November 6, 2008, the central government announced that it would spend 1 trillion yuan (about $146.5 billion) over the next three years to rebuild areas ravaged by the earthquake, as part of the Chinese economic stimulus program.", 
+        "human_impact": "It killed 69,195 people.\r\n374,643 injured.\r\n18,392 others missing.\r\nIt left about 4.8 million people homeless.", 
+        "location": "Wenchuan County, Sichuan", 
+        "ways_to_help": "<li href=\"http://sichuan-quake-relief.org/\">Donate to the Sichuan Quake Relief</li>", 
+        "resources_needed": "A little over 90 minutes after the earthquake, the Ministry of Health sent ten emergency medical teams to Wenchuan County.\r\nThe Chengdu Military Region Command dispatched 50,000 troops and armed police to help with disaster relief work in Wenchuan County.\r\nAn earthquake emergency relief team of 184 people (consisting of 12 people from the State Seismological Bureau, 150 from the Beijing Military Area Command, and 22 from the Armed Police General Hospital) left Beijing in two military transport planes to travel to Wenchuan County.\r\nOver 150 aircrafts were deployed for the delivery of food, water, and emergency aid, and also the evacuation of the injured and reconnaissance of quake-stricken areas. 60 were to be provided by the PLAAF, 30 were to be provided by the civil aviation industry, and the rest by the air force, army, and civil aviation."
+    }
+},
+{
+    "pk": 33, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2011-02-15T18:00:00Z", 
+        "kind": "Civil War", 
+        "xml_id": "LYCLWR", 
+        "name": "Libyan Civil War", 
+        "economic_impact": "On December 29th, 2011, Libya's National Oil Corporation announced that the country's output of crude oil was a little over 1 million barrels per day (bpd), compared to 1.6 million bpd before the uprising.\r\nAt the beginning of the civil war, the UN Security Council froze an estimated $150 billion in foreign Libyan assets. By late November 2011, $18 billion had been released to the NTC by the council's sanctions committee. Meanwhile, demands for wages, medication and reconstruction were putting a strain on Libya's limited supply of cash, causing prices to rise. On December 10th, senior figures in Libya's new leadership wrote a letter to the United Nations, urging it to release the frozen assets which they said were \"essential for the economic stability of Libya\". On December 16th, the UN Security Council lifted sanctions on Libya's central bank and its offshore subsidiary, Libyan Foreign Bank. Later the same day, the U.S. Treasury Department said it had unblocked more than $30 billion in Libyan government assets. Western officials said legal complications prevented the money from being released quickly. A British Foreign Office minister said his administration would release Libyan assets frozen in the United Kingdom once Libyan authorities demonstrated their ability to manage them effectively.", 
+        "human_impact": "Anti-Gaddafi forces take control of all major Libyan cities.\r\nDeath of Muammar Gaddafi.\r\nAssumption of interim control by National Transitional Council.\r\nDiplomatic recognition of NTC as sole governing authority for Libya by 105 countries, UN, EU, AL and AU.\r\nOngoing inter-factional fighting.", 
+        "location": "Libya", 
+        "ways_to_help": "None", 
+        "resources_needed": "The Libyan government were reported to have employed snipers, artillery, helicopter gunships, warplanes, anti-aircraft weaponry, and warships against demonstrations and funeral processions.\r\nSecurity forces and foreign mercenaries repeatedly used firearms, including assault rifles and machine guns, as well as knives against protesters.\r\nOn 25 February, the International Committee of the Red Cross launched an emergency appeal for US$6.4 million to meet the emergency needs of people affected by the violent unrest.\r\nIn March, the Swedish government donated medical supplies and other humanitarian aid and the UN World Food Programme provided food. Turkey sent a hospital ship to Misrata and a Turkish cargo ship brought 141 tons of humanitarian aid."
+    }
+},
+{
+    "pk": 34, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2011-03-16T00:34:20Z", 
+        "kind": "Civil War Crisis", 
+        "xml_id": "SYCLWR", 
+        "name": "Syrian Civil War", 
+        "economic_impact": "Discontent against the government was strongest in Syria's poorer areas, predominantly among conservative Sunnis. These included cities with high poverty rates, such as Daraa and Homs, rural areas hit hard by a drought in early 2011, and the poorer districts of large cities. \r\nSocioeconomic inequality increased significantly after free market policies were initiated by Hafez al-Assad in his later years, and accelerated after Bashar al-Assad came to power. With an emphasis on the service sector, these policies benefited a minority of the nation's population, mostly people who had \r\nconnections with the government, and members of the Sunni merchant class of Damascus and Aleppo. \r\nBy 2011, Syria was facing a deterioration in the national standard of living and steep rises in the prices of commodities. The country also faced particularly high youth unemployment rates.", 
+        "human_impact": "In June 2013, the death toll was updated to 92,900\u2013100,000 by the United Nations. According to various opposition activist groups, between 75,365 and 100,195 people have been killed, of which about half were civilians, but also including 61,000 armed combatants consisting of both the Syrian Army and rebel forces, up to 1,000 opposition protesters and 1,000 government officials.\r\nBy October 2012, up to 28,000 people had been reported missing, including civilians forcibly abducted by government troops or security forces. According to the UN, about 4 million Syrians have been displaced within the country and 1.5 million have fled to other countries. \r\nIn addition,tens of thousands of protesters have been imprisoned and there are reports of widespread torture and terror in state prisons. \r\nInternational organizations have accused both government and opposition forces of severe human rights violations. UN investigations have concluded that the government's abuses are the greatest in gravity, frequency and scale.", 
+        "location": "Syria, Russia, Iran, Qatar, Saudi Arabia, Turkey and Jordan", 
+        "ways_to_help": "USAID and other government agencies in US delivered nearly $385 million of aid items to Syria in 2012 and 2013. \r\nThe United States is providing food aid, medical supplies, emergency and basic health care, shelter materials, clean water, hygiene education and supplies, \r\nand other relief supplies.\r\nIslamic Relief has stocked 30 hospitals and sent hundreds of thousands of medical and food parcels.\r\nIran has been exporting between 500 and 800 tonnes of flour daily, by sea and land, to Syria.\r\nOn 26 April 2013 a humanitarian convoy, inspired by Gaza Flotilla, departed from Turkey to Syria. Called Hayat (Life), it is set to deliver aid items to IDPs inside Syria and refugees in neighboring countries: Turkey, Lebanon, Jordan, Iraq and Egypt.", 
+        "resources_needed": "The World Health Organization has reported that 35% of the country's hospitals are out of service and, depending upon the region, up to 70% of the health care professionals have fled. Cases of diarrhoea and hepatitis-A have increased by more than twofold since the beginning of the year. Due to the fighting the normal vaccination programs cannot be undertaken. The displaced refugees also may pose a risk to the countries to which they have fled.\r\nIsrael has been providing medical care to Syrians who seek assistance at the border and, according to some reports, has sent security personnel a short distance into Syrian territory. Care for Syrians is paid for by Health Ministry and Defense Ministry, as well as many charities. Arabic-speaking staff is available."
+    }
+},
+{
+    "pk": 35, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "1930-01-02T01:46:51Z", 
+        "kind": "Disease", 
+        "xml_id": "HIVAID", 
+        "name": "HIV/AIDS", 
+        "economic_impact": "HIV/AIDS affects the economics of both individuals and countries. The gross domestic product of the most affected countries has decreased due to the lack of human capital. Without proper nutrition, health care and medicine, large numbers of people die from AIDS-related complications. They will not only be unable to work, but will also require significant medical care. It is estimated that as of 2007 there were 12 million AIDS orphans.\r\nBy affecting mainly young adults, AIDS reduces the taxable population, in turn reducing the resources available for public expenditures such as education and health services not related to AIDS resulting in increasing pressure for the state's finances and slower growth of the economy. This causes a slower growth of the tax base, an effect that is reinforced if there are growing expenditures on treating the sick, training (to replace sick workers), sick pay and caring for AIDS orphans. This is especially true if the sharp increase in adult mortality shifts the responsibility and blame from the family to the government in caring for these orphans.\r\nAt the household level, AIDS causes both loss of income and increased spending on healthcare. A study in C\u00f4te d'Ivoire showed that households with an HIV/AIDS patient, spent twice as much on medical expenses as other households. This additional expenditure also leaves less income to spend on education and other personal or family investment.", 
+        "human_impact": "Genetic research indicates that HIV originated in west-central Africa during the early twentieth century. AIDS was first recognized by the Centers for Disease Control and Prevention (CDC) in 1981 and its cause\u2014HIV infection\u2014was identified in the early part of the decade. Since its discovery, AIDS has caused nearly 30 million deaths (as of 2009). As of 2010, approximately 34 million people are living with HIV globally. AIDS is considered a pandemic\u2014a disease outbreak which is present over a large area and is actively spreading.\r\nHIV/AIDS has had a great impact on society, both as an illness and as a source of discrimination. The disease also has significant economic impacts. There are many misconceptions about HIV/AIDS such as the belief that it can be transmitted by casual non-sexual contact. The disease has also become subject to many controversies involving religion.\r\nAIDS stigma exists around the world in a variety of ways, including ostracism, rejection, discrimination and avoidance of HIV infected people; compulsory HIV testing without prior consent or protection of confidentiality; violence against HIV infected individuals or people who are perceived to be infected with HIV; and the quarantine of HIV infected individuals. Stigma-related violence or the fear of violence prevents many people from seeking HIV testing, returning for their results, or securing treatment, possibly turning what could be a manageable chronic illness into a death sentence and perpetuating the spread of HIV.", 
+        "location": "WorldWide", 
+        "ways_to_help": "There is currently no cure or effective HIV vaccine. Treatment consists of high active antiretroviral therapy (HAART) which slows progression of the disease[113] and as of 2010 more than 6.6 million people were taking them in low and middle income countries.[7] Treatment also includes preventive and active treatment of opportunistic infections.\r\nPrograms encouraging sexual abstinence do not appear to affect subsequent HIV risk. Evidence for a benefit from peer education is equally poor. Comprehensive sexual education provided at school may decrease high risk behavior. A substantial minority of young people continues to engage in high-risk practices despite knowing about HIV/AIDS, underestimating their own risk of becoming infected with HIV. It is not known whether treating other sexually transmitted infections is effective in preventing HIV.", 
+        "resources_needed": "Consistent condom use reduces the risk of HIV transmission by approximately 80% over the long term. When condoms are used consistently by a couple in which one person is infected, the rate of HIV infection is less than 1% per year. There is some evidence to suggest that female condoms may provide an equivalent level of protection. Application of a vaginal gel containing tenofovir (a reverse transcriptase inhibitor) immediately before sex seems to reduce infection rates by approximately 40% among African women\r\nCircumcision in Sub-Saharan Africa \"reduces the acquisition of HIV by heterosexual men by between 38% and 66% over 24 months\". Based on these studies, the World Health Organization and UNAIDS both recommended male circumcision as a method of preventing female-to-male HIV transmission in 2007. Whether it protects against male-to-female transmission is disputed and whether it is of benefit in developed countries and among men who have sex with men is undetermined. Some experts fear that a lower perception of vulnerability among circumcised men may cause more sexual risk-taking behavior, thus negating its preventive effects."
+    }
+},
+{
+    "pk": 36, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2013-05-28T17:00:00Z", 
+        "kind": "Protests", 
+        "xml_id": "TUPR", 
+        "name": "2013 protests in Turkey", 
+        "economic_impact": "Istanbul's stock exchange experienced a loss of 10.5%, the biggest one-day loss in a decade \r\nDelay of EU accession talks\r\nCancellation of the planned construction, in Taksim area, that sparked the protests", 
+        "human_impact": "7 people died\r\n9 people missing\r\nMore than 100,000 protesters at times\r\n7822 injuries", 
+        "location": "Turkey", 
+        "ways_to_help": "None", 
+        "resources_needed": "Not applicable"
+    }
+},
+{
+    "pk": 37, 
+    "model": "crisis_app.event", 
+    "fields": {
+        "date_time": "2012-01-16T18:00:00Z", 
+        "kind": "Armed Conflict", 
+        "xml_id": "NRMACF", 
+        "name": "Northern Mali Conflict", 
+        "economic_impact": "The events happening in Mali are still ongoing.\r\nThey are in desparate need for humanitarian aid. The instability will make it harder for donors and NGOs to do their work, especially since funds are low. But the need won\u2019t wait; hundreds of thousands of men, women and children are hungry, endangered or displaced at this very moment.\r\nBergamaschi hopes that big changes are in order. Over time, she said, aid groups should work toward better coordination, more civil engagement and a more concerted effort to engage with the different economic systems in various parts of the vast country.", 
+        "human_impact": "Malian president Amadou Toumani Tour\u00e9 is ousted.\r\nA Peace deal between the government and Tuareg rebels was signed on June 18th, 2013.\r\nBetween 2000-3000 deaths.\r\nMore than 475,000 people, out of a total population of 15 million, have been displaced.", 
+        "location": "Northern Mali", 
+        "ways_to_help": "None", 
+        "resources_needed": "Some of the millions of dollars raised from ransoms and drug trafficking are now helping to fund the Malian insurgency.\r\nThe rebel groups are using some of this money to buy weapons and military equipment on the black market, from dealers in countries like Chad and Russia, but a good deal of their weapons have been brought back from Libya by Tuaregs who fought alongside Moammar Gadhafi's forces.\r\nCanada sent one Royal Canadian Air Force C-17 cargo plane to Mali.\r\nCanada announced on Jan. 29, 2013, that it would provide  another $13 million in aid to Mali. The funding appears to be for humanitarian relief alone, including $3 million for food and nutrition through the UN World Food Program, $2.5 million for health care and medical supplies, and $1 million for hygiene and sanitation promotion through World Vision Canada."
     }
 },
 {
@@ -598,7 +823,7 @@
         "kind": "Texas governor", 
         "xml_id": "PER_RP", 
         "name": "Rick Perry", 
-        "location": "West, Texas"
+        "location": "Austin, Texas"
     }
 },
 {
@@ -612,6 +837,97 @@
         "xml_id": "PER_HM", 
         "name": "Hosni Mubarak", 
         "location": "Egypt"
+    }
+},
+{
+    "pk": 25, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            23
+        ], 
+        "kind": "Shooter", 
+        "xml_id": "JAMHOL", 
+        "name": "James Eagan Holmes ", 
+        "location": " Aurora, Colorado"
+    }
+},
+{
+    "pk": 26, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            26
+        ], 
+        "kind": "Terrorist", 
+        "xml_id": "AJKASA", 
+        "name": "Ajmal Kasab", 
+        "location": "Pakistan"
+    }
+},
+{
+    "pk": 27, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            24
+        ], 
+        "kind": "Miner", 
+        "xml_id": "LUISUR", 
+        "name": "Luis Urz\u00faa", 
+        "location": "Chile"
+    }
+},
+{
+    "pk": 28, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            32
+        ], 
+        "kind": "President", 
+        "xml_id": "HUJNTO", 
+        "name": "Hu Jintao", 
+        "location": "Communist Party of China"
+    }
+},
+{
+    "pk": 29, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            33
+        ], 
+        "kind": "Revolutionary and Politician", 
+        "xml_id": "MURGDI", 
+        "name": "Muammar Gaddafi", 
+        "location": "Libya"
+    }
+},
+{
+    "pk": 30, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            18
+        ], 
+        "kind": "Murderer", 
+        "xml_id": "ADMLNZ", 
+        "name": "Adam Lanza", 
+        "location": "Newtown, Connecticut"
+    }
+},
+{
+    "pk": 31, 
+    "model": "crisis_app.person", 
+    "fields": {
+        "event": [
+            37
+        ], 
+        "kind": "President", 
+        "xml_id": "AMTOTO", 
+        "name": "Amadou Toumani Tour\u00e9", 
+        "location": "Mali"
     }
 },
 {
@@ -947,7 +1263,7 @@
     "model": "crisis_app.organization", 
     "fields": {
         "kind": "Crime Organization", 
-        "xml_id": "ORG_SM", 
+        "xml_id": "SMAFIA", 
         "name": "Sicilian Mafia (\"Cosa Nostra\")", 
         "contact_info": "Not available", 
         "person": [], 
@@ -1010,6 +1326,130 @@
             9
         ], 
         "history": "The Department of Homeland Security combined 22 different federal departments and agencies into a unified, integrated cabinet agency when it was established in 2002."
+    }
+},
+{
+    "pk": 24, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "Fund-Raising Group", 
+        "xml_id": "COMFFO", 
+        "name": "The Community First Foundation", 
+        "contact_info": "Phone: 720-898-5900 URL: http://www.communityfirstfoundation.org/index.cfm Address: 6870 West 52nd Avenue, Suite 103 Arvada, Colorado 80002 ", 
+        "person": [], 
+        "location": "Colorado", 
+        "event": [
+            23
+        ], 
+        "history": "Founded in 1975 as a Lutheran Medical Center foundation to serve as a fund-raising section of the Medical Center a non-profit hospital.\r\nIn mid-90's it participated in a two-year study to give a voice to the community when it came to health care and community programs and services.\r\n1997 became part of a nonprofit health care system and changed their name to LMC Community Foundation.\r\nIn 2007 changed their name to the Community First Foundation to reflect new mission as a community foundation to improve quality of life in the Denver area."
+    }
+},
+{
+    "pk": 25, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "Mining Company", 
+        "xml_id": "SEMINE", 
+        "name": "San Estaban Mining Company", 
+        "contact_info": "Phone: +56 2 223 9116", 
+        "person": [
+            27
+        ], 
+        "location": "Santiago, Chile", 
+        "event": [
+            24
+        ], 
+        "history": "Began operations in the San Jose Mine in 1889 but the company was not officially founded until 1957 but a Hungarian immigrant named Jorge Kemeny Letay.\r\nBecame notoriously known in the mineral-rich region and has had 8 workers die while working in their mines along with a number of fines for safety breaching.\r\nThe San Jose Mine which is owned by the company was closed in 2007 when relatives of deceased workers sued the company but was reopened in 2008 even though it failed to comply with regulations.\r\nThe company has a history of ignoring warnings and worker lawsuits of unsafe working conditions and many believe that were it not for this the event could have been avoided."
+    }
+},
+{
+    "pk": 26, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "Terrorist Organization", 
+        "xml_id": "LASHTA", 
+        "name": "Lashkar-e-Taiba", 
+        "contact_info": "Probably don't want to contact these guys", 
+        "person": [
+            26
+        ], 
+        "location": "Pakistan", 
+        "event": [
+            26
+        ], 
+        "history": "It is one of the largest and most active Islamist terrorist organizations in South Asia operating mainly from Pakistan.\r\nFounded in 1990 by Hafez Saeed, Abdullah Azzam, and Zafar Iqbal in Afghansitan's Kunar province and gained prominence as an offshoot of a previously established preaching group.\r\nIn the early 2000's several countries including the United States and the UK declared the group a terrorist organization.\r\nMain goal has been stated to be not only the destruction of the Indian republic but to annihilate Hinduism and Judaism throughout South Asia.\r\nIs known for target military and civilian targets with the most notable events  being the 2001 Indian Parliament attack and the 2008 Mumbai attacks.\r\nAfter the 2008 Mumbai attacks Pakistan was pressured by the US and India to launch operations against the group and while they have clamped down on the group it is suspected by many that they continue to support the group."
+    }
+},
+{
+    "pk": 27, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "Non-profit, humanitarian Organization", 
+        "xml_id": "SNQKRF", 
+        "name": "Sichuan Quake Relief", 
+        "contact_info": "info@sichuan-quake-relief.org", 
+        "person": [
+            28
+        ], 
+        "location": "Sichuan Province", 
+        "event": [
+            32
+        ], 
+        "history": "Founded the morning after the disaster struck, SQR immediately began coordinating emergency relief aid to the affected area. In the first 6 to 8 months, SQR funnelled cash, services and material donations in excess of 15 million RMB to towns and villages in the quake zone \u2013 mainly tents, food, water, medical, hygiene and camping supplies, as well as several small-scale water and sanitation projects. SQR\u2019s Winter Relief Project supplied warm bedding, clothing and camping gear worth more than 2 million RMB to more than 6,000 villagers.\r\nActing as a logistics and information hub, SQR connected with other NGOs, donors and volunteers, as well as keeping media and wider communities updated on the latest situation. Recognising the repercussions for survivors and those who had suffered loss or injury, we linked dozens of international and local psychological experts with stricken communities.\r\nIn summer 2008 SQR sent over 70 foreign and local teachers to coordinate and run Summer Camps in six temporary villages, delivering basic school equipment and educational supplies to more than 30 schools. This project was expanded in the summer of 2009 to become the Sports, Art, Music and English (SAME) Camps in 13 affected villages. More than 260 local and foreign volunteers taught about 4,000 children in the SAME Camps over a 7-week period.\r\nAs the need for relief aid became less pressing, SQR began to look towards the long-term recovery and future development of the affected region. The badly-damaged Di Kang Le Kindergarten serving five villages in rural Guangji, Mianzhu County, was identified as in need of rebuilding. SQR entered into an agreement with the principal to not only rebuild the kindergarten, but vastly improve the community facilities in the area with a new community centre. The construction phase is complete and the community centre available for use by local community groups."
+    }
+},
+{
+    "pk": 28, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "de facto Government", 
+        "xml_id": "NLTLCL", 
+        "name": "National Transitional Council", 
+        "contact_info": "None", 
+        "person": [
+            29
+        ], 
+        "location": "Libya", 
+        "event": [
+            33
+        ], 
+        "history": " A National Transitional Council was formed on February 26th, 2011 to act as \"the political face of the revolution\". Its spokesman, Hafiz Ghoga, made clear at the launch press conference that the national council was not a provisional government and added that the newly formed council was not in contact with foreign governments and did not want them to intervene.\r\nOn March 5th, 2011, the council issued a statement in which it declared itself to be the \"sole representative of all Libya\". Mustafa Abdul Jalil was named as chairman of the council.\r\nOn March 10th, 2011, France became the first country to recognise the council as Libya's only legitimate government.\r\nIn a ceremony on August 8th, 2012, the NTC formally transferred power to the General National Congress. Jalil stepped down as chairman, passing the position to the GNC's oldest member, Mohammed Ali Salim. The NTC was then dissolved, while the GNC members took their oath of office, led by Salim."
+    }
+},
+{
+    "pk": 29, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "Non-profit Organization", 
+        "xml_id": "UNDWAY", 
+        "name": "United Way", 
+        "contact_info": "http://apps.unitedway.org/contact/", 
+        "person": [
+            30
+        ], 
+        "location": "Worldwide", 
+        "event": [
+            18
+        ], 
+        "history": "In 1887, a Denver woman, a priest, two ministers and a rabbi recognized the need for cooperative action to address their city\u2019s welfare problems.\r\nFrances Wisebart Jacobs, the Rev. Myron W. Reed, Msgr. William J.O\u2019Ryan, Dean H. Martyn Hart and Rabbi William S. Friedman put their heads together to plan the first united campaign for ten health and welfare agencies. They created an organization to serve as an agent to collect funds for local charities, as well as to coordinate relief services, counsel and refer clients to cooperating agencies, and make emergency assistance grants in cases which could not be referred.\r\nThat year, Denver raised $21,700 and created a movement that would spread throughout the country to become the United Way. More than 125 years later, United Way is still focused on mobilizing the caring power of communities and making a difference in people\u2019s lives."
+    }
+},
+{
+    "pk": 30, 
+    "model": "crisis_app.organization", 
+    "fields": {
+        "kind": "Union", 
+        "xml_id": "AFIUNI", 
+        "name": "African Union", 
+        "contact_info": "http://au.int/en/contact", 
+        "person": [
+            31
+        ], 
+        "location": "Africa", 
+        "event": [
+            37
+        ], 
+        "history": "The AU was established on May 26th, 2001, in Addis Ababa and launched on July 9th, 2002 in South Africa to replace the Organisation of African Unity (OAU).\r\nThe union consists of 54 African states. The only all-African state not in the AU is Morocco.\r\nOn March 10th, 2011, France became the first country to recognise the council as Libya's only legitimate government."
     }
 },
 {
@@ -3552,6 +3992,628 @@
         "organization": [], 
         "event": [], 
         "desc": "Tamerlan Tsarnaev"
+    }
+},
+{
+    "pk": 178, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/2012_Aurora_shooting", 
+        "person": [
+            25
+        ], 
+        "organization": [
+            24
+        ], 
+        "event": [
+            23
+        ], 
+        "desc": "Wikipedia page"
+    }
+},
+{
+    "pk": 179, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.nytimes.com/2009/05/08/world/asia/08china.html?_r=0", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            32
+        ], 
+        "desc": "\"China Reports Student Toll for Quake\". New York Times."
+    }
+},
+{
+    "pk": 180, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.bloomberg.com/apps/news?pid=newsarchive&amp;sid=aZhtsxh8IlB4&amp;refer=home", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            32
+        ], 
+        "desc": "\"50,000 troops deployed\". Bloomberg L.P."
+    }
+},
+{
+    "pk": 181, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/2008_Sichuan_earthquake", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            32
+        ], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 182, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://rcmi.files.wordpress.com/2008/05/705px-2008_sichuan_earthquake_map_no_labelssvg.png", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            32
+        ], 
+        "desc": "Sichuan Earthquake Impact Map"
+    }
+},
+{
+    "pk": 183, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "GMP", 
+        "url": "https://maps.google.com/maps/ms?ie=UTF8&t=h&oe=UTF8&msa=0&msid=111546629138771534952.00044d19b32c5c9a07f6b", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            32
+        ], 
+        "desc": "Sichuan Earthquake Google Map"
+    }
+},
+{
+    "pk": 184, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Hu_Jintao", 
+        "person": [
+            28
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 185, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=QqSSjqpBrNw", 
+        "person": [
+            28
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Chinese president Hu jintao in sichuan,earthquake areas"
+    }
+},
+{
+    "pk": 186, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://sichuan-quake-relief.org/", 
+        "person": [], 
+        "organization": [
+            27
+        ], 
+        "event": [
+            32
+        ], 
+        "desc": "Sichuan Quake Relief"
+    }
+},
+{
+    "pk": 187, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.gochengdoo.com/images/blog/7031.jpg", 
+        "person": [], 
+        "organization": [
+            27
+        ], 
+        "event": [], 
+        "desc": "Sichuan Quake Relief Logo"
+    }
+},
+{
+    "pk": 188, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.telegraph.co.uk/news/worldnews/africaandindianocean/libya/8335934/Libya-protests-140-massacred-as-Gaddafi-sends-in-snipers-to-crush-dissent.html", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            33
+        ], 
+        "desc": "\"Libya protests: 140 'massacred' as Gaddafi sends in snipers to crush dissent\". The Daily Telegraph (UK)."
+    }
+},
+{
+    "pk": 189, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.icrc.org/eng/resources/documents/news-release/2011/libya-news-2011-02-25.htm", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            33
+        ], 
+        "desc": "\"Libya: ICRC Launches Emergency Appeal as Humanitarian Situation Deteriorates\". International Committee of the Red Cross."
+    }
+},
+{
+    "pk": 190, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Libyan_civil_war", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            33
+        ], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 191, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "https://static-secure.guim.co.uk/sys-images/Guardian/About/General/2011/11/19/1321713344809/Libyans-celebrate-news-of-007.jpg", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            33
+        ], 
+        "desc": "Libyans Celebrate News"
+    }
+},
+{
+    "pk": 192, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "GMP", 
+        "url": "https://maps.google.co.uk/maps/ms?ie=UTF8&oe=UTF8&msa=0&msid=200809166078445189642.00049f7a79747b94b2b24", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            33
+        ], 
+        "desc": "Libya Civil War Google Map"
+    }
+},
+{
+    "pk": 193, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Muammar_Gaddafi", 
+        "person": [
+            29
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 194, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "YTB", 
+        "url": "http://www.youtube.com/watch?v=sGm492qVEzA", 
+        "person": [
+            29
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Moammar Gadhafi Dead Video"
+    }
+},
+{
+    "pk": 195, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.boston.com/news/world/middle-east/2012/08/08/libya-transitional-rulers-hand-over-power/uMPkXd9vTSSHg589mU9ykJ/story.html", 
+        "person": [], 
+        "organization": [
+            28
+        ], 
+        "event": [], 
+        "desc": "\"Libya's transitional rulers hand over power\". Boston.com."
+    }
+},
+{
+    "pk": 196, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/National_Transitional_Council", 
+        "person": [], 
+        "organization": [
+            28
+        ], 
+        "event": [], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 197, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Seal_of_the_National_Transitional_Council_%28Libya%29.svg/200px-Seal_of_the_National_Transitional_Council_%28Libya%29.svg.png", 
+        "person": [], 
+        "organization": [
+            28
+        ], 
+        "event": [], 
+        "desc": "NTC Logo"
+    }
+},
+{
+    "pk": 198, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.cnn.com/interactive/2012/12/us/sandy-hook-timeline/index.html", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            18
+        ], 
+        "desc": "\"Sandy Hook shooting: What happened?\". CNN."
+    }
+},
+{
+    "pk": 199, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.cnbc.com/id/100325110", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            18
+        ], 
+        "desc": "\"The Sandy Hook Effect: Gun Sales Rise as Stocks Fall\". CNBC."
+    }
+},
+{
+    "pk": 200, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.ctphilanthropy.org/s_ccp/sec.asp?CID=20750&amp;DID=59912&amp;morel=true", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            18
+        ], 
+        "desc": "Connecticut Council for Philanthropy"
+    }
+},
+{
+    "pk": 201, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Newtown_shooting", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            18
+        ], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 202, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.realbiblecodes.com/blog/wp-content/uploads/2012/12/2012-12-17T065603Z_1_CBRE8BG0J9I00_RTROPTP_2_USA-SHOOTING-CONNECTICUT.jpg", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            18
+        ], 
+        "desc": "Sandy Hook Victims"
+    }
+},
+{
+    "pk": 203, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.youtube.com/watch?v=RVHufEjU9VU", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            18
+        ], 
+        "desc": "Barack Obama: Shooting in Newton Statement"
+    }
+},
+{
+    "pk": 204, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "GMP", 
+        "url": "https://maps.google.com/maps/ms?ie=UTF8&t=m&source=embed&oe=UTF8&msa=0&msid=213845869214841596682.0004d0d7915820d13990e", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            18
+        ], 
+        "desc": "Sandy Hook Google Map"
+    }
+},
+{
+    "pk": 205, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.biography.com/people/adam-lanza-21068899", 
+        "person": [
+            30
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Adam Lanza Biography"
+    }
+},
+{
+    "pk": 206, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Adam_lanza#Perpetrator", 
+        "person": [
+            30
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 207, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://upload.wikimedia.org/wikipedia/en/f/f0/Adam_lanza_sandy_hook_shooter.jpg", 
+        "person": [
+            30
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Adam Lanza"
+    }
+},
+{
+    "pk": 208, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.unitedway.org/", 
+        "person": [], 
+        "organization": [
+            29
+        ], 
+        "event": [], 
+        "desc": "United Way Worldwide"
+    }
+},
+{
+    "pk": 209, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://www.unitedwayokc.org/sites/all/themes/uw/images/1.jpg", 
+        "person": [], 
+        "organization": [
+            29
+        ], 
+        "event": [], 
+        "desc": "United Way Logo"
+    }
+},
+{
+    "pk": 210, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.cbc.ca/news/world/story/2013/01/14/f-mali-faq.html", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            37
+        ], 
+        "desc": "\"9 questions about the Mali conflict\". CBC News."
+    }
+},
+{
+    "pk": 211, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.voanews.com/content/malian-troops-enter-rebelheld-town-under-peace-deal/1696221.html", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            37
+        ], 
+        "desc": "\"Malian Troops Enter Rebel-Held Town Under Peace Deal\". Voice of America."
+    }
+},
+{
+    "pk": 212, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.ibtimes.com/aftermath-mali-things-we-forgot-about-humanitarian-aid-1189251", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            37
+        ], 
+        "desc": "\"Aftermath In Mali: Things We Forgot About Humanitarian Aid\". International Business Times."
+    }
+},
+{
+    "pk": 213, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Northern_Mali_conflict_%282012%E2%80%93present%29", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            37
+        ], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 214, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://cdn.theatlantic.com/static/infocus/mali012513/s_m17_59913469.jpg", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            37
+        ], 
+        "desc": "A woman who fled northern Mali looks out from a tent at a camp for internally displaced person"
+    }
+},
+{
+    "pk": 215, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "GMP", 
+        "url": "https://maps.google.com/maps?client=ubuntu&channel=fs&q=northern+mali+conflict+google+maps&oe=utf-8&ie=UTF-8&ei=LafcUdniEouK9gTe-oHoDg&ved=0CAoQ_AUoAg", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            37
+        ], 
+        "desc": "Malia Google Maps"
+    }
+},
+{
+    "pk": 216, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/Amadou_Toumani_Tour%C3%A9", 
+        "person": [
+            31
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 217, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "IMG", 
+        "url": "http://blogs.luc.edu/hubbub/wp-content/blogs.dir/478/files/evan-peterson/mali-iii.jpg", 
+        "person": [
+            31
+        ], 
+        "organization": [], 
+        "event": [], 
+        "desc": "President Amadou"
+    }
+},
+{
+    "pk": 218, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://en.wikipedia.org/wiki/African_Union", 
+        "person": [], 
+        "organization": [
+            30
+        ], 
+        "event": [], 
+        "desc": "Wikipedia"
+    }
+},
+{
+    "pk": 219, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://1.bp.blogspot.com/-gxJP8gYN4DU/Tqmx3Vxe0BI/AAAAAAAAAtE/xzv4M8pB7gU/s320/49169African-Union.png", 
+        "person": [], 
+        "organization": [
+            30
+        ], 
+        "event": [], 
+        "desc": "African Union Symbol"
+    }
+},
+{
+    "pk": 220, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.bbc.co.uk/news/business-22750491", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            36
+        ], 
+        "desc": "Fall of Turkish stock market"
+    }
+},
+{
+    "pk": 221, 
+    "model": "crisis_app.embed", 
+    "fields": {
+        "kind": "CIT", 
+        "url": "http://www.reuters.com/article/2013/06/24/us-germany-turkey-merkel-idUSBRE95N11420130624", 
+        "person": [], 
+        "organization": [], 
+        "event": [
+            36
+        ], 
+        "desc": "Germany calls on Turkey to remove hurdles to EU accession"
     }
 },
 {
