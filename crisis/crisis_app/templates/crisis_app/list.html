@@ -1,4 +1,4 @@
-{% extends "crisis_app/base_site.html" %}
+{% extends "crisis/base_site.html" %}
 {% block title %}{{ type }}{% endblock %}
 
 {% block content %}
@@ -23,11 +23,13 @@
 {% endblock %}
 
 {% block tail_imports %}
+{{ block.super }}
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/masonry.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/columns.css" />
 {% endblock %}
 
 {% block script %}
+{{ block.super }}
 $('#nav_{{ dir }}').addClass('active');
 function load(){
   $('#mContainer>a>div').addClass('contentItem');

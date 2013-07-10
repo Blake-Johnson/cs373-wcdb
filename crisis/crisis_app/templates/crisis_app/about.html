@@ -1,4 +1,4 @@
-{% extends "crisis_app/base_site.html" %}
+{% extends "crisis/base_site.html" %}
 {% block title %}About{% endblock %}
 
 {% block content %}
@@ -37,5 +37,6 @@
 {% endblock %}
 
 {% block script %}
+{{ block.super }}
 $('#nav_about').addClass('active');
 {% endblock %}

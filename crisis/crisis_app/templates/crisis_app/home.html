@@ -1,4 +1,4 @@
-{% extends "crisis_app/base_site.html" %}
+{% extends "crisis/base_site.html" %}
 
 {% block content %}
 <div id="chart"></div>
@@ -24,6 +24,7 @@
 {% endblock %}
 
 {% block tail_imports %}
+{{ block.super }}
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/pScrollbar.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/jit.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/treemap.js"></script>
@@ -32,6 +33,7 @@
 {% endblock %}
 
 {% block script %}
+{{ block.super }}
 $('#nav_home').addClass('active');
 var json = {{ json|safe }};
 $('#btnPop').tooltip({ animation: false, placement: 'bottom', title: 'Tiles are sized by popularity'});

@@ -1,0 +1,121 @@
+{% extends "crisis/base_site.html" %}
+
+{% block content %}
+<section class="container">
+  <h1>{% block content_title %}{% endblock %}</h1>
+  <div class="well clearfix">
+    {% block content_custom %}
+    {% endblock %}
+    {% block relations %}
+    {% if events|length > 0 %}
+      <h3>Influential Events</h3>
+      <hr />
+      <ul>
+        {% for event in events %}
+        <li><a href="/events/{{ event.id }}">{{ event.name }}</a></li>
+        {% endfor %}
+      </ul>
+      <br />
+    {% endif %}
+    {% if people|length > 0 %}
+      <h3>Influential People</h3>
+      <hr />
+      <ul>
+        {% for person in people %}
+        <li><a href="/people/{{ person.id }}">{{ person.name }}</a></li>
+        {% endfor %}
+      </ul>
+      <br />
+    {% endif %}
+    {% if orgs|length > 0 %}
+      <h3>Influential Organizations</h3>
+      <hr />
+      <ul>
+        {% for org in orgs %}
+        <li><a href="/orgs/{{ org.id }}">{{ org.name }}</a></li>
+        {% endfor %}
+      </ul>
+      <br />
+    {% endif %}
+    {% endblock %}
+    {% block embed %}
+      {% if embed.images|length > 1 %}
+        <h3>Images</h3>
+        <ul id="mContainer" class="da-img">
+          {% for image in embed.images|slice:"1:" %}
+          <li class="imageItem">
+            <a href="{{ image.url }}" target="_blank">
+              <img src="{{ image.url }}" />
+              <div><span>{{ image.desc }}</span></div>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if embed.videos %}
+        <h3>Videos</h3>
+        <ul>
+          {% for video in embed.videos %}
+          <li>
+            <a href="{{ video.url }}" target="_blank">{{ video.desc }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if embed.maps %}
+        <h3>Maps</h3>
+        <ul>
+          {% for map in embed.maps %}
+          <li>
+            <a href="{{ map.url }}" target="_blank">{{ map.desc }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if embed.feeds %}
+        <h3>Feeds</h3>
+        <ul>
+          {% for feed in embed.feeds %}
+          <li>
+            <a href="{{ feed.url }}" target="_blank">{{ feed.desc }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+      {% if embed.citations %}
+        <h3>References</h3>
+        <ul>
+          {% for citation in embed.citations %}
+          <li>
+            <a href="{{ citation.url }}" target="_blank">{{ citation.desc }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endblock %}
+  </div>
+</section>
+{% endblock %}
+
+{% block tail_imports %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/columns.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/da_img.css" />
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/modernizr.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/masonry.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/hoverdir.js"></script>
+{% endblock %}
+
+{% block script %}
+{{ block.super }}
+$('.da-img>li').each(function(){
+  $(this).hoverdir();
+});
+function load(){
+  var mContainer = document.querySelector('#mContainer');
+  var masonry = new Masonry(mContainer, {
+    itemSelector: '.imageItem'
+  });
+}
+window.onload = load
+{% endblock %}
