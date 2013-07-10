@@ -8,17 +8,12 @@ from collections import OrderedDict
 from crisis_app import models
 
 def s(text):
-	# return text.encode('UTF-8') if hasattr(text, 'encode') else str(text)
-	return str(text)
+	return text if hasattr(text, 'encode') else str(text)
 
 def e(tag, text=None, attr={}):
 	e = Element(tag=tag)
 	if text != None:
-		try:
-			e.text = s(text)
-		except Exception, e:
-			# import pdb; pdb.set_trace()
-			raise e
+		e.text = s(text)
 	[e.set(k, s(v)) for k, v in attr.items()]
 	return e
 
@@ -130,5 +125,5 @@ def convert():
 	for m, Conv in m_to_conv.items():
 		for model in getattr(models, m).objects.all():
 			Conv().append_to(model, root)
-	return minidom.parseString(tostring(root, encoding='UTF-8')).toprettyxml()
+	return minidom.parseString(tostring(root)).toprettyxml()
 
