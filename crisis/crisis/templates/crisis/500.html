@@ -1,9 +1,6 @@
 {% extends "crisis/base_site.html" %}
 {% block title %}Server Error{% endblock %}
 
-{% block head_imports %}
-{% endblock %}
-
 {% block content %}
 <section class="container noGrav">
   <h1 class="noGrav">500: Server Error</h1>
@@ -25,10 +22,12 @@
 {% endblock %}
 
 {% block tail_imports %}
+{{ block.super }}
 <script type="text/javascript" src="{{ STATIC_URL }}crisis/js/gravity.js"></script>
 {% endblock %}
 
 {% block script %}
+{{ block.super }}
 if(document.body.style['webkitPerspective'] !== undefined || document.body.style['MozPerspective'] !== undefined){
     $('.roll').each(function(){
       $(this).removeClass('roll');
