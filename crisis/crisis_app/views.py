@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from crisis_app.models import Event, Person, Organization, Embed, About
+from django.http import HttpResponse
 import datetime, json
+
+from crisis_app.models import Event, Person, Organization, Embed, About
+from crisis_app.converters import to_xml
 
 class OutdatedException(Exception):
 	'''
@@ -231,3 +234,6 @@ def orgs(request, org_id=None):
 		people = Person.objects.filter(organization__id=org.id)
 		context = { 'org': org, 'embed': embed, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)
+
+def xml(request):
+    return HttpResponse(content=to_xml.convert(), mimetype='application/xml')
