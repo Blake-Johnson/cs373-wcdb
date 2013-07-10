@@ -15,10 +15,21 @@ def my500(request):
 	'''
 	return render(request, 'crisis/500.html')
 
-def manage(request):
+def login(request):
 	'''
 	Provides an authentication method for site managers
 	Authenticated users will have access to generally
-		restricted areas of the site
+		restricted areas of the site, such as the
+		manage page
+	'''
+	return render(request, 'crisis/login.html')
+
+def logout(request):
+	'''
+	'''
+	return render(request, 'crisis/logout.html')
+
+def manage(request):
+	'''
 	'''
 	return render(request, 'crisis/manage.html')
