@@ -14,3 +14,11 @@ def my500(request):
 	Called from crisis/urls.py
 	'''
 	return render(request, 'crisis/500.html')
+
+def manage(request):
+	'''
+	Provides an authentication method for site managers
+	Authenticated users will have access to generally
+		restricted areas of the site
+	'''
+	return render(request, 'crisis/manage.html')

@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     # crisis takes care of components beyond the site
     url(r'^(?i)404$', 'crisis.views.my404', name='404'),
     url(r'^(?i)500$', 'crisis.views.my500', name='500'),
+    url(r'^(?i)manage$', 'crisis.views.manage', name='manage'),
 
     # Examples:
     # url(r'^$', 'crisis.views.home', name='home'),
