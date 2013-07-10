@@ -237,6 +237,9 @@ def orgs(request, org_id=None):
 		return render(request, 'crisis_app/org.html', context)
 
 def xml(request):
+	'''
+	This code exists to test the XML conversion for deploying to the public database
+	'''
 	path = 'crisis_app/xml'
 	try:
 		xml_info = open(path, 'r+')
