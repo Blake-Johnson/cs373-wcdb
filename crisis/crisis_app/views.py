@@ -28,8 +28,8 @@ def make_parent(name, color):
 	The $area is initialized to 0; it will be increased over time as
 		nodes are added to the parent node
 	'''
-	assert type(name) is str
-	assert type(color) is str
+	assert type(name) in [str, int, unicode, tuple]
+	assert type(color) in [str, int, unicode, tuple, list]
 	return {
 		'id': name,
 		'data': { '$color': color, '$area': 0 },
@@ -44,11 +44,11 @@ def add_child(parent, name, color, area, image, desc):
 		data consisting of the parameters passed into the function
 	'''
 	assert type(parent) is dict
-	assert type(name) is int
+	assert type(name) in [str, int, unicode]
 	assert type(color) is str
 	assert type(area) is int
 	# assert type(image) is [need to do this one]
-	assert type(desc) is str
+	assert type(desc) in [str, int, unicode]
 	parent['children'].append({
 		'id': name,
 		'data': {
