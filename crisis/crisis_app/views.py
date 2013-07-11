@@ -135,21 +135,28 @@ def getJSON(path):
 
 def query(q, cols):
 	'''
-	TODO: document this
+	Preconditions: a query is provided with the columns of a table
+		to search for the existence of those queries
+	Postconditions: a Django Q object is generated and provided to
+		the function's caller
+	Implementation: regex is precompiled to optimize the loop; logic
+		is built such that only one column of the table needs to
+		contain each part of the query, but each part of the query
+		must be found to in one column
 	'''
 	space = re.compile(r'\s{2,}')
-	blocks = re.compile(r'"([^"]+)"|(\S+)')
-	terms = [space.sub(' ', block[0] or block[1]).strip() for block in blocks.findall(q)]
-	term_query = None
-	for term in terms:
+	parts = re.compile(r'"([^"]+)"|(\S+)')
+	blocks = [space.sub(' ', part[0] or part[1]).strip() for part in parts.findall(q)]
+	block_query = None
+	for block in blocks:
 		col_query = None
 		for col in cols:
-			q = Q(**{"%s__icontains" % column: term})
-			# term just needs to be found in one of the columns
+			q = Q(**{"%s__icontains" % col: block})
+			# block just needs to be found in one of the columns
 			col_query = q if col_query is None else (col_query | q)
 		# all terms need to be found at least once
-		term_query = col_query if term_query is None else (term_query & col_query)
-	return term_query
+		block_query = col_query if block_query is None else (block_query & col_query)
+	return block_query
 
 def index(request):
 	'''
