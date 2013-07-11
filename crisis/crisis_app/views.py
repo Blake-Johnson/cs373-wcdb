@@ -138,9 +138,12 @@ def index(request):
 		the splash on the home page and sends it to the home.html
 		template
 	'''
-	json = getJSON('crisis_app/cache/json')
-	context = { 'json': json }
-	return render(request, 'crisis_app/home.html', context)
+	if 'q' in request.GET:
+		return HttpResponse('hi')
+	else:
+		json = getJSON('crisis_app/cache/json')
+		context = { 'json': json }
+		return render(request, 'crisis_app/home.html', context)
 
 def about(request):
 	'''
