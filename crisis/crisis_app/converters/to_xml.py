@@ -42,7 +42,7 @@ class XmlToModelConversion(object):
 				list_el.append(e('li', text=m.desc, attr={attr: m.url}))
 			else:
 				list_el.append(e('li', attr={attr: m.url, 'text': m.desc}))
-		if len(list(el)) > 0:
+		if len(list(list_el)) > 0:
 			el.append(list_el)
 
 	def _add_relationships(self, model, el, plural_tag, singluar_tag, attr):
@@ -50,7 +50,7 @@ class XmlToModelConversion(object):
 		for other in getattr(model, attr).all():
 			plural_el.append(e(tag=singluar_tag,
 				attr={'ID': id_prefixed(singluar_tag, other.xml_id)}))
-		if len(list(el)) > 0:
+		if len(list(plural_el)) > 0:
 			el.append(plural_el)
 
 	def _add_model_data_to_el(self, model, el):
