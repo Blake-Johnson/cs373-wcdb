@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from crisis_app.models import Event, Person, Organization, Embed, About
-from crisis_app.converters import to_xml
+from crisis_app.converters import to_xml, url_to_embed
 
 class OutdatedException(Exception):
 	'''
