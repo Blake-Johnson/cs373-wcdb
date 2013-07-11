@@ -129,7 +129,7 @@ def getJSON(path):
 		json_info = open(path, 'w')
 		json_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
 		json = makeJSON(5)
-		json_info.write(json)
+		json_info.write(json.encode('utf8'))
 	json_info.close()
 	return json
 
@@ -239,6 +239,7 @@ def orgs(request, org_id=None):
 def xml(request):
 	'''
 	This code exists to test the XML conversion for deploying to the public database
+	It needs to be password protected
 	'''
 	path = 'crisis_app/xml'
 	try:
@@ -253,6 +254,6 @@ def xml(request):
 		xml_info = open(path, 'w')
 		xml_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
 		xml = to_xml.convert()
-		xml_info.write(xml)
+		xml_info.write(xml.encode('utf8'))
 	xml_info.close()
 	return HttpResponse(content=xml, mimetype='application/xml')
