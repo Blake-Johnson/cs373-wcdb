@@ -1,4 +1,4 @@
-import datetime, json, re
+import datetime, json, re, types
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
@@ -25,6 +25,8 @@ def makeParent(name, color):
 	The $area is initialized to 0; it will be increased over time as
 		nodes are added to the parent node
 	'''
+	assert type(name) is str
+	assert type(color) is str
 	return {
 		'id': name,
 		'data': { '$color': color, '$area': 0 },
@@ -38,6 +40,12 @@ def addChild(parent, name, color, area, image, desc):
 	Postconditions: a new child is appended to the parent node with
 		data consisting of the parameters passed into the function
 	'''
+	assert type(parent) is dict
+	assert type(name) is int
+	assert type(color) is str
+	assert type(area) is int
+	# assert type(image) is [need to do this one]
+	assert type(desc) is str
 	parent['children'].append({
 		'id': name,
 		'data': {
@@ -56,6 +64,7 @@ def makeJSON(num_elements):
 	Postconditions: returns a JSON string formatted for the splash
 		on the home page
 	'''
+	assert type(num_elements) is int
 	color_scheme = {
 		'root': '#222',
 		'event_title': '#6eba08',
@@ -68,7 +77,6 @@ def makeJSON(num_elements):
 	events = makeParent('Events', color_scheme['event_title'])
 	people = makeParent('People', color_scheme['people_title'])
 	organizations = makeParent('Organizations', color_scheme['organizations_title'])
-	total_area = 0
 
 	children = Event.objects.all()[:num_elements]
 	for child in children:
@@ -78,7 +86,6 @@ def makeJSON(num_elements):
 		addChild(events, child.name, color_scheme['event_content'], area, image, desc)
 		events['data']['$area'] += area
 	events['data']['popularity'] = events['data']['$area']
-	total_area += events['data']['$area']
 
 	children = Person.objects.all()[:num_elements]
 	for child in children:
@@ -88,7 +95,6 @@ def makeJSON(num_elements):
 		addChild(people, child.name, color_scheme['people_content'], area, image, desc)
 		people['data']['$area'] += area
 	people['data']['popularity'] = people['data']['$area']
-	total_area += people['data']['$area']
 
 	children = Organization.objects.all()[:num_elements]
 	for child in children:
@@ -98,8 +104,8 @@ def makeJSON(num_elements):
 		addChild(organizations, child.name, color_scheme['organizations_content'], area, image, desc)
 		organizations['data']['$area'] += area
 	organizations['data']['popularity'] = organizations['data']['$area']
-	total_area += organizations['data']['$area']
 
+	total_area = events['data']['$area'] + people['data']['$area']+ organizations['data']['$area']
 	return json.dumps({
 		"id": "Crisis",
 		"data": { "$color": color_scheme['root'], "$area": total_area },
@@ -145,6 +151,8 @@ def query(q, cols):
 		contain each part of the query, but each part of the query
 		must be found to in one column
 	'''
+	assert type(q) is str
+	assert type(cols) is list
 	space = re.compile(r'\s{2,}')
 	parts = re.compile(r'"([^"]+)"|(\S+)')
 	blocks = [space.sub(' ', part[0] or part[1]).strip() for part in parts.findall(q)]
