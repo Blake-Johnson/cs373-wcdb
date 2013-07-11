@@ -1,4 +1,4 @@
-.contentItem {
+.listItem {
 	width: 16%;
 	margin: 0.2em;
 }
@@ -7,7 +7,7 @@
 	max-width: 320px;
 	margin: 0.3em;
 }
-.columns {
+.columns > a {
 	-webkit-column-count: 5;
 	-webkit-column-gap: 5px;
 	-webkit-column-fill: auto;
