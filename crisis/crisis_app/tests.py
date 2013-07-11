@@ -16,7 +16,6 @@ XML_FIXTURE_PATH = 'crisis_app/fixtures/xml'
 XML = dict((f.split('.')[0], open(join(XML_FIXTURE_PATH, f)).read().strip())
 	for f in os.listdir(XML_FIXTURE_PATH))
 
-
 class ToJsonTestCase(TestCase):
 
 	def test_makeParent_1(self):

@@ -301,7 +301,6 @@ def raw_xml(request):
 class XmlUploadForm(forms.Form):
 	xml = forms.FileField()
 
-
 def xml(request):
 	if request.POST:
 		form = XmlUploadForm(request.POST, request.FILES)
