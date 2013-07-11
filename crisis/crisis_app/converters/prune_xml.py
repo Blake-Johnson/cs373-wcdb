@@ -10,6 +10,7 @@ OUR_IDS =  ['BMBOMB', 'FUKUSH', 'SYCLWR', 'HURSAN', 'COLSSD',
 			'THIOKL', 'GENELE', 'MARORG', 'NATOAA', 'TEPCOM',
 			'REDCRS', 'WHORGN', 'NASAUS', 'CATHLC',]
 
+# missing:
 # CEO of TEPCO Masataka Shimizu
 # American mechanical engineer Roger Boisjoly
 # Russian President Vladimir Putin
