@@ -1,7 +1,8 @@
-import datetime, json
+import datetime, json, re
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.db.models import Q
 
 from crisis_app.models import Event, Person, Organization, Embed, About
 from crisis_app.converters import to_xml
@@ -132,14 +133,48 @@ def getJSON(path):
 	json_info.close()
 	return json
 
+def normalize_query(query_string, findterms=re.compile(r'"([^"]+)"|(\S+)').findall, normspace=re.compile(r'\s{2,}').sub):
+	''' 
+	Splits the query string in invidual keywords, getting rid of unecessary spaces
+		and grouping quoted words together.
+	Example:
+		normalize_query('  some random  words "with   quotes  " and   spaces')
+		['some', 'random', 'words', 'with quotes', 'and', 'spaces']
+	'''
+	return [normspace(' ', (t[0] or t[1]).strip()) for t in findterms(query_string)] 
+
+def get_query(query_string, search_fields):
+	''' 
+	Returns a query, that is a combination of Q objects. That combination
+	aims to search keywords within a model by testing the given search fields.
+	'''
+	query = None # Query to search for every search term        
+	terms = normalize_query(query_string)
+	for term in terms:
+		or_query = None # Query to search for a given term in each field
+		for field_name in search_fields:
+			q = Q(**{"%s__icontains" % field_name: term})
+			if or_query is None:
+				or_query = q
+			else:
+				or_query = or_query | q
+		if query is None:
+			query = or_query
+		else:
+			query = query & or_query
+	return query
+
 def index(request):
 	'''
 	Runs through the necessary logic to retrieve a JSON string for
 		the splash on the home page and sends it to the home.html
 		template
 	'''
-	if 'q' in request.GET:
-		return HttpResponse('hi')
+	if 'q' in request.GET and request.GET['q'].strip():
+		query = request.GET['q']
+		entry_query = get_query(query, ['name'])
+		found_entries = Event.objects.filter(entry_query).order_by('-date_time')
+		return HttpResponse(found_entries)
 	else:
 		json = getJSON('crisis_app/cache/json')
 		context = { 'json': json }
