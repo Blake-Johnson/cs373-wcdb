@@ -1,8 +1,9 @@
 import datetime, json, re
 
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Q
+from django import forms
 
 from crisis_app.models import Event, Person, Organization, Embed, About
 from crisis_app.converters import to_xml
@@ -268,7 +269,7 @@ def orgs(request, org_id=None):
 		context = { 'org': org, 'embed': embed, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)
 
-def xml(request):
+def raw_xml(request):
 	'''
 	This code exists to test the XML conversion for deploying to the public database
 	It needs to be password protected
@@ -288,3 +289,17 @@ def xml(request):
 		xml_info.write(xml.encode('utf8'))
 	xml_info.close()
 	return HttpResponse(content=xml, mimetype='application/xml')
+
+class XmlUploadForm(forms.Form):
+	xml = forms.FileField()
+
+
+def xml(request):
+	if request.POST:
+		form = XmlUploadForm(request.POST, request.FILES)
+		if form.is_valid():
+			return HttpResponseRedirect('/data.xml')
+	else:
+		form = XmlUploadForm()
+	context = {'form': form}
+	return render(request, 'crisis_app/xml.html', context)

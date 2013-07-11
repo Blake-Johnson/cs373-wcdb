@@ -29,6 +29,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'^(?i)data.xml$', 'crisis_app.views.raw_xml', name='raw_xml'),
     url(r'^(?i)xml$', 'crisis_app.views.xml', name='xml'),
 )
 
