@@ -105,7 +105,7 @@ def make_json(num_elements):
 		organizations['data']['$area'] += area
 	organizations['data']['popularity'] = organizations['data']['$area']
 
-	total_area = events['data']['$area'] + people['data']['$area']+ organizations['data']['$area']
+	total_area = events['data']['$area'] + people['data']['$area'] + organizations['data']['$area']
 	return json.dumps({
 		"id": "Crisis",
 		"data": { "$color": color_scheme['root'], "$area": total_area },
