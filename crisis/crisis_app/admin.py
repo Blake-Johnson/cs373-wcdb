@@ -54,7 +54,7 @@ class EmbedAdmin(admin.ModelAdmin):
 		('Relations', { 'fields': ('event', 'person', 'organization') })
 	)
 	list_display = ('desc', 'kind', 'url')
-	list_filter = ('event', 'person', 'organization')
+	list_filter = ('kind', 'event', 'person', 'organization')
 	list_editable = ('kind', 'url')
 	search_fields = ('kind',)
 	filter_horizontal = ('event', 'person', 'organization')
