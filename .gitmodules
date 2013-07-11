@@ -1,0 +1,3 @@
+[submodule "crisis/django"]
+	path = crisis/django
+	url = https://github.com/django/django.git
