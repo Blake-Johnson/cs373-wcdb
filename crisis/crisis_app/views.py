@@ -71,7 +71,7 @@ def makeJSON(num_elements):
 	children = Event.objects.all()[:num_elements]
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", event__id=child.id)
-		desc = child.human_impact
+		desc = child.human_impact + '<a href="/events/' + str(child.id) + '"><p>Read more . . .</p></a>'
 		area = len(desc)
 		addChild(events, child.name, color_scheme['event_content'], area, image, desc)
 		events['data']['$area'] += area
@@ -81,7 +81,7 @@ def makeJSON(num_elements):
 	children = Person.objects.all()[:num_elements]
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", person__id=child.id)
-		desc = child.kind + child.location
+		desc = child.kind + ': ' + child.location + '<a href="/people/' + str(child.id) + '"><p>Read more . . .</p></a>'
 		area = len(desc) * 10
 		addChild(people, child.name, color_scheme['people_content'], area, image, desc)
 		people['data']['$area'] += area
@@ -91,7 +91,7 @@ def makeJSON(num_elements):
 	children = Organization.objects.all()[:num_elements]
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", organization__id=child.id)
-		desc = child.history
+		desc = child.history + '<a href="/orgs/' + str(child.id) + '"><p>Read more . . .</p></a>'
 		area = len(desc)
 		addChild(organizations, child.name, color_scheme['organizations_content'], area, image, desc)
 		organizations['data']['$area'] += area
@@ -102,7 +102,7 @@ def makeJSON(num_elements):
 		"id": "Crisis",
 		"data": { "$color": color_scheme['root'], "$area": total_area },
 		"children": [events, people, organizations]
-	})
+	}, ensure_ascii=True, encoding='utf-8')
 
 def getJSON(path):
 	'''
@@ -120,16 +120,15 @@ def getJSON(path):
 	try:
 		json_info = open(path, 'r+')
 		date_created = datetime.datetime.strptime(json_info.readline(), '%m-%d-%Y %H:%M:%S\n')
-		if date_created + datetime.timedelta(days=1) < datetime.datetime.now():
+		json = json_info.readline()
+		if date_created + datetime.timedelta(days=1) < datetime.datetime.now() or json == '':
 			json_info.close()
 			raise OutdatedException('The file ' + path + ' is outdated.')
-		else:
-			json = json_info.readline()
 	except:
 		json_info = open(path, 'w')
 		json_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
 		json = makeJSON(5)
-		json_info.write(json.encode('utf8'))
+		json_info.write(json)
 	json_info.close()
 	return json
 
@@ -245,11 +244,10 @@ def xml(request):
 	try:
 		xml_info = open(path, 'r+')
 		date_created = datetime.datetime.strptime(xml_info.readline(), '%m-%d-%Y %H:%M:%S\n')
-		if date_created + datetime.timedelta(days=1) < datetime.datetime.now():
+		xml = xml_info.read(2097152)
+		if date_created + datetime.timedelta(days=1) < datetime.datetime.now() or xml == '':
 			xml_info.close()
 			raise OutdatedException('The file ' + path + ' is outdated.')
-		else:
-			xml = xml_info.read(2097152)
 	except:
 		xml_info = open(path, 'w')
 		xml_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
