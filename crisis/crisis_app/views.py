@@ -279,7 +279,7 @@ def raw_xml(request):
 		xml_info = open(path, 'r+')
 		date_created = datetime.datetime.strptime(xml_info.readline(), '%m-%d-%Y %H:%M:%S\n')
 		xml = xml_info.read(2097152)
-		if date_created + datetime.timedelta(days=1) < datetime.datetime.now() or xml == '':
+		if date_created + datetime.timedelta(hours=1) < datetime.datetime.now() or xml == '':
 			xml_info.close()
 			raise OutdatedException('The file ' + path + ' is outdated.')
 	except:
