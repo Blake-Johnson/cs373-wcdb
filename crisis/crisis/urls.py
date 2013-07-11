@@ -31,6 +31,9 @@ urlpatterns = patterns('',
 
     url(r'^(?i)data.xml$', 'crisis_app.views.raw_xml', name='raw_xml'),
     url(r'^(?i)xml$', 'crisis_app.views.xml', name='xml'),
+
+    url(r'^(?i)login$', 'crisis_app.views.login_view', name='login'),
+    url(r'^(?i)logout$', 'crisis_app.views.logout_view', name='logout'),
 )
 
 # Directs server error codes to proper views

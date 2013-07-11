@@ -4,6 +4,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Q
 from django import forms
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
 
 from crisis_app.models import Event, Person, Organization, Embed, About
 from crisis_app.converters import to_xml
@@ -301,6 +304,7 @@ def raw_xml(request):
 class XmlUploadForm(forms.Form):
 	xml = forms.FileField()
 
+@login_required(login_url='/login')
 def xml(request):
 	if request.POST:
 		form = XmlUploadForm(request.POST, request.FILES)
@@ -308,5 +312,38 @@ def xml(request):
 			return HttpResponseRedirect('/data.xml')
 	else:
 		form = XmlUploadForm()
-	context = {'form': form}
-	return render(request, 'crisis_app/xml.html', context)
+	return render(request, 'crisis_app/xml.html', {'form': form})
+
+class LoginForm(forms.Form):
+	username = forms.CharField(required=True)
+	password = forms.CharField(required=True, widget=forms.PasswordInput)
+
+	def clean(self):
+		super(LoginForm, self).clean()
+		self.user = authenticate(username=self['username'].value(),
+								 password=self['password'].value())
+		if self.user is None:
+			raise forms.ValidationError('Invalid username or password')
+		if not self.user.is_active:
+			raise forms.ValidationError('User is not active')
+
+def login_view(request):
+	if request.POST:
+		form = LoginForm(request.POST)
+		if form.is_valid():
+			login(request, form.user)
+			if 'next' in request.GET:
+				return HttpResponseRedirect(request.GET['next'])
+			else:
+				return HttpResponseRedirect('/')
+	else:
+		print request.GET.urlencode()
+		form = LoginForm()
+	return render(request, 'crisis_app/login.html', {
+		'form': form,
+		'request': request
+	})
+
+def logout_view(request):
+	logout(request)
+	return HttpResponseRedirect('/')

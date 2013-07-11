@@ -2,6 +2,9 @@
 
 import sys
 import os
+
+from django.core.urlresolvers import reverse
+
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
 DEBUG = True
@@ -166,3 +169,5 @@ LOGGING = {
         },
     }
 }
+
+LOGIN_REDIRECT_URL = reverse('index')

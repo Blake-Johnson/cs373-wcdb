@@ -4,7 +4,7 @@
 {% block content %}
 <form enctype="multipart/form-data" method="post" action="{% url 'xml' %}">{% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" value="Submit" />
+  <input class=btn type="submit" value="Submit" />
 </form>
 {% endblock %}
 
