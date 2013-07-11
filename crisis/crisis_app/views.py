@@ -16,7 +16,7 @@ class OutdatedException(Exception):
 	'''
 	pass
 
-def makeParent(name, color):
+def make_parent(name, color):
 	'''
 	Preconditions: a name (string) and color (string) are provided
 	Postconditions: a dictionary is returned containing the relevant
@@ -33,7 +33,7 @@ def makeParent(name, color):
 		'children': []
 	}
 
-def addChild(parent, name, color, area, image, desc):
+def add_child(parent, name, color, area, image, desc):
 	'''
 	Preconditions: a parent node is provided, along with sufficient
 		information to append a new child to that parent
@@ -57,7 +57,7 @@ def addChild(parent, name, color, area, image, desc):
 		}
 	})
 
-def makeJSON(num_elements):
+def make_json(num_elements):
 	'''
 	Preconditions: the number of elements for each parent (events,
 		people, and organizations) is provided
@@ -74,16 +74,16 @@ def makeJSON(num_elements):
 		'organizations_title': '#dfd900',
 		'organizations_content': '#a2a217'
 	}
-	events = makeParent('Events', color_scheme['event_title'])
-	people = makeParent('People', color_scheme['people_title'])
-	organizations = makeParent('Organizations', color_scheme['organizations_title'])
+	events = make_parent('Events', color_scheme['event_title'])
+	people = make_parent('People', color_scheme['people_title'])
+	organizations = make_parent('Organizations', color_scheme['organizations_title'])
 
 	children = Event.objects.all()[:num_elements]
 	for child in children:
 		image = Embed.objects.filter(kind="IMG", event__id=child.id)
 		desc = child.human_impact + '<a href="/events/' + str(child.id) + '"><p>Read more . . .</p></a>'
 		area = len(desc)
-		addChild(events, child.name, color_scheme['event_content'], area, image, desc)
+		add_child(events, child.name, color_scheme['event_content'], area, image, desc)
 		events['data']['$area'] += area
 	events['data']['popularity'] = events['data']['$area']
 
@@ -92,7 +92,7 @@ def makeJSON(num_elements):
 		image = Embed.objects.filter(kind="IMG", person__id=child.id)
 		desc = child.kind + ': ' + child.location + '<a href="/people/' + str(child.id) + '"><p>Read more . . .</p></a>'
 		area = len(desc) * 10
-		addChild(people, child.name, color_scheme['people_content'], area, image, desc)
+		add_child(people, child.name, color_scheme['people_content'], area, image, desc)
 		people['data']['$area'] += area
 	people['data']['popularity'] = people['data']['$area']
 
@@ -101,7 +101,7 @@ def makeJSON(num_elements):
 		image = Embed.objects.filter(kind="IMG", organization__id=child.id)
 		desc = child.history + '<a href="/orgs/' + str(child.id) + '"><p>Read more . . .</p></a>'
 		area = len(desc)
-		addChild(organizations, child.name, color_scheme['organizations_content'], area, image, desc)
+		add_child(organizations, child.name, color_scheme['organizations_content'], area, image, desc)
 		organizations['data']['$area'] += area
 	organizations['data']['popularity'] = organizations['data']['$area']
 
@@ -112,16 +112,16 @@ def makeJSON(num_elements):
 		"children": [events, people, organizations]
 	}, ensure_ascii=True, encoding='utf-8')
 
-def getJSON(path):
+def get_json(path):
 	'''
 	Preconditions: a proper path to the JSON file to load is provided
 	Postconditions: a JSON string for the splash on the home page is
-		either generated with makeJSON() (if the file does not exist,
+		either generated with make_json() (if the file does not exist,
 		or if the file is outdated) or loaded from the cache file
 		(if the file is not outdated); this string is then returned
 		to the caller
-	Since makeJSON() is extremely expensive, any JSON files created
-		are cached for one day; getJSON() ensures that if the JSON
+	Since make_json() is extremely expensive, any JSON files created
+		are cached for one day; get_json() ensures that if the JSON
 		file was created less than one day ago, the JSON string is
 		loaded from the file rather than re-generated
 	'''
@@ -135,17 +135,17 @@ def getJSON(path):
 	except:
 		json_info = open(path, 'w')
 		json_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
-		json = makeJSON(5)
+		json = make_json(5)
 		json_info.write(json)
 	json_info.close()
 	return json
 
-def query(q, cols):
+def querify(q, cols):
 	'''
 	Preconditions: a query is provided with the columns of a table
 		to search for the existence of those queries
-	Postconditions: a Django Q object is generated and provided to
-		the function's caller
+	Postconditions: generates a series of Django Q objects to be
+		used in a model search
 	Implementation: regex is precompiled to optimize the loop; logic
 		is built such that only one column of the table needs to
 		contain each part of the query, but each part of the query
@@ -174,13 +174,13 @@ def index(request):
 		template
 	'''
 	if 'q' in request.GET and request.GET['q'].strip():
-		q = request.GET['q']
-		entry_query = query(q, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
-		found_entries = Event.objects.filter(entry_query).order_by('-date_time')
-		context = { 'result': found_entries }
+		user_query = request.GET['q']
+		logical_query = querify(user_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
+		results = Event.objects.filter(logical_query).order_by('-date_time')
+		context = { 'results': results }
 		return render(request, 'crisis_app/search.html', context)
 	else:
-		json = getJSON('crisis_app/cache/json')
+		json = get_json('crisis_app/cache/json')
 		context = { 'json': json }
 		return render(request, 'crisis_app/home.html', context)
 

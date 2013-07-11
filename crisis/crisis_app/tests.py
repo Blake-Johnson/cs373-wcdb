@@ -5,7 +5,7 @@ from os.path import join
 from subprocess import call, Popen, PIPE
 
 from crisis_app import views
-from views import makeParent, addChild, makeJSON
+from views import make_parent, add_child, make_json
 
 from django.test import TestCase
 
@@ -18,24 +18,24 @@ XML = dict((f.split('.')[0], open(join(XML_FIXTURE_PATH, f)).read().strip())
 
 class ToJsonTestCase(TestCase):
 
-	def test_makeParent_1(self):
-		p = makeParent("test", "color")
+	def test_make_parent_1(self):
+		p = make_parent("test", "color")
 		self.assertEqual(p['id'], "test")
 		self.assertEqual(p['data']['$color'], "color")
 
-	def test_makeParent_2(self):
-		p = makeParent(1, "color")
+	def test_make_parent_2(self):
+		p = make_parent(1, "color")
 		self.assertEqual(p['id'], 1)
 		self.assertEqual(p['data']['$color'], "color")
 		
-	def test_makeParent_3(self):
-		p = makeParent((1, 2), [1, 2, 3])
+	def test_make_parent_3(self):
+		p = make_parent((1, 2), [1, 2, 3])
 		self.assertEqual(p['id'], (1, 2))
 		self.assertEqual(p['data']['$color'], [1, 2, 3])		
 
-	def test_addChild_1(self):
-		p = makeParent("test", "color")
-		addChild(p, 'child', 'color', 0, [], 'desc')
+	def test_add_child_1(self):
+		p = make_parent("test", "color")
+		add_child(p, 'child', 'color', 0, [], 'desc')
 		self.assertEqual(p['children'][0]['id'], 'child')
 		self.assertEqual(p['children'][0]['data']['$color'], 'color')
 		self.assertEqual(p['children'][0]['data']['$area'], 0)
@@ -43,10 +43,10 @@ class ToJsonTestCase(TestCase):
 		self.assertEqual(p['children'][0]['data']['image'], 'None')
 		self.assertEqual(p['children'][0]['data']['description'], 'desc')
 
-	def test_addChild_2(self):
-		p = makeParent("test", "color")
-		addChild(p, 'child', 'color', 0, [], 'desc')
-		addChild(p, 'child', 'color', 0, [1, 2, 3], 'desc')
+	def test_add_child_2(self):
+		p = make_parent("test", "color")
+		add_child(p, 'child', 'color', 0, [], 'desc')
+		add_child(p, 'child', 'color', 0, [1, 2, 3], 'desc')
 		self.assertEqual(p['children'][1]['id'], 'child')
 		self.assertEqual(p['children'][1]['data']['$color'], 'color')
 		self.assertEqual(p['children'][1]['data']['$area'], 0)
@@ -54,8 +54,8 @@ class ToJsonTestCase(TestCase):
 		self.assertEqual(p['children'][1]['data']['image'], '1')
 		self.assertEqual(p['children'][1]['data']['description'], 'desc')
 
-	def test_makeJSON_1(self):
-		j = makeJSON(3)
+	def test_make_json_1(self):
+		j = make_json(3)
 		p = json.loads(j)
 		self.assertEqual(p["id"], "Crisis")
 		self.assertEqual(p['children'][0]['id'], "Events")
