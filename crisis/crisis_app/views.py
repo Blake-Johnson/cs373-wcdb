@@ -169,8 +169,8 @@ def index(request):
 	if 'q' in request.GET and request.GET['q'].strip():
 		query = request.GET['q']
 		entry_query = get_query(query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
-		#found_entries = Event.objects.filter(entry_query).order_by('-date_time')
-		context = { 'result': entry_query }
+		found_entries = Event.objects.filter(entry_query).order_by('-date_time')
+		context = { 'result': found_entries }
 		return render(request, 'crisis_app/search.html', context)
 		return HttpResponse(entry_query)
 	else:
