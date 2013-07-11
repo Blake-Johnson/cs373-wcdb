@@ -1,4 +1,4 @@
-import datetime, json, re, types
+import os, datetime, json, re, types
 from subprocess import PIPE, Popen
 from StringIO import StringIO
 
@@ -11,7 +11,9 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 
 from crisis_app.models import Event, Person, Organization, Embed, About
-from crisis_app.converters import to_xml
+from crisis_app.converters import to_xml, to_db
+
+XML_CACHE_PATH = 'crisis_app/cache/xml'
 
 class OutdatedException(Exception):
 	'''
@@ -282,21 +284,26 @@ def orgs(request, org_id=None):
 		context = { 'org': org, 'embed': embed, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)
 
+def invalidate_xml_cache():
+	if os.path.exists(XML_CACHE_PATH):
+		os.remove(XML_CACHE_PATH)
+
+
 def raw_xml(request):
 	'''
 	This code exists to test the XML conversion for deploying to the public database
 	It needs to be password protected
 	'''
-	path = 'crisis_app/cache/xml'
+	path = XML_CACHE_PATH
 	try:
-		xml_info = open(path, 'r+')
+		xml_info = open(XML_CACHE_PATH, 'r+')
 		date_created = datetime.datetime.strptime(xml_info.readline(), '%m-%d-%Y %H:%M:%S\n')
 		xml = xml_info.read(2097152)
 		if date_created + datetime.timedelta(hours=1) < datetime.datetime.now() or xml == '':
 			xml_info.close()
-			raise OutdatedException('The file ' + path + ' is outdated.')
+			raise OutdatedException('The file ' + XML_CACHE_PATH + ' is outdated.')
 	except:
-		xml_info = open(path, 'w')
+		xml_info = open(XML_CACHE_PATH, 'w')
 		xml_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
 		xml = to_xml.convert()
 		xml_info.write(xml.encode('utf8'))
@@ -323,6 +330,10 @@ def xml(request):
 	if request.POST:
 		form = XmlUploadForm(request.POST, request.FILES)
 		if form.is_valid():
+			f = form['xml'].value()
+			f.seek(0)
+			to_db.convert(f.read())
+			invalidate_xml_cache()
 			return HttpResponseRedirect('/data.xml')
 	else:
 		form = XmlUploadForm()

@@ -9,6 +9,8 @@ from views import make_parent, add_child, make_json
 
 from django.test import TestCase
 from django.core import management
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 from crisis_app.converters import to_xml, to_db
 from crisis_app.models import Event, Organization, Person, Embed
@@ -16,6 +18,15 @@ from crisis_app.models import Event, Organization, Person, Embed
 XML_FIXTURE_PATH = 'crisis_app/fixtures/xml'
 XML = dict((f.split('.')[0], open(join(XML_FIXTURE_PATH, f)).read().strip())
 	for f in os.listdir(XML_FIXTURE_PATH))
+
+class UsefulTestCase(TestCase):
+	def _clear_db(self):
+		management.call_command('flush', load_initial_data=False,
+				interactive=False)
+
+	def _reset_db(self):
+		management.call_command('flush', interactive=False)
+
 
 class ToJsonTestCase(TestCase):
 
@@ -83,14 +94,7 @@ class ToXmlTestCase(TestCase):
 		   pass
 		xml.kill()
 
-class ToDbTestCase(TestCase):
-
-	def _clear_db(self):
-		management.call_command('flush', load_initial_data=False,
-				interactive=False)
-
-	def _reset_db(self):
-		management.call_command('flush', interactive=False)
+class ToDbTestCase(UsefulTestCase):
 
 	def test_import(self):
 		self._clear_db()
@@ -103,17 +107,56 @@ class ToDbTestCase(TestCase):
 		self.assertEqual(len(events), 1)
 		self.assertEqual(len(events[0].organization_set.all()), 1)
 		self.assertEqual(len(events[0].person_set.all()), 1)
-		self.assertEqual(len(events[0].embed_set.all()), 5)
+		self.assertEqual(len(events[0].embed_set.all()), 8)
 
 		self.assertEqual(len(people), 1)
 		self.assertEqual(len(people[0].event.all()), 1)
 		self.assertEqual(len(people[0].organization_set.all()), 1)
-		self.assertEqual(len(people[0].embed_set.all()), 6)
+		self.assertEqual(len(people[0].embed_set.all()), 10)
 
 		self.assertEqual(len(orgs), 1)
 		self.assertEqual(len(orgs[0].event.all()), 1)
 		self.assertEqual(len(orgs[0].person.all()), 1)
-		self.assertEqual(len(orgs[0].embed_set.all()), 5)
+		self.assertEqual(len(orgs[0].embed_set.all()), 10)
 
 		self._reset_db()
 
+class ImportExportTest(UsefulTestCase):
+	PWD = '123'
+
+	def setUp(self):
+		self._clear_db()
+		self.xml = open(join(XML_FIXTURE_PATH, 'initial_data.xml'))
+		self.user = User.objects.create_user('admin', 'dont@talk.to.me',
+				self.PWD)
+
+	def tearDown(self):
+		self.client.logout()
+		self.user.delete()
+		self.xml.close()
+		self._reset_db()
+
+	def test_xml_redirect_to_login(self):
+		response = self.client.get('/xml')
+		self.assertEqual(response.status_code, 302)
+
+	def test_xml_submission(self):
+		self.client.login(username=self.user.username, password=self.PWD)
+		response = self.client.get('/xml')
+		self.assertEqual(response.status_code, 200)
+
+		response = self.client.post('/xml', {
+			'xml': self.xml,
+			'Submit': 'Submit'
+		})
+		self.assertEqual(response.status_code, 302)
+		self.assertEqual(response['location'], 'http://testserver/data.xml')
+
+		response = self.client.get('/data.xml')
+		try:
+			self.assertEqual(response.content.strip(),
+				XML['initial_data'].strip())
+		except AssertionError as e:
+			# write the wrong file out to disk for inspection from the cmd line
+			open('invalid_response.xml', 'w').write(response.content)
+			raise e

@@ -2,6 +2,8 @@ from xml.etree.ElementTree import fromstring
 from dateutil.parser import parse as parse_date
 from datetime import datetime
 
+from django.utils.timezone import now
+
 from crisis_app import models
 
 
@@ -23,9 +25,6 @@ def kind(el, parent):
 		return 'MEX'
 	if 'feed' in parent.tag.lower():
 		return 'FEX'
-	# uncomment this if you want to drop into a debugger and figure out where
-	# the logic error is
-	# import pdb; pdb.set_trace()
 	raise Exception('couldnt figure out link type')
 
 
@@ -52,7 +51,7 @@ class ModelToXmlConversion(object):
 		self.model = self.ModelClass()
 		self.model.xml_id = root.get('ID')[4:]
 		self.model.name = root.get('Name')
-		self.model.date_time = datetime.now()
+		self.model.date_time = now()
 		self.embeds = []
 		self.relations = {}
 		self._add_children_to_model(root)
@@ -70,16 +69,16 @@ class ModelToXmlConversion(object):
 		orig = self.model.date_time
 		d = parse_date(el.text)
 		self.model.date_time = datetime(year=d.year, month=d.month, day=d.day,
-				hour=orig.hour, minute=orig.minute)
+				hour=orig.hour, minute=orig.minute, tzinfo=orig.tzinfo)
 
 	def _process_time(self, el):
 		orig = self.model.date_time
 		d = parse_date(el.text)
 		self.model.date_time = datetime(year=orig.year, month=orig.month,
-				day=orig.day, hour=d.hour, minute=d.minute)
+				day=orig.day, hour=d.hour, minute=d.minute, tzinfo=orig.tzinfo)
 
 	def _process_history(self, el):
-		self.model.history = el.text
+		self.model.history = ', '.join(e.text for e in el)
 
 	def _process_location(self, el):
 		self.model.location = el.text
@@ -94,7 +93,7 @@ class ModelToXmlConversion(object):
 		self.model.economic_impact = '\n'.join(e.text for e in el)
 
 	def _process_resourcesneeded(self, el):
-		self.model.economic_impact = '\n'.join(e.text for e in el)
+		self.model.resources_needed = '\n'.join(e.text for e in el)
 
 	def _process_waystohelp(self, el):
 		self.model.ways_to_help = '\n'.join(e.text for e in el)
@@ -106,9 +105,10 @@ class ModelToXmlConversion(object):
 		self._add_children_to_model(el)
 
 	_process_citations = _process_link_set
-	_process_external_links = _process_link_set
+	_process_externallinks = _process_link_set
 	_process_images = _process_link_set
 	_process_videos = _process_link_set
+	_process_maps = _process_link_set
 	_process_feeds = _process_link_set
 
 	_process_crises = _process_relation
