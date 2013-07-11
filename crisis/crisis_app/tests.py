@@ -8,8 +8,9 @@ from crisis_app import views
 from views import make_parent, add_child, make_json
 
 from django.test import TestCase
+from django.core import management
 
-from crisis_app.converters import to_xml
+from crisis_app.converters import to_xml, to_db
 from crisis_app.models import Event, Organization, Person, Embed
 
 XML_FIXTURE_PATH = 'crisis_app/fixtures/xml'
@@ -65,7 +66,10 @@ class ToJsonTestCase(TestCase):
 class ToXmlTestCase(TestCase):
 
 	def test_export(self):
+		# just a sanity check to make sure we're working w/ the correct data
 		self.assertEqual(len(Event.objects.all()), 1)
+
+		# the real test
 		self.assertEqual(to_xml.convert().strip(), XML['initial_data'])
 
 	def test_export_validation(self):
@@ -78,3 +82,38 @@ class ToXmlTestCase(TestCase):
 		except:
 		   pass
 		xml.kill()
+
+class ToDbTestCase(TestCase):
+
+	def _clear_db(self):
+		management.call_command('flush', load_initial_data=False,
+				interactive=False)
+
+	def _reset_db(self):
+		management.call_command('flush', interactive=False)
+
+	def test_import(self):
+		self._clear_db()
+		self.assertEqual(len(Event.objects.all()), 0)
+		to_db.convert(XML['initial_data'])
+		events = Event.objects.all()
+		people = Person.objects.all()
+		orgs = Organization.objects.all()
+
+		self.assertEqual(len(events), 1)
+		self.assertEqual(len(events[0].organization_set.all()), 1)
+		self.assertEqual(len(events[0].person_set.all()), 1)
+		self.assertEqual(len(events[0].embed_set.all()), 5)
+
+		self.assertEqual(len(people), 1)
+		self.assertEqual(len(people[0].event.all()), 1)
+		self.assertEqual(len(people[0].organization_set.all()), 1)
+		self.assertEqual(len(people[0].embed_set.all()), 6)
+
+		self.assertEqual(len(orgs), 1)
+		self.assertEqual(len(orgs[0].event.all()), 1)
+		self.assertEqual(len(orgs[0].person.all()), 1)
+		self.assertEqual(len(orgs[0].embed_set.all()), 5)
+
+		self._reset_db()
+
