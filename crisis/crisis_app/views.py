@@ -138,7 +138,7 @@ def index(request):
 		the splash on the home page and sends it to the home.html
 		template
 	'''
-	json = getJSON('crisis_app/json')
+	json = getJSON('crisis_app/cache/json')
 	context = { 'json': json }
 	return render(request, 'crisis_app/home.html', context)
 
@@ -240,7 +240,7 @@ def xml(request):
 	This code exists to test the XML conversion for deploying to the public database
 	It needs to be password protected
 	'''
-	path = 'crisis_app/xml'
+	path = 'crisis_app/cache/xml'
 	try:
 		xml_info = open(path, 'r+')
 		date_created = datetime.datetime.strptime(xml_info.readline(), '%m-%d-%Y %H:%M:%S\n')
