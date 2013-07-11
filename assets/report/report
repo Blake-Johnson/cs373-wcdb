@@ -12,5 +12,10 @@ XML Schema Design
 Import/Export Facility
 
 Unit Test
+Unit tests were written to test all the functionality of our JSON creating code, our XML parsing and interpreting and validating code, our database reading code, and our import/export code for interfacting with our database. 
+The first suite of tests is for our JSON code. The first set checks for proper creation of parent nodes that allows for correct reading of dictionaried data, and served to familiarize us with calling conventions. Next, we test adding children to a parent node and similar calling conventions for getting the data back out of those nodes. Finally, we tested the make_json function and its compatibility with the json.loads command from the json library. 
+The second suite of tests is for our XML interpreting and validating code. First set tests if we're using the right data (sanity check) and then we see if we're getting the right tag from using the .strip() class function. Second set tests for validation on the code - as in it's still valid XML after being parsed several times.
+The third suite of tests is for our database reading code, which only goes in and tests that we are correctly pulling XML from the 	DB and able to interpret it like we expect it to behave.
+The last suite of tests is for our import/export code. The first test checks for a proper redirect response code to send user to login. The second test checks that we can get the correct response code and then in the same declaration that we can get a different response code (that's still correct!).
 
 Meta - diagrams with captions, effective sections/subsections
