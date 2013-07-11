@@ -1,13 +1,12 @@
 import sys
-from subprocess import call
+from subprocess import check_call
 
 from django.core.management.base import BaseCommand, CommandError
-from crisis_app.converters.to_xml import convert
 
 class Command(BaseCommand):
-    help = 'generates an xml instance'
+    help = 'validates xml input'
 
     def handle(self, *args, **options):
-		call('''
+		check_call('''
 			xmllint --noout --schema crisis_app/static/WorldCrises.xsd.xml -
 		'''.strip().split())
