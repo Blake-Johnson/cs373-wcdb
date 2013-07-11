@@ -37,19 +37,21 @@ class XmlToModelConversion(object):
 
 	def _add_embed_list(self, models, el, tag, attr='href'):
 		list_el = e(tag)
-		el.append(list_el)
 		for i, m in enumerate(models):
 			if attr == 'href':
 				list_el.append(e('li', text=m.desc, attr={attr: m.url}))
 			else:
 				list_el.append(e('li', attr={attr: m.url, 'text': m.desc}))
+		if len(list(el)) > 0:
+			el.append(list_el)
 
 	def _add_relationships(self, model, el, plural_tag, singluar_tag, attr):
 		plural_el = Element(plural_tag)
 		for other in getattr(model, attr).all():
 			plural_el.append(e(tag=singluar_tag,
 				attr={'ID': id_prefixed(singluar_tag, other.xml_id)}))
-		el.append(plural_el)
+		if len(list(el)) > 0:
+			el.append(plural_el)
 
 	def _add_model_data_to_el(self, model, el):
 		el.set('ID', id_prefixed(self.tag, model.xml_id))
