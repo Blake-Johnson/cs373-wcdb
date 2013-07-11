@@ -1,4 +1,6 @@
 import datetime, json, re, types
+from subprocess import PIPE, Popen
+from StringIO import StringIO
 
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
@@ -302,7 +304,19 @@ def raw_xml(request):
 	return HttpResponse(content=xml, mimetype='application/xml')
 
 class XmlUploadForm(forms.Form):
-	xml = forms.FileField()
+	xml = forms.FileField(required=True)
+
+	def clean(self):
+		super(XmlUploadForm, self).clean()
+		if not self['xml'].value():
+			return # the 'required' part of the xml attr will report the error
+		xmllint = Popen('''
+			xmllint --noout --schema crisis_app/static/WorldCrises.xsd.xml -
+		'''.strip().split(), stdin=PIPE, stdout=PIPE, stderr=PIPE)
+		xmllint.stdin.write(self['xml'].value().read())
+		stdout, stderr = xmllint.communicate()
+		if xmllint.returncode:
+			raise forms.ValidationError('XML is invalid:\n' + stderr)
 
 @login_required(login_url='/login')
 def xml(request):
@@ -337,7 +351,6 @@ def login_view(request):
 			else:
 				return HttpResponseRedirect('/')
 	else:
-		print request.GET.urlencode()
 		form = LoginForm()
 	return render(request, 'crisis_app/login.html', {
 		'form': form,

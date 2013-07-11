@@ -40,7 +40,7 @@ def _process_link_set(self, el):
 
 
 def _process_relation(self, el):
-	setattr(self, el.tag.lower(), [child.get('ID') for child in el])
+	self.relations[el.tag] = [child.get('ID') for child in el]
 
 
 class ModelToXmlConversion(object):
@@ -54,6 +54,7 @@ class ModelToXmlConversion(object):
 		self.model.name = root.get('Name')
 		self.model.date_time = datetime.now()
 		self.embeds = []
+		self.relations = {}
 		self._add_children_to_model(root)
 
 	def _add_children_to_model(self, el):
@@ -121,6 +122,17 @@ class Organization(ModelToXmlConversion): pass
 
 
 mapping = {'Crisis': Event, 'Person': Person, 'Organization': Organization}
+tag_mapping = {
+	'Crises': models.Event,
+	'People': models.Person,
+	'Organizations': models.Organization,
+}
+
+rel_mapping = {
+	'Crises': 'event',
+	'People': 'person',
+	'Organizations': 'organization',
+}
 
 
 def convert(xml):
@@ -135,6 +147,22 @@ def convert(xml):
 
 	# link all of the embeds to their corresponding model
 	[c.model.embed_set.add(*c.embeds) for c in conversions]
+
+	# set up all of the many-to-many relationships
+	for c in conversions:
+		for rel_tag, ids in c.relations.items():
+			items = tag_mapping[rel_tag]
+			for i in ids:
+				item = items.objects.filter(xml_id=i[4:])[0]
+				if not item:
+					raise Exception('couldnt find model w/ corresponding id')
+				if hasattr(c.model, rel_mapping[rel_tag]):
+					getattr(c.model, rel_mapping[rel_tag]).add(item)
+				elif hasattr(c.model, rel_mapping[rel_tag] + '_set'):
+					getattr(c.model, rel_mapping[rel_tag] + '_set').add(item)
+				else:
+					raise Exception('model doesnt have relation set')
+
 
 	return conversions
 
