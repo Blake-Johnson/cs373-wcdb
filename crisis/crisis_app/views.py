@@ -133,17 +133,23 @@ def getJSON(path):
 	json_info.close()
 	return json
 
-def get_query(query_string, search_fields):
+def get_query(input, columns):
 	''' 
 	Returns a query, that is a combination of Q objects. That combination
 	aims to search keywords within a model by testing the given search fields.
 	'''
-	query = None # Query to search for every search term        
-	terms = [re.compile(r'\s{2,}').sub(' ', (t[0] or t[1]).strip()) for t in re.compile(r'"([^"]+)"|(\S+)').findall(query_string)]
+	block_pattern = re.compile(r'"([^"]+)"|(\S+)')
+	blocks = block_pattern.findall(input)
+	extra_whitespace = re.compile(r'\s{2,}')
+	terms = []
+	for block in blocks:
+		terms.append(extra_whitespace.sub(' ', (block[0] or block[1]).strip()))
+
+	query = None # Query to search for every search term
 	for term in terms:
 		or_query = None # Query to search for a given term in each field
-		for field_name in search_fields:
-			q = Q(**{"%s__icontains" % field_name: term})
+		for column in columns:
+			q = Q(**{"%s__icontains" % column: term})
 			if or_query is None:
 				or_query = q
 			else:
@@ -163,8 +169,10 @@ def index(request):
 	if 'q' in request.GET and request.GET['q'].strip():
 		query = request.GET['q']
 		entry_query = get_query(query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
-		found_entries = Event.objects.filter(entry_query).order_by('-date_time')
-		return HttpResponse(found_entries)
+		#found_entries = Event.objects.filter(entry_query).order_by('-date_time')
+		context = { 'result': entry_query }
+		return render(request, 'crisis_app/search.html', context)
+		return HttpResponse(entry_query)
 	else:
 		json = getJSON('crisis_app/cache/json')
 		context = { 'json': json }
