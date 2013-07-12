@@ -139,6 +139,8 @@ def get_json():
 		file was created less than one day ago, the JSON string is
 		loaded from the file rather than re-generated
 	'''
+	if not os.path.isdir(os.path.dirname(JSON_CACHE_PATH)):
+		os.mkdir(os.path.dirname(JSON_CACHE_PATH))
 	try:
 		json_info = open(JSON_CACHE_PATH, 'r+')
 		date_created = datetime.datetime.strptime(json_info.readline(), '%m-%d-%Y %H:%M:%S\n')
@@ -325,6 +327,8 @@ def remove_xml_cache():
 
 def xml(request):
 	path = XML_CACHE_PATH
+	if not os.path.isdir(os.path.dirname(path)):
+		os.mkdir(os.path.dirname(path))
 	try:
 		xml_info = open(XML_CACHE_PATH, 'r+')
 		date_created = datetime.datetime.strptime(xml_info.readline(), '%m-%d-%Y %H:%M:%S\n')
