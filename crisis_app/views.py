@@ -372,7 +372,7 @@ def upload_xml(request):
 					'Could not save data:\n' + e.message])
 	else:
 		form = XmlUploadForm()
-	return render(request, 'crisis_app/xml.html', {'form': form})
+	return render(request, 'crisis_app/xml_upload.html', {'form': form})
 
 class LoginForm(forms.Form):
 	username = forms.CharField(required=True)

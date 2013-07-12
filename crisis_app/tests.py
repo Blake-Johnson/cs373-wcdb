@@ -20,6 +20,7 @@ XML = dict((f.split('.')[0], open(join(XML_FIXTURE_PATH, f)).read().strip())
 	for f in os.listdir(XML_FIXTURE_PATH))
 
 class UsefulTestCase(TestCase):
+
 	def _clear_db(self):
 		management.call_command('flush', load_initial_data=False,
 				interactive=False)
@@ -75,6 +76,7 @@ class ToJsonTestCase(TestCase):
 		self.assertEqual(p['children'][2]['id'], "Organizations")
 
 class ToXmlTestCase(TestCase):
+	fixtures = ['test_data.json']
 
 	def test_export(self):
 		# just a sanity check to make sure we're working w/ the correct data
