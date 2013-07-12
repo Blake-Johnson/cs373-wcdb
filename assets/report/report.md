@@ -11,7 +11,16 @@
  - David Coon
  - Qunvar Arora
 
-**Group URL**: [http://tranquil-springs-4182.herokuapp.com][url]
+**Group URL**: [http://tranquil-springs-4182.herokuapp.com/about][url]
+
+**Uploading XML to our site**:
+
+ - Username: crisisuser
+ - Password: crisispass
+
+In the upper-right there's a menu where you can login. Once you login you'll
+see it includes a link to upload xml. Or you could just go directly to [the xml
+upload page][xmlup], and you'll be taken to the xml page via the login.
 
 ## Introduction
 
@@ -142,3 +151,4 @@ coverage over our codebase.
 [stephen]: https://github.com/UTAustin
 [to_db]: https://github.com/UTAustin/cs373-wcdb/blob/master/crisis_app/converters/to_db.py
 [url]: http://tranquil-springs-4182.herokuapp.com
+[xmlup]: http://tranquil-springs-4182.herokuapp.com/upload_xml
