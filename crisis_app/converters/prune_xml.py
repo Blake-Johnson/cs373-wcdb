@@ -1,7 +1,7 @@
 from xml.etree.ElementTree import Element, fromstring, tostring
 from xml.dom import minidom
 
-OUR_IDS =  ['BMBOMB', 'FUKUSH', 'SYCLWR', 'HURSAN', 'COLSSD',
+OUR_IDS =  ['BMBOMB', 'FUKUSH', 'SYCLWR', 'HURSAN', 'SSCHAD',
 			'PIRATE', 'EXXVAL', 'BFACTO', 'HAIEAR', 'AIDSHI',
 
 			'BOMBER', 'ABDALA', 'JOSHAZ', 'RENPRE', 'SYRIDE',
