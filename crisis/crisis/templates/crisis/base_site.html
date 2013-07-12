@@ -21,23 +21,23 @@
         <li id="nav_people"><a href="/people">People</a></li>
         <li id="nav_orgs"><a href="/orgs">Organizations</a></li>
         <li class="divider-vertical"></li>
-        <form method="GET" action="/" class="navbar-search">
+        <form method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
           <div class="input-append">
-            <input type="text" name="q" class="search-query" placeholder="Search Crises" autofocus />
+            <input type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" autofocus />
             <button type="submit" class="btn">Search</button>
             <div class="btn-group">
               <button class="btn dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu">
+              <ul id="search-categories" class="dropdown-menu">
                 <label class="checkbox">
-                  <input type="checkbox" name="events" checked="checked">Events</input>
+                  <input type="checkbox" name="e"{% if selections %}{% if selections.events %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" name="people">People</input>
+                  <input type="checkbox" name="p"{% if selections.people %} checked{% endif %}>People</input>
                 </label>
                 <label class="checkbox">
-                  <input type="checkbox" name="orgs">Organizations</input>
+                  <input type="checkbox" name="o"{% if selections.orgs %} checked{% endif %}>Organizations</input>
                 </label>
               </ul>
             </div>
@@ -79,8 +79,25 @@ if(document.body.style['webkitPerspective'] !== undefined || document.body.style
     });
 }
 $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
-    e.stopPropagation();
+  e.stopPropagation();
 });
+function validate(f){
+  var empty = f.elements['q'].value.trim() == '';
+  var category = f.elements['e'].checked || f.elements['p'].checked || f.elements['o'].checked;
+  var size = f.elements['q'].value.length < 32;
+  if(empty){
+    return false;
+  }
+  if(!category){
+    $('#search-categories').dropdown('toggle');
+    return false;
+  }
+  if(!size){
+    alert('Please limit your search to 31 characters.');
+    return false;
+  }
+  return true;
+}
 {% endblock %}
 </script>
 </body>

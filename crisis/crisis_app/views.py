@@ -149,22 +149,33 @@ def get_json():
 	json_info.close()
 	return json
 
-def querify(q, cols):
+def parse(query):
 	'''
-	Preconditions: a query is provided with the columns of a table
-		to search for the existence of those queries
-	Postconditions: generates a series of Django Q objects to be
-		used in a model search
+	Preconditions: a query is provided
+	Postconditions: the query is parsed into logical units to
+		be querified (see below)
 	Implementation: regex is precompiled to optimize the loop; logic
 		is built such that only one column of the table needs to
 		contain each part of the query, but each part of the query
 		must be found to in one column
 	'''
-	assert type(q) is str
-	assert type(cols) is list
+	assert type(query) in [str, int, unicode, tuple, list]
 	space = re.compile(r'\s{2,}')
 	parts = re.compile(r'"([^"]+)"|(\S+)')
-	blocks = [space.sub(' ', part[0] or part[1]).strip() for part in parts.findall(q)]
+	return [space.sub(' ', part[0] or part[1]).strip() for part in parts.findall(query)]
+
+def querify(blocks, cols):
+	'''
+	Preconditions: a query is provided with the columns of a table
+		to search for the existence of those queries
+	Postconditions: generates a series of Django Q objects to be
+		used in a model search
+	Implementation: logic is built such that only one column of the
+		table needs to contain each part of the query, but each
+		part of the query must be found to in one column
+	'''
+	assert type(blocks) is list
+	assert type(cols) is list
 	block_query = None
 	for block in blocks:
 		col_query = None
@@ -182,13 +193,23 @@ def index(request):
 		the splash on the home page and sends it to the home.html
 		template
 	'''
-	if 'q' in request.GET and request.GET['q'].strip():
+	try:
 		user_query = request.GET['q']
-		logical_query = querify(user_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
-		results = Event.objects.filter(logical_query).order_by('-date_time')
-		context = { 'results': results }
+		parsed_query = parse(user_query)
+		selections = { 'events': 'e' in request.GET, 'people': 'p' in request.GET, 'orgs': 'o' in request.GET }
+		events = people = orgs = []
+		if selections['events']:
+			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
+			events = Event.objects.filter(logical_query).order_by('-date_time')
+		if selections['people']:
+			logical_query = querify(parsed_query, ['name', 'kind', 'location'])
+			people = Person.objects.filter(logical_query)
+		if selections['orgs']:
+			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'])
+			orgs = Organization.objects.filter(logical_query)
+		context = { 'query': user_query, 'events': events, 'people': people, 'orgs': orgs, 'selections': selections }
 		return render(request, 'crisis_app/search.html', context)
-	else:
+	except:
 		json = get_json()
 		context = { 'json': json }
 		return render(request, 'crisis_app/home.html', context)

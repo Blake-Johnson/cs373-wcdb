@@ -1,5 +1,40 @@
 {% extends "crisis/base_site.html" %}
 
 {% block content %}
-{{ results }}
+<section class="container">
+  <h1>Search Results</h1>
+  <div class="span7">
+    {% if events %}
+      <h2>Events</h2>
+      {% for event in events %}
+      <h4><a href="/events/{{ event.id }}">{{ event.name }}</a></h4>
+      <p>{{ event.human_impact|slice:":255" }} ...</p>
+      {% endfor %}
+    {% endif %}
+    {% if people %}
+      <h2>People</h2>
+      {% for person in people %}
+      <h4><a href="/people/{{ person.id }}">{{ person.name }}</a></h4>
+      <p>{{ person.kind }}: {{ person.location|slice:":63" }} ...</p>
+      {% endfor %}
+    {% endif %}
+    {% if orgs %}
+      <h2>Organizations</h2>
+      {% for org in orgs %}
+      <h4><a href="/orgs/{{ org.id }}">{{ org.name }}</a></h4>
+      <p>{{ org.history|slice:":255" }} ...</p>
+      {% endfor %}
+    {% endif %}
+    {% if not events and not people and not orgs %}
+      <br />
+      <p>Your search - <strong>{{ query }}</strong> - did not match anything on our site.</p>
+      <p>Suggestions</p>
+      <ul>
+        <li>Make sure all words are spelled correctly.</li>
+        <li>Try different keywords.</li>
+        <li>Try more general keywords.</li>
+      </ul>
+    {% endif %}
+  </div>
+</section>
 {% endblock %}
