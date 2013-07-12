@@ -66,13 +66,13 @@ class ModelToXmlConversion(object):
 
 	def _process_date(self, el):
 		orig = self.model.date_time
-		d = datetime.strptime(el.text, '%Y-%m-%d %H:%M:%S')
+		d = datetime.strptime(el.text, '%Y-%m-%d')
 		self.model.date_time = datetime(year=d.year, month=d.month, day=d.day,
 				hour=orig.hour, minute=orig.minute, tzinfo=orig.tzinfo)
 
 	def _process_time(self, el):
 		orig = self.model.date_time
-		d = datetime.strptime(el.text, '%Y-%m-%d %H:%M:%S')
+		d = datetime.strptime(el.text, '%H:%M:%S')
 		self.model.date_time = datetime(year=orig.year, month=orig.month,
 				day=orig.day, hour=d.hour, minute=d.minute, tzinfo=orig.tzinfo)
 
