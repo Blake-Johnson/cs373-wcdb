@@ -8,7 +8,7 @@ OUR_IDS =  ['BMBOMB', 'FUKUSH', 'SYCLWR', 'HURSAN', 'COLSSD',
 			'BROBMA', 'POPEFR', 'CEOTEP', 'RBOISJ', 'VPUTIN',
 
 			'THIOKL', 'GENELE', 'MARORG', 'NATOAA', 'TEPCOM',
-			'REDCRS', 'WHORGN', 'NASAUS', 'CATHLC',]
+			'REDCRS', 'WHORGN', 'NASAUS', 'CATHLC', 'UNAIDS']
 
 # missing:
 # American mechanical engineer Roger Boisjoly
