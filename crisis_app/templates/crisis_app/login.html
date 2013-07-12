@@ -4,7 +4,8 @@
 {% block content %}
 <section class="container">
   <h1>Login</h1>
-  <div class="centered">
+  <hr />
+  <div class="span4 offset4">
     <form method=post action="{% url 'login' %}?{{ request.GET.urlencode }}">{% csrf_token %}
       {{ form.as_p }}
       <input class=btn type=submit value=Login />
