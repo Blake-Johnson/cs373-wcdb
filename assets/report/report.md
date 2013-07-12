@@ -3,12 +3,15 @@
 **Group name**: team
 
 **Group members**:
+
  - Stephen Chiang
  - Aaron Stacy
  - Blake Johnson
  - Jason Brown
  - David Coon
  - Qunvar Arora
+
+**Group URL**: [http://tranquil-springs-4182.herokuapp.com][url]
 
 ## Introduction
 
@@ -91,8 +94,6 @@ people, and organizations) all had a lot in common, however they had a few key
 differences. We used inheritance to define a base set of functionality, and
 then we over-rode it and extended it where necessary.
 
-** some info about how we stephen was working on the website in parallel **
-
 We also implemented [a means to import data from XML into the
 database][to_db]. This was an opportunity to make use of the dynamic nature of
 Python -- since the algorithm essentially walked through a set of elements, it
@@ -103,20 +104,41 @@ based on the tag it encountered.
 
 ## Testing
 
-Unit tests were written to test all the functionality of our JSON creating code, our XML parsing and interpreting and validating code, our database reading code, and our import/export code for interfacting with our database. 
-The first suite of tests is for our JSON code. The first set checks for proper creation of parent nodes that allows for correct reading of dictionaried data, and served to familiarize us with calling conventions. Next, we test adding children to a parent node and similar calling conventions for getting the data back out of those nodes. Finally, we tested the make_json function and its compatibility with the json.loads command from the json library. 
-The second suite of tests is for our XML interpreting and validating code. First set tests if we're using the right data (sanity check) and then we see if we're getting the right tag from using the .strip() class function. Second set tests for validation on the code - as in it's still valid XML after being parsed several times.
-The third suite of tests is for our database reading code, which only goes in and tests that we are correctly pulling XML from the 	DB and able to interpret it like we expect it to behave.
-The last suite of tests is for our import/export code. The first test checks for a proper redirect response code to send user to login. The second test checks that we can get the correct response code and then in the same declaration that we can get a different response code (that's still correct!).
+Unit tests were written to test all the functionality of our JSON creating
+code, our XML parsing and interpreting and validating code, our database
+reading code, and our import/export code for interfacting with our database.
 
-[Other]
-Create diagrams with captions. <this section needs work>
-Effective sections/subsections <this section needs work>
-Make a note of the fact that we (a) tested w/ sqlite instead of our deployment
-engine, and (b) deployed to heroku instead of z.
+The first suite of tests is for our JSON code. The first set checks for proper
+creation of parent nodes that allows for correct reading of dictionaried data,
+and served to familiarize us with calling conventions. Next, we test adding
+children to a parent node and similar calling conventions for getting the data
+back out of those nodes. Finally, we tested the make\_json function and its
+compatibility with the json.loads command from the json library.
+
+The second suite of tests is for our XML interpreting and validating code.
+First set tests if we're using the right data (sanity check) and then we see if
+we're getting the right tag from using the .strip() class function. Second set
+tests for validation on the code - as in it's still valid XML after being
+parsed several times.
+
+The third suite of tests is for our database reading code, which only goes in
+and tests that we are correctly pulling XML from the DB and able to interpret
+it like we expect it to behave.
+
+The last suite of tests is for our import/export code. The first test checks
+for a proper redirect response code to send user to login. The second test
+checks that we can get the correct response code and then in the same
+declaration that we can get a different response code (that's still correct!).
+
+Our test suite uses a sqlite3 backend instead of MySQL, which is able to run
+the tests 5 to 10 times faster than MySQL since it does not persist the results
+to disk. Since our codebase follows good design principles of dependency
+injection, we are able to swap the database engine out and still get good test
+coverage over our codebase.
 
 [originalschema]: https://d1b10bmlvqabco.cloudfront.net/attach/hh9t8ndchdb5gl/hbxyznmgwj11l4/hik2a4h35fx2/WorldCrises.xsd.xml
 [vineet]: https://github.com/vineetkeshari
 [schemaissues]: https://github.com/aaronj1335/cs373-wcdb1-schema/pulls?direction=desc&page=1&sort=created&state=closed
 [stephen]: https://github.com/UTAustin
 [to_db]: https://github.com/UTAustin/cs373-wcdb/blob/master/crisis_app/converters/to_db.py
+[url]: http://tranquil-springs-4182.herokuapp.com
