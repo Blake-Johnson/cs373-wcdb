@@ -73,7 +73,7 @@
     -webkit-border-radius: 6px;
 }
 
-/* Bootstrap dropdown right-align */
+/* Fixes right-aligned Bootstrap dropdowns */
 .pull-right .dropdown-menu:after {
     left: auto;
     right: 13px;
