@@ -10,11 +10,6 @@ OUR_IDS =  ['BMBOMB', 'FUKUSH', 'SYCLWR', 'HURSAN', 'COLSSD',
 			'THIOKL', 'GENELE', 'MARORG', 'NATOAA', 'TEPCOM',
 			'REDCRS', 'WHORGN', 'NASAUS', 'CATHLC', 'UNAIDS']
 
-# missing:
-# American mechanical engineer Roger Boisjoly
-# Russian President Vladimir Putin
-# Joint United Nations Programme on HIV/AIDS (UNAIDS)
-
 def prune(xml):
 	new_tree = Element('WorldCrises')
 	for el in fromstring(xml):
