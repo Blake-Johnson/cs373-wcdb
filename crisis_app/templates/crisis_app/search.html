@@ -24,7 +24,7 @@
       {% endfor %}
     {% else %}
       <br />
-      <p>Your search - <strong>{{ query }}</strong> - did not match anything on our site.</p>
+      <p>Your search - <strong>{{ query }}</strong> - did not match anything in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</p>
       <p>Suggestions</p>
       <ul>
         <li>Make sure all words are spelled correctly.</li>

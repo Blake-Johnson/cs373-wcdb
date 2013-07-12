@@ -31,13 +31,13 @@
               </button>
               <ul id="search-categories" class="dropdown-menu">
                 <label class="radio">
-                  <input type="radio" name="t" value="events"{% if selections %}{% if selections.events %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
+                  <input type="radio" name="t" value="events"{% if type %}{% if type == 'events' %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
                 </label>
                 <label class="radio">
-                  <input type="radio" name="t" value="people"{% if selections.people %} checked{% endif %}>People</input>
+                  <input type="radio" name="t" value="people"{% if type == 'people' %} checked{% endif %}>People</input>
                 </label>
                 <label class="radio">
-                  <input type="radio" name="t" value="orgs"{% if selections.orgs %} checked{% endif %}>Organizations</input>
+                  <input type="radio" name="t" value="orgs"{% if type == 'orgs' %} checked{% endif %}>Organizations</input>
                 </label>
               </ul>
             </div>
