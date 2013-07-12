@@ -126,7 +126,7 @@ class Embed(models.Model):
 		)
 	)
 	kind = models.CharField(max_length=3, choices=EMBED_CHOICES, default="CIT", verbose_name="Type")
-	url = models.URLField(max_length=255, unique="True", verbose_name="Embed URL")
+	url = models.URLField(max_length=255, verbose_name="Embed URL")
 
 	event = models.ManyToManyField(Event, blank=True, null=True, verbose_name="Related Events")
 	person = models.ManyToManyField(Person, blank=True, null=True, verbose_name="Related People")

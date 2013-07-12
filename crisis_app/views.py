@@ -13,8 +13,12 @@ from django.core.urlresolvers import reverse
 from crisis_app.models import Event, Person, Organization, Embed, About
 from crisis_app.converters import to_xml, to_db
 
+from minixsv.pyxsval import parseAndValidateXmlInputString
+
 XML_CACHE_PATH = 'crisis_app/cache/xml'
 JSON_CACHE_PATH = 'crisis_app/cache/json'
+XSD = open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+	'static/WorldCrises.xsd.xml')).read()
 
 class OutdatedException(Exception):
 	'''
@@ -344,13 +348,20 @@ class XmlUploadForm(forms.Form):
 		super(XmlUploadForm, self).clean()
 		if not self['xml'].value():
 			return # the 'required' part of the xml attr will report the error
-		xmllint = Popen('''
-			xmllint --noout --schema crisis_app/static/WorldCrises.xsd.xml -
-		'''.strip().split(), stdin=PIPE, stdout=PIPE, stderr=PIPE)
-		xmllint.stdin.write(self['xml'].value().read())
-		stdout, stderr = xmllint.communicate()
-		if xmllint.returncode:
+		try:
+			ret = parseAndValidateXmlInputString(
+					inputText=self['xml'].value().read(), xsdText=XSD)
+		except e:
+			import pdb; pdb.set_trace()
 			raise forms.ValidationError('XML is invalid:\n' + stderr)
+
+		# xmllint = Popen('''
+		# 	xmllint --noout --schema crisis_app/static/WorldCrises.xsd.xml -
+		# '''.strip().split(), stdin=PIPE, stdout=PIPE, stderr=PIPE)
+		# xmllint.stdin.write(self['xml'].value().read())
+		# stdout, stderr = xmllint.communicate()
+		# if xmllint.returncode:
+		# 	raise forms.ValidationError('XML is invalid:\n' + stderr)
 
 @login_required(login_url='/login')
 def xml(request):
