@@ -14,6 +14,7 @@ from crisis_app.models import Event, Person, Organization, Embed, About
 from crisis_app.converters import to_xml, to_db
 
 XML_CACHE_PATH = 'crisis_app/cache/xml'
+JSON_CACHE_PATH = 'crisis_app/cache/json'
 
 class OutdatedException(Exception):
 	'''
@@ -119,9 +120,10 @@ def make_json(num_elements):
 		"children": [events, people, organizations]
 	}, ensure_ascii=True, encoding='utf-8')
 
-def get_json(path):
+def get_json():
 	'''
-	Preconditions: a proper path to the JSON file to load is provided
+	Preconditions: None - recommended that a JSON file already exist
+		in the JSON_CACHE_PATH to optimize performance
 	Postconditions: a JSON string for the splash on the home page is
 		either generated with make_json() (if the file does not exist,
 		or if the file is outdated) or loaded from the cache file
@@ -133,14 +135,14 @@ def get_json(path):
 		loaded from the file rather than re-generated
 	'''
 	try:
-		json_info = open(path, 'r+')
+		json_info = open(JSON_CACHE_PATH, 'r+')
 		date_created = datetime.datetime.strptime(json_info.readline(), '%m-%d-%Y %H:%M:%S\n')
 		json = json_info.readline()
 		if date_created + datetime.timedelta(days=1) < datetime.datetime.now() or json == '':
 			json_info.close()
-			raise OutdatedException('The file ' + path + ' is outdated.')
+			raise OutdatedException('The file ' + JSON_CACHE_PATH + ' is outdated.')
 	except:
-		json_info = open(path, 'w')
+		json_info = open(JSON_CACHE_PATH, 'w')
 		json_info.write(datetime.datetime.strftime(datetime.datetime.now(), '%m-%d-%Y %H:%M:%S') + '\n')
 		json = make_json(5)
 		json_info.write(json)
@@ -187,7 +189,7 @@ def index(request):
 		context = { 'results': results }
 		return render(request, 'crisis_app/search.html', context)
 	else:
-		json = get_json('crisis_app/cache/json')
+		json = get_json()
 		context = { 'json': json }
 		return render(request, 'crisis_app/home.html', context)
 
