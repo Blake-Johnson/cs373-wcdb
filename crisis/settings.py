@@ -16,21 +16,22 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-# Using SQLite for unit testing as a speed optimization
-ENGINE = 'sqlite3' if 'test' in sys.argv else 'mysql'
-
-# DATABASES = {
-#     'default': {
-#         # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-#         'ENGINE': 'django.db.backends.' + ENGINE,
-#         'NAME': 'crisis',                      # Or path to database file if using sqlite3.
-#         # The following settings are not used with sqlite3:
-#         'USER': 'crisisuser',
-#         'PASSWORD': 'crisispass',
-#         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-#         'PORT': '',                      # Set to empty string for default.
-#     }
-# }
+if 'PRODUCTION' in os.environ:
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}
+else:
+    # use in-memory db for unit testing b/c it's effin slow otherwise
+    ENGINE = 'sqlite3' if 'test' in sys.argv else 'mysql'
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.' + ENGINE,
+            'NAME': 'crisis',
+            'USER': 'crisisuser',
+            'PASSWORD': 'crisispass',
+            'HOST': '',
+            'PORT': '',
+        }
+    }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -175,10 +176,6 @@ LOGIN_REDIRECT_URL = '/'
 ################################################################################
 # heroku stuff
 ################################################################################
-
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES = {'default': dj_database_url.config()}
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
