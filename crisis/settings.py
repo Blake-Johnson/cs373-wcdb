@@ -18,7 +18,7 @@ MANAGERS = ADMINS
 
 if 'PRODUCTION' in os.environ:
     import dj_database_url
-    DATABASES = {'default': dj_database_url.config()}
+    DATABASES = { 'default': dj_database_url.config() }
 else:
     # use in-memory db for unit testing b/c it's effin slow otherwise
     ENGINE = 'sqlite3' if 'test' in sys.argv else 'mysql'
@@ -173,15 +173,15 @@ LOGGING = {
 
 LOGIN_REDIRECT_URL = '/'
 
-################################################################################
-# heroku stuff
-################################################################################
+# ------
+# Heroku
+# ------
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*.herokuapp.com']
 
 # Static asset configuration
 import os
