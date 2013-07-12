@@ -2,10 +2,13 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<form method=post action="{% url 'login' %}?{{ request.GET.urlencode }}">{% csrf_token %}
-  {{ form.as_p }}
-  <input class=btn type=submit value=Login />
-</form>
+<section class="container">
+  <h1>Login</h1>
+  <div class="centered">
+    <form method=post action="{% url 'login' %}?{{ request.GET.urlencode }}">{% csrf_token %}
+      {{ form.as_p }}
+      <input class=btn type=submit value=Login />
+    </form  >
+  </div>
+</section>
 {% endblock %}
-
-

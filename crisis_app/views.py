@@ -323,11 +323,12 @@ def remove_xml_cache():
 	if os.path.exists(XML_CACHE_PATH):
 		os.remove(XML_CACHE_PATH)
 
-def xml_view(request):
+def xml(request):
 	path = XML_CACHE_PATH
 	try:
 		xml_info = open(XML_CACHE_PATH, 'r+')
 		date_created = datetime.datetime.strptime(xml_info.readline(), '%m-%d-%Y %H:%M:%S\n')
+		# For this project XML is not expected to go > 2 MB
 		xml = xml_info.read(2097152)
 		if date_created + datetime.timedelta(hours=1) < datetime.datetime.now() or xml == '':
 			xml_info.close()
@@ -346,7 +347,8 @@ class XmlUploadForm(forms.Form):
 	def clean(self):
 		super(XmlUploadForm, self).clean()
 		if not self['xml'].value():
-			return # the 'required' part of the xml attr will report the error
+			# the 'required' part of the xml attrribute will report the error
+			return
 		try:
 			ret = parseAndValidateXmlInputString(
 					inputText=self['xml'].value().read(), xsdText=XSD)
@@ -354,7 +356,7 @@ class XmlUploadForm(forms.Form):
 			raise forms.ValidationError('XML is invalid:\n' + e.message)
 
 @login_required(login_url='/login')
-def xml(request):
+def upload_xml(request):
 	if request.POST:
 		form = XmlUploadForm(request.POST, request.FILES)
 		if form.is_valid():

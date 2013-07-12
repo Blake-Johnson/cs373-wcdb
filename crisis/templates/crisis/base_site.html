@@ -21,28 +21,48 @@
         <li id="nav_people"><a href="/people">People</a></li>
         <li id="nav_orgs"><a href="/orgs">Organizations</a></li>
         <li class="divider-vertical"></li>
-        <form method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
-          <div class="input-append">
-            <input type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" autofocus />
-            <button type="submit" class="btn">Search</button>
-            <div class="btn-group">
-              <button class="btn dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-              </button>
-              <ul id="search-categories" class="dropdown-menu">
-                <label class="radio">
-                  <input type="radio" name="t" value="events"{% if type %}{% if type == 'events' %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
-                </label>
-                <label class="radio">
-                  <input type="radio" name="t" value="people"{% if type == 'people' %} checked{% endif %}>People</input>
-                </label>
-                <label class="radio">
-                  <input type="radio" name="t" value="orgs"{% if type == 'orgs' %} checked{% endif %}>Organizations</input>
-                </label>
-              </ul>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Hello
+            {% if request.user.is_authenticated %}
+            , {{ request.user }}!
+            {% endif %}
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            {% if request.user.is_authenticated %}
+            <li><a href="/upload_xml">Upload XML<span></span></a></li>
+            <li><a href="/logout">Logout<span></span></a></li>
+            {% else %}
+            <li><a href="/login">Login<span></span></a></li>
+            {% endif %}
+          </ul>
+        </li>
+        <li class="divider-vertical"></li>
+        <li>
+          <form method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
+            <div class="input-append">
+              <input type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" autofocus />
+              <button type="submit" class="btn">Search</button>
+              <div class="btn-group">
+                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul id="search-categories" class="dropdown-menu">
+                  <label class="radio">
+                    <input type="radio" name="t" value="events"{% if type %}{% if type == 'events' %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="t" value="people"{% if type == 'people' %} checked{% endif %}>People</input>
+                  </label>
+                  <label class="radio">
+                    <input type="radio" name="t" value="orgs"{% if type == 'orgs' %} checked{% endif %}>Organizations</input>
+                  </label>
+                </ul>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </li>
       </ul>
     </div>
   </div>
