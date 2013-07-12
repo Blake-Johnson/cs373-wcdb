@@ -1,0 +1,11 @@
+{% extends "crisis/base_site.html" %}
+{% block title %}XML Upload{% endblock %}
+
+{% block content %}
+<section class="container">
+  <form enctype="multipart/form-data" method="post" action="{% url 'xml' %}">{% csrf_token %}
+    {   form.as_p }}
+    <input class=btn type="submit" value="Submit" />
+  </form>
+</section>
+{% endblock %}
