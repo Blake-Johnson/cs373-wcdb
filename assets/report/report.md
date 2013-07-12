@@ -11,21 +11,12 @@
  - David Coon
  - Qunvar Arora
 
-**Group URL**: [http://tranquil-springs-4182.herokuapp.com/about][url]
-
-**Uploading XML to our site**:
-
- - Username: crisisuser
- - Password: crisispass
-
-In the upper-right there's a menu where you can login. Once you login you'll
-see it includes a link to upload xml. Or you could just go directly to [the xml
-upload page][xmlup], and you'll be taken to the xml page via the login.
+**Group URL**: [http://tranquil-springs-4182.herokuapp.com][url]
 
 ## Introduction
 
-People who are interested in learning about world crises do not have a central
-repository of world crisis information.  The average person would have to
+People interested in learning about world crises do not have a central
+repository of world crisis information. The average person would have to
 conduct a series of online searches in an patchwork attempt to gather related
 information. This approach is time consuming, inefficient, and its expensive
 time commitment detracts others from gaining awareness into major world
@@ -94,6 +85,34 @@ website allowed groups to easily enter their information and get an XML dump
 that validated against the shared schema. It also provided a really easy way to
 coordinate XML ID's, hopefully making our jobs easier in future projects.
 
+## UI
+
+With a World Crisis Database, our goal was not only provide a useful resource 
+for world crises information available to the public at large - there had to 
+be key user interface choices made so that people could have that information 
+delivered to them in the best way possible. Upon opening the home page, the 
+user is greeted with an interactive full-width splash screen that allows 
+him or her to browse some of the most popular events, people, and organizations 
+being accessed at the time. The user may choose to focus on all categories, only 
+one of the three, or just on one topic at a time.
+
+Three separate pages provide the databases's complete selection of either events, 
+people, or organizations. This information is displayed in a tiled format, with 
+focus on displaying a general overview of each tile by means of a short 
+description and (if applicable) an image.
+
+The most descriptive method of display is with a content page. Content pages 
+provide the user with a complete overview of any one topic, with information 
+categorized for ease of access. Should the reader wish to view more about a 
+particular topic, they also have access to the topic's related events, people, 
+and/or organizations. They also have access to external sources given in 
+online articles, images, videos, and social media sites providing the latest 
+information on a given topic.
+
+Finally, the site provides an intuitive search interface. On any page, the user 
+has immediate access to a search pane which provides tabbed results - one tab 
+for each category (event, people, organizations).
+
 ## Implementation
 
 Once we had fleshed out the initial pass at the schema, we implemented [a
@@ -108,7 +127,6 @@ database][to_db]. This was an opportunity to make use of the dynamic nature of
 Python -- since the algorithm essentially walked through a set of elements, it
 was easy to define a base class that dynamically dispatched handler methods
 based on the tag it encountered.
-
 
 
 ## Testing
@@ -151,4 +169,3 @@ coverage over our codebase.
 [stephen]: https://github.com/UTAustin
 [to_db]: https://github.com/UTAustin/cs373-wcdb/blob/master/crisis_app/converters/to_db.py
 [url]: http://tranquil-springs-4182.herokuapp.com
-[xmlup]: http://tranquil-springs-4182.herokuapp.com/upload_xml
