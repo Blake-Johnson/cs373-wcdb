@@ -7,16 +7,25 @@
     <li{% if type == 'events' %} class="active"{% endif %}><a href="{{ request.path }}?q={{ query }}&t=events">Events<span></span></a></li>
     <li{% if type == 'people' %} class="active"{% endif %}><a href="{{ request.path }}?q={{ query }}&t=people">People<span></span></a></li>
     <li{% if type == 'orgs' %} class="active"{% endif %}><a href="{{ request.path }}?q={{ query }}&t=orgs">Organizations<span></span></a></li>
+    <!--
+    <div class="btn-group pull-right">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        View
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Hi<span></span></a></li>
+      </ul>
+    </div>
+    -->
   </ul>
   <div class="span7">
     {% if results %}
       {% for result in results %}
       <h4><a href="/{{ type }}/{{ result.id }}">{{ result.name }}</a></h4>
+      <p>{{ result.kind }}: {{ result.location|slice:":63" }} ...</p>
       {% if type == 'events' %}
       <p>{{ result.human_impact|slice:":255" }} ...</p>
-      {% endif %}
-      {% if type == 'people' %}
-      <p>{{ result.kind }}: {{ result.location|slice:":63" }} ...</p>
       {% endif %}
       {% if type == 'orgs' %}
       <p>{{ result.history|slice:":255" }} ...</p>

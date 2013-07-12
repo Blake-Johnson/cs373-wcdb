@@ -220,7 +220,7 @@ def index(request):
 			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'])
 			results = Organization.objects.filter(logical_query)
 		context = { 'query': user_query, 'type': query_type, 'results': results }
-		return render(request, 'crisis_app/search.html', context, context_instance=RequestContext(request) )
+		return render(request, 'crisis_app/search.html', context, context_instance=RequestContext(request))
 	except:
 		json = get_json()
 		context = { 'json': json }
