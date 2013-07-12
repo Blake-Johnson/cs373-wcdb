@@ -30,14 +30,14 @@
                 <span class="caret"></span>
               </button>
               <ul id="search-categories" class="dropdown-menu">
-                <label class="checkbox">
-                  <input type="checkbox" name="e"{% if selections %}{% if selections.events %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
+                <label class="radio">
+                  <input type="radio" name="t" value="events"{% if selections %}{% if selections.events %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
                 </label>
-                <label class="checkbox">
-                  <input type="checkbox" name="p"{% if selections.people %} checked{% endif %}>People</input>
+                <label class="radio">
+                  <input type="radio" name="t" value="people"{% if selections.people %} checked{% endif %}>People</input>
                 </label>
-                <label class="checkbox">
-                  <input type="checkbox" name="o"{% if selections.orgs %} checked{% endif %}>Organizations</input>
+                <label class="radio">
+                  <input type="radio" name="t" value="orgs"{% if selections.orgs %} checked{% endif %}>Organizations</input>
                 </label>
               </ul>
             </div>
@@ -83,13 +83,8 @@ $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
 });
 function validate(f){
   var empty = f.elements['q'].value.trim() == '';
-  var category = f.elements['e'].checked || f.elements['p'].checked || f.elements['o'].checked;
   var size = f.elements['q'].value.length < 32;
   if(empty){
-    return false;
-  }
-  if(!category){
-    $('#search-categories').dropdown('toggle');
     return false;
   }
   if(!size){

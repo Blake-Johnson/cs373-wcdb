@@ -5,6 +5,7 @@ from StringIO import StringIO
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Q
+from django.template import *
 from django import forms
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -203,20 +204,23 @@ def index(request):
 	'''
 	try:
 		user_query = request.GET['q']
+		if 't' in request.GET:
+			query_type = request.GET['t']
+		else:
+			query_type = 'events'
 		parsed_query = parse(user_query)
-		selections = { 'events': 'e' in request.GET, 'people': 'p' in request.GET, 'orgs': 'o' in request.GET }
 		events = people = orgs = []
-		if selections['events']:
+		if query_type == 'events':
 			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
-			events = Event.objects.filter(logical_query).order_by('-date_time')
-		if selections['people']:
+			results = Event.objects.filter(logical_query).order_by('-date_time')
+		elif query_type == 'people':
 			logical_query = querify(parsed_query, ['name', 'kind', 'location'])
-			people = Person.objects.filter(logical_query)
-		if selections['orgs']:
+			results = Person.objects.filter(logical_query)
+		elif query_type == 'orgs':
 			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'])
-			orgs = Organization.objects.filter(logical_query)
-		context = { 'query': user_query, 'events': events, 'people': people, 'orgs': orgs, 'selections': selections }
-		return render(request, 'crisis_app/search.html', context)
+			results = Organization.objects.filter(logical_query)
+		context = { 'query': user_query, 'type': query_type, 'results': results }
+		return render(request, 'crisis_app/search.html', context, context_instance=RequestContext(request) )
 	except:
 		json = get_json()
 		context = { 'json': json }

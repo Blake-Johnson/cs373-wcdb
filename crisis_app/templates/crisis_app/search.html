@@ -3,29 +3,26 @@
 {% block content %}
 <section class="container">
   <h1>Search Results</h1>
+  <ul class="nav nav-tabs">
+    <li{% if type == 'events' %} class="active"{% endif %}><a href="{{ request.path }}?q={{ query }}&t=events">Events<span></span></a></li>
+    <li{% if type == 'people' %} class="active"{% endif %}><a href="{{ request.path }}?q={{ query }}&t=people">People<span></span></a></li>
+    <li{% if type == 'orgs' %} class="active"{% endif %}><a href="{{ request.path }}?q={{ query }}&t=orgs">Organizations<span></span></a></li>
+  </ul>
   <div class="span7">
-    {% if events %}
-      <h2>Events</h2>
-      {% for event in events %}
-      <h4><a href="/events/{{ event.id }}">{{ event.name }}</a></h4>
-      <p>{{ event.human_impact|slice:":255" }} ...</p>
+    {% if results %}
+      {% for result in results %}
+      <h4><a href="/{{ type }}/{{ result.id }}">{{ result.name }}</a></h4>
+      {% if type == 'events' %}
+      <p>{{ result.human_impact|slice:":255" }} ...</p>
+      {% endif %}
+      {% if type == 'people' %}
+      <p>{{ result.kind }}: {{ result.location|slice:":63" }} ...</p>
+      {% endif %}
+      {% if type == 'orgs' %}
+      <p>{{ result.history|slice:":255" }} ...</p>
+      {% endif %}
       {% endfor %}
-    {% endif %}
-    {% if people %}
-      <h2>People</h2>
-      {% for person in people %}
-      <h4><a href="/people/{{ person.id }}">{{ person.name }}</a></h4>
-      <p>{{ person.kind }}: {{ person.location|slice:":63" }} ...</p>
-      {% endfor %}
-    {% endif %}
-    {% if orgs %}
-      <h2>Organizations</h2>
-      {% for org in orgs %}
-      <h4><a href="/orgs/{{ org.id }}">{{ org.name }}</a></h4>
-      <p>{{ org.history|slice:":255" }} ...</p>
-      {% endfor %}
-    {% endif %}
-    {% if not events and not people and not orgs %}
+    {% else %}
       <br />
       <p>Your search - <strong>{{ query }}</strong> - did not match anything on our site.</p>
       <p>Suggestions</p>

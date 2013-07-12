@@ -1,0 +1,122 @@
+07-12-2013 11:58:08
+<?xml version="1.0" ?>
+<WorldCrises>
+	<Crisis ID="CRI_HURSAN" Name="Hurricane Sandy">
+		<People>
+			<Person ID="PER_BROBMA"/>
+		</People>
+		<Organizations>
+			<Org ID="ORG_REDCRS"/>
+		</Organizations>
+		<Kind>natural disaster</Kind>
+		<Date>2012-10-29</Date>
+		<Time>05:00:00</Time>
+		<Locations>
+			<li>New York metropolitan area</li>
+		</Locations>
+		<HumanImpact>
+			<li>At least 286 people were killed along the path of the storm in seven countries.</li>
+		</HumanImpact>
+		<EconomicImpact>
+			<li>Estimates as of June 2013 assess damage to have been over $68 billion (2013 USD), a total surpassed only by Hurricane Katrina.</li>
+		</EconomicImpact>
+		<ResourcesNeeded>
+			<li>clean-up and restoration of the areas hit hardest, temporary housing for those that lost their homes. clothing and shelter donations.
+</li>
+		</ResourcesNeeded>
+		<WaysToHelp>
+			<li>FEMA has been collaborating with many national, state, tribal, and local partners in response to Hurricane Sandy, including the National Voluntary Organizations Active in Disaster (NVOAD) and the Corporation for National and Community Service. Learn more on how you can donate and volunteer responsibly to assist the survivors of Hurricane Sandy here: http://www.fema.gov/hurricane-sandy-donate-and-volunteer</li>
+		</WaysToHelp>
+		<Common>
+			<Citations>
+				<li href="http://www.fema.gov/hurricane-sandy">FEMA Hurricane sandy site</li>
+			</Citations>
+			<ExternalLinks>
+				<li href="http://en.wikipedia.org/wiki/Hurricane_Sandy">Wikipedia Hurricane Sandy site</li>
+				<li href="http://crisiswiki.org/2012_Hurricane_Sandy">Crisis Wiki Hurricane Sandy site</li>
+			</ExternalLinks>
+			<Images>
+				<li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Sandy_Oct_25_2012_0400Z.JPG/546px-Sandy_Oct_25_2012_0400Z.JPG" text="Satellite photo of hurricane Sandy"/>
+				<li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/HurricaneSANDYCheltenham.jpg/220px-HurricaneSANDYCheltenham.jpg" text="Damage to neighborhood caused by Hurricane Sandy"/>
+				<li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Sandy_Poweroutage_1.jpg/220px-Sandy_Poweroutage_1.jpg" text="Manhattan power outage caused by Hurricane Sandy"/>
+			</Images>
+			<Videos>
+				<li embed="http://www.youtube.com/watch?v=91ldZZiOqAs" text="Hurricane Sandy radar loop"/>
+			</Videos>
+			<Maps>
+				<li embed="http://google.org/crisismap/2012-sandy" text="Crisis map of Hurricane Sandy"/>
+			</Maps>
+		</Common>
+	</Crisis>
+	<Person ID="PER_BROBMA" Name="Barak Obama">
+		<Crises>
+			<Crisis ID="CRI_HURSAN"/>
+		</Crises>
+		<Organizations>
+			<Org ID="ORG_REDCRS"/>
+		</Organizations>
+		<Kind>President</Kind>
+		<Location>Washington, D.C, United States of America</Location>
+		<Common>
+			<Citations>
+				<li href="http://en.wikipedia.org/wiki/Barack_Obama">Wikipedia page for Barak Obama</li>
+			</Citations>
+			<ExternalLinks>
+				<li href="http://www.whitehouse.gov/administration/president-obama/">Official Whitehouse page for Barak Obama</li>
+				<li href="http://www.barackobama.com">Barak Obama's campaign website</li>
+				<li href="http://bioguide.congress.gov/scripts/biodisplay.pl?index=o000167">Official Congressional page for Barak Obama</li>
+			</ExternalLinks>
+			<Images>
+				<li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/President_Barack_Obama.jpg/220px-President_Barack_Obama.jpg" text="President Barak Obama"/>
+				<li embed="http://upload.wikimedia.org/wikipedia/en/thumb/3/33/Ann_Dunham_with_father_and_children.jpg/220px-Ann_Dunham_with_father_and_children.jpg" text="Young Barak Obama with family"/>
+				<li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flickr_Obama_Springfield_01.jpg/220px-Flickr_Obama_Springfield_01.jpg" text="President Obama and First Lady at a rally"/>
+			</Images>
+			<Videos>
+				<li embed="http://commons.wikimedia.org/wiki/Obama_Administration_weekly_video_addresses" text="President Obama's first weekly video address"/>
+				<li embed="http://www.youtube.com/user/BarackObamadotcom" text="President Obama's youtube channel"/>
+			</Videos>
+			<Maps>
+				<li embed="https://maps.google.com/maps?q=1600+Pennsylvania+Avenue+Northwest,+Washington,+DC&amp;hl=en&amp;sll=30.307761,-97.753401&amp;sspn=0.732698,0.95993&amp;oq=1600+pen&amp;hnear=1600+Pennsylvania+Ave+NW,+Washington,+District+of+Columbia+20500&amp;t=m&amp;z=16" text="The White House"/>
+			</Maps>
+		</Common>
+	</Person>
+	<Organization ID="ORG_REDCRS" Name="Red Cross">
+		<Crises>
+			<Crisis ID="CRI_HURSAN"/>
+		</Crises>
+		<People>
+			<Person ID="PER_BROBMA"/>
+		</People>
+		<Kind>relief organization</Kind>
+		<Location>Washington, D.C, United States of America</Location>
+		<History>
+			<li>Issued a corporate charter by the United States Congress under Title 36 of the United States Code, Section 3001, the American National Red Cross is governed by volunteers and supported by community donations, income from health and safety training and products, and income from blood products. The American Red Cross is headquartered in Washington, D.C. The Chairman of the Board of Governors, serving her second three-year term, is Bonnie McElveen-Hunter. The current President and Chief Executive Officer is Gail J.  McGovern.
+</li>
+		</History>
+		<ContactInfo>
+			<li>http://www.redcross.org/contact-us/general-inquiry</li>
+		</ContactInfo>
+		<Common>
+			<Citations>
+				<li href="http://www.redcross.org/about-us/history">Red Cross history</li>
+			</Citations>
+			<ExternalLinks>
+				<li href="http://www.redcross.org/about-us/publications">Red Cross publications</li>
+				<li href="http://www.redcross.org">Official Red Cross website</li>
+				<li href="http://www.nps.gov/history/NR/twhp/wwwlps/lessons/27barton/27barton.htm">History of Red Cross founder</li>
+				<li href="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/American_Red_Cross_Administrative_Headquarters.JPG/450px-American_Red_Cross_Administrative_Headquarters.JPG">Red Cross administrative headquarters</li>
+			</ExternalLinks>
+			<Images>
+				<li embed="http://upload.wikimedia.org/wikipedia/commons/e/e9/Amer_redcross_2012_logo.png" text="Red Cross logo"/>
+				<li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/American_Red_Cross_headquarters.JPG/800px-American_Red_Cross_headquarters.JPG" text="Red Cross headquarters"/>
+				<li embed="http://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Clara_Barton1.jpg/509px-Clara_Barton1.jpg" text="Red Cross founder Clara Barton"/>
+			</Images>
+			<Videos>
+				<li embed="http://www.youtube.com/watch?v=3yufZP-LZrk" text="Red Cross stories"/>
+			</Videos>
+			<Maps>
+				<li embed="https://maps.google.com/maps?q=2025+E+Street,+NW+Washington,+DC+20006&amp;hl=en&amp;sll=30.307761,-97.753401&amp;sspn=0.698312,0.95993&amp;hnear=2025+E+St+NW,+Washington,+District+of+Columbia,+20006&amp;t=m&amp;z=16" text="Location of Red Cross Headquarters"/>
+			</Maps>
+		</Common>
+	</Organization>
+</WorldCrises>
