@@ -152,7 +152,7 @@ class ImportExportTest(UsefulTestCase):
 			'Submit': 'Submit'
 		})
 		self.assertEqual(response.status_code, 302)
-		self.assertEqual(response['location'], 'http://testserver/data.xml')
+		self.assertEqual(response['location'], 'http://testserver/xml')
 
 		response = self.client.get('/xml')
 		try:
