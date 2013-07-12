@@ -18,6 +18,14 @@ zip:
 	cp assets/tests/djc977-TestWCDB1.out TestWCDB1.out
 	zip -r WCDB1.zip doc WCDB1.log WCDB1.pdf crisis crisis_app WCDB1.xml WCDB1.xsd.xml TestWCDB1.py TestWCDB1.out
 
+turnin-list:
+	turnin --list bendy cs373pj3
 
-.PHONY: doc
+turnin-submit: WCDB1.zip
+	turnin --submit bendy cs373pj3 WCDB1.zip
+
+turnin-verify:
+	turnin --verify bendy cs373pj3
+
+.PHONY: doc zip turnin-list turnin-submit turnin-verify
 
