@@ -160,6 +160,7 @@ def parse(query):
 		must be found to in one column
 	'''
 	assert type(query) in [str, int, unicode, tuple, list]
+	assert len(query) < 32
 	space = re.compile(r'\s{2,}')
 	parts = re.compile(r'"([^"]+)"|(\S+)')
 	return [space.sub(' ', part[0] or part[1]).strip() for part in parts.findall(query)]
@@ -189,9 +190,12 @@ def querify(blocks, cols):
 
 def index(request):
 	'''
-	Runs through the necessary logic to retrieve a JSON string for
-		the splash on the home page and sends it to the home.html
-		template
+	If a query request is given (using the GET method), the index
+		page treats that as a search and returns results to the
+		user
+	Otherwise, this function runs through the necessary logic to
+		retrieve a JSON string for the splash on the home page
+		and sends it to the home.html template
 	'''
 	try:
 		user_query = request.GET['q']

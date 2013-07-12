@@ -16,7 +16,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-# use in-memory db for unit testing b/c it's effin slow otherwise
+# Using SQLite for unit testing as a speed optimization
 ENGINE = 'sqlite3' if 'test' in sys.argv else 'mysql'
 
 DATABASES = {
