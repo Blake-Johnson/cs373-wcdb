@@ -351,17 +351,8 @@ class XmlUploadForm(forms.Form):
 		try:
 			ret = parseAndValidateXmlInputString(
 					inputText=self['xml'].value().read(), xsdText=XSD)
-		except e:
-			import pdb; pdb.set_trace()
-			raise forms.ValidationError('XML is invalid:\n' + stderr)
-
-		# xmllint = Popen('''
-		# 	xmllint --noout --schema crisis_app/static/WorldCrises.xsd.xml -
-		# '''.strip().split(), stdin=PIPE, stdout=PIPE, stderr=PIPE)
-		# xmllint.stdin.write(self['xml'].value().read())
-		# stdout, stderr = xmllint.communicate()
-		# if xmllint.returncode:
-		# 	raise forms.ValidationError('XML is invalid:\n' + stderr)
+		except Exception as e:
+			raise forms.ValidationError('XML is invalid:\n' + e.message)
 
 @login_required(login_url='/login')
 def xml(request):
@@ -370,9 +361,14 @@ def xml(request):
 		if form.is_valid():
 			f = form['xml'].value()
 			f.seek(0)
-			to_db.convert(f.read())
-			invalidate_xml_cache()
-			return HttpResponseRedirect('/data.xml')
+			try:
+				to_db.convert(f.read())
+				invalidate_xml_cache()
+				return HttpResponseRedirect('/data.xml')
+			except Exception as e:
+				# i dunno maybe this is right?
+				form._errors['__all__'] += form.error_class([
+					'Could not save data:\n' + e.message])
 	else:
 		form = XmlUploadForm()
 	return render(request, 'crisis_app/xml.html', {'form': form})
