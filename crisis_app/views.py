@@ -365,7 +365,7 @@ def upload_xml(request):
 			try:
 				to_db.convert(f.read())
 				remove_xml_cache()
-				return HttpResponseRedirect('/data.xml')
+				return HttpResponseRedirect('/xml')
 			except Exception as e:
 				# i dunno maybe this is right?
 				form._errors['__all__'] += form.error_class([
