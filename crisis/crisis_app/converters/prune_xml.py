@@ -5,13 +5,12 @@ OUR_IDS =  ['BMBOMB', 'FUKUSH', 'SYCLWR', 'HURSAN', 'COLSSD',
 			'PIRATE', 'EXXVAL', 'BFACTO', 'HAIEAR', 'AIDSHI',
 
 			'BOMBER', 'ABDALA', 'JOSHAZ', 'RENPRE', 'SYRIDE',
-			'BROBMA', 'POPEFR',
+			'BROBMA', 'POPEFR', 'CEOTEP',
 
 			'THIOKL', 'GENELE', 'MARORG', 'NATOAA', 'TEPCOM',
 			'REDCRS', 'WHORGN', 'NASAUS', 'CATHLC',]
 
 # missing:
-# CEO of TEPCO Masataka Shimizu
 # American mechanical engineer Roger Boisjoly
 # Russian President Vladimir Putin
 # Joint United Nations Programme on HIV/AIDS (UNAIDS)
