@@ -72,3 +72,13 @@
     background-color: #666;
     -webkit-border-radius: 6px;
 }
+
+/* Bootstrap dropdown right-align */
+.pull-right .dropdown-menu:after {
+    left: auto;
+    right: 13px;
+}
+.pull-right .dropdown-menu {
+    left: auto;
+    right: 0;
+}

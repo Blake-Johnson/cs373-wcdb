@@ -22,14 +22,25 @@
         <li id="nav_orgs"><a href="/orgs">Organizations</a></li>
         <li class="divider-vertical"></li>
         <form method="GET" action="/" class="navbar-search">
-          <input type="text" name="q" class="search-query" placeholder="Search Crises" autofocus />
-          <div class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Search</a>
-            <ul class="dropdown-menu" role="menu">
-              <label class="checkbox">
-                <input type="checkbox">Events</input>
-              </label>
-            </ul>
+          <div class="input-append">
+            <input type="text" name="q" class="search-query" placeholder="Search Crises" autofocus />
+            <button type="submit" class="btn">Search</button>
+            <div class="btn-group">
+              <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <label class="checkbox">
+                  <input type="checkbox" name="events" checked="checked">Events</input>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="people">People</input>
+                </label>
+                <label class="checkbox">
+                  <input type="checkbox" name="orgs">Organizations</input>
+                </label>
+              </ul>
+            </div>
           </div>
         </form>
       </ul>
@@ -57,8 +68,8 @@
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/bootstrap.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/custom.css" />
 {% endblock %}
-{% block script %}
 <script type="text/javascript">
+{% block script %}
 if(document.body.style['webkitPerspective'] !== undefined || document.body.style['MozPerspective'] !== undefined){
     $('a').each(function(){
       if($(this).children().length < 1){
@@ -67,6 +78,9 @@ if(document.body.style['webkitPerspective'] !== undefined || document.body.style
       }
     });
 }
+$('.dropdown-menu input, .dropdown-menu label').click(function(e) {
+    e.stopPropagation();
+});
 {% endblock %}
 </script>
 </body>
