@@ -30,7 +30,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^(?i)xml$', 'crisis_app.views.xml_view', name='xml_view'),
-    url(r'^(?i)xml$', 'crisis_app.views.xml', name='xml'),
+    url(r'^(?i)upload_xml$', 'crisis_app.views.xml', name='xml'),
 
     url(r'^(?i)login$', 'crisis_app.views.login_view', name='login'),
     url(r'^(?i)logout$', 'crisis_app.views.logout_view', name='logout'),
