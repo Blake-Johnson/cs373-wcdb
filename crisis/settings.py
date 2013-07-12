@@ -16,15 +16,25 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if 'PRODUCTION' in os.environ:
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+			# use in-memory db for unit testing b/c it's effin slow otherwise
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'crisis',
+            'USER': 'crisisuser',
+            'PASSWORD': 'crisispass',
+            'HOST': '',
+            'PORT': '',
+        }
+    }
+elif 'PRODUCTION' in os.environ:
     import dj_database_url
     DATABASES = { 'default': dj_database_url.config() }
 else:
-    # use in-memory db for unit testing b/c it's effin slow otherwise
-    ENGINE = 'sqlite3' if 'test' in sys.argv else 'mysql'
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.' + ENGINE,
+            'ENGINE': 'django.db.backends.mysql',
             'NAME': 'crisis',
             'USER': 'crisisuser',
             'PASSWORD': 'crisispass',
