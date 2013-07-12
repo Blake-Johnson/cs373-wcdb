@@ -1,5 +1,4 @@
 from xml.etree.ElementTree import fromstring
-from dateutil.parser import parse as parse_date
 from datetime import datetime
 
 from django.utils.timezone import now
@@ -67,13 +66,13 @@ class ModelToXmlConversion(object):
 
 	def _process_date(self, el):
 		orig = self.model.date_time
-		d = parse_date(el.text)
+		d = datetime.strptime(el.text, '%Y-%m-%d %H:%M:%S')
 		self.model.date_time = datetime(year=d.year, month=d.month, day=d.day,
 				hour=orig.hour, minute=orig.minute, tzinfo=orig.tzinfo)
 
 	def _process_time(self, el):
 		orig = self.model.date_time
-		d = parse_date(el.text)
+		d = datetime.strptime(el.text, '%Y-%m-%d %H:%M:%S')
 		self.model.date_time = datetime(year=orig.year, month=orig.month,
 				day=orig.day, hour=d.hour, minute=d.minute, tzinfo=orig.tzinfo)
 
