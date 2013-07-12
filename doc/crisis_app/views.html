@@ -1,0 +1,370 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module views</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>views</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/astacy/code/cs373/wcdb/crisis_app/views.py">/Users/astacy/code/cs373/wcdb/crisis_app/views.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="datetime.html">datetime</a><br>
+<a href="django.forms.html">django.forms</a><br>
+</td><td width="25%" valign=top><a href="json.html">json</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="crisis_app.converters.to_db.html">crisis_app.converters.to_db</a><br>
+</td><td width="25%" valign=top><a href="crisis_app.converters.to_xml.html">crisis_app.converters.to_xml</a><br>
+<a href="types.html">types</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="django.forms.forms.html#Form">django.forms.forms.Form</a>(django.forms.forms.NewBase)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="views.html#LoginForm">LoginForm</a>
+</font></dt><dt><font face="helvetica, arial"><a href="views.html#XmlUploadForm">XmlUploadForm</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="views.html#OutdatedException">OutdatedException</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LoginForm">class <strong>LoginForm</strong></a>(<a href="django.forms.forms.html#Form">django.forms.forms.Form</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="views.html#LoginForm">LoginForm</a></dd>
+<dd><a href="django.forms.forms.html#Form">django.forms.forms.Form</a></dd>
+<dd>django.forms.forms.NewBase</dd>
+<dd><a href="django.forms.forms.html#BaseForm">django.forms.forms.BaseForm</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LoginForm-clean"><strong>clean</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>base_fields</strong> = {'username': &lt;django.forms.fields.CharField obje...go.forms.fields.CharField object at 0x105d846d0&gt;}</dl>
+
+<hr>
+Methods inherited from <a href="django.forms.forms.html#BaseForm">django.forms.forms.BaseForm</a>:<br>
+<dl><dt><a name="LoginForm-__getitem__"><strong>__getitem__</strong></a>(self, name)</dt><dd><tt>Returns&nbsp;a&nbsp;BoundField&nbsp;with&nbsp;the&nbsp;given&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-__init__"><strong>__init__</strong></a>(self, data<font color="#909090">=None</font>, files<font color="#909090">=None</font>, auto_id<font color="#909090">=u'id_%s'</font>, prefix<font color="#909090">=None</font>, initial<font color="#909090">=None</font>, error_class<font color="#909090">=&lt;class 'django.forms.util.ErrorList'&gt;</font>, label_suffix<font color="#909090">=u':'</font>, empty_permitted<font color="#909090">=False</font>)</dt><dd><tt>#&nbsp;This&nbsp;is&nbsp;the&nbsp;main&nbsp;implementation&nbsp;of&nbsp;all&nbsp;the&nbsp;<a href="django.forms.forms.html#Form">Form</a>&nbsp;logic.&nbsp;Note&nbsp;that&nbsp;this<br>
+#&nbsp;class&nbsp;is&nbsp;different&nbsp;than&nbsp;<a href="django.forms.forms.html#Form">Form</a>.&nbsp;See&nbsp;the&nbsp;comments&nbsp;by&nbsp;the&nbsp;<a href="django.forms.forms.html#Form">Form</a>&nbsp;class&nbsp;for&nbsp;more<br>
+#&nbsp;information.&nbsp;Any&nbsp;improvements&nbsp;to&nbsp;the&nbsp;form&nbsp;API&nbsp;should&nbsp;be&nbsp;made&nbsp;to&nbsp;*this*<br>
+#&nbsp;class,&nbsp;not&nbsp;to&nbsp;the&nbsp;<a href="django.forms.forms.html#Form">Form</a>&nbsp;class.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<dl><dt><strong>__str__</strong> <em>lambda</em> self</dt></dl>
+
+<dl><dt><a name="LoginForm-__unicode__"><strong>__unicode__</strong></a> = __str__(self)</dt></dl>
+
+<dl><dt><a name="LoginForm-add_initial_prefix"><strong>add_initial_prefix</strong></a>(self, field_name)</dt><dd><tt>Add&nbsp;a&nbsp;'initial'&nbsp;prefix&nbsp;for&nbsp;checking&nbsp;dynamic&nbsp;initial&nbsp;values</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-add_prefix"><strong>add_prefix</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;field&nbsp;name&nbsp;with&nbsp;a&nbsp;prefix&nbsp;appended,&nbsp;if&nbsp;this&nbsp;<a href="django.forms.forms.html#Form">Form</a>&nbsp;has&nbsp;a<br>
+prefix&nbsp;set.<br>
+&nbsp;<br>
+Subclasses&nbsp;may&nbsp;wish&nbsp;to&nbsp;override.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-as_p"><strong>as_p</strong></a>(self)</dt><dd><tt>Returns&nbsp;this&nbsp;form&nbsp;rendered&nbsp;as&nbsp;HTML&nbsp;&lt;p&gt;s.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-as_table"><strong>as_table</strong></a>(self)</dt><dd><tt>Returns&nbsp;this&nbsp;form&nbsp;rendered&nbsp;as&nbsp;HTML&nbsp;&lt;tr&gt;s&nbsp;--&nbsp;excluding&nbsp;the&nbsp;&lt;table&gt;&lt;/table&gt;.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-as_ul"><strong>as_ul</strong></a>(self)</dt><dd><tt>Returns&nbsp;this&nbsp;form&nbsp;rendered&nbsp;as&nbsp;HTML&nbsp;&lt;li&gt;s&nbsp;--&nbsp;excluding&nbsp;the&nbsp;&lt;ul&gt;&lt;/ul&gt;.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-full_clean"><strong>full_clean</strong></a>(self)</dt><dd><tt>Cleans&nbsp;all&nbsp;of&nbsp;self.<strong>data</strong>&nbsp;and&nbsp;populates&nbsp;self.<strong>_errors</strong>&nbsp;and<br>
+self.<strong>cleaned_data</strong>.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-has_changed"><strong>has_changed</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;data&nbsp;differs&nbsp;from&nbsp;initial.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-hidden_fields"><strong>hidden_fields</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;BoundField&nbsp;objects&nbsp;that&nbsp;are&nbsp;hidden&nbsp;fields.<br>
+Useful&nbsp;for&nbsp;manual&nbsp;form&nbsp;layout&nbsp;in&nbsp;templates.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-is_multipart"><strong>is_multipart</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;form&nbsp;needs&nbsp;to&nbsp;be&nbsp;multipart-encoded,&nbsp;i.e.&nbsp;it&nbsp;has<br>
+FileInput.&nbsp;Otherwise,&nbsp;False.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-is_valid"><strong>is_valid</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;form&nbsp;has&nbsp;no&nbsp;errors.&nbsp;Otherwise,&nbsp;False.&nbsp;If&nbsp;errors&nbsp;are<br>
+being&nbsp;ignored,&nbsp;returns&nbsp;False.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-non_field_errors"><strong>non_field_errors</strong></a>(self)</dt><dd><tt>Returns&nbsp;an&nbsp;ErrorList&nbsp;of&nbsp;errors&nbsp;that&nbsp;aren't&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular<br>
+field&nbsp;--&nbsp;i.e.,&nbsp;from&nbsp;<a href="django.forms.forms.html#Form">Form</a>.<a href="#LoginForm-clean">clean</a>().&nbsp;Returns&nbsp;an&nbsp;empty&nbsp;ErrorList&nbsp;if&nbsp;there<br>
+are&nbsp;none.</tt></dd></dl>
+
+<dl><dt><a name="LoginForm-visible_fields"><strong>visible_fields</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;BoundField&nbsp;objects&nbsp;that&nbsp;aren't&nbsp;hidden&nbsp;fields.<br>
+The&nbsp;opposite&nbsp;of&nbsp;the&nbsp;<a href="#LoginForm-hidden_fields">hidden_fields</a>()&nbsp;method.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.forms.forms.html#BaseForm">django.forms.forms.BaseForm</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>changed_data</strong></dt>
+</dl>
+<dl><dt><strong>errors</strong></dt>
+<dd><tt>Returns&nbsp;an&nbsp;ErrorDict&nbsp;for&nbsp;the&nbsp;data&nbsp;provided&nbsp;for&nbsp;the&nbsp;form</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="OutdatedException">class <strong>OutdatedException</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Extension&nbsp;of&nbsp;<a href="exceptions.html#Exception">Exception</a>&nbsp;created&nbsp;primarly&nbsp;to&nbsp;be&nbsp;raised&nbsp;when&nbsp;the&nbsp;JSON<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache&nbsp;needs&nbsp;to&nbsp;be&nbsp;rebuilt;&nbsp;see&nbsp;the&nbsp;implementation&nbsp;below&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;threshold&nbsp;when&nbsp;an&nbsp;<a href="#OutdatedException">OutdatedException</a>&nbsp;is&nbsp;raised<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="views.html#OutdatedException">OutdatedException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="OutdatedException-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#OutdatedException-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;help(type(x))&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#OutdatedException-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="OutdatedException-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#OutdatedException-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="OutdatedException-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#OutdatedException-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="OutdatedException-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#OutdatedException-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="OutdatedException-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#OutdatedException-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="OutdatedException-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="OutdatedException-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#OutdatedException-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="OutdatedException-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#OutdatedException-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="OutdatedException-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="OutdatedException-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#OutdatedException-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<dl><dt><a name="OutdatedException-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="XmlUploadForm">class <strong>XmlUploadForm</strong></a>(<a href="django.forms.forms.html#Form">django.forms.forms.Form</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="views.html#XmlUploadForm">XmlUploadForm</a></dd>
+<dd><a href="django.forms.forms.html#Form">django.forms.forms.Form</a></dd>
+<dd>django.forms.forms.NewBase</dd>
+<dd><a href="django.forms.forms.html#BaseForm">django.forms.forms.BaseForm</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="XmlUploadForm-clean"><strong>clean</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>base_fields</strong> = {'xml': &lt;django.forms.fields.FileField object at 0x105d84390&gt;}</dl>
+
+<hr>
+Methods inherited from <a href="django.forms.forms.html#BaseForm">django.forms.forms.BaseForm</a>:<br>
+<dl><dt><a name="XmlUploadForm-__getitem__"><strong>__getitem__</strong></a>(self, name)</dt><dd><tt>Returns&nbsp;a&nbsp;BoundField&nbsp;with&nbsp;the&nbsp;given&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-__init__"><strong>__init__</strong></a>(self, data<font color="#909090">=None</font>, files<font color="#909090">=None</font>, auto_id<font color="#909090">=u'id_%s'</font>, prefix<font color="#909090">=None</font>, initial<font color="#909090">=None</font>, error_class<font color="#909090">=&lt;class 'django.forms.util.ErrorList'&gt;</font>, label_suffix<font color="#909090">=u':'</font>, empty_permitted<font color="#909090">=False</font>)</dt><dd><tt>#&nbsp;This&nbsp;is&nbsp;the&nbsp;main&nbsp;implementation&nbsp;of&nbsp;all&nbsp;the&nbsp;<a href="django.forms.forms.html#Form">Form</a>&nbsp;logic.&nbsp;Note&nbsp;that&nbsp;this<br>
+#&nbsp;class&nbsp;is&nbsp;different&nbsp;than&nbsp;<a href="django.forms.forms.html#Form">Form</a>.&nbsp;See&nbsp;the&nbsp;comments&nbsp;by&nbsp;the&nbsp;<a href="django.forms.forms.html#Form">Form</a>&nbsp;class&nbsp;for&nbsp;more<br>
+#&nbsp;information.&nbsp;Any&nbsp;improvements&nbsp;to&nbsp;the&nbsp;form&nbsp;API&nbsp;should&nbsp;be&nbsp;made&nbsp;to&nbsp;*this*<br>
+#&nbsp;class,&nbsp;not&nbsp;to&nbsp;the&nbsp;<a href="django.forms.forms.html#Form">Form</a>&nbsp;class.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<dl><dt><strong>__str__</strong> <em>lambda</em> self</dt></dl>
+
+<dl><dt><a name="XmlUploadForm-__unicode__"><strong>__unicode__</strong></a> = __str__(self)</dt></dl>
+
+<dl><dt><a name="XmlUploadForm-add_initial_prefix"><strong>add_initial_prefix</strong></a>(self, field_name)</dt><dd><tt>Add&nbsp;a&nbsp;'initial'&nbsp;prefix&nbsp;for&nbsp;checking&nbsp;dynamic&nbsp;initial&nbsp;values</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-add_prefix"><strong>add_prefix</strong></a>(self, field_name)</dt><dd><tt>Returns&nbsp;the&nbsp;field&nbsp;name&nbsp;with&nbsp;a&nbsp;prefix&nbsp;appended,&nbsp;if&nbsp;this&nbsp;<a href="django.forms.forms.html#Form">Form</a>&nbsp;has&nbsp;a<br>
+prefix&nbsp;set.<br>
+&nbsp;<br>
+Subclasses&nbsp;may&nbsp;wish&nbsp;to&nbsp;override.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-as_p"><strong>as_p</strong></a>(self)</dt><dd><tt>Returns&nbsp;this&nbsp;form&nbsp;rendered&nbsp;as&nbsp;HTML&nbsp;&lt;p&gt;s.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-as_table"><strong>as_table</strong></a>(self)</dt><dd><tt>Returns&nbsp;this&nbsp;form&nbsp;rendered&nbsp;as&nbsp;HTML&nbsp;&lt;tr&gt;s&nbsp;--&nbsp;excluding&nbsp;the&nbsp;&lt;table&gt;&lt;/table&gt;.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-as_ul"><strong>as_ul</strong></a>(self)</dt><dd><tt>Returns&nbsp;this&nbsp;form&nbsp;rendered&nbsp;as&nbsp;HTML&nbsp;&lt;li&gt;s&nbsp;--&nbsp;excluding&nbsp;the&nbsp;&lt;ul&gt;&lt;/ul&gt;.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-full_clean"><strong>full_clean</strong></a>(self)</dt><dd><tt>Cleans&nbsp;all&nbsp;of&nbsp;self.<strong>data</strong>&nbsp;and&nbsp;populates&nbsp;self.<strong>_errors</strong>&nbsp;and<br>
+self.<strong>cleaned_data</strong>.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-has_changed"><strong>has_changed</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;data&nbsp;differs&nbsp;from&nbsp;initial.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-hidden_fields"><strong>hidden_fields</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;BoundField&nbsp;objects&nbsp;that&nbsp;are&nbsp;hidden&nbsp;fields.<br>
+Useful&nbsp;for&nbsp;manual&nbsp;form&nbsp;layout&nbsp;in&nbsp;templates.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-is_multipart"><strong>is_multipart</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;form&nbsp;needs&nbsp;to&nbsp;be&nbsp;multipart-encoded,&nbsp;i.e.&nbsp;it&nbsp;has<br>
+FileInput.&nbsp;Otherwise,&nbsp;False.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-is_valid"><strong>is_valid</strong></a>(self)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;form&nbsp;has&nbsp;no&nbsp;errors.&nbsp;Otherwise,&nbsp;False.&nbsp;If&nbsp;errors&nbsp;are<br>
+being&nbsp;ignored,&nbsp;returns&nbsp;False.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-non_field_errors"><strong>non_field_errors</strong></a>(self)</dt><dd><tt>Returns&nbsp;an&nbsp;ErrorList&nbsp;of&nbsp;errors&nbsp;that&nbsp;aren't&nbsp;associated&nbsp;with&nbsp;a&nbsp;particular<br>
+field&nbsp;--&nbsp;i.e.,&nbsp;from&nbsp;<a href="django.forms.forms.html#Form">Form</a>.<a href="#XmlUploadForm-clean">clean</a>().&nbsp;Returns&nbsp;an&nbsp;empty&nbsp;ErrorList&nbsp;if&nbsp;there<br>
+are&nbsp;none.</tt></dd></dl>
+
+<dl><dt><a name="XmlUploadForm-visible_fields"><strong>visible_fields</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;BoundField&nbsp;objects&nbsp;that&nbsp;aren't&nbsp;hidden&nbsp;fields.<br>
+The&nbsp;opposite&nbsp;of&nbsp;the&nbsp;<a href="#XmlUploadForm-hidden_fields">hidden_fields</a>()&nbsp;method.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.forms.forms.html#BaseForm">django.forms.forms.BaseForm</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>changed_data</strong></dt>
+</dl>
+<dl><dt><strong>errors</strong></dt>
+<dd><tt>Returns&nbsp;an&nbsp;ErrorDict&nbsp;for&nbsp;the&nbsp;data&nbsp;provided&nbsp;for&nbsp;the&nbsp;form</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-about"><strong>about</strong></a>(request)</dt><dd><tt>The&nbsp;about&nbsp;page&nbsp;is&nbsp;given&nbsp;a&nbsp;list&nbsp;of&nbsp;site&nbsp;authors&nbsp;or&nbsp;display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;user</tt></dd></dl>
+ <dl><dt><a name="-add_child"><strong>add_child</strong></a>(parent, name, color, area, image, desc)</dt><dd><tt>Preconditions:&nbsp;a&nbsp;parent&nbsp;node&nbsp;is&nbsp;provided,&nbsp;along&nbsp;with&nbsp;sufficient<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;to&nbsp;append&nbsp;a&nbsp;new&nbsp;child&nbsp;to&nbsp;that&nbsp;parent<br>
+Postconditions:&nbsp;a&nbsp;new&nbsp;child&nbsp;is&nbsp;appended&nbsp;to&nbsp;the&nbsp;parent&nbsp;node&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;consisting&nbsp;of&nbsp;the&nbsp;parameters&nbsp;passed&nbsp;into&nbsp;the&nbsp;function</tt></dd></dl>
+ <dl><dt><a name="-events"><strong>events</strong></a>(request, event_id<font color="#909090">=None</font>)</dt><dd><tt>If&nbsp;called&nbsp;with&nbsp;no&nbsp;event&nbsp;ID,&nbsp;this&nbsp;function&nbsp;loads&nbsp;a&nbsp;list&nbsp;of&nbsp;all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;events&nbsp;in&nbsp;the&nbsp;Event&nbsp;model<br>
+If&nbsp;called&nbsp;with&nbsp;an&nbsp;event&nbsp;ID,&nbsp;this&nbsp;function&nbsp;loads&nbsp;a&nbsp;content&nbsp;page<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;the&nbsp;event</tt></dd></dl>
+ <dl><dt><a name="-get_json"><strong>get_json</strong></a>()</dt><dd><tt>Preconditions:&nbsp;None&nbsp;-&nbsp;recommended&nbsp;that&nbsp;a&nbsp;JSON&nbsp;file&nbsp;already&nbsp;exist<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in&nbsp;the&nbsp;JSON_CACHE_PATH&nbsp;to&nbsp;optimize&nbsp;performance<br>
+Postconditions:&nbsp;a&nbsp;JSON&nbsp;string&nbsp;for&nbsp;the&nbsp;splash&nbsp;on&nbsp;the&nbsp;home&nbsp;page&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;either&nbsp;generated&nbsp;with&nbsp;<a href="#-make_json">make_json</a>()&nbsp;(if&nbsp;the&nbsp;file&nbsp;does&nbsp;not&nbsp;exist,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;if&nbsp;the&nbsp;file&nbsp;is&nbsp;outdated)&nbsp;or&nbsp;loaded&nbsp;from&nbsp;the&nbsp;cache&nbsp;file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if&nbsp;the&nbsp;file&nbsp;is&nbsp;not&nbsp;outdated);&nbsp;this&nbsp;string&nbsp;is&nbsp;then&nbsp;returned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;the&nbsp;caller<br>
+Since&nbsp;<a href="#-make_json">make_json</a>()&nbsp;is&nbsp;extremely&nbsp;expensive,&nbsp;any&nbsp;JSON&nbsp;files&nbsp;created<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are&nbsp;cached&nbsp;for&nbsp;one&nbsp;day;&nbsp;<a href="#-get_json">get_json</a>()&nbsp;ensures&nbsp;that&nbsp;if&nbsp;the&nbsp;JSON<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file&nbsp;was&nbsp;created&nbsp;less&nbsp;than&nbsp;one&nbsp;day&nbsp;ago,&nbsp;the&nbsp;JSON&nbsp;string&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loaded&nbsp;from&nbsp;the&nbsp;file&nbsp;rather&nbsp;than&nbsp;re-generated</tt></dd></dl>
+ <dl><dt><a name="-index"><strong>index</strong></a>(request)</dt><dd><tt>If&nbsp;a&nbsp;query&nbsp;request&nbsp;is&nbsp;given&nbsp;(using&nbsp;the&nbsp;GET&nbsp;method),&nbsp;the&nbsp;index<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page&nbsp;treats&nbsp;that&nbsp;as&nbsp;a&nbsp;search&nbsp;and&nbsp;returns&nbsp;results&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user<br>
+Otherwise,&nbsp;this&nbsp;function&nbsp;runs&nbsp;through&nbsp;the&nbsp;necessary&nbsp;logic&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retrieve&nbsp;a&nbsp;JSON&nbsp;string&nbsp;for&nbsp;the&nbsp;splash&nbsp;on&nbsp;the&nbsp;home&nbsp;page<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;sends&nbsp;it&nbsp;to&nbsp;the&nbsp;home.html&nbsp;template</tt></dd></dl>
+ <dl><dt><a name="-login_view"><strong>login_view</strong></a>(request)</dt></dl>
+ <dl><dt><a name="-logout_view"><strong>logout_view</strong></a>(request)</dt></dl>
+ <dl><dt><a name="-make_json"><strong>make_json</strong></a>(num_elements)</dt><dd><tt>Preconditions:&nbsp;the&nbsp;number&nbsp;of&nbsp;elements&nbsp;for&nbsp;each&nbsp;parent&nbsp;(events,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;people,&nbsp;and&nbsp;organizations)&nbsp;is&nbsp;provided<br>
+Postconditions:&nbsp;returns&nbsp;a&nbsp;JSON&nbsp;string&nbsp;formatted&nbsp;for&nbsp;the&nbsp;splash<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on&nbsp;the&nbsp;home&nbsp;page</tt></dd></dl>
+ <dl><dt><a name="-make_parent"><strong>make_parent</strong></a>(name, color)</dt><dd><tt>Preconditions:&nbsp;a&nbsp;name&nbsp;(string)&nbsp;and&nbsp;color&nbsp;(string)&nbsp;are&nbsp;provided<br>
+Postconditions:&nbsp;a&nbsp;dictionary&nbsp;is&nbsp;returned&nbsp;containing&nbsp;the&nbsp;relevant<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;information&nbsp;for&nbsp;a&nbsp;parent&nbsp;node&nbsp;in&nbsp;a&nbsp;JSON&nbsp;tree&nbsp;representing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;from&nbsp;the&nbsp;Django&nbsp;models<br>
+The&nbsp;$area&nbsp;is&nbsp;initialized&nbsp;to&nbsp;0;&nbsp;it&nbsp;will&nbsp;be&nbsp;increased&nbsp;over&nbsp;time&nbsp;as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nodes&nbsp;are&nbsp;added&nbsp;to&nbsp;the&nbsp;parent&nbsp;node</tt></dd></dl>
+ <dl><dt><a name="-orgs"><strong>orgs</strong></a>(request, org_id<font color="#909090">=None</font>)</dt><dd><tt>If&nbsp;called&nbsp;with&nbsp;no&nbsp;organization&nbsp;ID,&nbsp;this&nbsp;function&nbsp;loads&nbsp;a&nbsp;list&nbsp;of&nbsp;all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;organizations&nbsp;in&nbsp;the&nbsp;Organization&nbsp;model<br>
+If&nbsp;called&nbsp;with&nbsp;an&nbsp;organization&nbsp;ID,&nbsp;this&nbsp;function&nbsp;loads&nbsp;a&nbsp;content&nbsp;page<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;the&nbsp;organization</tt></dd></dl>
+ <dl><dt><a name="-parse"><strong>parse</strong></a>(query)</dt><dd><tt>Preconditions:&nbsp;a&nbsp;query&nbsp;is&nbsp;provided<br>
+Postconditions:&nbsp;the&nbsp;query&nbsp;is&nbsp;parsed&nbsp;into&nbsp;logical&nbsp;units&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;querified&nbsp;(see&nbsp;below)<br>
+Implementation:&nbsp;regex&nbsp;is&nbsp;precompiled&nbsp;to&nbsp;optimize&nbsp;the&nbsp;loop;&nbsp;logic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;built&nbsp;such&nbsp;that&nbsp;only&nbsp;one&nbsp;column&nbsp;of&nbsp;the&nbsp;table&nbsp;needs&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contain&nbsp;each&nbsp;part&nbsp;of&nbsp;the&nbsp;query,&nbsp;but&nbsp;each&nbsp;part&nbsp;of&nbsp;the&nbsp;query<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;must&nbsp;be&nbsp;found&nbsp;to&nbsp;in&nbsp;one&nbsp;column</tt></dd></dl>
+ <dl><dt><a name="-people"><strong>people</strong></a>(request, person_id<font color="#909090">=None</font>)</dt><dd><tt>If&nbsp;called&nbsp;with&nbsp;no&nbsp;person&nbsp;ID,&nbsp;this&nbsp;function&nbsp;loads&nbsp;a&nbsp;list&nbsp;of&nbsp;all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;people&nbsp;in&nbsp;the&nbsp;Person&nbsp;model<br>
+If&nbsp;called&nbsp;with&nbsp;a&nbsp;person&nbsp;ID,&nbsp;this&nbsp;function&nbsp;loads&nbsp;a&nbsp;content&nbsp;page<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;the&nbsp;person</tt></dd></dl>
+ <dl><dt><a name="-querify"><strong>querify</strong></a>(blocks, cols)</dt><dd><tt>Preconditions:&nbsp;a&nbsp;query&nbsp;is&nbsp;provided&nbsp;with&nbsp;the&nbsp;columns&nbsp;of&nbsp;a&nbsp;table<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;search&nbsp;for&nbsp;the&nbsp;existence&nbsp;of&nbsp;those&nbsp;queries<br>
+Postconditions:&nbsp;generates&nbsp;a&nbsp;series&nbsp;of&nbsp;Django&nbsp;Q&nbsp;objects&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;used&nbsp;in&nbsp;a&nbsp;model&nbsp;search<br>
+Implementation:&nbsp;logic&nbsp;is&nbsp;built&nbsp;such&nbsp;that&nbsp;only&nbsp;one&nbsp;column&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;needs&nbsp;to&nbsp;contain&nbsp;each&nbsp;part&nbsp;of&nbsp;the&nbsp;query,&nbsp;but&nbsp;each<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;part&nbsp;of&nbsp;the&nbsp;query&nbsp;must&nbsp;be&nbsp;found&nbsp;to&nbsp;in&nbsp;one&nbsp;column</tt></dd></dl>
+ <dl><dt><a name="-remove_xml_cache"><strong>remove_xml_cache</strong></a>()</dt></dl>
+ <dl><dt><a name="-upload_xml"><strong>upload_xml</strong></a>(request, *args, **kwargs)</dt></dl>
+ <dl><dt><a name="-xml"><strong>xml</strong></a>(request)</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>JSON_CACHE_PATH</strong> = 'crisis_app/cache/json'<br>
+<strong>PIPE</strong> = -1<br>
+<strong>XML_CACHE_PATH</strong> = 'crisis_app/cache/xml'<br>
+<strong>XSD</strong> = '&lt;?xml version="1.0" ?&gt;<font color="#c040c0">\n\n</font>&lt;!-- XSD for World Crise...restriction&gt;<font color="#c040c0">\n</font>    &lt;/xsd:simpleType&gt;<font color="#c040c0">\n</font>&lt;/xsd:schema&gt;<font color="#c040c0">\n</font>'</td></tr></table>
+</body></html>

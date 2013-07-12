@@ -1,0 +1,1426 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module admin</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>admin</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/astacy/code/cs373/wcdb/crisis_app/admin.py">/Users/astacy/code/cs373/wcdb/crisis_app/admin.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="django.contrib.admin.html">django.contrib.admin</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>(<a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="admin.html#AboutAdmin">AboutAdmin</a>
+</font></dt><dt><font face="helvetica, arial"><a href="admin.html#EmbedAdmin">EmbedAdmin</a>
+</font></dt><dt><font face="helvetica, arial"><a href="admin.html#EventAdmin">EventAdmin</a>
+</font></dt><dt><font face="helvetica, arial"><a href="admin.html#OrganizationAdmin">OrganizationAdmin</a>
+</font></dt><dt><font face="helvetica, arial"><a href="admin.html#PersonAdmin">PersonAdmin</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AboutAdmin">class <strong>AboutAdmin</strong></a>(<a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Provides&nbsp;custom&nbsp;options&nbsp;for&nbsp;the&nbsp;About&nbsp;table&nbsp;in&nbsp;the&nbsp;Admin&nbsp;interface<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="admin.html#AboutAdmin">AboutAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a></dd>
+<dd>django.forms.widgets.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>list_display</strong> = ('__unicode__', 'github_id', 'role', 'quote')</dl>
+
+<dl><dt><strong>list_editable</strong> = ('role', 'quote')</dl>
+
+<dl><dt><strong>search_fields</strong> = ('first_name', 'last_name')</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><a name="AboutAdmin-__init__"><strong>__init__</strong></a>(self, model, admin_site)</dt></dl>
+
+<dl><dt><a name="AboutAdmin-action_checkbox"><strong>action_checkbox</strong></a>(self, obj)</dt><dd><tt>A&nbsp;list_display&nbsp;column&nbsp;containing&nbsp;a&nbsp;checkbox&nbsp;widget.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-add_view"><strong>add_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'add'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-change_view"><strong>change_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-changelist_view"><strong>changelist_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change&nbsp;list'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-construct_change_message"><strong>construct_change_message</strong></a>(self, request, form, formsets)</dt><dd><tt>Construct&nbsp;a&nbsp;change&nbsp;message&nbsp;from&nbsp;a&nbsp;changed&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-delete_model"><strong>delete_model</strong></a>(self, request, obj)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;delete&nbsp;it&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-delete_view"><strong>delete_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'delete'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_action"><strong>get_action</strong></a>(self, action)</dt><dd><tt>Return&nbsp;a&nbsp;given&nbsp;action&nbsp;from&nbsp;a&nbsp;parameter,&nbsp;which&nbsp;can&nbsp;either&nbsp;be&nbsp;a&nbsp;callable,<br>
+or&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;method&nbsp;on&nbsp;the&nbsp;<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>.&nbsp;&nbsp;Return&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of<br>
+(callable,&nbsp;name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_action_choices"><strong>get_action_choices</strong></a>(self, request, default_choices<font color="#909090">=[(u'', u'---------')]</font>)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;choices&nbsp;for&nbsp;use&nbsp;in&nbsp;a&nbsp;form&nbsp;object.&nbsp;&nbsp;Each&nbsp;choice&nbsp;is&nbsp;a<br>
+tuple&nbsp;(name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_actions"><strong>get_actions</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;dictionary&nbsp;mapping&nbsp;the&nbsp;names&nbsp;of&nbsp;all&nbsp;actions&nbsp;for&nbsp;this<br>
+<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>&nbsp;to&nbsp;a&nbsp;tuple&nbsp;of&nbsp;(callable,&nbsp;name,&nbsp;description)&nbsp;for&nbsp;each&nbsp;action.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_changelist"><strong>get_changelist</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;the&nbsp;ChangeList&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_changelist_form"><strong>get_changelist_form</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;Formset&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_changelist_formset"><strong>get_changelist_formset</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;FormSet&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page&nbsp;if&nbsp;list_editable<br>
+is&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_fieldsets"><strong>get_fieldsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;fieldsets&nbsp;for&nbsp;the&nbsp;add&nbsp;form.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_form"><strong>get_form</strong></a>(self, request, obj<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;admin&nbsp;add&nbsp;view.&nbsp;This&nbsp;is&nbsp;used&nbsp;by<br>
+add_view&nbsp;and&nbsp;change_view.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_formsets"><strong>get_formsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="AboutAdmin-get_inline_instances"><strong>get_inline_instances</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="AboutAdmin-get_list_display"><strong>get_list_display</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;on&nbsp;the<br>
+changelist.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_list_display_links"><strong>get_list_display_links</strong></a>(self, request, list_display)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;links<br>
+on&nbsp;the&nbsp;changelist.&nbsp;The&nbsp;list_display&nbsp;parameter&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;fields<br>
+returned&nbsp;by&nbsp;<a href="#AboutAdmin-get_list_display">get_list_display</a>().</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_list_filter"><strong>get_list_filter</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;filters&nbsp;in<br>
+the&nbsp;right&nbsp;sidebar&nbsp;of&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_model_perms"><strong>get_model_perms</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;dict&nbsp;of&nbsp;all&nbsp;perms&nbsp;for&nbsp;this&nbsp;model.&nbsp;This&nbsp;dict&nbsp;has&nbsp;the&nbsp;keys<br>
+``add``,&nbsp;``change``,&nbsp;and&nbsp;``delete``&nbsp;mapping&nbsp;to&nbsp;the&nbsp;True/False&nbsp;for&nbsp;each<br>
+of&nbsp;those&nbsp;actions.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_object"><strong>get_object</strong></a>(self, request, object_id)</dt><dd><tt>Returns&nbsp;an&nbsp;instance&nbsp;matching&nbsp;the&nbsp;primary&nbsp;key&nbsp;provided.&nbsp;``None``&nbsp;&nbsp;is<br>
+returned&nbsp;if&nbsp;no&nbsp;match&nbsp;is&nbsp;found&nbsp;(or&nbsp;the&nbsp;object_id&nbsp;failed&nbsp;validation<br>
+against&nbsp;the&nbsp;primary&nbsp;key&nbsp;field).</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_paginator"><strong>get_paginator</strong></a>(self, request, queryset, per_page, orphans<font color="#909090">=0</font>, allow_empty_first_page<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="AboutAdmin-get_urls"><strong>get_urls</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AboutAdmin-history_view"><strong>history_view</strong></a>(self, request, object_id, extra_context<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;'history'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-log_addition"><strong>log_addition</strong></a>(self, request, object)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;added.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-log_change"><strong>log_change</strong></a>(self, request, object, message)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;changed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-log_deletion"><strong>log_deletion</strong></a>(self, request, object, object_repr)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;will&nbsp;be&nbsp;deleted.&nbsp;Note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;called<br>
+before&nbsp;the&nbsp;deletion.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-message_user"><strong>message_user</strong></a>(self, request, message, level<font color="#909090">=20</font>, extra_tags<font color="#909090">=''</font>, fail_silently<font color="#909090">=False</font>)</dt><dd><tt>Send&nbsp;a&nbsp;message&nbsp;to&nbsp;the&nbsp;user.&nbsp;The&nbsp;default&nbsp;implementation<br>
+posts&nbsp;a&nbsp;message&nbsp;using&nbsp;the&nbsp;django.contrib.messages&nbsp;backend.<br>
+&nbsp;<br>
+Exposes&nbsp;almost&nbsp;the&nbsp;same&nbsp;API&nbsp;as&nbsp;messages.add_message(),&nbsp;but&nbsp;accepts&nbsp;the<br>
+positional&nbsp;arguments&nbsp;in&nbsp;a&nbsp;different&nbsp;order&nbsp;to&nbsp;maintain&nbsp;backwards<br>
+compatibility.&nbsp;For&nbsp;convenience,&nbsp;it&nbsp;accepts&nbsp;the&nbsp;`level`&nbsp;argument&nbsp;as<br>
+a&nbsp;string&nbsp;rather&nbsp;than&nbsp;the&nbsp;usual&nbsp;level&nbsp;number.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-render_change_form"><strong>render_change_form</strong></a>(self, request, context, add<font color="#909090">=False</font>, change<font color="#909090">=False</font>, form_url<font color="#909090">=''</font>, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="AboutAdmin-response_action"><strong>response_action</strong></a>(self, request, queryset)</dt><dd><tt>Handle&nbsp;an&nbsp;admin&nbsp;action.&nbsp;This&nbsp;is&nbsp;called&nbsp;if&nbsp;a&nbsp;request&nbsp;is&nbsp;POSTed&nbsp;to&nbsp;the<br>
+changelist;&nbsp;it&nbsp;returns&nbsp;an&nbsp;HttpResponse&nbsp;if&nbsp;the&nbsp;action&nbsp;was&nbsp;handled,&nbsp;and<br>
+None&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-response_add"><strong>response_add</strong></a>(self, request, obj, post_url_continue<font color="#909090">=None</font>)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;add_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-response_change"><strong>response_change</strong></a>(self, request, obj)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;change_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-response_post_save_add"><strong>response_post_save_add</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;adding&nbsp;a&nbsp;new&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-response_post_save_change"><strong>response_post_save_change</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;editing&nbsp;an&nbsp;existing&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-save_form"><strong>save_form</strong></a>(self, request, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;ModelForm&nbsp;return&nbsp;an&nbsp;unsaved&nbsp;instance.&nbsp;``change``&nbsp;is&nbsp;True&nbsp;if<br>
+the&nbsp;object&nbsp;is&nbsp;being&nbsp;changed,&nbsp;and&nbsp;False&nbsp;if&nbsp;it's&nbsp;being&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-save_formset"><strong>save_formset</strong></a>(self, request, form, formset, change)</dt><dd><tt>Given&nbsp;an&nbsp;inline&nbsp;formset&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-save_model"><strong>save_model</strong></a>(self, request, obj, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-save_related"><strong>save_related</strong></a>(self, request, form, formsets, change)</dt><dd><tt>Given&nbsp;the&nbsp;``HttpRequest``,&nbsp;the&nbsp;parent&nbsp;``ModelForm``&nbsp;instance,&nbsp;the<br>
+list&nbsp;of&nbsp;inline&nbsp;formsets&nbsp;and&nbsp;a&nbsp;boolean&nbsp;value&nbsp;based&nbsp;on&nbsp;whether&nbsp;the<br>
+parent&nbsp;is&nbsp;being&nbsp;added&nbsp;or&nbsp;changed,&nbsp;save&nbsp;the&nbsp;related&nbsp;objects&nbsp;to&nbsp;the<br>
+database.&nbsp;Note&nbsp;that&nbsp;at&nbsp;this&nbsp;point&nbsp;<a href="#AboutAdmin-save_form">save_form</a>()&nbsp;and&nbsp;<a href="#AboutAdmin-save_model">save_model</a>()&nbsp;have<br>
+already&nbsp;been&nbsp;called.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>urls</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>action_form</strong> = &lt;class 'django.contrib.admin.helpers.ActionForm'&gt;</dl>
+
+<dl><dt><strong>actions</strong> = []</dl>
+
+<dl><dt><strong>actions_on_bottom</strong> = False</dl>
+
+<dl><dt><strong>actions_on_top</strong> = True</dl>
+
+<dl><dt><strong>actions_selection_counter</strong> = True</dl>
+
+<dl><dt><strong>add_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_list_template</strong> = None</dl>
+
+<dl><dt><strong>date_hierarchy</strong> = None</dl>
+
+<dl><dt><strong>delete_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>delete_selected_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>inlines</strong> = []</dl>
+
+<dl><dt><strong>list_display_links</strong> = ()</dl>
+
+<dl><dt><strong>list_filter</strong> = ()</dl>
+
+<dl><dt><strong>list_max_show_all</strong> = 200</dl>
+
+<dl><dt><strong>list_per_page</strong> = 100</dl>
+
+<dl><dt><strong>list_select_related</strong> = False</dl>
+
+<dl><dt><strong>object_history_template</strong> = None</dl>
+
+<dl><dt><strong>paginator</strong> = &lt;class 'django.core.paginator.Paginator'&gt;</dl>
+
+<dl><dt><strong>save_as</strong> = False</dl>
+
+<dl><dt><strong>save_on_top</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><a name="AboutAdmin-formfield_for_choice_field"><strong>formfield_for_choice_field</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;database&nbsp;Field&nbsp;that&nbsp;has&nbsp;declared&nbsp;choices.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-formfield_for_dbfield"><strong>formfield_for_dbfield</strong></a>(self, db_field, **kwargs)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;the&nbsp;form&nbsp;Field&nbsp;instance&nbsp;for&nbsp;a&nbsp;given&nbsp;database&nbsp;Field<br>
+instance.<br>
+&nbsp;<br>
+If&nbsp;kwargs&nbsp;are&nbsp;given,&nbsp;they're&nbsp;passed&nbsp;to&nbsp;the&nbsp;form&nbsp;Field's&nbsp;constructor.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-formfield_for_foreignkey"><strong>formfield_for_foreignkey</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ForeignKey.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-formfield_for_manytomany"><strong>formfield_for_manytomany</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ManyToManyField.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_ordering"><strong>get_ordering</strong></a>(self, request)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;field&nbsp;ordering.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_prepopulated_fields"><strong>get_prepopulated_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;prepopulated&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-get_readonly_fields"><strong>get_readonly_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;readonly&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-has_add_permission"><strong>has_add_permission</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;add&nbsp;an&nbsp;object.<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-has_change_permission"><strong>has_change_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-has_delete_permission"><strong>has_delete_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="AboutAdmin-lookup_allowed"><strong>lookup_allowed</strong></a>(self, lookup, value)</dt></dl>
+
+<dl><dt><a name="AboutAdmin-queryset"><strong>queryset</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;QuerySet&nbsp;of&nbsp;all&nbsp;model&nbsp;instances&nbsp;that&nbsp;can&nbsp;be&nbsp;edited&nbsp;by&nbsp;the<br>
+admin&nbsp;site.&nbsp;This&nbsp;is&nbsp;used&nbsp;by&nbsp;changelist_view.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>declared_fieldsets</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>exclude</strong> = None</dl>
+
+<dl><dt><strong>fields</strong> = None</dl>
+
+<dl><dt><strong>fieldsets</strong> = None</dl>
+
+<dl><dt><strong>filter_horizontal</strong> = ()</dl>
+
+<dl><dt><strong>filter_vertical</strong> = ()</dl>
+
+<dl><dt><strong>form</strong> = &lt;class 'django.forms.models.ModelForm'&gt;</dl>
+
+<dl><dt><strong>formfield_overrides</strong> = {}</dl>
+
+<dl><dt><strong>ordering</strong> = None</dl>
+
+<dl><dt><strong>prepopulated_fields</strong> = {}</dl>
+
+<dl><dt><strong>radio_fields</strong> = {}</dl>
+
+<dl><dt><strong>raw_id_fields</strong> = ()</dl>
+
+<dl><dt><strong>readonly_fields</strong> = ()</dl>
+
+<hr>
+Data descriptors inherited from django.forms.widgets.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="EmbedAdmin">class <strong>EmbedAdmin</strong></a>(<a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Provides&nbsp;custom&nbsp;options&nbsp;for&nbsp;the&nbsp;Organization&nbsp;table&nbsp;in&nbsp;the&nbsp;Admin&nbsp;interface<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="admin.html#EmbedAdmin">EmbedAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a></dd>
+<dd>django.forms.widgets.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>fieldsets</strong> = ((None, {'fields': ('kind', 'url', 'desc')}), ('Relations', {'fields': ('event', 'person', 'organization')}))</dl>
+
+<dl><dt><strong>filter_horizontal</strong> = ('event', 'person', 'organization')</dl>
+
+<dl><dt><strong>list_display</strong> = ('desc', 'kind', 'url')</dl>
+
+<dl><dt><strong>list_editable</strong> = ('kind', 'url')</dl>
+
+<dl><dt><strong>list_filter</strong> = ('kind', 'event', 'person', 'organization')</dl>
+
+<dl><dt><strong>search_fields</strong> = ('kind',)</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><a name="EmbedAdmin-__init__"><strong>__init__</strong></a>(self, model, admin_site)</dt></dl>
+
+<dl><dt><a name="EmbedAdmin-action_checkbox"><strong>action_checkbox</strong></a>(self, obj)</dt><dd><tt>A&nbsp;list_display&nbsp;column&nbsp;containing&nbsp;a&nbsp;checkbox&nbsp;widget.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-add_view"><strong>add_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'add'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-change_view"><strong>change_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-changelist_view"><strong>changelist_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change&nbsp;list'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-construct_change_message"><strong>construct_change_message</strong></a>(self, request, form, formsets)</dt><dd><tt>Construct&nbsp;a&nbsp;change&nbsp;message&nbsp;from&nbsp;a&nbsp;changed&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-delete_model"><strong>delete_model</strong></a>(self, request, obj)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;delete&nbsp;it&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-delete_view"><strong>delete_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'delete'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_action"><strong>get_action</strong></a>(self, action)</dt><dd><tt>Return&nbsp;a&nbsp;given&nbsp;action&nbsp;from&nbsp;a&nbsp;parameter,&nbsp;which&nbsp;can&nbsp;either&nbsp;be&nbsp;a&nbsp;callable,<br>
+or&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;method&nbsp;on&nbsp;the&nbsp;<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>.&nbsp;&nbsp;Return&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of<br>
+(callable,&nbsp;name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_action_choices"><strong>get_action_choices</strong></a>(self, request, default_choices<font color="#909090">=[(u'', u'---------')]</font>)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;choices&nbsp;for&nbsp;use&nbsp;in&nbsp;a&nbsp;form&nbsp;object.&nbsp;&nbsp;Each&nbsp;choice&nbsp;is&nbsp;a<br>
+tuple&nbsp;(name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_actions"><strong>get_actions</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;dictionary&nbsp;mapping&nbsp;the&nbsp;names&nbsp;of&nbsp;all&nbsp;actions&nbsp;for&nbsp;this<br>
+<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>&nbsp;to&nbsp;a&nbsp;tuple&nbsp;of&nbsp;(callable,&nbsp;name,&nbsp;description)&nbsp;for&nbsp;each&nbsp;action.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_changelist"><strong>get_changelist</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;the&nbsp;ChangeList&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_changelist_form"><strong>get_changelist_form</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;Formset&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_changelist_formset"><strong>get_changelist_formset</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;FormSet&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page&nbsp;if&nbsp;list_editable<br>
+is&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_fieldsets"><strong>get_fieldsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;fieldsets&nbsp;for&nbsp;the&nbsp;add&nbsp;form.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_form"><strong>get_form</strong></a>(self, request, obj<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;admin&nbsp;add&nbsp;view.&nbsp;This&nbsp;is&nbsp;used&nbsp;by<br>
+add_view&nbsp;and&nbsp;change_view.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_formsets"><strong>get_formsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="EmbedAdmin-get_inline_instances"><strong>get_inline_instances</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="EmbedAdmin-get_list_display"><strong>get_list_display</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;on&nbsp;the<br>
+changelist.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_list_display_links"><strong>get_list_display_links</strong></a>(self, request, list_display)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;links<br>
+on&nbsp;the&nbsp;changelist.&nbsp;The&nbsp;list_display&nbsp;parameter&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;fields<br>
+returned&nbsp;by&nbsp;<a href="#EmbedAdmin-get_list_display">get_list_display</a>().</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_list_filter"><strong>get_list_filter</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;filters&nbsp;in<br>
+the&nbsp;right&nbsp;sidebar&nbsp;of&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_model_perms"><strong>get_model_perms</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;dict&nbsp;of&nbsp;all&nbsp;perms&nbsp;for&nbsp;this&nbsp;model.&nbsp;This&nbsp;dict&nbsp;has&nbsp;the&nbsp;keys<br>
+``add``,&nbsp;``change``,&nbsp;and&nbsp;``delete``&nbsp;mapping&nbsp;to&nbsp;the&nbsp;True/False&nbsp;for&nbsp;each<br>
+of&nbsp;those&nbsp;actions.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_object"><strong>get_object</strong></a>(self, request, object_id)</dt><dd><tt>Returns&nbsp;an&nbsp;instance&nbsp;matching&nbsp;the&nbsp;primary&nbsp;key&nbsp;provided.&nbsp;``None``&nbsp;&nbsp;is<br>
+returned&nbsp;if&nbsp;no&nbsp;match&nbsp;is&nbsp;found&nbsp;(or&nbsp;the&nbsp;object_id&nbsp;failed&nbsp;validation<br>
+against&nbsp;the&nbsp;primary&nbsp;key&nbsp;field).</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_paginator"><strong>get_paginator</strong></a>(self, request, queryset, per_page, orphans<font color="#909090">=0</font>, allow_empty_first_page<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="EmbedAdmin-get_urls"><strong>get_urls</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="EmbedAdmin-history_view"><strong>history_view</strong></a>(self, request, object_id, extra_context<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;'history'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-log_addition"><strong>log_addition</strong></a>(self, request, object)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;added.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-log_change"><strong>log_change</strong></a>(self, request, object, message)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;changed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-log_deletion"><strong>log_deletion</strong></a>(self, request, object, object_repr)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;will&nbsp;be&nbsp;deleted.&nbsp;Note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;called<br>
+before&nbsp;the&nbsp;deletion.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-message_user"><strong>message_user</strong></a>(self, request, message, level<font color="#909090">=20</font>, extra_tags<font color="#909090">=''</font>, fail_silently<font color="#909090">=False</font>)</dt><dd><tt>Send&nbsp;a&nbsp;message&nbsp;to&nbsp;the&nbsp;user.&nbsp;The&nbsp;default&nbsp;implementation<br>
+posts&nbsp;a&nbsp;message&nbsp;using&nbsp;the&nbsp;django.contrib.messages&nbsp;backend.<br>
+&nbsp;<br>
+Exposes&nbsp;almost&nbsp;the&nbsp;same&nbsp;API&nbsp;as&nbsp;messages.add_message(),&nbsp;but&nbsp;accepts&nbsp;the<br>
+positional&nbsp;arguments&nbsp;in&nbsp;a&nbsp;different&nbsp;order&nbsp;to&nbsp;maintain&nbsp;backwards<br>
+compatibility.&nbsp;For&nbsp;convenience,&nbsp;it&nbsp;accepts&nbsp;the&nbsp;`level`&nbsp;argument&nbsp;as<br>
+a&nbsp;string&nbsp;rather&nbsp;than&nbsp;the&nbsp;usual&nbsp;level&nbsp;number.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-render_change_form"><strong>render_change_form</strong></a>(self, request, context, add<font color="#909090">=False</font>, change<font color="#909090">=False</font>, form_url<font color="#909090">=''</font>, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="EmbedAdmin-response_action"><strong>response_action</strong></a>(self, request, queryset)</dt><dd><tt>Handle&nbsp;an&nbsp;admin&nbsp;action.&nbsp;This&nbsp;is&nbsp;called&nbsp;if&nbsp;a&nbsp;request&nbsp;is&nbsp;POSTed&nbsp;to&nbsp;the<br>
+changelist;&nbsp;it&nbsp;returns&nbsp;an&nbsp;HttpResponse&nbsp;if&nbsp;the&nbsp;action&nbsp;was&nbsp;handled,&nbsp;and<br>
+None&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-response_add"><strong>response_add</strong></a>(self, request, obj, post_url_continue<font color="#909090">=None</font>)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;add_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-response_change"><strong>response_change</strong></a>(self, request, obj)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;change_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-response_post_save_add"><strong>response_post_save_add</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;adding&nbsp;a&nbsp;new&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-response_post_save_change"><strong>response_post_save_change</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;editing&nbsp;an&nbsp;existing&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-save_form"><strong>save_form</strong></a>(self, request, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;ModelForm&nbsp;return&nbsp;an&nbsp;unsaved&nbsp;instance.&nbsp;``change``&nbsp;is&nbsp;True&nbsp;if<br>
+the&nbsp;object&nbsp;is&nbsp;being&nbsp;changed,&nbsp;and&nbsp;False&nbsp;if&nbsp;it's&nbsp;being&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-save_formset"><strong>save_formset</strong></a>(self, request, form, formset, change)</dt><dd><tt>Given&nbsp;an&nbsp;inline&nbsp;formset&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-save_model"><strong>save_model</strong></a>(self, request, obj, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-save_related"><strong>save_related</strong></a>(self, request, form, formsets, change)</dt><dd><tt>Given&nbsp;the&nbsp;``HttpRequest``,&nbsp;the&nbsp;parent&nbsp;``ModelForm``&nbsp;instance,&nbsp;the<br>
+list&nbsp;of&nbsp;inline&nbsp;formsets&nbsp;and&nbsp;a&nbsp;boolean&nbsp;value&nbsp;based&nbsp;on&nbsp;whether&nbsp;the<br>
+parent&nbsp;is&nbsp;being&nbsp;added&nbsp;or&nbsp;changed,&nbsp;save&nbsp;the&nbsp;related&nbsp;objects&nbsp;to&nbsp;the<br>
+database.&nbsp;Note&nbsp;that&nbsp;at&nbsp;this&nbsp;point&nbsp;<a href="#EmbedAdmin-save_form">save_form</a>()&nbsp;and&nbsp;<a href="#EmbedAdmin-save_model">save_model</a>()&nbsp;have<br>
+already&nbsp;been&nbsp;called.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>urls</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>action_form</strong> = &lt;class 'django.contrib.admin.helpers.ActionForm'&gt;</dl>
+
+<dl><dt><strong>actions</strong> = []</dl>
+
+<dl><dt><strong>actions_on_bottom</strong> = False</dl>
+
+<dl><dt><strong>actions_on_top</strong> = True</dl>
+
+<dl><dt><strong>actions_selection_counter</strong> = True</dl>
+
+<dl><dt><strong>add_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_list_template</strong> = None</dl>
+
+<dl><dt><strong>date_hierarchy</strong> = None</dl>
+
+<dl><dt><strong>delete_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>delete_selected_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>inlines</strong> = []</dl>
+
+<dl><dt><strong>list_display_links</strong> = ()</dl>
+
+<dl><dt><strong>list_max_show_all</strong> = 200</dl>
+
+<dl><dt><strong>list_per_page</strong> = 100</dl>
+
+<dl><dt><strong>list_select_related</strong> = False</dl>
+
+<dl><dt><strong>object_history_template</strong> = None</dl>
+
+<dl><dt><strong>paginator</strong> = &lt;class 'django.core.paginator.Paginator'&gt;</dl>
+
+<dl><dt><strong>save_as</strong> = False</dl>
+
+<dl><dt><strong>save_on_top</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><a name="EmbedAdmin-formfield_for_choice_field"><strong>formfield_for_choice_field</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;database&nbsp;Field&nbsp;that&nbsp;has&nbsp;declared&nbsp;choices.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-formfield_for_dbfield"><strong>formfield_for_dbfield</strong></a>(self, db_field, **kwargs)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;the&nbsp;form&nbsp;Field&nbsp;instance&nbsp;for&nbsp;a&nbsp;given&nbsp;database&nbsp;Field<br>
+instance.<br>
+&nbsp;<br>
+If&nbsp;kwargs&nbsp;are&nbsp;given,&nbsp;they're&nbsp;passed&nbsp;to&nbsp;the&nbsp;form&nbsp;Field's&nbsp;constructor.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-formfield_for_foreignkey"><strong>formfield_for_foreignkey</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ForeignKey.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-formfield_for_manytomany"><strong>formfield_for_manytomany</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ManyToManyField.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_ordering"><strong>get_ordering</strong></a>(self, request)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;field&nbsp;ordering.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_prepopulated_fields"><strong>get_prepopulated_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;prepopulated&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-get_readonly_fields"><strong>get_readonly_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;readonly&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-has_add_permission"><strong>has_add_permission</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;add&nbsp;an&nbsp;object.<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-has_change_permission"><strong>has_change_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-has_delete_permission"><strong>has_delete_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="EmbedAdmin-lookup_allowed"><strong>lookup_allowed</strong></a>(self, lookup, value)</dt></dl>
+
+<dl><dt><a name="EmbedAdmin-queryset"><strong>queryset</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;QuerySet&nbsp;of&nbsp;all&nbsp;model&nbsp;instances&nbsp;that&nbsp;can&nbsp;be&nbsp;edited&nbsp;by&nbsp;the<br>
+admin&nbsp;site.&nbsp;This&nbsp;is&nbsp;used&nbsp;by&nbsp;changelist_view.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>declared_fieldsets</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>exclude</strong> = None</dl>
+
+<dl><dt><strong>fields</strong> = None</dl>
+
+<dl><dt><strong>filter_vertical</strong> = ()</dl>
+
+<dl><dt><strong>form</strong> = &lt;class 'django.forms.models.ModelForm'&gt;</dl>
+
+<dl><dt><strong>formfield_overrides</strong> = {}</dl>
+
+<dl><dt><strong>ordering</strong> = None</dl>
+
+<dl><dt><strong>prepopulated_fields</strong> = {}</dl>
+
+<dl><dt><strong>radio_fields</strong> = {}</dl>
+
+<dl><dt><strong>raw_id_fields</strong> = ()</dl>
+
+<dl><dt><strong>readonly_fields</strong> = ()</dl>
+
+<hr>
+Data descriptors inherited from django.forms.widgets.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="EventAdmin">class <strong>EventAdmin</strong></a>(<a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Provides&nbsp;custom&nbsp;options&nbsp;for&nbsp;the&nbsp;Event&nbsp;table&nbsp;in&nbsp;the&nbsp;Admin&nbsp;interface<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="admin.html#EventAdmin">EventAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a></dd>
+<dd>django.forms.widgets.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>date_hierarchy</strong> = 'date_time'</dl>
+
+<dl><dt><strong>list_display</strong> = ('name', 'kind', 'location', 'date_time')</dl>
+
+<dl><dt><strong>list_editable</strong> = ('kind', 'location')</dl>
+
+<dl><dt><strong>list_filter</strong> = ('kind', 'person', 'organization')</dl>
+
+<dl><dt><strong>search_fields</strong> = ('name',)</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><a name="EventAdmin-__init__"><strong>__init__</strong></a>(self, model, admin_site)</dt></dl>
+
+<dl><dt><a name="EventAdmin-action_checkbox"><strong>action_checkbox</strong></a>(self, obj)</dt><dd><tt>A&nbsp;list_display&nbsp;column&nbsp;containing&nbsp;a&nbsp;checkbox&nbsp;widget.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-add_view"><strong>add_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'add'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-change_view"><strong>change_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-changelist_view"><strong>changelist_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change&nbsp;list'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-construct_change_message"><strong>construct_change_message</strong></a>(self, request, form, formsets)</dt><dd><tt>Construct&nbsp;a&nbsp;change&nbsp;message&nbsp;from&nbsp;a&nbsp;changed&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-delete_model"><strong>delete_model</strong></a>(self, request, obj)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;delete&nbsp;it&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-delete_view"><strong>delete_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'delete'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_action"><strong>get_action</strong></a>(self, action)</dt><dd><tt>Return&nbsp;a&nbsp;given&nbsp;action&nbsp;from&nbsp;a&nbsp;parameter,&nbsp;which&nbsp;can&nbsp;either&nbsp;be&nbsp;a&nbsp;callable,<br>
+or&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;method&nbsp;on&nbsp;the&nbsp;<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>.&nbsp;&nbsp;Return&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of<br>
+(callable,&nbsp;name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_action_choices"><strong>get_action_choices</strong></a>(self, request, default_choices<font color="#909090">=[(u'', u'---------')]</font>)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;choices&nbsp;for&nbsp;use&nbsp;in&nbsp;a&nbsp;form&nbsp;object.&nbsp;&nbsp;Each&nbsp;choice&nbsp;is&nbsp;a<br>
+tuple&nbsp;(name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_actions"><strong>get_actions</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;dictionary&nbsp;mapping&nbsp;the&nbsp;names&nbsp;of&nbsp;all&nbsp;actions&nbsp;for&nbsp;this<br>
+<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>&nbsp;to&nbsp;a&nbsp;tuple&nbsp;of&nbsp;(callable,&nbsp;name,&nbsp;description)&nbsp;for&nbsp;each&nbsp;action.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_changelist"><strong>get_changelist</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;the&nbsp;ChangeList&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_changelist_form"><strong>get_changelist_form</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;Formset&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_changelist_formset"><strong>get_changelist_formset</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;FormSet&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page&nbsp;if&nbsp;list_editable<br>
+is&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_fieldsets"><strong>get_fieldsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;fieldsets&nbsp;for&nbsp;the&nbsp;add&nbsp;form.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_form"><strong>get_form</strong></a>(self, request, obj<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;admin&nbsp;add&nbsp;view.&nbsp;This&nbsp;is&nbsp;used&nbsp;by<br>
+add_view&nbsp;and&nbsp;change_view.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_formsets"><strong>get_formsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="EventAdmin-get_inline_instances"><strong>get_inline_instances</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="EventAdmin-get_list_display"><strong>get_list_display</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;on&nbsp;the<br>
+changelist.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_list_display_links"><strong>get_list_display_links</strong></a>(self, request, list_display)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;links<br>
+on&nbsp;the&nbsp;changelist.&nbsp;The&nbsp;list_display&nbsp;parameter&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;fields<br>
+returned&nbsp;by&nbsp;<a href="#EventAdmin-get_list_display">get_list_display</a>().</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_list_filter"><strong>get_list_filter</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;filters&nbsp;in<br>
+the&nbsp;right&nbsp;sidebar&nbsp;of&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_model_perms"><strong>get_model_perms</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;dict&nbsp;of&nbsp;all&nbsp;perms&nbsp;for&nbsp;this&nbsp;model.&nbsp;This&nbsp;dict&nbsp;has&nbsp;the&nbsp;keys<br>
+``add``,&nbsp;``change``,&nbsp;and&nbsp;``delete``&nbsp;mapping&nbsp;to&nbsp;the&nbsp;True/False&nbsp;for&nbsp;each<br>
+of&nbsp;those&nbsp;actions.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_object"><strong>get_object</strong></a>(self, request, object_id)</dt><dd><tt>Returns&nbsp;an&nbsp;instance&nbsp;matching&nbsp;the&nbsp;primary&nbsp;key&nbsp;provided.&nbsp;``None``&nbsp;&nbsp;is<br>
+returned&nbsp;if&nbsp;no&nbsp;match&nbsp;is&nbsp;found&nbsp;(or&nbsp;the&nbsp;object_id&nbsp;failed&nbsp;validation<br>
+against&nbsp;the&nbsp;primary&nbsp;key&nbsp;field).</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_paginator"><strong>get_paginator</strong></a>(self, request, queryset, per_page, orphans<font color="#909090">=0</font>, allow_empty_first_page<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="EventAdmin-get_urls"><strong>get_urls</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="EventAdmin-history_view"><strong>history_view</strong></a>(self, request, object_id, extra_context<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;'history'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-log_addition"><strong>log_addition</strong></a>(self, request, object)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;added.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-log_change"><strong>log_change</strong></a>(self, request, object, message)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;changed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-log_deletion"><strong>log_deletion</strong></a>(self, request, object, object_repr)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;will&nbsp;be&nbsp;deleted.&nbsp;Note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;called<br>
+before&nbsp;the&nbsp;deletion.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-message_user"><strong>message_user</strong></a>(self, request, message, level<font color="#909090">=20</font>, extra_tags<font color="#909090">=''</font>, fail_silently<font color="#909090">=False</font>)</dt><dd><tt>Send&nbsp;a&nbsp;message&nbsp;to&nbsp;the&nbsp;user.&nbsp;The&nbsp;default&nbsp;implementation<br>
+posts&nbsp;a&nbsp;message&nbsp;using&nbsp;the&nbsp;django.contrib.messages&nbsp;backend.<br>
+&nbsp;<br>
+Exposes&nbsp;almost&nbsp;the&nbsp;same&nbsp;API&nbsp;as&nbsp;messages.add_message(),&nbsp;but&nbsp;accepts&nbsp;the<br>
+positional&nbsp;arguments&nbsp;in&nbsp;a&nbsp;different&nbsp;order&nbsp;to&nbsp;maintain&nbsp;backwards<br>
+compatibility.&nbsp;For&nbsp;convenience,&nbsp;it&nbsp;accepts&nbsp;the&nbsp;`level`&nbsp;argument&nbsp;as<br>
+a&nbsp;string&nbsp;rather&nbsp;than&nbsp;the&nbsp;usual&nbsp;level&nbsp;number.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-render_change_form"><strong>render_change_form</strong></a>(self, request, context, add<font color="#909090">=False</font>, change<font color="#909090">=False</font>, form_url<font color="#909090">=''</font>, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="EventAdmin-response_action"><strong>response_action</strong></a>(self, request, queryset)</dt><dd><tt>Handle&nbsp;an&nbsp;admin&nbsp;action.&nbsp;This&nbsp;is&nbsp;called&nbsp;if&nbsp;a&nbsp;request&nbsp;is&nbsp;POSTed&nbsp;to&nbsp;the<br>
+changelist;&nbsp;it&nbsp;returns&nbsp;an&nbsp;HttpResponse&nbsp;if&nbsp;the&nbsp;action&nbsp;was&nbsp;handled,&nbsp;and<br>
+None&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-response_add"><strong>response_add</strong></a>(self, request, obj, post_url_continue<font color="#909090">=None</font>)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;add_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-response_change"><strong>response_change</strong></a>(self, request, obj)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;change_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-response_post_save_add"><strong>response_post_save_add</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;adding&nbsp;a&nbsp;new&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-response_post_save_change"><strong>response_post_save_change</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;editing&nbsp;an&nbsp;existing&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-save_form"><strong>save_form</strong></a>(self, request, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;ModelForm&nbsp;return&nbsp;an&nbsp;unsaved&nbsp;instance.&nbsp;``change``&nbsp;is&nbsp;True&nbsp;if<br>
+the&nbsp;object&nbsp;is&nbsp;being&nbsp;changed,&nbsp;and&nbsp;False&nbsp;if&nbsp;it's&nbsp;being&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-save_formset"><strong>save_formset</strong></a>(self, request, form, formset, change)</dt><dd><tt>Given&nbsp;an&nbsp;inline&nbsp;formset&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-save_model"><strong>save_model</strong></a>(self, request, obj, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-save_related"><strong>save_related</strong></a>(self, request, form, formsets, change)</dt><dd><tt>Given&nbsp;the&nbsp;``HttpRequest``,&nbsp;the&nbsp;parent&nbsp;``ModelForm``&nbsp;instance,&nbsp;the<br>
+list&nbsp;of&nbsp;inline&nbsp;formsets&nbsp;and&nbsp;a&nbsp;boolean&nbsp;value&nbsp;based&nbsp;on&nbsp;whether&nbsp;the<br>
+parent&nbsp;is&nbsp;being&nbsp;added&nbsp;or&nbsp;changed,&nbsp;save&nbsp;the&nbsp;related&nbsp;objects&nbsp;to&nbsp;the<br>
+database.&nbsp;Note&nbsp;that&nbsp;at&nbsp;this&nbsp;point&nbsp;<a href="#EventAdmin-save_form">save_form</a>()&nbsp;and&nbsp;<a href="#EventAdmin-save_model">save_model</a>()&nbsp;have<br>
+already&nbsp;been&nbsp;called.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>urls</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>action_form</strong> = &lt;class 'django.contrib.admin.helpers.ActionForm'&gt;</dl>
+
+<dl><dt><strong>actions</strong> = []</dl>
+
+<dl><dt><strong>actions_on_bottom</strong> = False</dl>
+
+<dl><dt><strong>actions_on_top</strong> = True</dl>
+
+<dl><dt><strong>actions_selection_counter</strong> = True</dl>
+
+<dl><dt><strong>add_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_list_template</strong> = None</dl>
+
+<dl><dt><strong>delete_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>delete_selected_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>inlines</strong> = []</dl>
+
+<dl><dt><strong>list_display_links</strong> = ()</dl>
+
+<dl><dt><strong>list_max_show_all</strong> = 200</dl>
+
+<dl><dt><strong>list_per_page</strong> = 100</dl>
+
+<dl><dt><strong>list_select_related</strong> = False</dl>
+
+<dl><dt><strong>object_history_template</strong> = None</dl>
+
+<dl><dt><strong>paginator</strong> = &lt;class 'django.core.paginator.Paginator'&gt;</dl>
+
+<dl><dt><strong>save_as</strong> = False</dl>
+
+<dl><dt><strong>save_on_top</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><a name="EventAdmin-formfield_for_choice_field"><strong>formfield_for_choice_field</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;database&nbsp;Field&nbsp;that&nbsp;has&nbsp;declared&nbsp;choices.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-formfield_for_dbfield"><strong>formfield_for_dbfield</strong></a>(self, db_field, **kwargs)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;the&nbsp;form&nbsp;Field&nbsp;instance&nbsp;for&nbsp;a&nbsp;given&nbsp;database&nbsp;Field<br>
+instance.<br>
+&nbsp;<br>
+If&nbsp;kwargs&nbsp;are&nbsp;given,&nbsp;they're&nbsp;passed&nbsp;to&nbsp;the&nbsp;form&nbsp;Field's&nbsp;constructor.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-formfield_for_foreignkey"><strong>formfield_for_foreignkey</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ForeignKey.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-formfield_for_manytomany"><strong>formfield_for_manytomany</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ManyToManyField.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_ordering"><strong>get_ordering</strong></a>(self, request)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;field&nbsp;ordering.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_prepopulated_fields"><strong>get_prepopulated_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;prepopulated&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-get_readonly_fields"><strong>get_readonly_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;readonly&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-has_add_permission"><strong>has_add_permission</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;add&nbsp;an&nbsp;object.<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-has_change_permission"><strong>has_change_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-has_delete_permission"><strong>has_delete_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="EventAdmin-lookup_allowed"><strong>lookup_allowed</strong></a>(self, lookup, value)</dt></dl>
+
+<dl><dt><a name="EventAdmin-queryset"><strong>queryset</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;QuerySet&nbsp;of&nbsp;all&nbsp;model&nbsp;instances&nbsp;that&nbsp;can&nbsp;be&nbsp;edited&nbsp;by&nbsp;the<br>
+admin&nbsp;site.&nbsp;This&nbsp;is&nbsp;used&nbsp;by&nbsp;changelist_view.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>declared_fieldsets</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>exclude</strong> = None</dl>
+
+<dl><dt><strong>fields</strong> = None</dl>
+
+<dl><dt><strong>fieldsets</strong> = None</dl>
+
+<dl><dt><strong>filter_horizontal</strong> = ()</dl>
+
+<dl><dt><strong>filter_vertical</strong> = ()</dl>
+
+<dl><dt><strong>form</strong> = &lt;class 'django.forms.models.ModelForm'&gt;</dl>
+
+<dl><dt><strong>formfield_overrides</strong> = {}</dl>
+
+<dl><dt><strong>ordering</strong> = None</dl>
+
+<dl><dt><strong>prepopulated_fields</strong> = {}</dl>
+
+<dl><dt><strong>radio_fields</strong> = {}</dl>
+
+<dl><dt><strong>raw_id_fields</strong> = ()</dl>
+
+<dl><dt><strong>readonly_fields</strong> = ()</dl>
+
+<hr>
+Data descriptors inherited from django.forms.widgets.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="OrganizationAdmin">class <strong>OrganizationAdmin</strong></a>(<a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Provides&nbsp;custom&nbsp;options&nbsp;for&nbsp;the&nbsp;Organization&nbsp;table&nbsp;in&nbsp;the&nbsp;Admin&nbsp;interface<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="admin.html#OrganizationAdmin">OrganizationAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a></dd>
+<dd>django.forms.widgets.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>filter_horizontal</strong> = ('event', 'person')</dl>
+
+<dl><dt><strong>list_display</strong> = ('name', 'kind', 'location', 'contact_info')</dl>
+
+<dl><dt><strong>list_editable</strong> = ('kind', 'location', 'contact_info')</dl>
+
+<dl><dt><strong>list_filter</strong> = ('event', 'person')</dl>
+
+<dl><dt><strong>search_fields</strong> = ('name',)</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><a name="OrganizationAdmin-__init__"><strong>__init__</strong></a>(self, model, admin_site)</dt></dl>
+
+<dl><dt><a name="OrganizationAdmin-action_checkbox"><strong>action_checkbox</strong></a>(self, obj)</dt><dd><tt>A&nbsp;list_display&nbsp;column&nbsp;containing&nbsp;a&nbsp;checkbox&nbsp;widget.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-add_view"><strong>add_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'add'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-change_view"><strong>change_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-changelist_view"><strong>changelist_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change&nbsp;list'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-construct_change_message"><strong>construct_change_message</strong></a>(self, request, form, formsets)</dt><dd><tt>Construct&nbsp;a&nbsp;change&nbsp;message&nbsp;from&nbsp;a&nbsp;changed&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-delete_model"><strong>delete_model</strong></a>(self, request, obj)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;delete&nbsp;it&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-delete_view"><strong>delete_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'delete'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_action"><strong>get_action</strong></a>(self, action)</dt><dd><tt>Return&nbsp;a&nbsp;given&nbsp;action&nbsp;from&nbsp;a&nbsp;parameter,&nbsp;which&nbsp;can&nbsp;either&nbsp;be&nbsp;a&nbsp;callable,<br>
+or&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;method&nbsp;on&nbsp;the&nbsp;<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>.&nbsp;&nbsp;Return&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of<br>
+(callable,&nbsp;name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_action_choices"><strong>get_action_choices</strong></a>(self, request, default_choices<font color="#909090">=[(u'', u'---------')]</font>)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;choices&nbsp;for&nbsp;use&nbsp;in&nbsp;a&nbsp;form&nbsp;object.&nbsp;&nbsp;Each&nbsp;choice&nbsp;is&nbsp;a<br>
+tuple&nbsp;(name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_actions"><strong>get_actions</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;dictionary&nbsp;mapping&nbsp;the&nbsp;names&nbsp;of&nbsp;all&nbsp;actions&nbsp;for&nbsp;this<br>
+<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>&nbsp;to&nbsp;a&nbsp;tuple&nbsp;of&nbsp;(callable,&nbsp;name,&nbsp;description)&nbsp;for&nbsp;each&nbsp;action.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_changelist"><strong>get_changelist</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;the&nbsp;ChangeList&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_changelist_form"><strong>get_changelist_form</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;Formset&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_changelist_formset"><strong>get_changelist_formset</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;FormSet&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page&nbsp;if&nbsp;list_editable<br>
+is&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_fieldsets"><strong>get_fieldsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;fieldsets&nbsp;for&nbsp;the&nbsp;add&nbsp;form.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_form"><strong>get_form</strong></a>(self, request, obj<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;admin&nbsp;add&nbsp;view.&nbsp;This&nbsp;is&nbsp;used&nbsp;by<br>
+add_view&nbsp;and&nbsp;change_view.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_formsets"><strong>get_formsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_inline_instances"><strong>get_inline_instances</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_list_display"><strong>get_list_display</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;on&nbsp;the<br>
+changelist.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_list_display_links"><strong>get_list_display_links</strong></a>(self, request, list_display)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;links<br>
+on&nbsp;the&nbsp;changelist.&nbsp;The&nbsp;list_display&nbsp;parameter&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;fields<br>
+returned&nbsp;by&nbsp;<a href="#OrganizationAdmin-get_list_display">get_list_display</a>().</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_list_filter"><strong>get_list_filter</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;filters&nbsp;in<br>
+the&nbsp;right&nbsp;sidebar&nbsp;of&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_model_perms"><strong>get_model_perms</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;dict&nbsp;of&nbsp;all&nbsp;perms&nbsp;for&nbsp;this&nbsp;model.&nbsp;This&nbsp;dict&nbsp;has&nbsp;the&nbsp;keys<br>
+``add``,&nbsp;``change``,&nbsp;and&nbsp;``delete``&nbsp;mapping&nbsp;to&nbsp;the&nbsp;True/False&nbsp;for&nbsp;each<br>
+of&nbsp;those&nbsp;actions.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_object"><strong>get_object</strong></a>(self, request, object_id)</dt><dd><tt>Returns&nbsp;an&nbsp;instance&nbsp;matching&nbsp;the&nbsp;primary&nbsp;key&nbsp;provided.&nbsp;``None``&nbsp;&nbsp;is<br>
+returned&nbsp;if&nbsp;no&nbsp;match&nbsp;is&nbsp;found&nbsp;(or&nbsp;the&nbsp;object_id&nbsp;failed&nbsp;validation<br>
+against&nbsp;the&nbsp;primary&nbsp;key&nbsp;field).</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_paginator"><strong>get_paginator</strong></a>(self, request, queryset, per_page, orphans<font color="#909090">=0</font>, allow_empty_first_page<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_urls"><strong>get_urls</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="OrganizationAdmin-history_view"><strong>history_view</strong></a>(self, request, object_id, extra_context<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;'history'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-log_addition"><strong>log_addition</strong></a>(self, request, object)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;added.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-log_change"><strong>log_change</strong></a>(self, request, object, message)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;changed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-log_deletion"><strong>log_deletion</strong></a>(self, request, object, object_repr)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;will&nbsp;be&nbsp;deleted.&nbsp;Note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;called<br>
+before&nbsp;the&nbsp;deletion.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-message_user"><strong>message_user</strong></a>(self, request, message, level<font color="#909090">=20</font>, extra_tags<font color="#909090">=''</font>, fail_silently<font color="#909090">=False</font>)</dt><dd><tt>Send&nbsp;a&nbsp;message&nbsp;to&nbsp;the&nbsp;user.&nbsp;The&nbsp;default&nbsp;implementation<br>
+posts&nbsp;a&nbsp;message&nbsp;using&nbsp;the&nbsp;django.contrib.messages&nbsp;backend.<br>
+&nbsp;<br>
+Exposes&nbsp;almost&nbsp;the&nbsp;same&nbsp;API&nbsp;as&nbsp;messages.add_message(),&nbsp;but&nbsp;accepts&nbsp;the<br>
+positional&nbsp;arguments&nbsp;in&nbsp;a&nbsp;different&nbsp;order&nbsp;to&nbsp;maintain&nbsp;backwards<br>
+compatibility.&nbsp;For&nbsp;convenience,&nbsp;it&nbsp;accepts&nbsp;the&nbsp;`level`&nbsp;argument&nbsp;as<br>
+a&nbsp;string&nbsp;rather&nbsp;than&nbsp;the&nbsp;usual&nbsp;level&nbsp;number.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-render_change_form"><strong>render_change_form</strong></a>(self, request, context, add<font color="#909090">=False</font>, change<font color="#909090">=False</font>, form_url<font color="#909090">=''</font>, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="OrganizationAdmin-response_action"><strong>response_action</strong></a>(self, request, queryset)</dt><dd><tt>Handle&nbsp;an&nbsp;admin&nbsp;action.&nbsp;This&nbsp;is&nbsp;called&nbsp;if&nbsp;a&nbsp;request&nbsp;is&nbsp;POSTed&nbsp;to&nbsp;the<br>
+changelist;&nbsp;it&nbsp;returns&nbsp;an&nbsp;HttpResponse&nbsp;if&nbsp;the&nbsp;action&nbsp;was&nbsp;handled,&nbsp;and<br>
+None&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-response_add"><strong>response_add</strong></a>(self, request, obj, post_url_continue<font color="#909090">=None</font>)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;add_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-response_change"><strong>response_change</strong></a>(self, request, obj)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;change_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-response_post_save_add"><strong>response_post_save_add</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;adding&nbsp;a&nbsp;new&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-response_post_save_change"><strong>response_post_save_change</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;editing&nbsp;an&nbsp;existing&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-save_form"><strong>save_form</strong></a>(self, request, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;ModelForm&nbsp;return&nbsp;an&nbsp;unsaved&nbsp;instance.&nbsp;``change``&nbsp;is&nbsp;True&nbsp;if<br>
+the&nbsp;object&nbsp;is&nbsp;being&nbsp;changed,&nbsp;and&nbsp;False&nbsp;if&nbsp;it's&nbsp;being&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-save_formset"><strong>save_formset</strong></a>(self, request, form, formset, change)</dt><dd><tt>Given&nbsp;an&nbsp;inline&nbsp;formset&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-save_model"><strong>save_model</strong></a>(self, request, obj, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-save_related"><strong>save_related</strong></a>(self, request, form, formsets, change)</dt><dd><tt>Given&nbsp;the&nbsp;``HttpRequest``,&nbsp;the&nbsp;parent&nbsp;``ModelForm``&nbsp;instance,&nbsp;the<br>
+list&nbsp;of&nbsp;inline&nbsp;formsets&nbsp;and&nbsp;a&nbsp;boolean&nbsp;value&nbsp;based&nbsp;on&nbsp;whether&nbsp;the<br>
+parent&nbsp;is&nbsp;being&nbsp;added&nbsp;or&nbsp;changed,&nbsp;save&nbsp;the&nbsp;related&nbsp;objects&nbsp;to&nbsp;the<br>
+database.&nbsp;Note&nbsp;that&nbsp;at&nbsp;this&nbsp;point&nbsp;<a href="#OrganizationAdmin-save_form">save_form</a>()&nbsp;and&nbsp;<a href="#OrganizationAdmin-save_model">save_model</a>()&nbsp;have<br>
+already&nbsp;been&nbsp;called.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>urls</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>action_form</strong> = &lt;class 'django.contrib.admin.helpers.ActionForm'&gt;</dl>
+
+<dl><dt><strong>actions</strong> = []</dl>
+
+<dl><dt><strong>actions_on_bottom</strong> = False</dl>
+
+<dl><dt><strong>actions_on_top</strong> = True</dl>
+
+<dl><dt><strong>actions_selection_counter</strong> = True</dl>
+
+<dl><dt><strong>add_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_list_template</strong> = None</dl>
+
+<dl><dt><strong>date_hierarchy</strong> = None</dl>
+
+<dl><dt><strong>delete_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>delete_selected_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>inlines</strong> = []</dl>
+
+<dl><dt><strong>list_display_links</strong> = ()</dl>
+
+<dl><dt><strong>list_max_show_all</strong> = 200</dl>
+
+<dl><dt><strong>list_per_page</strong> = 100</dl>
+
+<dl><dt><strong>list_select_related</strong> = False</dl>
+
+<dl><dt><strong>object_history_template</strong> = None</dl>
+
+<dl><dt><strong>paginator</strong> = &lt;class 'django.core.paginator.Paginator'&gt;</dl>
+
+<dl><dt><strong>save_as</strong> = False</dl>
+
+<dl><dt><strong>save_on_top</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><a name="OrganizationAdmin-formfield_for_choice_field"><strong>formfield_for_choice_field</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;database&nbsp;Field&nbsp;that&nbsp;has&nbsp;declared&nbsp;choices.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-formfield_for_dbfield"><strong>formfield_for_dbfield</strong></a>(self, db_field, **kwargs)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;the&nbsp;form&nbsp;Field&nbsp;instance&nbsp;for&nbsp;a&nbsp;given&nbsp;database&nbsp;Field<br>
+instance.<br>
+&nbsp;<br>
+If&nbsp;kwargs&nbsp;are&nbsp;given,&nbsp;they're&nbsp;passed&nbsp;to&nbsp;the&nbsp;form&nbsp;Field's&nbsp;constructor.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-formfield_for_foreignkey"><strong>formfield_for_foreignkey</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ForeignKey.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-formfield_for_manytomany"><strong>formfield_for_manytomany</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ManyToManyField.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_ordering"><strong>get_ordering</strong></a>(self, request)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;field&nbsp;ordering.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_prepopulated_fields"><strong>get_prepopulated_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;prepopulated&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-get_readonly_fields"><strong>get_readonly_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;readonly&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-has_add_permission"><strong>has_add_permission</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;add&nbsp;an&nbsp;object.<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-has_change_permission"><strong>has_change_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-has_delete_permission"><strong>has_delete_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="OrganizationAdmin-lookup_allowed"><strong>lookup_allowed</strong></a>(self, lookup, value)</dt></dl>
+
+<dl><dt><a name="OrganizationAdmin-queryset"><strong>queryset</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;QuerySet&nbsp;of&nbsp;all&nbsp;model&nbsp;instances&nbsp;that&nbsp;can&nbsp;be&nbsp;edited&nbsp;by&nbsp;the<br>
+admin&nbsp;site.&nbsp;This&nbsp;is&nbsp;used&nbsp;by&nbsp;changelist_view.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>declared_fieldsets</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>exclude</strong> = None</dl>
+
+<dl><dt><strong>fields</strong> = None</dl>
+
+<dl><dt><strong>fieldsets</strong> = None</dl>
+
+<dl><dt><strong>filter_vertical</strong> = ()</dl>
+
+<dl><dt><strong>form</strong> = &lt;class 'django.forms.models.ModelForm'&gt;</dl>
+
+<dl><dt><strong>formfield_overrides</strong> = {}</dl>
+
+<dl><dt><strong>ordering</strong> = None</dl>
+
+<dl><dt><strong>prepopulated_fields</strong> = {}</dl>
+
+<dl><dt><strong>radio_fields</strong> = {}</dl>
+
+<dl><dt><strong>raw_id_fields</strong> = ()</dl>
+
+<dl><dt><strong>readonly_fields</strong> = ()</dl>
+
+<hr>
+Data descriptors inherited from django.forms.widgets.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PersonAdmin">class <strong>PersonAdmin</strong></a>(<a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Provides&nbsp;custom&nbsp;options&nbsp;for&nbsp;the&nbsp;Person&nbsp;table&nbsp;in&nbsp;the&nbsp;Admin&nbsp;interface<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="admin.html#PersonAdmin">PersonAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a></dd>
+<dd><a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a></dd>
+<dd>django.forms.widgets.NewBase</dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>media</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>filter_horizontal</strong> = ('event',)</dl>
+
+<dl><dt><strong>list_display</strong> = ('name', 'kind', 'location')</dl>
+
+<dl><dt><strong>list_editable</strong> = ('kind', 'location')</dl>
+
+<dl><dt><strong>list_filter</strong> = ('event', 'organization')</dl>
+
+<dl><dt><strong>search_fields</strong> = ('name',)</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><a name="PersonAdmin-__init__"><strong>__init__</strong></a>(self, model, admin_site)</dt></dl>
+
+<dl><dt><a name="PersonAdmin-action_checkbox"><strong>action_checkbox</strong></a>(self, obj)</dt><dd><tt>A&nbsp;list_display&nbsp;column&nbsp;containing&nbsp;a&nbsp;checkbox&nbsp;widget.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-add_view"><strong>add_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'add'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-change_view"><strong>change_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-changelist_view"><strong>changelist_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'change&nbsp;list'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-construct_change_message"><strong>construct_change_message</strong></a>(self, request, form, formsets)</dt><dd><tt>Construct&nbsp;a&nbsp;change&nbsp;message&nbsp;from&nbsp;a&nbsp;changed&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-delete_model"><strong>delete_model</strong></a>(self, request, obj)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;delete&nbsp;it&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-delete_view"><strong>delete_view</strong></a>(self, *args, **kwargs)</dt><dd><tt>The&nbsp;'delete'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_action"><strong>get_action</strong></a>(self, action)</dt><dd><tt>Return&nbsp;a&nbsp;given&nbsp;action&nbsp;from&nbsp;a&nbsp;parameter,&nbsp;which&nbsp;can&nbsp;either&nbsp;be&nbsp;a&nbsp;callable,<br>
+or&nbsp;the&nbsp;name&nbsp;of&nbsp;a&nbsp;method&nbsp;on&nbsp;the&nbsp;<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>.&nbsp;&nbsp;Return&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of<br>
+(callable,&nbsp;name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_action_choices"><strong>get_action_choices</strong></a>(self, request, default_choices<font color="#909090">=[(u'', u'---------')]</font>)</dt><dd><tt>Return&nbsp;a&nbsp;list&nbsp;of&nbsp;choices&nbsp;for&nbsp;use&nbsp;in&nbsp;a&nbsp;form&nbsp;object.&nbsp;&nbsp;Each&nbsp;choice&nbsp;is&nbsp;a<br>
+tuple&nbsp;(name,&nbsp;description).</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_actions"><strong>get_actions</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;dictionary&nbsp;mapping&nbsp;the&nbsp;names&nbsp;of&nbsp;all&nbsp;actions&nbsp;for&nbsp;this<br>
+<a href="django.contrib.admin.options.html#ModelAdmin">ModelAdmin</a>&nbsp;to&nbsp;a&nbsp;tuple&nbsp;of&nbsp;(callable,&nbsp;name,&nbsp;description)&nbsp;for&nbsp;each&nbsp;action.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_changelist"><strong>get_changelist</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;the&nbsp;ChangeList&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_changelist_form"><strong>get_changelist_form</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;Formset&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_changelist_formset"><strong>get_changelist_formset</strong></a>(self, request, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;FormSet&nbsp;class&nbsp;for&nbsp;use&nbsp;on&nbsp;the&nbsp;changelist&nbsp;page&nbsp;if&nbsp;list_editable<br>
+is&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_fieldsets"><strong>get_fieldsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;fieldsets&nbsp;for&nbsp;the&nbsp;add&nbsp;form.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_form"><strong>get_form</strong></a>(self, request, obj<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Returns&nbsp;a&nbsp;Form&nbsp;class&nbsp;for&nbsp;use&nbsp;in&nbsp;the&nbsp;admin&nbsp;add&nbsp;view.&nbsp;This&nbsp;is&nbsp;used&nbsp;by<br>
+add_view&nbsp;and&nbsp;change_view.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_formsets"><strong>get_formsets</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="PersonAdmin-get_inline_instances"><strong>get_inline_instances</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="PersonAdmin-get_list_display"><strong>get_list_display</strong></a>(self, request)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;on&nbsp;the<br>
+changelist.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_list_display_links"><strong>get_list_display_links</strong></a>(self, request, list_display)</dt><dd><tt>Return&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;links<br>
+on&nbsp;the&nbsp;changelist.&nbsp;The&nbsp;list_display&nbsp;parameter&nbsp;is&nbsp;the&nbsp;list&nbsp;of&nbsp;fields<br>
+returned&nbsp;by&nbsp;<a href="#PersonAdmin-get_list_display">get_list_display</a>().</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_list_filter"><strong>get_list_filter</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;sequence&nbsp;containing&nbsp;the&nbsp;fields&nbsp;to&nbsp;be&nbsp;displayed&nbsp;as&nbsp;filters&nbsp;in<br>
+the&nbsp;right&nbsp;sidebar&nbsp;of&nbsp;the&nbsp;changelist&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_model_perms"><strong>get_model_perms</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;dict&nbsp;of&nbsp;all&nbsp;perms&nbsp;for&nbsp;this&nbsp;model.&nbsp;This&nbsp;dict&nbsp;has&nbsp;the&nbsp;keys<br>
+``add``,&nbsp;``change``,&nbsp;and&nbsp;``delete``&nbsp;mapping&nbsp;to&nbsp;the&nbsp;True/False&nbsp;for&nbsp;each<br>
+of&nbsp;those&nbsp;actions.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_object"><strong>get_object</strong></a>(self, request, object_id)</dt><dd><tt>Returns&nbsp;an&nbsp;instance&nbsp;matching&nbsp;the&nbsp;primary&nbsp;key&nbsp;provided.&nbsp;``None``&nbsp;&nbsp;is<br>
+returned&nbsp;if&nbsp;no&nbsp;match&nbsp;is&nbsp;found&nbsp;(or&nbsp;the&nbsp;object_id&nbsp;failed&nbsp;validation<br>
+against&nbsp;the&nbsp;primary&nbsp;key&nbsp;field).</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_paginator"><strong>get_paginator</strong></a>(self, request, queryset, per_page, orphans<font color="#909090">=0</font>, allow_empty_first_page<font color="#909090">=True</font>)</dt></dl>
+
+<dl><dt><a name="PersonAdmin-get_urls"><strong>get_urls</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="PersonAdmin-history_view"><strong>history_view</strong></a>(self, request, object_id, extra_context<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;'history'&nbsp;admin&nbsp;view&nbsp;for&nbsp;this&nbsp;model.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-log_addition"><strong>log_addition</strong></a>(self, request, object)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;added.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-log_change"><strong>log_change</strong></a>(self, request, object, message)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;has&nbsp;been&nbsp;successfully&nbsp;changed.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-log_deletion"><strong>log_deletion</strong></a>(self, request, object, object_repr)</dt><dd><tt>Log&nbsp;that&nbsp;an&nbsp;object&nbsp;will&nbsp;be&nbsp;deleted.&nbsp;Note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;called<br>
+before&nbsp;the&nbsp;deletion.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;implementation&nbsp;creates&nbsp;an&nbsp;admin&nbsp;LogEntry&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-message_user"><strong>message_user</strong></a>(self, request, message, level<font color="#909090">=20</font>, extra_tags<font color="#909090">=''</font>, fail_silently<font color="#909090">=False</font>)</dt><dd><tt>Send&nbsp;a&nbsp;message&nbsp;to&nbsp;the&nbsp;user.&nbsp;The&nbsp;default&nbsp;implementation<br>
+posts&nbsp;a&nbsp;message&nbsp;using&nbsp;the&nbsp;django.contrib.messages&nbsp;backend.<br>
+&nbsp;<br>
+Exposes&nbsp;almost&nbsp;the&nbsp;same&nbsp;API&nbsp;as&nbsp;messages.add_message(),&nbsp;but&nbsp;accepts&nbsp;the<br>
+positional&nbsp;arguments&nbsp;in&nbsp;a&nbsp;different&nbsp;order&nbsp;to&nbsp;maintain&nbsp;backwards<br>
+compatibility.&nbsp;For&nbsp;convenience,&nbsp;it&nbsp;accepts&nbsp;the&nbsp;`level`&nbsp;argument&nbsp;as<br>
+a&nbsp;string&nbsp;rather&nbsp;than&nbsp;the&nbsp;usual&nbsp;level&nbsp;number.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-render_change_form"><strong>render_change_form</strong></a>(self, request, context, add<font color="#909090">=False</font>, change<font color="#909090">=False</font>, form_url<font color="#909090">=''</font>, obj<font color="#909090">=None</font>)</dt></dl>
+
+<dl><dt><a name="PersonAdmin-response_action"><strong>response_action</strong></a>(self, request, queryset)</dt><dd><tt>Handle&nbsp;an&nbsp;admin&nbsp;action.&nbsp;This&nbsp;is&nbsp;called&nbsp;if&nbsp;a&nbsp;request&nbsp;is&nbsp;POSTed&nbsp;to&nbsp;the<br>
+changelist;&nbsp;it&nbsp;returns&nbsp;an&nbsp;HttpResponse&nbsp;if&nbsp;the&nbsp;action&nbsp;was&nbsp;handled,&nbsp;and<br>
+None&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-response_add"><strong>response_add</strong></a>(self, request, obj, post_url_continue<font color="#909090">=None</font>)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;add_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-response_change"><strong>response_change</strong></a>(self, request, obj)</dt><dd><tt>Determines&nbsp;the&nbsp;HttpResponse&nbsp;for&nbsp;the&nbsp;change_view&nbsp;stage.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-response_post_save_add"><strong>response_post_save_add</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;adding&nbsp;a&nbsp;new&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-response_post_save_change"><strong>response_post_save_change</strong></a>(self, request, obj)</dt><dd><tt>Figure&nbsp;out&nbsp;where&nbsp;to&nbsp;redirect&nbsp;after&nbsp;the&nbsp;'Save'&nbsp;button&nbsp;has&nbsp;been&nbsp;pressed<br>
+when&nbsp;editing&nbsp;an&nbsp;existing&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-save_form"><strong>save_form</strong></a>(self, request, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;ModelForm&nbsp;return&nbsp;an&nbsp;unsaved&nbsp;instance.&nbsp;``change``&nbsp;is&nbsp;True&nbsp;if<br>
+the&nbsp;object&nbsp;is&nbsp;being&nbsp;changed,&nbsp;and&nbsp;False&nbsp;if&nbsp;it's&nbsp;being&nbsp;added.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-save_formset"><strong>save_formset</strong></a>(self, request, form, formset, change)</dt><dd><tt>Given&nbsp;an&nbsp;inline&nbsp;formset&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-save_model"><strong>save_model</strong></a>(self, request, obj, form, change)</dt><dd><tt>Given&nbsp;a&nbsp;model&nbsp;instance&nbsp;save&nbsp;it&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-save_related"><strong>save_related</strong></a>(self, request, form, formsets, change)</dt><dd><tt>Given&nbsp;the&nbsp;``HttpRequest``,&nbsp;the&nbsp;parent&nbsp;``ModelForm``&nbsp;instance,&nbsp;the<br>
+list&nbsp;of&nbsp;inline&nbsp;formsets&nbsp;and&nbsp;a&nbsp;boolean&nbsp;value&nbsp;based&nbsp;on&nbsp;whether&nbsp;the<br>
+parent&nbsp;is&nbsp;being&nbsp;added&nbsp;or&nbsp;changed,&nbsp;save&nbsp;the&nbsp;related&nbsp;objects&nbsp;to&nbsp;the<br>
+database.&nbsp;Note&nbsp;that&nbsp;at&nbsp;this&nbsp;point&nbsp;<a href="#PersonAdmin-save_form">save_form</a>()&nbsp;and&nbsp;<a href="#PersonAdmin-save_model">save_model</a>()&nbsp;have<br>
+already&nbsp;been&nbsp;called.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>urls</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#ModelAdmin">django.contrib.admin.options.ModelAdmin</a>:<br>
+<dl><dt><strong>action_form</strong> = &lt;class 'django.contrib.admin.helpers.ActionForm'&gt;</dl>
+
+<dl><dt><strong>actions</strong> = []</dl>
+
+<dl><dt><strong>actions_on_bottom</strong> = False</dl>
+
+<dl><dt><strong>actions_on_top</strong> = True</dl>
+
+<dl><dt><strong>actions_selection_counter</strong> = True</dl>
+
+<dl><dt><strong>add_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_form_template</strong> = None</dl>
+
+<dl><dt><strong>change_list_template</strong> = None</dl>
+
+<dl><dt><strong>date_hierarchy</strong> = None</dl>
+
+<dl><dt><strong>delete_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>delete_selected_confirmation_template</strong> = None</dl>
+
+<dl><dt><strong>inlines</strong> = []</dl>
+
+<dl><dt><strong>list_display_links</strong> = ()</dl>
+
+<dl><dt><strong>list_max_show_all</strong> = 200</dl>
+
+<dl><dt><strong>list_per_page</strong> = 100</dl>
+
+<dl><dt><strong>list_select_related</strong> = False</dl>
+
+<dl><dt><strong>object_history_template</strong> = None</dl>
+
+<dl><dt><strong>paginator</strong> = &lt;class 'django.core.paginator.Paginator'&gt;</dl>
+
+<dl><dt><strong>save_as</strong> = False</dl>
+
+<dl><dt><strong>save_on_top</strong> = False</dl>
+
+<hr>
+Methods inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><a name="PersonAdmin-formfield_for_choice_field"><strong>formfield_for_choice_field</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;database&nbsp;Field&nbsp;that&nbsp;has&nbsp;declared&nbsp;choices.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-formfield_for_dbfield"><strong>formfield_for_dbfield</strong></a>(self, db_field, **kwargs)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;the&nbsp;form&nbsp;Field&nbsp;instance&nbsp;for&nbsp;a&nbsp;given&nbsp;database&nbsp;Field<br>
+instance.<br>
+&nbsp;<br>
+If&nbsp;kwargs&nbsp;are&nbsp;given,&nbsp;they're&nbsp;passed&nbsp;to&nbsp;the&nbsp;form&nbsp;Field's&nbsp;constructor.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-formfield_for_foreignkey"><strong>formfield_for_foreignkey</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ForeignKey.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-formfield_for_manytomany"><strong>formfield_for_manytomany</strong></a>(self, db_field, request<font color="#909090">=None</font>, **kwargs)</dt><dd><tt>Get&nbsp;a&nbsp;form&nbsp;Field&nbsp;for&nbsp;a&nbsp;ManyToManyField.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_ordering"><strong>get_ordering</strong></a>(self, request)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;field&nbsp;ordering.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_prepopulated_fields"><strong>get_prepopulated_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;prepopulated&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-get_readonly_fields"><strong>get_readonly_fields</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Hook&nbsp;for&nbsp;specifying&nbsp;custom&nbsp;readonly&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-has_add_permission"><strong>has_add_permission</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;add&nbsp;an&nbsp;object.<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-has_change_permission"><strong>has_change_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-has_delete_permission"><strong>has_delete_permission</strong></a>(self, request, obj<font color="#909090">=None</font>)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;change&nbsp;the&nbsp;given<br>
+Django&nbsp;model&nbsp;instance,&nbsp;the&nbsp;default&nbsp;implementation&nbsp;doesn't&nbsp;examine&nbsp;the<br>
+`obj`&nbsp;parameter.<br>
+&nbsp;<br>
+Can&nbsp;be&nbsp;overriden&nbsp;by&nbsp;the&nbsp;user&nbsp;in&nbsp;subclasses.&nbsp;In&nbsp;such&nbsp;case&nbsp;it&nbsp;should<br>
+return&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;the&nbsp;`obj`<br>
+model&nbsp;instance.&nbsp;If&nbsp;`obj`&nbsp;is&nbsp;None,&nbsp;this&nbsp;should&nbsp;return&nbsp;True&nbsp;if&nbsp;the&nbsp;given<br>
+request&nbsp;has&nbsp;permission&nbsp;to&nbsp;delete&nbsp;*any*&nbsp;object&nbsp;of&nbsp;the&nbsp;given&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="PersonAdmin-lookup_allowed"><strong>lookup_allowed</strong></a>(self, lookup, value)</dt></dl>
+
+<dl><dt><a name="PersonAdmin-queryset"><strong>queryset</strong></a>(self, request)</dt><dd><tt>Returns&nbsp;a&nbsp;QuerySet&nbsp;of&nbsp;all&nbsp;model&nbsp;instances&nbsp;that&nbsp;can&nbsp;be&nbsp;edited&nbsp;by&nbsp;the<br>
+admin&nbsp;site.&nbsp;This&nbsp;is&nbsp;used&nbsp;by&nbsp;changelist_view.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>declared_fieldsets</strong></dt>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.contrib.admin.options.html#BaseModelAdmin">django.contrib.admin.options.BaseModelAdmin</a>:<br>
+<dl><dt><strong>exclude</strong> = None</dl>
+
+<dl><dt><strong>fields</strong> = None</dl>
+
+<dl><dt><strong>fieldsets</strong> = None</dl>
+
+<dl><dt><strong>filter_vertical</strong> = ()</dl>
+
+<dl><dt><strong>form</strong> = &lt;class 'django.forms.models.ModelForm'&gt;</dl>
+
+<dl><dt><strong>formfield_overrides</strong> = {}</dl>
+
+<dl><dt><strong>ordering</strong> = None</dl>
+
+<dl><dt><strong>prepopulated_fields</strong> = {}</dl>
+
+<dl><dt><strong>radio_fields</strong> = {}</dl>
+
+<dl><dt><strong>raw_id_fields</strong> = ()</dl>
+
+<dl><dt><strong>readonly_fields</strong> = ()</dl>
+
+<hr>
+Data descriptors inherited from django.forms.widgets.NewBase:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

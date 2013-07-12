@@ -1,0 +1,107 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module prune</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>prune</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/astacy/code/cs373/wcdb/crisis_app/management/commands/prune.py">/Users/astacy/code/cs373/wcdb/crisis_app/management/commands/prune.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="django.core.management.base.html#BaseCommand">django.core.management.base.BaseCommand</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="prune.html#Command">Command</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Command">class <strong>Command</strong></a>(<a href="django.core.management.base.html#BaseCommand">django.core.management.base.BaseCommand</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="prune.html#Command">Command</a></dd>
+<dd><a href="django.core.management.base.html#BaseCommand">django.core.management.base.BaseCommand</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Command-handle"><strong>handle</strong></a>(self, *args, **options)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>help</strong> = 'filter out everything but our data from xml'</dl>
+
+<hr>
+Methods inherited from <a href="django.core.management.base.html#BaseCommand">django.core.management.base.BaseCommand</a>:<br>
+<dl><dt><a name="Command-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Command-create_parser"><strong>create_parser</strong></a>(self, prog_name, subcommand)</dt><dd><tt>Create&nbsp;and&nbsp;return&nbsp;the&nbsp;``OptionParser``&nbsp;which&nbsp;will&nbsp;be&nbsp;used&nbsp;to<br>
+parse&nbsp;the&nbsp;arguments&nbsp;to&nbsp;this&nbsp;command.</tt></dd></dl>
+
+<dl><dt><a name="Command-execute"><strong>execute</strong></a>(self, *args, **options)</dt><dd><tt>Try&nbsp;to&nbsp;execute&nbsp;this&nbsp;command,&nbsp;performing&nbsp;model&nbsp;validation&nbsp;if<br>
+needed&nbsp;(as&nbsp;controlled&nbsp;by&nbsp;the&nbsp;attribute<br>
+``self.<strong>requires_model_validation</strong>``,&nbsp;except&nbsp;if&nbsp;force-skipped).</tt></dd></dl>
+
+<dl><dt><a name="Command-get_version"><strong>get_version</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;Django&nbsp;version,&nbsp;which&nbsp;should&nbsp;be&nbsp;correct&nbsp;for&nbsp;all<br>
+built-in&nbsp;Django&nbsp;commands.&nbsp;User-supplied&nbsp;commands&nbsp;should<br>
+override&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Command-print_help"><strong>print_help</strong></a>(self, prog_name, subcommand)</dt><dd><tt>Print&nbsp;the&nbsp;help&nbsp;message&nbsp;for&nbsp;this&nbsp;command,&nbsp;derived&nbsp;from<br>
+``<a href="#Command-usage">usage</a>()``.</tt></dd></dl>
+
+<dl><dt><a name="Command-run_from_argv"><strong>run_from_argv</strong></a>(self, argv)</dt><dd><tt>Set&nbsp;up&nbsp;any&nbsp;environment&nbsp;changes&nbsp;requested&nbsp;(e.g.,&nbsp;Python&nbsp;path<br>
+and&nbsp;Django&nbsp;settings),&nbsp;then&nbsp;run&nbsp;this&nbsp;command.&nbsp;If&nbsp;the<br>
+command&nbsp;raises&nbsp;a&nbsp;``CommandError``,&nbsp;intercept&nbsp;it&nbsp;and&nbsp;print&nbsp;it&nbsp;sensibly<br>
+to&nbsp;stderr.</tt></dd></dl>
+
+<dl><dt><a name="Command-usage"><strong>usage</strong></a>(self, subcommand)</dt><dd><tt>Return&nbsp;a&nbsp;brief&nbsp;description&nbsp;of&nbsp;how&nbsp;to&nbsp;use&nbsp;this&nbsp;command,&nbsp;by<br>
+default&nbsp;from&nbsp;the&nbsp;attribute&nbsp;``self.<strong>help</strong>``.</tt></dd></dl>
+
+<dl><dt><a name="Command-validate"><strong>validate</strong></a>(self, app<font color="#909090">=None</font>, display_num_errors<font color="#909090">=False</font>)</dt><dd><tt>Validates&nbsp;the&nbsp;given&nbsp;app,&nbsp;raising&nbsp;CommandError&nbsp;for&nbsp;any&nbsp;errors.<br>
+&nbsp;<br>
+If&nbsp;app&nbsp;is&nbsp;None,&nbsp;then&nbsp;this&nbsp;will&nbsp;validate&nbsp;all&nbsp;installed&nbsp;apps.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="django.core.management.base.html#BaseCommand">django.core.management.base.BaseCommand</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="django.core.management.base.html#BaseCommand">django.core.management.base.BaseCommand</a>:<br>
+<dl><dt><strong>args</strong> = ''</dl>
+
+<dl><dt><strong>can_import_settings</strong> = True</dl>
+
+<dl><dt><strong>option_list</strong> = (&lt;Option at 0x103e678c0: -v/--verbosity&gt;, &lt;Option at 0x103e67950: --settings&gt;, &lt;Option at 0x103e67998: --pythonpath&gt;, &lt;Option at 0x103e679e0: --traceback&gt;)</dl>
+
+<dl><dt><strong>output_transaction</strong> = False</dl>
+
+<dl><dt><strong>requires_model_validation</strong> = True</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
