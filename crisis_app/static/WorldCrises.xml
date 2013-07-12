@@ -256,8 +256,8 @@ and mitigation of radioactive materials emission in the environment eventually a
 	</Crisis>
 	<Crisis ID="CRI_BMBOMB" Name="Boston Marathon Bombings">
 		<People>
-			<Person ID="PER_BROBMA"/>
 			<Person ID="PER_BOMBER"/>
+			<Person ID="PER_BROBMA"/>
 		</People>
 		<Organizations>
 			<Org ID="ORG_REDCRS"/>
@@ -303,6 +303,9 @@ The Israel Trauma Coalition for Response and Preparedness sent six psychologists
 		</Common>
 	</Crisis>
 	<Crisis ID="CRI_AIDSHI" Name="AIDS/HIV">
+		<People>
+			<Person ID="PER_BROBMA"/>
+		</People>
 		<Organizations>
 			<Org ID="ORG_REDCRS"/>
 			<Org ID="ORG_UNAIDS"/>
@@ -404,35 +407,6 @@ On 26 April 2013 a humanitarian convoy, inspired by Gaza Flotilla, departed from
 		</WaysToHelp>
 		<Common/>
 	</Crisis>
-	<Crisis ID="CRI_COLSSD" Name="Columbia Space Shuttle Disaster">
-		<People>
-			<Person ID="PER_SYRIDE"/>
-			<Person ID="PER_RBOISJ"/>
-		</People>
-		<Organizations>
-			<Org ID="ORG_THIOKL"/>
-			<Org ID="ORG_NASAUS"/>
-		</Organizations>
-		<Kind>Equipment malfunction, disaster</Kind>
-		<Date>2003-02-01</Date>
-		<Time>14:59:32</Time>
-		<Locations>
-			<li>Dallas, Texas</li>
-		</Locations>
-		<HumanImpact>
-			<li>7 people killed</li>
-		</HumanImpact>
-		<EconomicImpact>
-			<li>All of the lessons the agency learned were incorporated into every subsequent flight NASA flew, and are now being used to inform the design of its next-generation spaceship, Orion. $1.7 billion spent creating space shuttle Challenger.  $400 million to clean up the debris.</li>
-		</EconomicImpact>
-		<ResourcesNeeded>
-			<li>Clean up crews.  Trucks used to haul off the shuttle debris. Inquiry staff to investigate why the disaster happened.</li>
-		</ResourcesNeeded>
-		<WaysToHelp>
-			<li>None</li>
-		</WaysToHelp>
-		<Common/>
-	</Crisis>
 	<Crisis ID="CRI_PIRATE" Name="Piracy in Somalia">
 		<People>
 			<Person ID="PER_ABDALA"/>
@@ -460,10 +434,35 @@ On 26 April 2013 a humanitarian convoy, inspired by Gaza Flotilla, departed from
 		</WaysToHelp>
 		<Common/>
 	</Crisis>
+	<Crisis ID="CRI_COLSSD" Name="Columbia Space Shuttle Disaster">
+		<Organizations>
+			<Org ID="ORG_NASAUS"/>
+		</Organizations>
+		<Kind>Equipment malfunction, disaster</Kind>
+		<Date>2013-07-12</Date>
+		<Time>15:13:51</Time>
+		<Locations>
+			<li>Dallas, Texas</li>
+		</Locations>
+		<HumanImpact>
+			<li>Stop</li>
+		</HumanImpact>
+		<EconomicImpact>
+			<li>Changing</li>
+		</EconomicImpact>
+		<ResourcesNeeded>
+			<li>Our</li>
+		</ResourcesNeeded>
+		<WaysToHelp>
+			<li>Events. Please.</li>
+		</WaysToHelp>
+		<Common/>
+	</Crisis>
 	<Person ID="PER_BROBMA" Name="Barack Obama">
 		<Crises>
 			<Crisis ID="CRI_HURSAN"/>
 			<Crisis ID="CRI_BMBOMB"/>
+			<Crisis ID="CRI_AIDSHI"/>
 		</Crises>
 		<Organizations>
 			<Org ID="ORG_REDCRS"/>
@@ -586,9 +585,6 @@ On 26 April 2013 a humanitarian convoy, inspired by Gaza Flotilla, departed from
 		</Common>
 	</Person>
 	<Person ID="PER_SYRIDE" Name="Sally Ride">
-		<Crises>
-			<Crisis ID="CRI_COLSSD"/>
-		</Crises>
 		<Organizations>
 			<Org ID="ORG_THIOKL"/>
 		</Organizations>
@@ -623,9 +619,6 @@ On 26 April 2013 a humanitarian convoy, inspired by Gaza Flotilla, departed from
 		</Common>
 	</Person>
 	<Person ID="PER_RBOISJ" Name="Roger Boisjoly">
-		<Crises>
-			<Crisis ID="CRI_COLSSD"/>
-		</Crises>
 		<Kind>Engineer for SRB's on Space Shuttle</Kind>
 		<Location>Washington DC</Location>
 		<Common/>
@@ -885,9 +878,6 @@ In 2011, GE ranked among the Fortune 500 as the 6th-largest firm in the U.S. by 
 		</Common>
 	</Organization>
 	<Organization ID="ORG_THIOKL" Name="Morton-Thiokol">
-		<Crises>
-			<Crisis ID="CRI_COLSSD"/>
-		</Crises>
 		<People>
 			<Person ID="PER_SYRIDE"/>
 		</People>
@@ -930,7 +920,7 @@ that put Neil Armstrong and Buzz Aldrin as the first humans on the moon. In 1993
 Established in 1994 by a resolution of the UN Economic and Social Council and launched in January 1996, UNAIDS is guided by a Programme Coordinating Board with representatives of 22 governments from all geographic regions, the UNAIDS Cosponsors, and five representatives of nongovernmental organizations (NGOs), including associations of people living with HIV/AIDS.</li>
 		</History>
 		<ContactInfo>
-			<li>www.unaids.org/?</li>
+			<li>www.unaids.org</li>
 		</ContactInfo>
 		<Common/>
 	</Organization>
