@@ -3,7 +3,7 @@
         "pk": "aaronj1335",
         "model": "crisis_app.about",
         "fields": {
-            "quote": "Not in the face!",
+            "quote": "not in the face",
             "first_name": "Aaron",
             "last_name": "Stacy",
             "role": "XML, Database",
