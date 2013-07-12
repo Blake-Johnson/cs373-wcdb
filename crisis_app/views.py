@@ -319,16 +319,11 @@ def orgs(request, org_id=None):
 		context = { 'org': org, 'embed': embed, 'events': events, 'people': people }
 		return render(request, 'crisis_app/org.html', context)
 
-def invalidate_xml_cache():
+def remove_xml_cache():
 	if os.path.exists(XML_CACHE_PATH):
 		os.remove(XML_CACHE_PATH)
 
-
-def raw_xml(request):
-	'''
-	This code exists to test the XML conversion for deploying to the public database
-	It needs to be password protected
-	'''
+def xml_view(request):
 	path = XML_CACHE_PATH
 	try:
 		xml_info = open(XML_CACHE_PATH, 'r+')
@@ -367,7 +362,7 @@ def xml(request):
 			f.seek(0)
 			try:
 				to_db.convert(f.read())
-				invalidate_xml_cache()
+				remove_xml_cache()
 				return HttpResponseRedirect('/data.xml')
 			except Exception as e:
 				# i dunno maybe this is right?
