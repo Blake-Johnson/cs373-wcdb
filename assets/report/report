@@ -1,21 +1,44 @@
-World Crisis
+Technical Report For World Crisis website
 
-team [intentional lowercase]
-Stephen Chiang, Aaron Stacy, Blake Johnson, Jason Brown, David Coon, Qunvar Arora
+Group name: team
+Group members: Stephen Chiang, Aaron Stacy, Blake Johnson, Jason Brown, David Coon, Qunvar Arora
 
-What is the problem?
+[Introduction]
+Q: 	What is the problem?
+A: 	People who are interested in learning about world crises do not have a central repository of world crisis information.
+	The average person would have to conduct a series of online searches in an patchwork attempt to gather related information.
+	This approach is time consuming, inefficient, and its expensive time committment detracts others from gaining awareness into major world issues.
+	An ideal solution involves a single website that can provide easy-to-access information on world crises.
+	This website would act as a hub of information for the person to learn about influential people, organizations and media related to the crisis of interest.
 
-What are the use cases?
+Q:  What are the use cases?
+A:  A person would use this website for the following reasons:
+	To gain information on a particular world crisis event, such as human impact, economic impact, resources used to address the issue, and ways to help those affected by the crisis.
+	To find out which influential people are involved in the event
+	To learn about the organizations involved with the event
+	To access media resources related to the event, people, and organizations.
+	Media resources include online articles, blogs, images, videos, social networks, and maps.
+	
+Q: 	Why should people be interested in this website?
+A: 	The centralized nature of information makes it easier for people to maintain awareness of world crises.
+	By disseminating world crises knowledge in a convenient and user-friendly format, people are more likely to gain a more comprehensive understanding of important problems in society.
+	As the public becomes more educated on this issues, they are more likely to take constructive action to address and/or resolve these issues (e.g. elect representatives, form grassroots support campaigns, volunteer, donate money)
+	
+[Design]
+XML Schema <this section needs work>
 
-XML Schema Design
 
-Import/Export Facility
+[Implementation]
+Import/Export Facility <this section needs work>
 
-Unit Test
+
+[Testing]
 Unit tests were written to test all the functionality of our JSON creating code, our XML parsing and interpreting and validating code, our database reading code, and our import/export code for interfacting with our database. 
 The first suite of tests is for our JSON code. The first set checks for proper creation of parent nodes that allows for correct reading of dictionaried data, and served to familiarize us with calling conventions. Next, we test adding children to a parent node and similar calling conventions for getting the data back out of those nodes. Finally, we tested the make_json function and its compatibility with the json.loads command from the json library. 
 The second suite of tests is for our XML interpreting and validating code. First set tests if we're using the right data (sanity check) and then we see if we're getting the right tag from using the .strip() class function. Second set tests for validation on the code - as in it's still valid XML after being parsed several times.
 The third suite of tests is for our database reading code, which only goes in and tests that we are correctly pulling XML from the 	DB and able to interpret it like we expect it to behave.
 The last suite of tests is for our import/export code. The first test checks for a proper redirect response code to send user to login. The second test checks that we can get the correct response code and then in the same declaration that we can get a different response code (that's still correct!).
 
-Meta - diagrams with captions, effective sections/subsections
+[Other]
+Create diagrams with captions. <this section needs work>
+Effective sections/subsections <this section needs work>
