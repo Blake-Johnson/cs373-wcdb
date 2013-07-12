@@ -89,7 +89,7 @@ class ToXmlTestCase(TestCase):
 		self.assertEqual(call('./manage.py validate'.split(),
 			stdin=xml.stdout, stdout=devnull, stderr=devnull), 0)
 		try:
-   			devnull.close()
+			devnull.close()
 		except:
 		   pass
 		xml.kill()
