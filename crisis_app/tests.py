@@ -89,7 +89,7 @@ class ToXmlTestCase(TestCase):
 		self.assertEqual(call('./manage.py validate'.split(),
 			stdin=xml.stdout, stdout=devnull, stderr=devnull), 0)
 		try:
-			devnull.close()
+   			devnull.close()
 		except:
 		   pass
 		xml.kill()
@@ -137,22 +137,22 @@ class ImportExportTest(UsefulTestCase):
 		self._reset_db()
 
 	def test_xml_redirect_to_login(self):
-		response = self.client.get('/xml')
+		response = self.client.get('/upload_xml')
 		self.assertEqual(response.status_code, 302)
 
 	def test_xml_submission(self):
 		self.client.login(username=self.user.username, password=self.PWD)
-		response = self.client.get('/xml')
+		response = self.client.get('/upload_xml')
 		self.assertEqual(response.status_code, 200)
 
-		response = self.client.post('/xml', {
+		response = self.client.post('/upload_xml', {
 			'xml': self.xml,
 			'Submit': 'Submit'
 		})
 		self.assertEqual(response.status_code, 302)
 		self.assertEqual(response['location'], 'http://testserver/data.xml')
 
-		response = self.client.get('/data.xml')
+		response = self.client.get('/xml')
 		try:
 			self.assertEqual(response.content.strip(),
 				XML['initial_data'].strip())
