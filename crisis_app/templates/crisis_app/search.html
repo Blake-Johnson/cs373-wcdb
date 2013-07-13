@@ -36,12 +36,12 @@
       {% if type == 'events' %}
       <span>{{ result.date_time }}</span>
       {% endif %}
-      <p>{{ result.kind }}: {{ result.location|slice:":63" }} ...</p>
+      <p>{{ result.kind }}: {{ result.location|slice:":63" }}{% if result.location|length > 63 %} ...{% endif %}</p>
       {% if type == 'events' %}
-      <p>{{ result.human_impact|slice:":255" }} ...</p>
+      <p>{{ result.human_impact|slice:":255" }}{% if result.human_impact|length > 255 %} ...{% endif %}</p>
       {% endif %}
       {% if type == 'orgs' %}
-      <p>{{ result.history|slice:":255" }} ...</p>
+      <p>{{ result.history|slice:":255" }}{% if result.history|length > 255 %} ...{% endif %}</p>
       {% endif %}
       {% endfor %}
     {% else %}
