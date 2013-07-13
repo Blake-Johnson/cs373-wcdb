@@ -214,7 +214,7 @@ def index(request):
 		events = people = orgs = []
 		if query_type == 'events':
 			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
-			sort = { 'name': 'Name (descending)', '-date_time': 'Date (newest - oldest)', 'date_time': 'Date (oldest - newest)' }
+			sort = { 'name': 'Name (descending)', '-name': 'Name (ascending)', '-date_time': 'Date (newest - oldest)', 'date_time': 'Date (oldest - newest)' }
 			view = request.GET['v'] if 'v' in request.GET else '-date_time'
 			results = Event.objects.filter(logical_query).order_by(view)
 		elif query_type == 'people':
