@@ -42,7 +42,7 @@
         <li>
           <form method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
             <div class="input-append">
-              <input type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" autofocus />
+              <input id="search" type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" autofocus />
               <button type="submit" class="btn">Search</button>
               <div class="btn-group">
                 <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -112,6 +112,15 @@ function validate(f){
     return false;
   }
   return true;
+}
+document.onkeypress = function(e) {
+  e = e || window.event;
+  var charCode = e.which || e.keyCode;
+  var charTyped = String.fromCharCode(charCode);
+  search_box = document.getElementById('search');
+  if(/[a-z0-9]/i.test(charTyped)){
+    search_box.focus();
+  }
 }
 {% endblock %}
 </script>
