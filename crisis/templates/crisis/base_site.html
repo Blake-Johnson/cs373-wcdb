@@ -93,7 +93,7 @@
       <span class="brand">Just Type</span>
       <form id="modalForm" method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
         <div class="input-append">
-          <input id="modalSearchbox" type="text" name="q" class="search-query input-medium" placeholder="Search WCDb" />
+          <input id="justType" type="text" name="q" class="search-query input-medium" placeholder="Search WCDb" />
           <button type="submit" class="btn"><i class="icon-search icon-white"></i></button>
           <select name="t" class="btn input-medium" form="modalForm">
             <option value="events" selected="selected">Events</option>
@@ -108,6 +108,8 @@
 </div>
 {% block tail_imports %}
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/bootstrap.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/inlineComplete.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/justType.js"></script>
 {% endblock %}
 <script type="text/javascript">
 {% block script %}
@@ -123,8 +125,15 @@ $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
   e.stopPropagation();
 });
 function validate(f){
-  var empty = f.elements['q'].value.trim() == '';
-  var size = f.elements['q'].value.length < 32;
+  var query = f.elements['q'].value;
+  if(query.charAt(0) == '@'){
+    var result = direct(query);
+    if(result){
+      return false;
+    }
+  }
+  var empty = query.trim() == '';
+  var size = query.length < 32;
   if(empty){
     return false;
   }
@@ -134,34 +143,36 @@ function validate(f){
   }
   return true;
 }
-document.getElementsByTagName('html')[0].onkeypress = function(e) {
-  e = e || window.event;
-  var charCode = e.which || e.keyCode;
-  var charTyped = String.fromCharCode(charCode);
-  if(document.activeElement.tagName == 'INPUT'){
-    return;
+function direct(q){
+  var elements = q.split(/\s+/);
+  var len = elements.length;
+  var result = false;
+  for(var i = 0; i < len; i++){
+    var url;
+    switch(elements[i].toLowerCase()){
+      case '@home':
+        url = '/';
+        break;
+      case '@about':
+        url = '/about';
+        break;
+      case '@events':
+        url = '/events';
+        break;
+      case '@people':
+        url = '/people';
+        break;
+      case '@organizations':
+        url = '/orgs';
+        break;
+    }
+    if(url){
+      result = true;
+      window.open(url, (i == 0 ? '_self' : '_blank'));
+    }
   }
-  if(/[a-z0-9]/i.test(charTyped)){
-    searchbox = document.getElementById('modalSearchbox');
-    searchbox.value = searchbox.value + charTyped;
-    $('#searchModal').modal('show');
-  }
+  return result;
 }
-$(document).keyup(function(e){
-  if (e.keyCode == 27) { // Escape key
-    $('#searchModal').modal('hide');
-  }
-});
-$('#searchModal').modal({ backdrop: false, keyboard: false, show: false });
-$('#searchModal').on('shown', function(){
-  searchbox = document.getElementById('modalSearchbox');
-  searchbox.focus();
-});
-$('#searchModal').on('hide', function(){
-  searchbox = document.getElementById('modalSearchbox');
-  searchbox.value = '';
-  searchbox.blur();
-});
 {% endblock %}
 </script>
 </body>
