@@ -5,9 +5,11 @@
 <section class="container">
   <h1>Upload XML</h1>
   <hr />
-  <form enctype="multipart/form-data" method="POST" action="/upload_xml">{% csrf_token %}
-    {{ form.as_p }}
-    <input class=btn type="submit" value="Submit" />
-  </form>
+  <div class="span4 offset4">
+    <form enctype="multipart/form-data" method="POST" action="/upload_xml">{% csrf_token %}
+      {{ form.as_p }}
+      <input class=btn type="submit" value="Submit" />
+    </form>
+  </div>
 </section>
 {% endblock %}
