@@ -268,7 +268,7 @@ def events(request, event_id=None):
 		embed['citations'] = Embed.objects.filter(kind="CIT", event__id=event.id)
 		people = Person.objects.filter(event__id=event.id)
 		orgs = Organization.objects.filter(event__id=event.id)
-		context = { 'event': event, 'embed': embed, 'people': people, 'orgs': orgs }
+		context = { 'event': event, 'embed': embed, 'people': people, 'orgs': orgs, 'type': 'e' }
 		return render(request, 'crisis_app/event.html', context)
 
 def people(request, person_id=None):
@@ -296,7 +296,7 @@ def people(request, person_id=None):
 		embed['citations'] = Embed.objects.filter(kind="CIT", person__id=person.id)
 		events = Event.objects.filter(person__id=person.id)
 		orgs = Organization.objects.filter(person__id=person.id)
-		context = { 'person': person, 'embed': embed, 'events': events, 'orgs': orgs }
+		context = { 'person': person, 'embed': embed, 'events': events, 'orgs': orgs, 'type': 'p' }
 		return render(request, 'crisis_app/person.html', context)
 
 def orgs(request, org_id=None):
@@ -324,7 +324,7 @@ def orgs(request, org_id=None):
 		embed['citations'] = Embed.objects.filter(kind="CIT", organization__id=org.id)
 		events = Event.objects.filter(organization__id=org.id)
 		people = Person.objects.filter(organization__id=org.id)
-		context = { 'org': org, 'embed': embed, 'events': events, 'people': people }
+		context = { 'org': org, 'embed': embed, 'events': events, 'people': people, 'type': 'o' }
 		return render(request, 'crisis_app/org.html', context)
 
 def remove_xml_cache():

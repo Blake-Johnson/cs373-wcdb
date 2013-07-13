@@ -44,20 +44,20 @@
           <form method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
             <div class="input-append">
               <input id="searchbox" type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" />
-              <button type="submit" class="btn">Search</button>
+              <button type="submit" class="btn"><i class="icon-search icon-white"></i></button>
               <div class="btn-group">
                 <button class="btn dropdown-toggle" data-toggle="dropdown">
                   <span class="caret"></span>
                 </button>
                 <ul id="search-categories" class="dropdown-menu">
                   <label class="radio">
-                    <input type="radio" name="t" value="events"{% if type %}{% if type == 'events' %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
+                    <input type="radio" name="t" value="events"{% if type %}{% if type|lower|slice:":1" == 'e' %} checked{% endif %}{% else %} checked{% endif %}>Events</input>
                   </label>
                   <label class="radio">
-                    <input type="radio" name="t" value="people"{% if type == 'people' %} checked{% endif %}>People</input>
+                    <input type="radio" name="t" value="people"{% if type|lower|slice:":1" == 'p' %} checked{% endif %}>People</input>
                   </label>
                   <label class="radio">
-                    <input type="radio" name="t" value="orgs"{% if type == 'orgs' %} checked{% endif %}>Organizations</input>
+                    <input type="radio" name="t" value="orgs"{% if type|lower|slice:":1" == 'o' %} checked{% endif %}>Organizations</input>
                   </label>
                 </ul>
               </div>
@@ -75,8 +75,9 @@
 <footer class="container">
   <hr />
   <div class="span4">
-    <span>World Crisis Database</span><br />
-    <span>&#169;2013 </span><a href="/about">team</a>
+    <span>World Crisis Database &#169;2013 </span><a href="/about">team</a><br />
+    <span><a href="/upload_xml">Manage</a> site</span><br />
+    <span>Icons by <a href="http://glyphicons.com/">Glyphicons</a></span>
   </div>
   <div class="span4 offset1">
     <span>For the best experience, view this page in </span><a href="http://www.chromium.org/Home" target="_blank">Chromium</a><span> with a minimum resolution of 1024x768.</span>
@@ -86,6 +87,25 @@
   </div>
 </footer>
 <br />
+<div id="searchModal" class="modal hide fade" tabindex="-1" role="dialog">
+  <div class="modal-body">
+    <div class="navbar">
+      <span class="brand">Just Type</span>
+      <form id="modalForm" method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
+        <div class="input-append">
+          <input id="modalSearchbox" type="text" name="q" class="search-query input-medium" placeholder="Search WCDb" />
+          <button type="submit" class="btn"><i class="icon-search icon-white"></i></button>
+          <select name="t" class="btn input-medium" form="modalForm">
+            <option value="events" selected="selected">Events</option>
+            <option value="people"{% if type|lower|slice:":1" == 'p' %} selected="selected"{% endif %}>People</option>
+            <option value="orgs"{% if type|lower|slice:":1" == 'o' %} selected="selected"{% endif %}>Organizations</option>
+          </select>
+        </div>
+      </form>
+      <button type="button" class="close" data-dismiss="modal">&#215;</button>
+    </div>
+  </div>
+</div>
 {% block tail_imports %}
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/bootstrap.js"></script>
 {% endblock %}
@@ -122,13 +142,25 @@ document.getElementsByTagName('html')[0].onkeypress = function(e) {
     return;
   }
   if(/[a-z0-9]/i.test(charTyped)){
-    document.getElementById('searchbox').focus();
+    searchbox = document.getElementById('modalSearchbox');
+    searchbox.value = searchbox.value + charTyped;
+    $('#searchModal').modal('show');
   }
 }
-$(document).keyup(function(e) {
-  if (e.keyCode == 27){ // Escape
-    document.getElementById('searchbox').blur();
+$(document).keyup(function(e){
+  if (e.keyCode == 27) { // Escape key
+    $('#searchModal').modal('hide');
   }
+});
+$('#searchModal').modal({ backdrop: false, keyboard: false, show: false });
+$('#searchModal').on('shown', function(){
+  searchbox = document.getElementById('modalSearchbox');
+  searchbox.focus();
+});
+$('#searchModal').on('hide', function(){
+  searchbox = document.getElementById('modalSearchbox');
+  searchbox.value = '';
+  searchbox.blur();
 });
 {% endblock %}
 </script>

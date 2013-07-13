@@ -7,6 +7,8 @@
 .indented {
 	text-indent: 2em;
 }
+
+/* About page aside */
 .aside-left {
 	border-right: 1px solid #666;
 	padding-right: 1em;
@@ -85,13 +87,20 @@
 
 /* Search box */
 #searchbox {
-    width: 100px;
-    -webkit-transition: width 0.5s ease;
-    -moz-transition: width 0.5s ease;
-    -o-transition: width 0.5s ease;
-    transition: width 0.5s ease;
+    width: 86px;
+    -webkit-transition: width 0.4s ease;
+    -moz-transition: width 0.4s ease;
+    -o-transition: width 0.4s ease;
+    transition: width 0.4s ease;
 }
-
 #searchbox:focus {
     width: 200px;
+}
+
+/* Modal */
+.modal, .modal.fade.in {
+    top: 50px;
+}
+select option {
+    background-color: #444;
 }
