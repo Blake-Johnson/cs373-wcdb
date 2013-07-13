@@ -114,10 +114,13 @@ function validate(f){
   }
   return true;
 }
-document.onkeypress = function(e) {
+document.getElementsByTagName('html')[0].onkeypress = function(e) {
   e = e || window.event;
   var charCode = e.which || e.keyCode;
   var charTyped = String.fromCharCode(charCode);
+  if(document.activeElement.tagName == 'INPUT'){
+    return;
+  }
   if(/[a-z0-9]/i.test(charTyped)){
     document.getElementById('searchbox').focus();
   }
