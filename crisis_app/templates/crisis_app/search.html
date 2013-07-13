@@ -33,6 +33,9 @@
     {% if results %}
       {% for result in results %}
       <h4><a href="/{{ type }}/{{ result.id }}">{{ result.name }}</a></h4>
+      {% if type == 'events' %}
+      <span>{{ result.date_time }}</span>
+      {% endif %}
       <p>{{ result.kind }}: {{ result.location|slice:":63" }} ...</p>
       {% if type == 'events' %}
       <p>{{ result.human_impact|slice:":255" }} ...</p>

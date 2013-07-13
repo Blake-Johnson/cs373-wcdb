@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-DEBUG = !('PRODUCTION' in os.environ)
+DEBUG = not 'PRODUCTION' in os.environ
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
