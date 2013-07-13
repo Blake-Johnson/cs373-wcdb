@@ -7,7 +7,7 @@
     {% block content_custom %}
     {% endblock %}
     {% block relations %}
-    {% if events|length > 0 %}
+    {% if events|length %}
       <h3>Influential Events</h3>
       <hr />
       <ul>
@@ -17,7 +17,7 @@
       </ul>
       <br />
     {% endif %}
-    {% if people|length > 0 %}
+    {% if people|length %}
       <h3>Influential People</h3>
       <hr />
       <ul>
@@ -27,7 +27,7 @@
       </ul>
       <br />
     {% endif %}
-    {% if orgs|length > 0 %}
+    {% if orgs|length %}
       <h3>Influential Organizations</h3>
       <hr />
       <ul>
@@ -39,7 +39,7 @@
     {% endif %}
     {% endblock %}
     {% block embed %}
-      {% if embed.images|length > 1 %}
+      {% if embed.images.1 %}
         <h3>Images</h3>
         <ul id="mContainer" class="da-img">
           {% for image in embed.images|slice:"1:" %}
