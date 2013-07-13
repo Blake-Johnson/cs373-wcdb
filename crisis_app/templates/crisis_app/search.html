@@ -9,11 +9,23 @@
     <li{% if type == 'orgs' %} class="active"{% endif %}><a href="{{ request.path }}?q={{ query }}&t=orgs">Organizations<span></span></a></li>
     <div class="btn-group pull-right">
       <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-        View
+        {% if sort and view %}
+          {% for key, value in sort.items %}
+            {% if view == key %}
+            {{ value }}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
         <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
-        <li><a href="#">Hi<span></span></a></li>
+        {% if sort and view %}
+          {% for key, value in sort.items %}
+            {% if view != key %}
+            <li><a href="{{ request.path }}?q={{ query }}&t={{ type }}&v={{ key }}">{{ value }}<span></span></a></li>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
       </ul>
     </div>
   </ul>

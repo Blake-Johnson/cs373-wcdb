@@ -214,14 +214,20 @@ def index(request):
 		events = people = orgs = []
 		if query_type == 'events':
 			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
-			results = Event.objects.filter(logical_query).order_by('-date_time')
+			sort = { 'name': 'Name (descending)', '-date_time': 'Date (newest - oldest)', 'date_time': 'Date (oldest - newest)' }
+			view = request.GET['v'] if 'v' in request.GET else '-date_time'
+			results = Event.objects.filter(logical_query).order_by(view)
 		elif query_type == 'people':
 			logical_query = querify(parsed_query, ['name', 'kind', 'location'])
-			results = Person.objects.filter(logical_query)
+			sort = { 'name': 'Name (descending)', '-name': 'Name (ascending)' }
+			view = request.GET['v'] if 'v' in request.GET else 'name'
+			results = Person.objects.filter(logical_query).order_by(view)
 		elif query_type == 'orgs':
 			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'])
-			results = Organization.objects.filter(logical_query)
-		context = { 'query': user_query, 'type': query_type, 'results': results }
+			sort = { 'name': 'Name (descending)', '-name': 'Name (ascending)' }
+			view = request.GET['v'] if 'v' in request.GET else 'name'
+			results = Organization.objects.filter(logical_query).order_by(view)
+		context = { 'query': user_query, 'type': query_type, 'results': results, 'view': view, 'sort': sort }
 		return render(request, 'crisis_app/search.html', context, context_instance=RequestContext(request))
 	except:
 		json = get_json()
