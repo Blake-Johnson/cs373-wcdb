@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
 
-DEBUG = True
+DEBUG = !('PRODUCTION' in os.environ)
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -203,7 +203,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 # Static asset configuration
 import os
