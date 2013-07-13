@@ -82,3 +82,16 @@
     left: auto;
     right: 0;
 }
+
+/* Search box */
+#searchbox {
+    width: 100px;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -o-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+}
+
+#searchbox:focus {
+    width: 200px;
+}

@@ -4,6 +4,7 @@
 {% block head_imports %}
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/my_bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/custom.css" />
 <link rel="icon" type="image/png" href="{{ STATIC_URL }}crisis_app/img/favicons/favicon.png" />
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 {% endblock %}
@@ -42,7 +43,7 @@
         <li>
           <form method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
             <div class="input-append">
-              <input id="search" type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" autofocus />
+              <input id="searchbox" type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" />
               <button type="submit" class="btn">Search</button>
               <div class="btn-group">
                 <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -84,9 +85,9 @@
     <span>For the worst experience, view this page in </span><a href="http://www.firefox.com" target="_blank">Firefox</a><span> with a maximum resolution of 1024x768.</span>
   </div>
 </footer>
+<br />
 {% block tail_imports %}
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/bootstrap.js"></script>
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/custom.css" />
 {% endblock %}
 <script type="text/javascript">
 {% block script %}
@@ -117,11 +118,15 @@ document.onkeypress = function(e) {
   e = e || window.event;
   var charCode = e.which || e.keyCode;
   var charTyped = String.fromCharCode(charCode);
-  search_box = document.getElementById('search');
   if(/[a-z0-9]/i.test(charTyped)){
-    search_box.focus();
+    document.getElementById('searchbox').focus();
   }
 }
+$(document).keyup(function(e) {
+  if (e.keyCode == 27){ // Escape
+    document.getElementById('searchbox').blur();
+  }
+});
 {% endblock %}
 </script>
 </body>
