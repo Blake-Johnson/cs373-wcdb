@@ -5,6 +5,7 @@ Create a Django site that emulates IMDb to track world crises.
 Resources
 ---------
 * [WCDB1](http://www.cs.utexas.edu/users/downing/cs373/drupal/wcdb1)
+* [WCDB2](http://www.cs.utexas.edu/users/downing/cs373/drupal/wcdb2)
 
 Members
 -------
