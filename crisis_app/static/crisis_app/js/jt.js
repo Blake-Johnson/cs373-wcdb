@@ -1,3 +1,5 @@
+var showing = false;
+
 function direct(q){
   var elements = q.split(/\s+/);
   var len = elements.length;
@@ -42,8 +44,12 @@ document.getElementsByTagName('html')[0].onkeypress = function(e) {
     searchbox = document.getElementById('justType');
     if(searchbox.value == ''){
       $('#searchModal').modal('show');
+      showing = true;
     }
-    searchbox.focus();
+  }
+  if(showing){
+    searchbox = document.getElementById('justType');
+    searchbox.value += charTyped;
   }
 }
 $(document).keyup(function(e){
@@ -53,6 +59,7 @@ $(document).keyup(function(e){
 });
 $('#searchModal').modal({ backdrop: false, keyboard: false, show: false });
 $('#searchModal').on('shown', function(){
+  showing = false;
   searchbox = document.getElementById('justType');
   searchbox.focus();
 });
