@@ -88,10 +88,6 @@ $('#searchModal').on('hide', function(){
   searchbox.value = '';
   searchbox.blur();
 });
-$('#justType').inlineComplete({
-  list: ['@home', '@about', '@events', '@people', '@organizations', '@404',
-        '#top', '#header', '#bottom', '#footer']
-});
 function scrollTo(id){
    var dest=0;
    if($(id).offset().top > $(document).height()-$(window).height()){
@@ -101,3 +97,14 @@ function scrollTo(id){
    }
    $('html,body').animate({scrollTop:dest}, 400, 'swing');
 }
+function completer(){
+  var toComplete = ['@home', '@about', '@events', '@people', '@organizations', '@404',
+                    '#top', '#header', '#bottom', '#footer'];
+  $('.jtAt').each(function(){
+    toComplete.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' '));
+  });
+  $('#justType').inlineComplete({
+    list: toComplete
+  });
+}
+completer();

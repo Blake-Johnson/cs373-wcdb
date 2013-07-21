@@ -127,16 +127,28 @@ $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
 });
 function validate(f){
   var query = f.elements['q'].value;
+  var empty = query.trim() == '';
+  if(empty){
+    return false;
+  }
+  /* Preliminary */
   if(query.charAt(0) == '@' && at(query)){
     return false;
   }else if(query.charAt(0) == '#' && hash(query)){
     return false;
   }
-  var empty = query.trim() == '';
-  var size = query.length < 32;
-  if(empty){
+  var found = false;
+  $('.jtAt').each(function(){
+    if(query.toLowerCase() == $(this).attr('name').toLowerCase()){
+      window.open($(this).attr('href'), '_self');
+      found = true;
+      return;
+    }
+  });
+  if(found){
     return false;
   }
+  var size = query.length < 32;
   if(!size){
     alert('Please limit your search to 31 characters.');
     return false;

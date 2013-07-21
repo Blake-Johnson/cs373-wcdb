@@ -30,11 +30,10 @@
          */
         _searchTerm: function(userInput, terms) {
             for (var i in terms) {
-                if (terms[i].substr(0, userInput.length) == userInput) {
+                if (terms[i].substr(0, userInput.length).toLowerCase() == userInput) {
                     return terms[i];
                 }
             }
-
             return null;
         },
 
@@ -93,9 +92,8 @@
                         letter = letter.toLowerCase();
                     }
 
-                    if (letter == selection.substr(0, 1)) {
+                    if (letter.toLowerCase() == selection.substr(0, 1).toLowerCase()) {
                         $inputElement.__moveSelectionStart(1);
-
                         returnValue = false;
                     }
                 } else if(event.type == 'keyup') {
