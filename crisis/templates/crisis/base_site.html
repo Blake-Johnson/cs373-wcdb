@@ -11,7 +11,7 @@
 <title>WCDb: {% block title %}World Crisis Database{% endblock %}</title>
 </head>
 <body>
-<header>
+<header id="header">
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <a class="brand" href="/">WCDb</a>
@@ -72,7 +72,7 @@
 </header>
 {% block content %}
 {% endblock %}
-<footer class="container">
+<footer id="footer" class="container">
   <hr />
   <div class="span4">
     <span>World Crisis Database &#169;2013 </span><a href="/about">team</a><br />
@@ -126,11 +126,10 @@ $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
 });
 function validate(f){
   var query = f.elements['q'].value;
-  if(query.charAt(0) == '@'){
-    var result = direct(query);
-    if(result){
-      return false;
-    }
+  if(query.charAt(0) == '@' && at(query)){
+    return false;
+  }else if(query.charAt(0) == '#' && hash(query)){
+    return false;
   }
   var empty = query.trim() == '';
   var size = query.length < 32;

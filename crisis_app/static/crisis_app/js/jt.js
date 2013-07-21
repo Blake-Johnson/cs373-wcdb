@@ -1,6 +1,6 @@
 var showing = false;
 
-function direct(q){
+function at(q){
   var elements = q.split(/\s+/);
   var len = elements.length;
   var result = false;
@@ -33,6 +33,26 @@ function direct(q){
   }
   return result;
 }
+function hash(q){
+  q = q.trim();
+  var id;
+  switch(q){
+    case '#top':
+    case '#header':
+      id = '#header';
+      break;
+    case '#bottom':
+    case '#footer':
+      id = '#footer';
+      break;
+  }
+  if(id){
+    result = true;
+    $('#searchModal').modal('hide');
+    scrollTo(id);
+  }
+  return result;
+}
 document.getElementsByTagName('html')[0].onkeypress = function(e) {
   e = e || window.event;
   var charCode = e.which || e.keyCode;
@@ -40,7 +60,7 @@ document.getElementsByTagName('html')[0].onkeypress = function(e) {
   if(document.activeElement.tagName == 'INPUT'){
     return;
   }
-  if(/[a-z0-9@]/i.test(charTyped)){
+  if(/[a-z0-9@#]/i.test(charTyped)){
     searchbox = document.getElementById('justType');
     if(searchbox.value == ''){
       $('#searchModal').modal('show');
@@ -69,5 +89,15 @@ $('#searchModal').on('hide', function(){
   searchbox.blur();
 });
 $('#justType').inlineComplete({
-  list: ['@home', '@about', '@events', '@people', '@organizations', '@404']
+  list: ['@home', '@about', '@events', '@people', '@organizations', '@404',
+        '#top', '#header', '#bottom', '#footer']
 });
+function scrollTo(id){
+   var dest=0;
+   if($(id).offset().top > $(document).height()-$(window).height()){
+        dest=$(document).height()-$(window).height();
+   }else{
+        dest=$(id).offset().top;
+   }
+   $('html,body').animate({scrollTop:dest}, 400, 'swing');
+}
