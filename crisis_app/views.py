@@ -5,6 +5,7 @@ from StringIO import StringIO
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Q
+from django import template
 from django.template import *
 from django import forms
 from django.contrib.auth import authenticate, login, logout
@@ -240,8 +241,21 @@ def about(request):
 		to the user
 	'''
 	author_list = About.objects.order_by('last_name')
-	context = { 'author_list': author_list }
+	context = { 'author_list': author_list}
 	return render(request, 'crisis_app/about.html', context)
+
+def youtube_embed_url(url, name):
+    match = re.search(r'^(?:http|https)\:\/\/www\.youtube\.com\/watch\?(?:feature\=[a-z_]*&)?v\=([\w\-]*)(?:\&(?:.*))?$', url)
+    if match:
+        embed_url = 'http://www.youtube.com/embed/%s' %(match.group(1))
+        res = '<iframe width="560" height="315" src="%s" frameborder="0" name="%s" allowfullscreen></iframe>' %(embed_url, name)
+    else:
+	    match = re.search(r'(?:(?:http|https)\:\/\/|www\.)(?:www\.)?(.*?)\.com', url)
+	    if match:
+	    	res = '<a href="%s">%s (%s)</a><br />' %(url, name, match.group(1))
+	    else:
+	    	res = '<a href="%s">%s</a><br />' %(url, name)
+    return res
 
 def events(request, event_id=None):
 	'''
@@ -263,6 +277,8 @@ def events(request, event_id=None):
 		embed = {}
 		embed['images'] = Embed.objects.filter(kind="IMG", event__id=event.id)
 		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), event__id=event.id)
+		for video in embed['videos']:
+			video.url = youtube_embed_url(video.url, video.desc)
 		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), event__id=event.id)
 		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), event__id=event.id)
 		embed['citations'] = Embed.objects.filter(kind="CIT", event__id=event.id)
@@ -291,6 +307,8 @@ def people(request, person_id=None):
 		embed = {}
 		embed['images'] = Embed.objects.filter(kind="IMG", person__id=person.id)
 		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), person__id=person.id)
+		for video in embed['videos']:
+			video.url = youtube_embed_url(video.url, video.desc)
 		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), person__id=person.id)
 		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), person__id=person.id)
 		embed['citations'] = Embed.objects.filter(kind="CIT", person__id=person.id)
@@ -319,6 +337,8 @@ def orgs(request, org_id=None):
 		embed = {}
 		embed['images'] = Embed.objects.filter(kind="IMG", organization__id=org.id)
 		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), organization__id=org.id)
+		for video in embed['videos']:
+			video.url = youtube_embed_url(video.url, video.desc)
 		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), organization__id=org.id)
 		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), organization__id=org.id)
 		embed['citations'] = Embed.objects.filter(kind="CIT", organization__id=org.id)
@@ -378,6 +398,7 @@ def upload_xml(request):
 				return HttpResponseRedirect('/xml')
 			except Exception as e:
 				# i dunno maybe this is right?
+				# nope, I don't think so
 				form._errors['__all__'] += form.error_class([
 					'Could not save data:\n' + e.message])
 	else:

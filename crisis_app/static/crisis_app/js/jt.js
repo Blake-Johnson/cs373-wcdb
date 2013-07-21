@@ -22,6 +22,14 @@ function at(q){
       case '@organizations':
         url = '/orgs';
         break;
+      case '@back':
+        history.back();
+        return true;
+        break;
+      case '@forward':
+        history.forward();
+        return true;
+        break;
       case '@404':
         url = '/404';
         break;
@@ -98,7 +106,7 @@ function scrollTo(id){
    $('html,body').animate({scrollTop:dest}, 400, 'swing');
 }
 function completer(){
-  var toComplete = ['@home', '@about', '@events', '@people', '@organizations', '@404',
+  var toComplete = ['@home', '@about', '@events', '@people', '@organizations', '@back', '@forward', '@404',
                     '#top', '#header', '#bottom', '#footer'];
   $('.jtAt').each(function(){
     toComplete.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim());
@@ -110,4 +118,4 @@ function completer(){
     list: toComplete
   });
 }
-completer();
+//completer();

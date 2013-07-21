@@ -5,7 +5,7 @@
 <section class="container">
   <h1>{{ type }}</h1>
   {% if content_list %}
-  <div id="mContainer" class="columns">
+  <div id="mContainer" class="columns columns-5">
     {% for elem in content_list %}
     <a class="jtAt" name="{{ elem.0.name }}" href="/{{ dir }}/{{ elem.0.id }}">
       <div class="pin well">

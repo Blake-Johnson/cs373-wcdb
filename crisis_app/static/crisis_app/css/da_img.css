@@ -13,7 +13,7 @@
 }
 .da-img li a div span {
 	position: absolute;
-	bottom: 0;
+	top: 0;
 	margin: 0.4em;
 	display: block;
 	font-weight: bold;
