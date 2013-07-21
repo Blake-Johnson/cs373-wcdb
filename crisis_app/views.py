@@ -385,7 +385,7 @@ def upload_xml(request):
 	return render(request, 'crisis_app/xml_upload.html', {'form': form})
 
 class LoginForm(forms.Form):
-	username = forms.CharField(required=True)
+	username = forms.CharField(required=True, widget=forms.TextInput(attrs={'autofocus': 'autofocus'}))
 	password = forms.CharField(required=True, widget=forms.PasswordInput)
 
 	def clean(self):
