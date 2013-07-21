@@ -398,7 +398,6 @@ def upload_xml(request):
 				return HttpResponseRedirect('/xml')
 			except Exception as e:
 				# i dunno maybe this is right?
-				# nope, I don't think so
 				form._errors['__all__'] += form.error_class([
 					'Could not save data:\n' + e.message])
 	else:

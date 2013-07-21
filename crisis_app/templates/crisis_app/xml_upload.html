@@ -5,8 +5,7 @@
 <section class="container">
   <h1>Upload XML</h1>
   <hr />
-  {{ form.non_field_errors }}
-  <div class="span4 offset4">
+  <div class="span10 offset4">
     <form enctype="multipart/form-data" method="POST" action="/upload_xml">{% csrf_token %}
       {{ form.as_p }}
       <input class=btn type="submit" value="Submit" />
