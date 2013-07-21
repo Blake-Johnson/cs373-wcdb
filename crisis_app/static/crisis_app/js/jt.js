@@ -34,7 +34,7 @@ function at(q){
   return result;
 }
 function hash(q){
-  q = q.trim();
+  var result = false;
   var id;
   switch(q){
     case '#top':
@@ -101,7 +101,10 @@ function completer(){
   var toComplete = ['@home', '@about', '@events', '@people', '@organizations', '@404',
                     '#top', '#header', '#bottom', '#footer'];
   $('.jtAt').each(function(){
-    toComplete.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' '));
+    toComplete.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim());
+  });
+  $('.jtHash').each(function(){
+    toComplete.push('#' + $(this).attr('id'));
   });
   $('#justType').inlineComplete({
     list: toComplete

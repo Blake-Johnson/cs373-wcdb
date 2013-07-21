@@ -126,9 +126,8 @@ $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
   e.stopPropagation();
 });
 function validate(f){
-  var query = f.elements['q'].value;
-  var empty = query.trim() == '';
-  if(empty){
+  var query = f.elements['q'].value.trim();
+  if(query == ''){
     return false;
   }
   /* Preliminary */
@@ -137,17 +136,27 @@ function validate(f){
   }else if(query.charAt(0) == '#' && hash(query)){
     return false;
   }
-  var found = false;
+  var match = false;
   $('.jtAt').each(function(){
-    if(query.toLowerCase() == $(this).attr('name').toLowerCase()){
+    if(query.toLowerCase() == $(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').toLowerCase().trim()){
       window.open($(this).attr('href'), '_self');
-      found = true;
+      match = true;
       return;
     }
   });
-  if(found){
+  $('.jtHash').each(function(){
+    jtHash = '#' + $(this).attr('id').toLowerCase();
+    if(query.toLowerCase() == jtHash){
+      $('#searchModal').modal('hide');
+      scrollTo(jtHash);
+      match = true;
+      return;
+    }
+  });
+  if(match){
     return false;
   }
+  /* Check Query */
   var size = query.length < 32;
   if(!size){
     alert('Please limit your search to 31 characters.');
