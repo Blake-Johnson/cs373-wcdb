@@ -20,6 +20,9 @@ function direct(q){
       case '@organizations':
         url = '/orgs';
         break;
+      case '@404':
+        url = '/404';
+        break;
     }
     if(url){
       result = true;
@@ -59,5 +62,5 @@ $('#searchModal').on('hide', function(){
   searchbox.blur();
 });
 $('#justType').inlineComplete({
-  list: ['@home', '@about', '@events', '@people', '@organizations']
+  list: ['@home', '@about', '@events', '@people', '@organizations', '@404']
 });
