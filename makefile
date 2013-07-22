@@ -1,3 +1,13 @@
+test:
+	python manage.py test crisis_app
+
+clear-cache:
+	rm crisis_app/cache/json
+	rm crisis_app/cache/xml
+
+run:
+	python manage.py runserver
+
 doc:
 	rm -rf doc
 	mkdir doc
@@ -28,10 +38,3 @@ turnin-verify:
 	turnin --verify bendy cs373pj3
 
 .PHONY: doc zip turnin-list turnin-submit turnin-verify
-
-test:
-	python manage.py test crisis_app
-
-clear-cache:
-	rm crisis_app/cache/json
-	rm crisis_app/cache/xml

@@ -2,3 +2,4 @@ venv
 *.pyc
 *.*~
 crisis_app/cache/*
+~$*
