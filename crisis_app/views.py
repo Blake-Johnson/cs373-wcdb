@@ -244,7 +244,7 @@ def about(request):
 	context = { 'author_list': author_list}
 	return render(request, 'crisis_app/about.html', context)
 
-def youtube_embed_url(url, name):
+def youtube_to_embed(url, name):
     match = re.search(r'^(?:http|https)\:\/\/www\.youtube\.com\/watch\?(?:feature\=[a-z_]*&)?v\=([\w\-]*)(?:\&(?:.*))?$', url)
     if match:
         embed_url = 'http://www.youtube.com/embed/%s' %(match.group(1))
@@ -278,7 +278,7 @@ def events(request, event_id=None):
 		embed['images'] = Embed.objects.filter(kind="IMG", event__id=event.id)
 		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), event__id=event.id)
 		for video in embed['videos']:
-			video.url = youtube_embed_url(video.url, video.desc)
+			video.url = youtube_to_embed(video.url, video.desc)
 		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), event__id=event.id)
 		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), event__id=event.id)
 		embed['citations'] = Embed.objects.filter(kind="CIT", event__id=event.id)
@@ -308,7 +308,7 @@ def people(request, person_id=None):
 		embed['images'] = Embed.objects.filter(kind="IMG", person__id=person.id)
 		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), person__id=person.id)
 		for video in embed['videos']:
-			video.url = youtube_embed_url(video.url, video.desc)
+			video.url = youtube_to_embed(video.url, video.desc)
 		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), person__id=person.id)
 		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), person__id=person.id)
 		embed['citations'] = Embed.objects.filter(kind="CIT", person__id=person.id)
@@ -338,7 +338,7 @@ def orgs(request, org_id=None):
 		embed['images'] = Embed.objects.filter(kind="IMG", organization__id=org.id)
 		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), organization__id=org.id)
 		for video in embed['videos']:
-			video.url = youtube_embed_url(video.url, video.desc)
+			video.url = youtube_to_embed(video.url, video.desc)
 		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), organization__id=org.id)
 		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), organization__id=org.id)
 		embed['citations'] = Embed.objects.filter(kind="CIT", organization__id=org.id)
