@@ -30,8 +30,8 @@
 .roll span {
     display: block;
     padding: 0 2px;
-    -webkit-transition: all 180ms ease;
-       -moz-transition: all 180ms ease;
+    -webkit-transition: all 160ms ease;
+       -moz-transition: all 160ms ease;
     -webkit-transform-origin: 50% 0%;
        -moz-transform-origin: 50% 0%;
     -webkit-transform-style: preserve-3d;
