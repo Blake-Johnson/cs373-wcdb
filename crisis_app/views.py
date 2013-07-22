@@ -255,17 +255,17 @@ def youtube_to_embed(url, name):
 		embed, it attempts to provide information about the video's
 		source
 	'''
-    match = re.search(r'^(?:http|https)\:\/\/www\.youtube\.com\/watch\?(?:feature\=[a-z_]*&)?v\=([\w\-]*)(?:\&(?:.*))?$', url)
-    if match:
-        embed_url = 'http://www.youtube.com/embed/%s' %(match.group(1))
-        res = '<iframe width="560" height="315" src="%s" frameborder="0" name="%s?wmode=opaque" allowfullscreen></iframe>' %(embed_url, name)
-    else:
-	    match = re.search(r'(?:(?:http|https)\:\/\/|www\.)(?:www\.)?(.*?)\.com', url)
-	    if match:
-	    	res = '<a href="%s">%s (%s)</a><br />' %(url, name, match.group(1))
-	    else:
-	    	res = '<a href="%s">%s</a><br />' %(url, name)
-    return res
+	match = re.search(r'^(?:http|https)\:\/\/www\.youtube\.com\/watch\?(?:feature\=[a-z_]*&)?v\=([\w\-]*)(?:\&(?:.*))?$', url)
+	if match:
+		embed_url = 'http://www.youtube.com/embed/%s' %(match.group(1))
+		res = '<iframe width="560" height="315" src="%s" frameborder="0" name="%s?wmode=opaque" allowfullscreen></iframe>' %(embed_url, name)
+	else:
+		match = re.search(r'(?:(?:http|https)\:\/\/|www\.)(?:www\.)?(.*?)\.com', url)
+		if match:
+			res = '<a href="%s">%s (%s)</a><br />' %(url, name, match.group(1))
+		else:
+			res = '<a href="%s">%s</a><br />' %(url, name)
+	return res
 
 def markURLs(text):
 	'''

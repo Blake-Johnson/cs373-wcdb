@@ -118,4 +118,4 @@ function completer(){
     list: toComplete
   });
 }
-//completer();
+completer();
