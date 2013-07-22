@@ -248,7 +248,7 @@ def youtube_to_embed(url, name):
     match = re.search(r'^(?:http|https)\:\/\/www\.youtube\.com\/watch\?(?:feature\=[a-z_]*&)?v\=([\w\-]*)(?:\&(?:.*))?$', url)
     if match:
         embed_url = 'http://www.youtube.com/embed/%s' %(match.group(1))
-        res = '<iframe width="560" height="315" src="%s" frameborder="0" name="%s" allowfullscreen></iframe>' %(embed_url, name)
+        res = '<iframe width="560" height="315" src="%s" frameborder="0" name="%s?wmode=opaque" allowfullscreen></iframe>' %(embed_url, name)
     else:
 	    match = re.search(r'(?:(?:http|https)\:\/\/|www\.)(?:www\.)?(.*?)\.com', url)
 	    if match:
