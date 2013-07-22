@@ -4,7 +4,7 @@
 
 {% block content_custom %}
 <aside class="span4 pull-right">
-  <table class="table table-condensed">
+  <table class="table">
     <thead>
       <tr>
         <th colspan="2"><h4 class="text-center">{{ event.name }}</h4></th>
@@ -13,7 +13,11 @@
     <tbody>
       {% if embed.images.0 %}
       <tr>
-        <td style="text-align: center;" colspan="2"><a href="{{ embed.images.0.url }}" target="_blank"><img src="{{ embed.images.0.url }}" /></a></td>
+        <td style="text-align: center;" colspan="2">
+          <a href="{{ embed.images.0.url }}" target="_blank">
+            <img src="{{ embed.images.0.url }}" />
+          </a>
+        </td>
       </tr>
       {% endif %}
       <tr>
