@@ -29,5 +29,3 @@ turnin-verify:
 
 .PHONY: doc zip turnin-list turnin-submit turnin-verify
 
-test:
-	python manage.py test crisis_app
