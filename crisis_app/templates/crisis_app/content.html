@@ -35,7 +35,7 @@
         <h3 class="jtHash" id="images">Images</h3>
         <div id="mContainer" class="columns columns-3">
           {% for image in embed.images|slice:"1:" %}
-          <a href="{{ image.url }}" target="_blank">
+          <a href="{{ image.url }}" data-lightbox="contentImage" title="{{ image.desc }}">
             <div class="pin well">
               <img class="media-object" src="{{ image.url }}" />
               <p>{{ image.desc }}</p>
@@ -94,17 +94,13 @@
 {% block tail_imports %}
 {{ block.super }}
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/columns.css" />
-<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/da_img.css" />
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/modernizr.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}crisis_app/css/lightbox.css" />
 <script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/masonry.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/hoverdir.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}crisis_app/js/lightbox.js"></script>
 {% endblock %}
 
 {% block script %}
 {{ block.super }}
-/*$('.da-img>li').each(function(){
-  $(this).hoverdir();
-});*/
 // Masonry stalls scripts in Firefox, hence the hack... ugh :/
 if(!navigator.userAgent.match(/firefox/gi)){
   function load(){

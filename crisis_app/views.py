@@ -20,7 +20,7 @@ from minixsv.pyxsval import parseAndValidateXmlInputString
 XML_CACHE_PATH = 'crisis_app/cache/xml'
 JSON_CACHE_PATH = 'crisis_app/cache/json'
 XSD = open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
-	'static/crisis_app/world_crisis.xsd.xml')).read()
+	'fixtures/xml/wcdb_schema.xsd.xml')).read()
 
 class OutdatedException(Exception):
 	'''
