@@ -257,7 +257,7 @@ def youtube_to_embed(url, name):
 	    	res = '<a href="%s">%s</a><br />' %(url, name)
     return res
 
-def markURL(text):
+def markURLs(text):
 	match = re.findall(r'(?:(?:http|https)\://|[a-z0-9]+@|www\.)?[a-z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text, re.I)
 	if match:
 		for url in match:
@@ -347,7 +347,7 @@ def orgs(request, org_id=None):
 		return render(request, 'crisis_app/list.html', context)
 	else:
 		org = get_object_or_404(Organization, id=org_id)
-		org.contact_info = markURL(org.contact_info)
+		org.contact_info = markURLs(org.contact_info)
 		embed = {}
 		embed['images'] = Embed.objects.filter(kind="IMG", organization__id=org.id)
 		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), organization__id=org.id)
