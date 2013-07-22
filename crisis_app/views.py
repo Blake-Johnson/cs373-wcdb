@@ -267,7 +267,7 @@ def youtube_to_embed(url, name):
 			res = '<a href="%s">%s</a><br />' %(url, name)
 	return res
 
-def markURLs(text):
+def mark_urls(text):
 	'''
 	Given a text representing an organization's contact information,
 		this function attempts to convert as much of the text as
@@ -368,7 +368,7 @@ def orgs(request, org_id=None):
 		return render(request, 'crisis_app/list.html', context)
 	else:
 		org = get_object_or_404(Organization, id=org_id)
-		org.contact_info = markURLs(org.contact_info)
+		org.contact_info = mark_urls(org.contact_info)
 		embed = {}
 		embed['images'] = Embed.objects.filter(kind="IMG", organization__id=org.id)
 		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), organization__id=org.id)
