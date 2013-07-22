@@ -48,7 +48,7 @@ document.getElementsByTagName('html')[0].onkeypress = function(e) {
   if(document.activeElement.tagName == 'INPUT'){
     return;
   }
-  if(/[a-z0-9@#]/i.test(charTyped)){
+  if(/[a-z0-9@]/i.test(charTyped)){
     searchbox = document.getElementById('justType');
     if(searchbox.value == ''){
       $('#searchModal').modal('show');

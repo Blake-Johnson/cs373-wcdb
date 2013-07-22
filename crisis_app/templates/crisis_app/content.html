@@ -101,6 +101,7 @@
 
 {% block script %}
 {{ block.super }}
+{% if embed.images %}
 // Masonry stalls scripts in Firefox, hence the hack... ugh :/
 if(!navigator.userAgent.match(/firefox/gi)){
   function load(){
@@ -112,4 +113,5 @@ if(!navigator.userAgent.match(/firefox/gi)){
   }
   window.onload = load
 }
+{% endif %}
 {% endblock %}
