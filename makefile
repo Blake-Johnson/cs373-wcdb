@@ -31,3 +31,7 @@ turnin-verify:
 
 test:
 	python manage.py test crisis_app
+
+clear-cache:
+	rm crisis_app/cache/json
+	rm crisis_app/cache/xml
