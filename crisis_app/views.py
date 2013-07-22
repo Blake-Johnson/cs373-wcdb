@@ -245,6 +245,16 @@ def about(request):
 	return render(request, 'crisis_app/about.html', context)
 
 def youtube_to_embed(url, name):
+	'''
+	This function is called on url columns in the Embed table for
+		videos
+	If a video in the proper format is encountered,
+		then it is converted to an embed in the webpage rather
+		than the standard anchor
+	If the function is unable to convert the link provided to an
+		embed, it attempts to provide information about the video's
+		source
+	'''
     match = re.search(r'^(?:http|https)\:\/\/www\.youtube\.com\/watch\?(?:feature\=[a-z_]*&)?v\=([\w\-]*)(?:\&(?:.*))?$', url)
     if match:
         embed_url = 'http://www.youtube.com/embed/%s' %(match.group(1))
@@ -258,6 +268,17 @@ def youtube_to_embed(url, name):
     return res
 
 def markURLs(text):
+	'''
+	Given a text representing an organization's contact information,
+		this function attempts to convert as much of the text as
+		possible into anchor tags
+	The function currently works with emails and obvious URLs
+	In the following examples, text -> anchor implies that a text is
+		converted to a specific anchor tag:
+		noone@nowhere.com -> <a href="mailto:noone@nowhere.com" target="_blank">noone@nowhere.com</a>
+		http://bing.com -> <a href="http://bing.com" target="_blank">http://bing.com</a>
+		google.com -> <a href="http://google.com" target="_blank">http://google.com</a>
+	'''
 	match = re.findall(r'(?:(?:http|https)\://|[a-z0-9]+@|www\.)?[a-z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text, re.I)
 	if match:
 		for url in match:
