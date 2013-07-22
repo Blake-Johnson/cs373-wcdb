@@ -162,10 +162,10 @@ def parse(query):
 	Preconditions: a query is provided
 	Postconditions: the query is parsed into logical units to
 		be querified (see below)
-	Implementation: regex is precompiled to optimize the loop; logic
-		is built such that only one column of the table needs to
-		contain each part of the query, but each part of the query
-		must be found to in one column
+	Implementation: regex is precompiled to optimize the loop; The
+		parser is aware of grouped phrases, so the query "us president
+		\"barack obama\"" is parsed into the list ["us", "president", 
+		"barack obama"]
 	'''
 	assert type(query) in [str, int, unicode, tuple, list]
 	assert len(query) < 32
