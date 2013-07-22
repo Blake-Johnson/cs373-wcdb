@@ -14,7 +14,7 @@
       {% if embed.images.0 %}
       <tr>
         <td style="text-align: center;" colspan="2">
-          <a href="{{ embed.images.0.url }}" target="_blank">
+          <a href="{{ embed.images.0.url }}" rel="lightbox-title" title="{{ embed.images.0.desc }}" target="_blank">
             <img src="{{ embed.images.0.url }}" />
           </a>
         </td>
