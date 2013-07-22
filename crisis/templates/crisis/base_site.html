@@ -11,7 +11,7 @@
 <title>WCDb: {% block title %}World Crisis Database{% endblock %}</title>
 </head>
 <body>
-<header id="header">
+<header id="top" class="jtHash">
   <div class="navbar navbar-static-top">
     <div class="navbar-inner">
       <a class="brand" href="/">WCDb</a>
@@ -73,7 +73,7 @@
 </header>
 {% block content %}
 {% endblock %}
-<footer id="footer" class="container">
+<footer id="bottom" class="container jtHash">
   <hr />
   <div class="span4">
     <span>World Crisis Database &#169;2013 </span><a href="/about">team</a><br />
@@ -133,8 +133,6 @@ function validate(f){
   /* Preliminary */
   if(query.charAt(0) == '@' && at(query)){
     return false;
-  }else if(query.charAt(0) == '#' && hash(query)){
-    return false;
   }
   var match = false;
   $('.jtAt').each(function(){
@@ -145,7 +143,7 @@ function validate(f){
     }
   });
   $('.jtHash').each(function(){
-    jtHash = '#' + $(this).attr('id').toLowerCase();
+    jtHash = $(this).attr('id').toLowerCase();
     if(query.toLowerCase() == jtHash){
       $('#searchModal').modal('hide');
       scrollTo(jtHash);
