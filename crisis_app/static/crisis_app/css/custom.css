@@ -7,9 +7,14 @@
 .indented {
 	text-indent: 2em;
 }
+
+/* content page */
 .table {
     word-wrap: break-word;
     table-layout: fixed;
+}
+.table img {
+    max-width: 100%;
 }
 
 /* About page aside */
