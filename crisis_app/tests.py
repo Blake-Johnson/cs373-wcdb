@@ -5,12 +5,13 @@ from os.path import join
 from subprocess import call, Popen, PIPE
 
 from crisis_app import views
-from views import make_parent, add_child, make_json
+from views import make_parent, add_child, make_json, parse, querify
 
 from django.test import TestCase
 from django.core import management
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.db import models
 
 from crisis_app.converters import to_xml, to_db
 from crisis_app.models import Event, Organization, Person, Embed
@@ -162,3 +163,45 @@ class ImportExportTest(UsefulTestCase):
 			# write the wrong file out to disk for inspection from the cmd line
 			open('invalid_response.xml', 'w').write(response.content)
 			raise e
+
+class ParseQuerifyTest(TestCase):
+	fixtures = ['test_data.json']
+
+	def test_parse_1(self):
+		inp = "\"Barack Obama\" US President"
+		out = parse(inp)
+		self.assertEqual(out[0], "Barack Obama")
+		self.assertEqual(out[1], "US")
+		self.assertEqual(out[2], "President")
+
+	def test_parse_2(self):
+		self.assertEqual(parse("\"Barack Obama\" US President")[0], "Barack Obama")
+		self.assertEqual(parse("\"Barack Obama\" US President")[1], "US")
+		self.assertEqual(parse("\"Barack Obama\" US President")[2], "President")
+
+	def test_parse_3(self):
+		out = parse("\"Barack Obama\" US President")
+		assert type(out) is list
+
+	def test_parse_4(self):
+		out = parse("\"Barack Obama\" US President")
+		self.assertEqual(len(out), 3)
+
+	def test_parse_5(self):
+		out = parse("\"Barack Obama\" US President")
+		assert type(out[0]) is str
+		assert type(out[1]) is str
+		assert type(out[2]) is str
+
+	def test_querify_1(self):
+		inp = parse("\"Barack Obama\" US President")
+		assert type(querify(inp, ["column1", "column2", "column3"])) is models.query_utils.Q
+
+	def test_querify_2(self):
+		inp = parse("\"Barack Obama\" US Pres POTUS")
+		self.assertEqual(len(querify(inp, ["column1", "column2", "column3"])),4) #len should be the number of things being parsed
+
+	def test_db_query(self):
+		inp = parse("Sandy")
+		quer = querify(inp,["id","name","kind"])
+		self.assertEqual(str(Event.objects.filter(quer)),"[<Event: Hurricane Sandy>]")
