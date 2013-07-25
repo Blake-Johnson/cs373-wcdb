@@ -11,17 +11,6 @@ clear-cache:
 run: venv
 	source venv/bin/activate && python manage.py runserver
 
-doc:
-	rm -rf doc
-	mkdir doc
-	export DJANGO_SETTINGS_MODULE=crisis.settings && \
-	export PYTHONPATH="venv/lib/python2.7/site-packages:crisis:crisis_app" && \
-	for f in `find . -iname '*.py' | grep -v venv` ; do \
-		venv/bin/pydoc -w $$f ; \
-		mkdir -p doc/`dirname $$f` ; \
-		cp `basename $$f .py`.html doc/`dirname $$f`/ ; \
-	done
-
 zip:
 	cp crisis_app/tests.py TestWCDB1.py
 	git log > WCDB1.log
@@ -44,4 +33,17 @@ venv:
 	virtualenv venv --distribute
 	source venv/bin/activate && pip install -r requirements.txt
 
-.PHONY: doc zip turnin-list turnin-submit turnin-verify
+doc/html: venv
+	source venv/bin/activate && \
+	sphinx-apidoc -o doc crisis && \
+	sphinx-apidoc -o doc crisis_app && \
+	sphinx-build doc doc/html
+
+docs: doc/html
+	source venv/bin/activate && cd doc/html && python -m SimpleHTTPServer
+
+clean-docs:
+	rm -rf doc/html doc/crisis*rst
+
+
+.PHONY: zip turnin-list turnin-submit turnin-verify clean-docs

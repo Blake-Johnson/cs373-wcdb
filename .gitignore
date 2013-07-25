@@ -3,3 +3,5 @@ venv
 *.*~
 crisis_app/cache/*
 ~$*
+doc/html
+doc/crisis*rst
