@@ -1,4 +1,6 @@
-/* Credits here: https://github.com/noraesae/perfect-scrollbar */
+/* Copyright (c) 2012 Zeno Zeng (https://github.com/zenozeng)
+ * Licensed under the MIT License
+ */
 .ps-container .ps-scrollbar-x {
 	position: absolute; /* please don't change 'position' */
 	bottom: 3px; /* there must be 'bottom' for ps-scrollbar-x */

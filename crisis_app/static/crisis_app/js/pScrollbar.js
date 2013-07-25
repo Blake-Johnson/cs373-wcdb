@@ -1,5 +1,8 @@
-/* Credits here: https://github.com/noraesae/perfect-scrollbar */
-/* jQuery Mousewheel, credits here: https://github.com/brandonaaron/jquery-mousewheel */
+/* perfect-scrollbar Copyright (c) 2012 Zeno Zeng (http://github.com/zenozeng)
+ * Licensed under the MIT License
+ */
+ 
+/* jQuery Mousewheel */
 /*! Copyright (c) 2011 Brandon Aaron (http://brandonaaron.net)
  * Licensed under the MIT License (LICENSE.txt).
  *
