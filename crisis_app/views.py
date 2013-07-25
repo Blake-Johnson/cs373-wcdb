@@ -292,6 +292,14 @@ def mark_urls(text):
 	return text
 
 def make_embed(element):
+	'''
+	Given an element, this function grabs all the embedded content
+		for that element
+	Currently, only the Event, Person, and Organization tables are
+		supported; to support more table, add them to the category
+		field below and ensure that there exist the necessary
+		relations with the embed table
+	'''
 	category = { Event: 'event', Person: 'person', Organization: 'organization' }
 	arg = { '%s__id' % category[type(element)]: element.id }
 	embed = {}
