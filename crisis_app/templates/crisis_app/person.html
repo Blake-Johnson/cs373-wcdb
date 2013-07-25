@@ -26,7 +26,7 @@
       </tr>
       <tr>
         <td>Location</td>
-        <td>{{ person.location }}</td>
+        <td><a href="https://maps.google.com/?q={{ person.location|urlencode }}" target="_blank">{{ person.location }}<span></span></a></td>
       </tr>
     </tbody>
   </table>

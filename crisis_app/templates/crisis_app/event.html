@@ -26,7 +26,7 @@
       </tr>
       <tr>
         <td>Location</td>
-        <td>{{ event.location }}</td>
+        <td><a href="https://maps.google.com/?q={{ event.location|urlencode }}" target="_blank">{{ event.location }}<span></span></a></td>
       </tr>
       <tr>
         <td>Date</td>

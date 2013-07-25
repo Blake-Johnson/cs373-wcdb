@@ -262,7 +262,7 @@ def youtube_to_embed(url, name):
 	else:
 		match = re.search(r'(?:(?:http|https)\:\/\/|www\.)(?:www\.)?(.*?)\.com', url)
 		if match:
-			res = '<a href="%s">%s (%s)</a><br />' %(url, name, match.group(1))
+			res = '<a href="%s">%s (%s)</a><br />' %(url, name, match.group(1).capitalize())
 		else:
 			res = '<a href="%s">%s</a><br />' %(url, name)
 	return res
@@ -300,6 +300,7 @@ def make_embed(element):
 		field below and ensure that there exist the necessary
 		relations with the embed table
 	'''
+	assert type(element) in [Event, Person, Organization]
 	category = { Event: 'event', Person: 'person', Organization: 'organization' }
 	arg = { '%s__id' % category[type(element)]: element.id }
 	embed = {}
