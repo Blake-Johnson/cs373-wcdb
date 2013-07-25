@@ -433,9 +433,9 @@ def upload_xml(request):
 				remove_xml_cache()
 				return HttpResponseRedirect('/xml')
 			except Exception as e:
-				# i dunno maybe this is right?
-				form._errors['__all__'] += form.error_class([
-					'Could not save data:\n' + e.message])
+				form._errors.setdefault('__all__', forms.util.ErrorList())
+				form._errors['__all__'].append(form.error_class([
+					'Could not save data:\n' + e.message]))
 	else:
 		form = XmlUploadForm()
 	return render(request, 'crisis_app/xml_upload.html', {'form': form})
