@@ -5,7 +5,8 @@ from os.path import join
 from subprocess import call, Popen, PIPE
 
 from crisis_app import views
-from views import make_parent, add_child, make_json, parse, querify
+from views import make_parent, add_child, make_json, parse, querify, \
+	mark_urls, youtube_to_embed
 
 from django.test import TestCase
 from django.core import management
@@ -177,11 +178,11 @@ class RegexTestCase(UsefulTestCase):
 		testString_2 = youtube_to_embed("http://vimeo.com/1532967","youtube_2")
 		testString_3 = youtube_to_embed("http://www.youtube.com/vatican","youtube_3")
 
-		assert testString_1 == '<a href="http://vimeo.com/13595568">youtube_1 (vimeo)</a><br />'
+		assert testString_1 == '<a href="http://vimeo.com/13595568">youtube_1 (Vimeo)</a><br />'
 
-		assert testString_2 == '<a href="http://vimeo.com/1532967">youtube_2 (vimeo)</a><br />'
+		assert testString_2 == '<a href="http://vimeo.com/1532967">youtube_2 (Vimeo)</a><br />'
 
-		assert testString_3 == '<a href="http://www.youtube.com/vatican">youtube_3 (youtube)</a><br />'
+		assert testString_3 == '<a href="http://www.youtube.com/vatican">youtube_3 (Youtube)</a><br />'
 
 	def test_youtube_notWorking_embed(self):
 		testString_1 = youtube_to_embed("http://youtu.be/_iNBKlBcXkY","youtube_1")
