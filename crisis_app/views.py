@@ -291,6 +291,19 @@ def mark_urls(text):
 			text = text.replace(url, '<a href="%s" target="_blank">%s<span></span></a>' %(replace, url))
 	return text
 
+def make_embed(element):
+	category = { Event: 'event', Person: 'person', Organization: 'organization' }
+	arg = { '%s__id' % category[type(element)]: element.id }
+	embed = {}
+	embed['images'] = Embed.objects.filter(kind="IMG", **arg)
+	embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), **arg)
+	for video in embed['videos']:
+		video.url = youtube_to_embed(video.url, video.desc)
+	embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), **arg)
+	embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), **arg)
+	embed['citations'] = Embed.objects.filter(kind="CIT", **arg)
+	return embed
+
 def events(request, event_id=None):
 	'''
 	If called with no event ID, this function loads a list of all
@@ -308,16 +321,9 @@ def events(request, event_id=None):
 		return render(request, 'crisis_app/list.html', context)
 	else:
 		event = get_object_or_404(Event, id=event_id)
-		embed = {}
-		embed['images'] = Embed.objects.filter(kind="IMG", event__id=event.id)
-		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), event__id=event.id)
-		for video in embed['videos']:
-			video.url = youtube_to_embed(video.url, video.desc)
-		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), event__id=event.id)
-		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), event__id=event.id)
-		embed['citations'] = Embed.objects.filter(kind="CIT", event__id=event.id)
 		people = Person.objects.filter(event__id=event.id)
 		orgs = Organization.objects.filter(event__id=event.id)
+		embed = make_embed(event)
 		context = { 'event': event, 'embed': embed, 'people': people, 'orgs': orgs, 'type': 'e' }
 		return render(request, 'crisis_app/event.html', context)
 
@@ -338,16 +344,9 @@ def people(request, person_id=None):
 		return render(request, 'crisis_app/list.html', context)
 	else:
 		person = get_object_or_404(Person, id=person_id)
-		embed = {}
-		embed['images'] = Embed.objects.filter(kind="IMG", person__id=person.id)
-		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), person__id=person.id)
-		for video in embed['videos']:
-			video.url = youtube_to_embed(video.url, video.desc)
-		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), person__id=person.id)
-		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), person__id=person.id)
-		embed['citations'] = Embed.objects.filter(kind="CIT", person__id=person.id)
 		events = Event.objects.filter(person__id=person.id)
 		orgs = Organization.objects.filter(person__id=person.id)
+		embed = make_embed(person)
 		context = { 'person': person, 'embed': embed, 'events': events, 'orgs': orgs, 'type': 'p' }
 		return render(request, 'crisis_app/person.html', context)
 
@@ -369,16 +368,9 @@ def orgs(request, org_id=None):
 	else:
 		org = get_object_or_404(Organization, id=org_id)
 		org.contact_info = mark_urls(org.contact_info)
-		embed = {}
-		embed['images'] = Embed.objects.filter(kind="IMG", organization__id=org.id)
-		embed['videos'] = Embed.objects.filter(kind__in=("YTB", "VMO", "VEX"), organization__id=org.id)
-		for video in embed['videos']:
-			video.url = youtube_to_embed(video.url, video.desc)
-		embed['maps'] = Embed.objects.filter(kind__in=("GMP", "BMP", "MPQ", "MEX"), organization__id=org.id)
-		embed['feeds'] = Embed.objects.filter(kind__in=("TWT", "FBK", "GPL", "FEX"), organization__id=org.id)
-		embed['citations'] = Embed.objects.filter(kind="CIT", organization__id=org.id)
 		events = Event.objects.filter(organization__id=org.id)
 		people = Person.objects.filter(organization__id=org.id)
+		embed = make_embed(org)
 		context = { 'org': org, 'embed': embed, 'events': events, 'people': people, 'type': 'o' }
 		return render(request, 'crisis_app/org.html', context)
 
