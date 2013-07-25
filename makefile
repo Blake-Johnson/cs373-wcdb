@@ -45,6 +45,7 @@ venv:
 	source $@/bin/activate && pip install -r requirements.txt
 
 doc/html: venv
+	export PYTHONPATH="" && \
 	source venv/bin/activate && \
 	sphinx-apidoc -o doc crisis && \
 	sphinx-apidoc -o doc crisis_app && \
