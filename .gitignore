@@ -5,3 +5,6 @@ crisis_app/cache/*
 ~$*
 doc/html
 doc/crisis*rst
+TestWCDB*.out
+WCDB*.xml
+WCDB*.xsd.xml
