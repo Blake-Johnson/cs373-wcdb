@@ -12,9 +12,11 @@ from django.core import management
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db import models
+from minixsv.pyxsval import parseAndValidateXmlInputString
 
 from crisis_app.converters import to_xml, to_db
 from crisis_app.models import Event, Organization, Person, Embed
+from crisis_app.management.commands.validate import XSD
 
 XML_FIXTURE_PATH = 'crisis_app/fixtures/xml'
 XML = dict((f.split('.')[0], open(join(XML_FIXTURE_PATH, f)).read().strip())
@@ -87,15 +89,9 @@ class ToXmlTestCase(TestCase):
 		self.assertEqual(to_xml.convert().strip(), XML['initial_data'])
 
 	def test_export_validation(self):
-		xml = Popen('./manage.py xml'.split(), stdout=PIPE)
-		devnull = open(os.devnull, 'w')
-		self.assertEqual(call('./manage.py validate'.split(),
-			stdin=xml.stdout, stdout=devnull, stderr=devnull), 0)
-		try:
-   			devnull.close()
-		except:
-		   pass
-		xml.kill()
+		xml = to_xml.convert()
+		ret = parseAndValidateXmlInputString(inputText=xml, xsdText=XSD)
+		self.assertTrue(not not ret)
 
 class ToDbTestCase(UsefulTestCase):
 

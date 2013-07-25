@@ -1,3 +1,5 @@
+SHELL=bash
+
 test: venv
 	source venv/bin/activate && python manage.py test
 
@@ -39,6 +41,7 @@ turnin-verify:
 
 venv:
 	virtualenv $@ --distribute
+	source $@/bin/activate && pip install --upgrade distribute
 	source $@/bin/activate && pip install -r requirements.txt
 
 doc/html: venv

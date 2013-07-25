@@ -16,10 +16,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if 'test' in sys.argv:
+if 'test' in sys.argv or 'TEST_DB' in os.environ:
     DATABASES = {
         'default': {
-			# use in-memory db for unit testing b/c it's effin slow otherwise
+            # use in-memory db for unit testing b/c it's effin slow otherwise
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': 'crisis',
             'USER': 'crisisuser',
