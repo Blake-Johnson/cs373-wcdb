@@ -1,12 +1,15 @@
-test:
-	python manage.py test crisis_app
+test: venv
+	source venv/bin/activate && python manage.py test
+
+test-app: venv
+	source venv/bin/activate && python manage.py test crisis_app
 
 clear-cache:
 	rm crisis_app/cache/json
 	rm crisis_app/cache/xml
 
-run:
-	python manage.py runserver
+run: venv
+	source venv/bin/activate && python manage.py runserver
 
 doc:
 	rm -rf doc
@@ -36,5 +39,9 @@ turnin-submit: WCDB1.zip
 
 turnin-verify:
 	turnin --verify bendy cs373pj3
+
+venv:
+	virtualenv venv --distribute
+	source venv/bin/activate && pip install -r requirements.txt
 
 .PHONY: doc zip turnin-list turnin-submit turnin-verify
