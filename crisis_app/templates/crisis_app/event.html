@@ -30,7 +30,7 @@
       </tr>
       <tr>
         <td>Date</td>
-        <td>{{ event.date_time|date }}</td>
+        <td><a href="http://en.wikipedia.org/wiki/Portal:Current_events/{{ event.date_time|date:'Y_F_j' }}" target="_blank">{{ event.date_time|date }}<span></span></a></td>
       </tr>
       {% if event.date_time|time != "midnight" %}
       <tr>
