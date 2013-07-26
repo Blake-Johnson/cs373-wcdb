@@ -17,10 +17,10 @@ WCDB2.log:
 	git log > $@
 
 WCDB2.xml:
-	cp assets/xml/astacy-WCDB1.xml $@
+	cp assets/xml/astacy-WCDB2.xml $@
 
 WCDB2.xsd.xml:
-	cp assets/xml/astacy-WCDB1.xsd.xml $@
+	cp assets/xml/astacy-WCDB2.xsd.xml $@
 
 TestWCDB2.out:
 	python TestWCDB2.py 2>&1 | tee $@
