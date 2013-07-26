@@ -31,13 +31,13 @@ WCDB2.zip: doc/html WCDB2.log WCDB2.xml WCDB2.xsd.xml TestWCDB2.out
 zip: WCDB2.zip
 
 turnin-list:
-	turnin --list eladlieb cs373pj3
+	turnin --list eladlieb cs373pj4
 
 turnin-submit: WCDB2.zip
-	turnin --submit eladlieb cs373pj3 WCDB2.zip
+	turnin --submit eladlieb cs373pj4 WCDB2.zip
 
 turnin-verify:
-	turnin --verify eladlieb cs373pj3
+	turnin --verify eladlieb cs373pj4
 
 venv:
 	virtualenv $@ --distribute
