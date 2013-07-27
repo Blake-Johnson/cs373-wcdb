@@ -13,31 +13,31 @@ clear-cache:
 run: venv
 	source venv/bin/activate && python manage.py runserver
 
-WCDB2.log:
+WCDB3.log:
 	git log > $@
 
-WCDB2.xml:
-	cp assets/xml/astacy-WCDB2.xml $@
+WCDB3.xml:
+	cp assets/xml/astacy-WCDB3.xml $@
 
-WCDB2.xsd.xml:
-	cp assets/xml/astacy-WCDB2.xsd.xml $@
+WCDB3.xsd.xml:
+	cp assets/xml/astacy-WCDB3.xsd.xml $@
 
-TestWCDB2.out:
-	python TestWCDB2.py 2>&1 | tee $@
+TestWCDB3.out:
+	python TestWCDB3.py 2>&1 | tee $@
 
-WCDB2.zip: doc/html WCDB2.log WCDB2.xml WCDB2.xsd.xml TestWCDB2.out
-	zip -r WCDB2.zip makefile requirements.txt manage.py doc/html WCDB2.log WCDB2.pdf crisis crisis_app WCDB2.xml WCDB2.xsd.xml TestWCDB2.py TestWCDB2.out
+WCDB3.zip: doc/html WCDB3.log WCDB3.xml WCDB3.xsd.xml TestWCDB3.out
+	zip -r WCDB3.zip makefile requirements.txt manage.py doc/html WCDB3.log WCDB3.pdf crisis crisis_app WCDB3.xml WCDB3.xsd.xml TestWCDB3.py TestWCDB3.out
 
-zip: WCDB2.zip
+zip: WCDB3.zip
 
 turnin-list:
-	turnin --list eladlieb cs373pj4
+	turnin --list bendy cs373pj5
 
-turnin-submit: WCDB2.zip
-	turnin --submit eladlieb cs373pj4 WCDB2.zip
+turnin-submit: WCDB3.zip
+	turnin --submit bendy cs373pj5 WCDB3.zip
 
 turnin-verify:
-	turnin --verify eladlieb cs373pj4
+	turnin --verify bendy cs373pj5
 
 venv:
 	virtualenv $@ --distribute
@@ -57,7 +57,7 @@ docs: doc/html
 clean-docs:
 	rm -rf doc/html doc/crisis*rst
 
-verify: WCDB2.zip
+verify: WCDB3.zip
 	mkdir ../cs373-wcdb-verify && \
 	cp $< ../cs373-wcdb-verify/ && \
 	cd ../cs373-wcdb-verify && \

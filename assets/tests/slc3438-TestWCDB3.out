@@ -1,0 +1,10 @@
+Creating test database for alias 'default'...
+Installed 0 object(s) from 0 fixture(s)
+.Installed 0 object(s) from 0 fixture(s)
+.............Installed 0 object(s) from 0 fixture(s)
+.........
+----------------------------------------------------------------------
+Ran 23 tests in 5.337s
+
+OK
+Destroying test database for alias 'default'...
