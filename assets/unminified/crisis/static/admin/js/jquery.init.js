@@ -3,4 +3,6 @@
  * namespace (i.e. this preserves pre-existing values for both window.$ and
  * window.jQuery).
  */
-var django={jQuery:jQuery.noConflict(!0)};
+var django = {
+    "jQuery": jQuery.noConflict(true)
+};
