@@ -77,13 +77,9 @@
       {% endif %}
       {% if embed.citations %}
         <h3 class="jtHash" id="references">References</h3>
-        <ul>
           {% for citation in embed.citations %}
-          <li>
-            <a href="{{ citation.url }}" target="_blank">{{ citation.desc }}</a>
-          </li>
+          <a href="{{ citation.url }}" target="_blank">{{ citation.desc }}</a><br />
           {% endfor %}
-        </ul>
         <br />
       {% endif %}
     {% endblock %}
