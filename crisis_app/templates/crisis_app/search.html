@@ -31,6 +31,7 @@
   </ul>
   <div class="span7">
     {% if results %}
+      <span>Your search - <a id="userQuery" href="#">{{ query }}<span></span></a> - returned <strong>{{ results|length }}</strong> {% if results|length == 1 %}result{% else %}results{% endif %} in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</span>
       {% for result in results %}
       <h4><a href="/{{ type }}/{{ result.id }}">{{ result.name }}</a></h4>
       {% if type == 'events' %}
@@ -46,7 +47,7 @@
       {% endfor %}
     {% else %}
       <br />
-      <p>Your search - <strong>{{ query }}</strong> - did not match anything in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</p>
+      <p>Your search - <a id="userQuery" href="#">{{ query }}<span></span></a> - did not match anything in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</p>
       <p>Suggestions</p>
       <ul>
         <li>Make sure all words are spelled correctly.</li>
@@ -56,4 +57,11 @@
     {% endif %}
   </div>
 </section>
+{% endblock %}
+
+{% block script %}
+{{ block.super }}
+document.getElementById('userQuery').onclick = function(){
+  document.getElementById('searchbox').focus();
+};
 {% endblock %}

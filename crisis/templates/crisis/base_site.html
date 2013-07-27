@@ -154,7 +154,7 @@ function validate(f){
   if(match){
     return false;
   }
-  /* Check Query */
+  // Prevents overloading search forms
   var size = query.length < 32;
   if(!size){
     alert('Please limit your search to 31 characters.');

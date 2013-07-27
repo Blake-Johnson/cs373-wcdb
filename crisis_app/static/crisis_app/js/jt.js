@@ -1,5 +1,8 @@
 var showing = false;
 
+// Clears Just Type on history.back
+$('#justType').val('')
+
 function at(q){
   var elements = q.split(/\s+/);
   var len = elements.length;
@@ -50,7 +53,7 @@ document.getElementsByTagName('html')[0].onkeypress = function(e) {
   }
   if(/[a-z0-9@]/i.test(charTyped)){
     searchbox = document.getElementById('justType');
-    if(searchbox.value == ''){
+    if($(searchbox).not(':visible')){
       $('#searchModal').modal('show');
       showing = true;
     }
@@ -71,7 +74,9 @@ $('#searchModal').on('shown', function(){
   searchbox = document.getElementById('justType');
   searchbox.focus();
 });
+// Blurs both Just Type and the searchbox on ESC
 $('#searchModal').on('hide', function(){
+  document.getElementById('searchbox').blur();
   searchbox = document.getElementById('justType');
   searchbox.value = '';
   searchbox.blur();
