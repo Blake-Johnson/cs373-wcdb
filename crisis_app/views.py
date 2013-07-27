@@ -1,4 +1,4 @@
-import os, datetime, json, re, types
+import os, datetime, json, re, types, cgi
 from subprocess import PIPE, Popen
 from StringIO import StringIO
 
@@ -279,16 +279,20 @@ def mark_urls(text):
 		http://bing.com -> <a href="http://bing.com" target="_blank">http://bing.com</a>
 		google.com -> <a href="http://google.com" target="_blank">http://google.com</a>
 	'''
+	text = cgi.escape(text)
 	match = re.findall(r'(?:(?:http|https)\://|[a-z0-9]+@|www\.)?[a-z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text, re.I)
 	if match:
+		matched = set()
 		for url in match:
-			if url.find('@') > 0:
-				replace = 'mailto:' + url
-			elif not url.startswith('http://') and not url.startswith('https://'):
-				replace = 'http://' + url
-			else:
-				replace = url
-			text = text.replace(url, '<a href="%s" target="_blank">%s<span></span></a>' %(replace, url))
+			if not url in matched:
+				matched.add(url)
+				if url.find('@') > 0:
+					replace = 'mailto:' + url
+				elif not url.startswith('http://') and not url.startswith('https://'):
+					replace = 'http://' + url
+				else:
+					replace = url
+				text = text.replace(url, '<a href="%s" target="_blank">%s<span></span></a>' %(replace, url))
 	return text
 
 def make_embed(element):
@@ -330,6 +334,10 @@ def events(request, event_id=None):
 		return render(request, 'crisis_app/list.html', context)
 	else:
 		event = get_object_or_404(Event, id=event_id)
+		event.human_impact = mark_urls(event.human_impact)
+		event.economic_impact = mark_urls(event.economic_impact)
+		event.resources_needed = mark_urls(event.resources_needed)
+		event.ways_to_help = mark_urls(event.ways_to_help)
 		people = Person.objects.filter(event__id=event.id)
 		orgs = Organization.objects.filter(event__id=event.id)
 		embed = make_embed(event)

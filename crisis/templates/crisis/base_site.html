@@ -114,7 +114,7 @@
 {% endblock %}
 <script type="text/javascript">
 {% block script %}
-if(document.body.style['webkitPerspective'] !== undefined || document.body.style['MozPerspective'] !== undefined){
+if(document.contains('a') && (document.body.style['webkitPerspective'] !== undefined || document.body.style['MozPerspective'] !== undefined)){
     $('a').each(function(){
       if($(this).children().length < 1){
         $(this).addClass('roll');
@@ -162,7 +162,7 @@ function validate(f){
   }
   return true;
 }
-window.onunload = function(){};
+//window.onunload = function(){};
 {% endblock %}
 </script>
 </body>

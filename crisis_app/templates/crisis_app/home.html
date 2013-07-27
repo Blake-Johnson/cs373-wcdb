@@ -35,12 +35,12 @@
 {% block script %}
 {{ block.super }}
 $('#nav_home').addClass('active');
-var json = {{ json|safe }};
 $('#btnPop').tooltip({ animation: false, placement: 'bottom', title: 'Tiles are sized by popularity'});
 $('#btnEqual').tooltip({ animation: false, placement: 'bottom', title: 'Tiles are sized equally'});
 $('#btnBack').tooltip({ animation: false, placement: 'bottom', title: 'Go up one level (right click)'});
 $('#btnTipOn').tooltip({ animation: false, placement: 'bottom', title: 'Tooltips will appear on hover'});
 $('#btnTipOff').tooltip({ animation: false, placement: 'bottom', title: 'Tooltips will not appear on hover'});
+var json = {{ json|safe }};
 // Speeds up testing
 window.onload = init_splash;
 {% endblock %}

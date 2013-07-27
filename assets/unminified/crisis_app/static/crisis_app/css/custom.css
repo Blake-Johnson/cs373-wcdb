@@ -1,0 +1,115 @@
+.inline {
+	display: inline;
+}
+.text-white {
+	color: #eee;
+}
+.indented {
+	text-indent: 2em;
+}
+
+/* content page */
+.table {
+    word-wrap: break-word;
+    table-layout: fixed;
+}
+.table img {
+    max-width: 100%;
+}
+
+/* About page aside */
+.aside-left {
+	border-right: 1px solid #666;
+	padding-right: 1em;
+}
+.aside-right {
+	border-left: 1px solid #666;
+	padding-left: 1em;
+}
+
+/* Links */
+.roll {
+    display: inline-block;
+    overflow: hidden;
+    -webkit-perspective: 400px;
+       -moz-perspective: 400px;
+    -webkit-perspective-origin: 50% 50%;
+       -moz-perspective-origin: 50% 50%;
+}
+.roll span {
+    display: block;
+    padding: 0 2px;
+    -webkit-transition: all 160ms ease;
+       -moz-transition: all 160ms ease;
+    -webkit-transform-origin: 50% 0%;
+       -moz-transform-origin: 50% 0%;
+    -webkit-transform-style: preserve-3d;
+       -moz-transform-style: preserve-3d;
+}
+.roll:hover span {
+	background-color: #33b5e5;
+    -webkit-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+    -moz-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+}
+.roll span:after {
+    content: attr(data-title);
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0 2px;
+    color: #fff;
+    background-color: #33b5e5;
+    -webkit-transform-origin: 50% 0%;
+       -moz-transform-origin: 50% 0%;
+    -webkit-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+       -moz-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+}
+
+/* Webkit Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: block;
+    background-color: #444;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: #333;
+    -webkit-border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #666;
+    -webkit-border-radius: 6px;
+}
+
+/* Fixes right-aligned Bootstrap dropdowns */
+.pull-right .dropdown-menu:after {
+    left: auto;
+    right: 13px;
+}
+.pull-right .dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+/* Search box */
+#searchbox {
+    width: 86px;
+    -webkit-transition: width 0.4s ease;
+    -moz-transition: width 0.4s ease;
+    -o-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+}
+#searchbox:focus {
+    width: 200px;
+}
+
+/* Modal */
+.modal, .modal.fade.in {
+    top: 50px;
+}
+select option {
+    background-color: #444;
+}

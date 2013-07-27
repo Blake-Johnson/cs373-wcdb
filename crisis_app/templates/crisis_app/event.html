@@ -42,16 +42,16 @@
   </table>
 </aside>
 <h3>Human Impact</h3>
-<p>{{ event.human_impact }}</p>
+<p>{{ event.human_impact|safe }}</p>
 <br />
 <h3>Economic Impact</h3>
-<p>{{ event.economic_impact }}</p>
+<p>{{ event.economic_impact|safe }}</p>
 <br />
 <h3>Resources Used</h3>
-<p>{{ event.resources_needed }}</p>
+<p>{{ event.resources_needed|safe }}</p>
 <br />
 <h3>Aid Provided</h3>
-<p>{{ event.ways_to_help }}</p>
+<p>{{ event.ways_to_help|safe }}</p>
 <br />
 {% endblock %}
 
