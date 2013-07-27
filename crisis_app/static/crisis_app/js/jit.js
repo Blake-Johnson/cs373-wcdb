@@ -18,13 +18,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+*/
 
- */
- (function () { 
+(function () { 
 
 /*
-  File: Core.js
-
+ * File: Core.js
  */
 
 /*
@@ -5168,134 +5167,6 @@ var EdgeHelper = {
     'contains': function(posFrom, posTo, pos, epsilon) {
       return EdgeHelper.line.contains(posFrom, posTo, pos, epsilon);
     }
-  },
-  /*
-    Object: EdgeHelper.hyperline
-  */
-  'hyperline': {
-    /*
-    Method: render
-    
-    Renders a hyperline into the canvas. A hyperline are the lines drawn for the <Hypertree> visualization.
-    
-    Parameters:
-    
-    from - (object) An *x*, *y* object with the starting position of the hyperline. *x* and *y* must belong to [0, 1).
-    to - (object) An *x*, *y* object with the ending position of the hyperline. *x* and *y* must belong to [0, 1).
-    r - (number) The scaling factor.
-    canvas - (object) A <Canvas> instance.
-    
-    Example:
-    (start code js)
-    EdgeHelper.hyperline.render({ x: 10, y: 30 }, { x: 10, y: 50 }, 100, viz.canvas);
-    (end code)
-    */
-    'render': function(from, to, r, canvas){
-      var ctx = canvas.getCtx();  
-      var centerOfCircle = computeArcThroughTwoPoints(from, to);
-      if (centerOfCircle.a > 1000 || centerOfCircle.b > 1000
-          || centerOfCircle.ratio < 0) {
-        ctx.beginPath();
-        ctx.moveTo(from.x * r, from.y * r);
-        ctx.lineTo(to.x * r, to.y * r);
-        ctx.stroke();
-      } else {
-        var angleBegin = Math.atan2(to.y - centerOfCircle.y, to.x
-            - centerOfCircle.x);
-        var angleEnd = Math.atan2(from.y - centerOfCircle.y, from.x
-            - centerOfCircle.x);
-        var sense = sense(angleBegin, angleEnd);
-        ctx.beginPath();
-        ctx.arc(centerOfCircle.x * r, centerOfCircle.y * r, centerOfCircle.ratio
-            * r, angleBegin, angleEnd, sense);
-        ctx.stroke();
-      }
-      /*      
-        Calculates the arc parameters through two points.
-        
-        More information in <http://en.wikipedia.org/wiki/Poincar%C3%A9_disc_model#Analytic_geometry_constructions_in_the_hyperbolic_plane> 
-      
-        Parameters:
-      
-        p1 - A <Complex> instance.
-        p2 - A <Complex> instance.
-        scale - The Disk's diameter.
-      
-        Returns:
-      
-        An object containing some arc properties.
-      */
-      function computeArcThroughTwoPoints(p1, p2){
-        var aDen = (p1.x * p2.y - p1.y * p2.x), bDen = aDen;
-        var sq1 = p1.squaredNorm(), sq2 = p2.squaredNorm();
-        // Fall back to a straight line
-        if (aDen == 0)
-          return {
-            x: 0,
-            y: 0,
-            ratio: -1
-          };
-    
-        var a = (p1.y * sq2 - p2.y * sq1 + p1.y - p2.y) / aDen;
-        var b = (p2.x * sq1 - p1.x * sq2 + p2.x - p1.x) / bDen;
-        var x = -a / 2;
-        var y = -b / 2;
-        var squaredRatio = (a * a + b * b) / 4 - 1;
-        // Fall back to a straight line
-        if (squaredRatio < 0)
-          return {
-            x: 0,
-            y: 0,
-            ratio: -1
-          };
-        var ratio = Math.sqrt(squaredRatio);
-        var out = {
-          x: x,
-          y: y,
-          ratio: ratio > 1000? -1 : ratio,
-          a: a,
-          b: b
-        };
-    
-        return out;
-      }
-      /*      
-        Sets angle direction to clockwise (true) or counterclockwise (false). 
-         
-        Parameters: 
-      
-           angleBegin - Starting angle for drawing the arc. 
-           angleEnd - The HyperLine will be drawn from angleBegin to angleEnd. 
-      
-        Returns: 
-      
-           A Boolean instance describing the sense for drawing the HyperLine. 
-      */
-      function sense(angleBegin, angleEnd){
-        return (angleBegin < angleEnd)? ((angleBegin + Math.PI > angleEnd)? false
-            : true) : ((angleEnd + Math.PI > angleBegin)? true : false);
-      }
-    },
-    /*
-    Method: contains
-    
-    Not Implemented
-    
-    Returns *true* if *pos* is contained in the area of the shape. Returns *false* otherwise.
-    
-    Parameters:
-    
-    posFrom - (object) An *x*, *y* object with a <Graph.Node> position.
-    posTo - (object) An *x*, *y* object with a <Graph.Node> position.
-    pos - (object) An *x*, *y* object with the position to check.
-    epsilon - (number) The dimension of the shape.
-    
-    Example:
-    (start code js)
-    EdgeHelper.hyperline.contains({ x: 10, y: 30 }, { x: 15, y: 35 }, { x: 15, y: 35 }, 30);
-    (end code)
-    */
-    'contains': $.lambda(false)
   }
 };
 
@@ -5475,57 +5346,6 @@ Graph.Plot = {
         }
     },
     
-  
-    /*
-       sequence
-    
-       Iteratively performs an action while refreshing the state of the visualization.
-
-       Parameters:
-
-       options - (object) An object containing some sequence options described below
-       condition - (function) A function returning a boolean instance in order to stop iterations.
-       step - (function) A function to execute on each step of the iteration.
-       onComplete - (function) A function to execute when the sequence finishes.
-       duration - (number) Duration (in milliseconds) of each step.
-
-      Example:
-       (start code js)
-        var rg = new $jit.RGraph(options);
-        var i = 0;
-        rg.fx.sequence({
-          condition: function() {
-           return i == 10;
-          },
-          step: function() {
-            alert(i++);
-          },
-          onComplete: function() {
-           alert('done!');
-          }
-        });
-       (end code)
-
-    */
-    sequence: function(options) {
-        var that = this;
-        options = $.merge({
-          condition: $.lambda(false),
-          step: $.empty,
-          onComplete: $.empty,
-          duration: 200
-        }, options || {});
-
-        var interval = setInterval(function() {
-          if(options.condition()) {
-            options.step();
-          } else {
-            clearInterval(interval);
-            options.onComplete();
-          }
-          that.viz.refresh(true);
-        }, options.duration);
-    },
     
     /*
       prepare
@@ -5681,106 +5501,6 @@ Graph.Plot = {
         }       
       })).start();
     },
-    
-    /*
-      nodeFx
-   
-      Apply animation to node properties like color, width, height, dim, etc.
-  
-      Parameters:
-  
-      options - Animation options. This object properties is described below
-      elements - The Elements to be transformed. This is an object that has a properties
-      
-      (start code js)
-      'elements': {
-        //can also be an array of ids
-        'id': 'id-of-node-to-transform',
-        //properties to be modified. All properties are optional.
-        'properties': {
-          'color': '#ccc', //some color
-          'width': 10, //some width
-          'height': 10, //some height
-          'dim': 20, //some dim
-          'lineWidth': 10 //some line width
-        } 
-      }
-      (end code)
-      
-      - _reposition_ Whether to recalculate positions and add a motion animation. 
-      This might be used when changing _width_ or _height_ properties in a <Layouts.Tree> like layout. Default's *false*.
-      
-      - _onComplete_ A method that is called when the animation completes.
-      
-      ...and all other <Graph.Plot.animate> options like _duration_, _fps_, _transition_, etc.
-  
-      Example:
-      (start code js)
-       var rg = new RGraph(canvas, config); //can be also Hypertree or ST
-       rg.fx.nodeFx({
-         'elements': {
-           'id':'mynodeid',
-           'properties': {
-             'color':'#ccf'
-           },
-           'transition': Trans.Quart.easeOut
-         }
-       });
-      (end code)    
-   */
-   nodeFx: function(opt) {
-     var viz = this.viz,
-         graph  = viz.graph,
-         animation = this.nodeFxAnimation,
-         options = $.merge(this.viz.config, {
-           'elements': {
-             'id': false,
-             'properties': {}
-           },
-           'reposition': false
-         });
-     opt = $.merge(options, opt || {}, {
-       onBeforeCompute: $.empty,
-       onAfterCompute: $.empty
-     });
-     //check if an animation is running
-     animation.stopTimer();
-     var props = opt.elements.properties;
-     //set end values for nodes
-     if(!opt.elements.id) {
-       graph.eachNode(function(n) {
-         for(var prop in props) {
-           n.setData(prop, props[prop], 'end');
-         }
-       });
-     } else {
-       var ids = $.splat(opt.elements.id);
-       $.each(ids, function(id) {
-         var n = graph.getNode(id);
-         if(n) {
-           for(var prop in props) {
-             n.setData(prop, props[prop], 'end');
-           }
-         }
-       });
-     }
-     //get keys
-     var propnames = [];
-     for(var prop in props) propnames.push(prop);
-     //add node properties modes
-     var modes = ['node-property:' + propnames.join(':')];
-     //set new node positions
-     if(opt.reposition) {
-       modes.push('linear');
-       viz.compute('end');
-     }
-     //animate
-     this.animate($.merge(opt, {
-       modes: modes,
-       type: 'nodefx'
-     }));
-   },
-
     
     /*
        Method: plot
@@ -5946,150 +5666,6 @@ Graph.Plot = {
 };
 
 /*
-  Object: Graph.Plot3D
-  
-  <Graph> 3D rendering and animation methods.
-  
-  Properties:
-  
-  nodeHelper - <NodeHelper> object.
-  edgeHelper - <EdgeHelper> object.
-
-*/
-Graph.Plot3D = $.merge(Graph.Plot, {
-  Interpolator: {
-    'linear': function(elem, props, delta) {
-      var from = elem.startPos.getc(true);
-      var to = elem.endPos.getc(true);
-      elem.pos.setc(this.compute(from.x, to.x, delta), 
-                    this.compute(from.y, to.y, delta),
-                    this.compute(from.z, to.z, delta));
-    }
-  },
-  
-  plotNode: function(node, canvas) {
-    if(node.getData('type') == 'none') return;
-    this.plotElement(node, canvas, {
-      getAlpha: function() {
-        return node.getData('alpha');
-      }
-    });
-  },
-  
-  plotLine: function(adj, canvas) {
-    if(adj.getData('type') == 'none') return;
-    this.plotElement(adj, canvas, {
-      getAlpha: function() {
-        return Math.min(adj.nodeFrom.getData('alpha'),
-                        adj.nodeTo.getData('alpha'),
-                        adj.getData('alpha'));
-      }
-    });
-  },
-  
-  plotElement: function(elem, canvas, opt) {
-    var gl = canvas.getCtx(),
-        viewMatrix = new Matrix4,
-        lighting = canvas.config.Scene.Lighting,
-        wcanvas = canvas.canvases[0],
-        program = wcanvas.program,
-        camera = wcanvas.camera;
-    
-    if(!elem.geometry) {
-      elem.geometry = new O3D[elem.getData('type')];
-    }
-    elem.geometry.update(elem);
-    if(!elem.webGLVertexBuffer) {
-      var vertices = [],
-          faces = [],
-          normals = [],
-          vertexIndex = 0,
-          geom = elem.geometry;
-      
-      for(var i=0, vs=geom.vertices, fs=geom.faces, fsl=fs.length; i<fsl; i++) {
-        var face = fs[i],
-            v1 = vs[face.a],
-            v2 = vs[face.b],
-            v3 = vs[face.c],
-            v4 = face.d? vs[face.d] : false,
-            n = face.normal;
-        
-        vertices.push(v1.x, v1.y, v1.z);
-        vertices.push(v2.x, v2.y, v2.z);
-        vertices.push(v3.x, v3.y, v3.z);
-        if(v4) vertices.push(v4.x, v4.y, v4.z);
-            
-        normals.push(n.x, n.y, n.z);
-        normals.push(n.x, n.y, n.z);
-        normals.push(n.x, n.y, n.z);
-        if(v4) normals.push(n.x, n.y, n.z);
-            
-        faces.push(vertexIndex, vertexIndex +1, vertexIndex +2);
-        if(v4) {
-          faces.push(vertexIndex, vertexIndex +2, vertexIndex +3);
-          vertexIndex += 4;
-        } else {
-          vertexIndex += 3;
-        }
-      }
-      //create and store vertex data
-      elem.webGLVertexBuffer = gl.createBuffer();
-      gl.bindBuffer(gl.ARRAY_BUFFER, elem.webGLVertexBuffer);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-      //create and store faces index data
-      elem.webGLFaceBuffer = gl.createBuffer();
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elem.webGLFaceBuffer);
-      gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(faces), gl.STATIC_DRAW);
-      elem.webGLFaceCount = faces.length;
-      //calculate vertex normals and store them
-      elem.webGLNormalBuffer = gl.createBuffer();
-      gl.bindBuffer(gl.ARRAY_BUFFER, elem.webGLNormalBuffer);
-      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(normals), gl.STATIC_DRAW);
-    }
-    viewMatrix.multiply(camera.matrix, elem.geometry.matrix);
-    //send matrix data
-    gl.uniformMatrix4fv(program.viewMatrix, false, viewMatrix.flatten());
-    gl.uniformMatrix4fv(program.projectionMatrix, false, camera.projectionMatrix.flatten());
-    //send normal matrix for lighting
-    var normalMatrix = Matrix4.makeInvert(viewMatrix);
-    normalMatrix.$transpose();
-    gl.uniformMatrix4fv(program.normalMatrix, false, normalMatrix.flatten());
-    //send color data
-    var color = $.hexToRgb(elem.getData('color'));
-    color.push(opt.getAlpha());
-    gl.uniform4f(program.color, color[0] / 255, color[1] / 255, color[2] / 255, color[3]);
-    //send lighting data
-    gl.uniform1i(program.enableLighting, lighting.enable);
-    if(lighting.enable) {
-      //set ambient light color
-      if(lighting.ambient) {
-        var acolor = lighting.ambient;
-        gl.uniform3f(program.ambientColor, acolor[0], acolor[1], acolor[2]);
-      }
-      //set directional light
-      if(lighting.directional) {
-        var dir = lighting.directional,
-            color = dir.color,
-            pos = dir.direction,
-            vd = new Vector3(pos.x, pos.y, pos.z).normalize().$scale(-1);
-        gl.uniform3f(program.lightingDirection, vd.x, vd.y, vd.z);
-        gl.uniform3f(program.directionalColor, color[0], color[1], color[2]);
-      }
-    }
-    //send vertices data
-    gl.bindBuffer(gl.ARRAY_BUFFER, elem.webGLVertexBuffer);
-    gl.vertexAttribPointer(program.position, 3, gl.FLOAT, false, 0, 0);
-    //send normals data
-    gl.bindBuffer(gl.ARRAY_BUFFER, elem.webGLNormalBuffer);
-    gl.vertexAttribPointer(program.normal, 3, gl.FLOAT, false, 0, 0);
-    //draw!
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, elem.webGLFaceBuffer );
-    gl.drawElements(gl.TRIANGLES, elem.webGLFaceCount, gl.UNSIGNED_SHORT, 0);
-  }
-});
-
-
-/*
  * File: Graph.Label.js
  *
 */
@@ -6153,25 +5729,6 @@ Graph.Label.Native = new Class({
       ctx.textBaseline = node.getLabelData('textBaseline');
 
       this.renderLabel(canvas, node, controller);
-    },
-
-    /*
-       renderLabel
-
-       Does the actual rendering of the label in the canvas. The default
-       implementation renders the label close to the position of the node, this
-       method should be overriden to position the labels differently.
-
-       Parameters:
-
-       canvas - A <Canvas> instance.
-       node - A <Graph.Node>.
-       controller - A configuration object. See also <Hypertree>, <RGraph>, <ST>.
-    */
-    renderLabel: function(canvas, node, controller) {
-      var ctx = canvas.getCtx();
-      var pos = node.pos.getc(true);
-      ctx.fillText(node.name, pos.x, pos.y + node.getData("height") / 2);
     },
 
     hideLabel: $.empty,
@@ -8089,4 +7646,4 @@ TM.Squarified = new Class( {
   ]
 });
 
- })();
+})();
