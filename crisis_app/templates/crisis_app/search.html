@@ -33,7 +33,7 @@
     {% if results %}
       <span>Your search - <a id="userQuery" href="#">{{ query }}<span></span></a> - returned <strong>{{ results|length }}</strong> {% if results|length == 1 %}result{% else %}results{% endif %} in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</span>
       {% for result in results %}
-      <h4><a class="jtAt" name="{{ result.name }}" href="/{{ type }}/{{ result.id }}">{{ result.name }}</a></h4>
+      <h4><a class="jtGo" name="{{ result.name }}" href="/{{ type }}/{{ result.id }}">{{ result.name }}</a></h4>
       {% if type == 'events' %}
       <span>{{ result.date_time }}</span>
       {% endif %}

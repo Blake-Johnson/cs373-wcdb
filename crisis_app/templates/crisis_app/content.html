@@ -32,7 +32,7 @@
     {% endblock %}
     {% block embed %}
       {% if embed.images.1 %}
-        <h3 class="jtHash" id="images">Images</h3>
+        <h3 class="jtScroll" id="images">Images</h3>
         <div id="mContainer" class="columns columns-3">
           {% for image in embed.images|slice:"1:" %}
           <a href="{{ image.url }}" rel="lightbox-content" title="{{ image.desc }}">
@@ -47,28 +47,28 @@
         <br />
       {% endif %}
       {% if embed.videos %}
-        <h3 class="jtHash" id="videos">Videos</h3>
+        <h3 class="jtScroll" id="videos">Videos</h3>
         {% for video in embed.videos %}
         {{ video.url|safe }}
         {% endfor %}
         <br />
       {% endif %}
       {% if embed.maps %}
-        <h3 class="jtHash" id="maps">Maps</h3>
+        <h3 class="jtScroll" id="maps">Maps</h3>
           {% for map in embed.maps %}
           <a href="{{ map.url }}" target="_blank">{{ map.desc }}</a><br />
           {% endfor %}
         <br />
       {% endif %}
       {% if embed.feeds %}
-        <h3 class="jtHash" id="feeds">Feeds</h3>
+        <h3 class="jtScroll" id="feeds">Feeds</h3>
           {% for feed in embed.feeds %}
           <a href="{{ feed.url }}" target="_blank">{{ feed.desc }}</a><br />
           {% endfor %}
         <br />
       {% endif %}
       {% if embed.citations %}
-        <h3 class="jtHash" id="references">References</h3>
+        <h3 class="jtScroll" id="references">References</h3>
           {% for citation in embed.citations %}
           <a href="{{ citation.url }}" target="_blank">{{ citation.desc }}</a><br />
           {% endfor %}

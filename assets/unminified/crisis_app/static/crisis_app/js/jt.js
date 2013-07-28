@@ -93,10 +93,10 @@ function scrollTo(id){
 }
 var actions = ['@home', '@about', '@events', '@people', '@organizations', '@back', '@forward', '@404'];
 function completer(){
-  $('.jtAt').each(function(){
+  $('.jtGo').each(function(){
     actions.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim());
   });
-  $('.jtHash').each(function(){
+  $('.jtScroll').each(function(){
     actions.push($(this).attr('id'));
   });
   $('#justType').inlineComplete({

@@ -7,7 +7,7 @@
   {% if content_list %}
   <div id="mContainer" class="columns columns-5">
     {% for elem in content_list %}
-    <a class="jtAt" name="{{ elem.0.name }}" href="/{{ dir }}/{{ elem.0.id }}">
+    <a class="jtGo" name="{{ elem.0.name }}" href="/{{ dir }}/{{ elem.0.id }}">
       <div class="pin well">
         {% if elem.1 %}
         <img class="media-object" src="{{ elem.1.url }}" />

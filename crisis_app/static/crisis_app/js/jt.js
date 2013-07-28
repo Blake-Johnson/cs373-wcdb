@@ -1,49 +1,6 @@
 var showing = false;
 
-// Clears Just Type on history.back
-$('#justType').val('')
-
-function at(q){
-  var elements = q.split(/\s+/);
-  var len = elements.length;
-  var result = false;
-  for(var i = 0; i < len; i++){
-    var url;
-    switch(elements[i].toLowerCase()){
-      case '@home':
-        url = '/';
-        break;
-      case '@about':
-        url = '/about';
-        break;
-      case '@events':
-        url = '/events';
-        break;
-      case '@people':
-        url = '/people';
-        break;
-      case '@organizations':
-        url = '/orgs';
-        break;
-      case '@back':
-        history.back();
-        return true;
-        break;
-      case '@forward':
-        history.forward();
-        return true;
-        break;
-      case '@404':
-        url = '/404';
-        break;
-    }
-    if(url){
-      result = true;
-      window.open(url, (i == 0 ? '_self' : '_blank'));
-    }
-  }
-  return result;
-}
+$('#justType').val(''); // Clears Just Type on history.back
 document.getElementsByTagName('html')[0].onkeypress = function(e) {
   e = e || window.event;
   var charCode = e.which || e.keyCode;
@@ -81,26 +38,16 @@ $('#searchModal').on('hide', function(){
   searchbox.value = '';
   searchbox.blur();
 });
-function scrollTo(id){
-  id = '#' + id;
-  var dest=0;
-  if($(id).offset().top > $(document).height() - $(window).height()){
-    dest=$(document).height() - $(window).height();
-  }else{
-    dest=$(id).offset().top;
-  }
-  $('html,body').animate({scrollTop:dest}, 400, 'swing');
-}
 var request = ['home', 'about', 'events', 'people', 'organizations', 'back', 'forward', '404'];
 var actions = ["h.goto('/');", "h.goto('/about');", "h.goto('/events');", "h.goto('/people');", "h.goto('/orgs');", "history.back();", "history.forward();", "h.goto('/404');"];
 function completer(){
-  $('.jtAt').each(function(){
+  $('.jtGo').each(function(){
     request.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim());
-    actions.push("window.open('" + $(this).attr('href') + "', '_self');");
+    actions.push("h.go('" + $(this).attr('href') + "');");
   });
-  $('.jtHash').each(function(){
+  $('.jtScroll').each(function(){
     request.push($(this).attr('id'));
-    actions.push("scrollTo('" + $(this).attr('id') + "');");
+    actions.push("h.scroll('" + $(this).attr('id') + "');");
   });
   $('#justType').inlineComplete({
     list: request
@@ -110,7 +57,17 @@ completer();
 
 // Helper Functions
 var h = {
-  goto: function(url){
+  go: function(url){
     window.open(url, '_self');
+  },
+  scroll: function(id){
+    id = '#' + id;
+    var dest=0;
+    if($(id).offset().top > $(document).height() - $(window).height()){
+      dest=$(document).height() - $(window).height();
+    }else{
+      dest=$(id).offset().top;
+    }
+    $('html,body').animate({scrollTop:dest}, 400, 'swing');
   }
 }
