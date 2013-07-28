@@ -25,8 +25,8 @@
         <a class="pull-left" href="https://github.com/{{ author.github_id }}" target="_blank"> <img class="media-object" src="{{ STATIC_URL }}crisis_app/img/about/{{ author.image }}" /></a>
         <div class="media-body">
           <h4 class="media-heading"><a class="jtGo" name="{{ author.first_name }} {{ author.last_name }}" href="https://github.com/{{ author.github_id }}" target="_blank">{{ author.first_name }} {{ author.last_name }}</a></h4>
-          <p>{{ author.role }}<br />
-            "{{ author.quote }}"</p>
+          <p><span>{{ author.role }}</span><br />
+            <span>"{{ author.quote }}"</span></p>
         </div>
       </div>
       {% endfor %}

@@ -8,12 +8,12 @@
   <div id="mContainer" class="columns columns-5">
     {% for elem in content_list %}
     <a class="jtGo" name="{{ elem.0.name }}" href="/{{ dir }}/{{ elem.0.id }}" target="_self">
-      <div class="pin well">
+      <div class="pin well box2d">
         {% if elem.1 %}
-        <img class="media-object" src="{{ elem.1.url }}" />
+        <img class="media-object noGrav" src="{{ elem.1.url }}" />
         {% endif %}
-       	<h3>{{ elem.0.name }}</h3>
-     	  <p>{{ elem.0.kind }}: {{ elem.0.location }}</p>
+       	<h3 class="noGrav">{{ elem.0.name }}</h3>
+     	  <p class="noGrav">{{ elem.0.kind }}: {{ elem.0.location }}</p>
       </div>
     </a>
     {% endfor %}

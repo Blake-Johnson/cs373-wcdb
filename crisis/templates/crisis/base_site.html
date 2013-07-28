@@ -42,13 +42,13 @@
         </li>
         <li class="divider-vertical"></li>
         <li>
-          <form method="GET" action="/" class="navbar-search" onsubmit="var test = validate(this); return false;">
+          <form id="navForm" method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
             <div class="input-append">
               <input id="searchbox" type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" />
-              <button type="submit" class="btn"><i class="icon-search icon-white"></i></button>
-              <div class="btn-group">
-                <button class="btn dropdown-toggle" data-toggle="dropdown">
-                  <span class="caret"></span>
+              <button type="submit" class="btn box2d"><i id="navSearchIcon" class="icon-search icon-white noGrav"></i></button>
+              <div class="btn-group box2d">
+                <button class="btn dropdown-toggle noGrav" data-toggle="dropdown">
+                  <span class="caret noGrav"></span>
                 </button>
                 <ul id="search-categories" class="dropdown-menu">
                   <label class="radio">
@@ -114,6 +114,7 @@
 {% endblock %}
 <script type="text/javascript">
 {% block script %}
+var STATIC_URL = {{ STATIC_URL }};
 if(document.body.style['webkitPerspective'] !== undefined || document.body.style['MozPerspective'] !== undefined){
     $('a').each(function(){
       if($(this).children().length < 1){
@@ -125,19 +126,32 @@ if(document.body.style['webkitPerspective'] !== undefined || document.body.style
 $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
   e.stopPropagation();
 });
-function validate(f){
-  var query = f.elements['q'].value.trim();
-  if(query == ''){
-    return false;
+
+// Form validation
+function proc(query, actions, command){
+  if(typeof(command) !== "undefined" && query.indexOf(command) == 0){
+    query = query.substring(command.length).trim();
   }
-  var queryLower = query.toLowerCase();
-  for(var a in actions){
-    if(queryLower == actions[a][0].toLowerCase()){
+  for(var action in actions){
+    if(query == actions[action][0].toLowerCase()){
       $('#searchModal').modal('hide');
-      eval(actions[a][1]);
-      return false;
+      eval(actions[action][1]);
+      return true;
     }
   }
+  return false;
+}
+function validate(f){
+  var query = f.elements['q'].value.trim();
+  if(query == '') return false;
+
+  var queryLower = query.toLowerCase();
+  var success = false;
+  success = proc(queryLower, actions);
+  if(success) return false;
+  success = proc(queryLower, imports, 'import');
+  if(success) return false;
+
   // Prevents overloading search forms
   var size = query.length < 32;
   if(!size){

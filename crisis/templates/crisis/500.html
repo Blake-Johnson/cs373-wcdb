@@ -23,6 +23,8 @@
 
 {% block tail_imports %}
 {{ block.super }}
+<script type="text/javascript" src="{{ STATIC_URL }}crisis/js/class.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}crisis/js/box2d.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}crisis/js/gravity.js"></script>
 {% endblock %}
 

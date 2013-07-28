@@ -38,32 +38,9 @@ $('#searchModal').on('hide', function(){
   searchbox.value = '';
   searchbox.blur();
 });
-var actions = [['home', "h.go('/', '_self');"],
-               ['about', "h.go('/about', '_self');"],
-               ['events', "h.go('/events', '_self');"],
-               ['people', "h.go('/people', '_self');"],
-               ['organizations', "h.go('/orgs', '_self');"],
-               ['back', "history.back();"],
-               ['forward', "history.forward();"],
-               ['up', "h.scroll(-500);"],
-               ['down', "h.scroll(500);"],
-               ['404', "h.go('/404', '_self');"]
-              ];
-function completer(){
-  $('.jtGo').each(function(){
-    actions.push([$(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim(), "h.go('" + $(this).attr('href') + "', '" + $(this).attr('target') + "');"]);
-  });
-  $('.jtScroll').each(function(){
-    actions.push([$(this).attr('id'), "h.scrollto('" + $(this).attr('id') + "');"]);
-  });
-  $('#justType').inlineComplete({
-    list: $.map(actions, function(n){ return n; })
-  });
-}
-completer();
 
-// Helper Functions
-var h = {
+// Actions
+var act = {
   go: function(url, name){
     window.open(url, name);
   },
@@ -81,3 +58,69 @@ var h = {
     $('html, body').animate({ scrollTop: $(window).scrollTop() + dir }, 400, 'swing');
   }
 }
+
+// Imports
+var imp = {
+  lolcats: function(){
+    ktndata = null, fcb = function (d) {
+      ktndata = d;
+      var p = document.getElementsByTagName('img');
+      for (var i in p) {
+        p[i].src = d.items[Math.floor(Math.random() * (d.items.length))].media.m;
+      }
+    };
+    if (!ktndata) {
+      var jp = document.createElement('script');
+      jp.setAttribute('type', 'text/javascript');
+      jp.setAttribute('src', 'http://ycpi.api.flickr.com/services/feeds/photos_public.gne?tags=lolcat%2Clolcats&tagmode=any&format=json&jsoncallback=fcb');
+      document.getElementsByTagName('head')[0].appendChild(jp);
+    } else {
+      fcb(ktndata);
+    }
+  },
+  grav: function(magnitude){
+    $.getScript(STATIC_URL + 'crisis/js/class.js');
+    $.getScript(STATIC_URL + 'crisis/js/box2d.js');
+    if(magnitude){
+      $.getScript(STATIC_URL + 'crisis/js/gravity.js')
+      .fail(function(jqxhr, settings, exception){
+        alert(exception);
+      });
+    }else{
+      $.getScript(STATIC_URL + 'crisis/js/space.js')
+      .fail(function(jqxhr, settings, exception){
+        alert(exception);
+      });
+    }
+  }
+}
+
+// Initializes Just Type
+var actions = [['home', "act.go('/', '_self');"],
+               ['about', "act.go('/about', '_self');"],
+               ['events', "act.go('/events', '_self');"],
+               ['people', "act.go('/people', '_self');"],
+               ['organizations', "act.go('/orgs', '_self');"],
+               ['back', "history.back();"],
+               ['forward', "history.forward();"],
+               ['refresh', "location.reload();"],
+               ['up', "act.scroll(-$(window).height()*0.8);"],
+               ['down', "act.scroll($(window).height()*0.8);"],
+               ['404', "act.go('/404', '_self');"]
+              ];
+var imports = [['lolcats', "imp.lolcats();"],
+               ['ag', "imp.grav(0);"],
+               ['g', "imp.grav(1);"]
+              ];
+function completer(){
+  $('.jtGo').each(function(){
+    actions.push([$(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim(), "act.go('" + $(this).attr('href') + "', '" + $(this).attr('target') + "');"]);
+  });
+  $('.jtScroll').each(function(){
+    actions.push([$(this).attr('id'), "act.scrollto('" + $(this).attr('id') + "');"]);
+  });
+  $('#justType').inlineComplete({
+    list: $.map(actions, function(n){ return n[0]; })
+  });
+}
+completer();
