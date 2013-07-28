@@ -10,7 +10,7 @@
     {% if events|length %}
       <h3>Influential Events</h3>
       {% for event in events %}
-      <a href="/events/{{ event.id }}">{{ event.name }}</a><p>{{ event.location }}, {{ event.date_time }}</p><p>{{ event.human_impact }}</p>
+      <a href="/events/{{ event.id }}">{{ event.name }}</a><p>{{ event.location }}, {{ event.date_time }}</p><p>{{ event.human_impact|safe }}</p>
       <br />
       {% endfor %}
       <br />
@@ -18,14 +18,14 @@
     {% if people|length %}
       <h3>Influential People</h3>
       {% for person in people %}
-      <a href="/people/{{ person.id }}">{{ person.name }}</a><p>{{ person.kind }}, {{ person.location }}</p>
+      <a href="/people/{{ person.id }}">{{ person.name }}</a><p>{{ person.kind }}, {{ person.location|safe }}</p>
       {% endfor %}
       <br />
     {% endif %}
     {% if orgs|length %}
       <h3>Influential Organizations</h3>
       {% for org in orgs %}
-      <a href="/orgs/{{ org.id }}">{{ org.name }}</a><p>{{ org.history }}</p><br />
+      <a href="/orgs/{{ org.id }}">{{ org.name }}</a><p>{{ org.history|safe }}</p><br />
       {% endfor %}
       <br />
     {% endif %}

@@ -267,7 +267,7 @@ def youtube_to_embed(url, name):
 			res = '<a href="%s">%s</a><br />' %(url, name)
 	return res
 
-def mark_urls(text):
+def mark_urls(text, strict=False):
 	'''
 	Given a text representing an organization's contact information,
 		this function attempts to convert as much of the text as
@@ -280,7 +280,10 @@ def mark_urls(text):
 		google.com -> <a href="http://google.com" target="_blank">http://google.com</a>
 	'''
 	text = cgi.escape(text)
-	match = re.findall(r'(?:(?:http|https)\://|[a-z0-9]+@|www\.)?[a-z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text, re.I)
+	#Deprecated
+	#match = re.findall(r'(?:(?:http|https)\://|[a-z0-9]+@|www\.)?[a-z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text, re.I)
+	#match = re.findall(r'(?:(?:http|https)\://|[a-z0-9]+@|www\.)?[a-z0-9\-\.]+\.[a-z]{2,3}(?:(?:/|\?)(?:[a-z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*)?(?=[^a-z0-9]|$)', text, re.I)
+	match = re.findall(r'(?:(?:http|https)\://|[a-zA-Z0-9]+@|www\.)?[a-zA-Z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-zA-Z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text)
 	if match:
 		matched = set()
 		for url in match:
@@ -317,6 +320,29 @@ def make_embed(element):
 	embed['citations'] = Embed.objects.filter(kind="CIT", **arg)
 	return embed
 
+def get_entry(table, id, attrs=()):
+	'''
+	Given a Django model, an id to index that model, and attributes
+		of the model, get_entry will retrieve that entry from the
+		model and properly mark the entries of the model provided
+	'''
+	entry = get_object_or_404(table, id=id)
+	for attr in attrs:
+		setattr(entry, attr, mark_urls(getattr(entry, attr)))
+	return entry
+
+def get_entries(table, relation, attrs=()):
+	'''
+	Similar to get_entry, except get_entries will retrieve all
+		rows in a Django model which correspond to a relational
+		requirement rather than just returning one entry.
+	'''
+	entries = table.objects.filter(**relation)
+	for entry in entries:
+		for attr in attrs:
+			setattr(entry, attr, mark_urls(getattr(entry, attr)))
+	return entries
+
 def events(request, event_id=None):
 	'''
 	If called with no event ID, this function loads a list of all
@@ -333,13 +359,9 @@ def events(request, event_id=None):
 		context = { 'content_list': content_list, 'type': 'Events', 'dir': 'events' }
 		return render(request, 'crisis_app/list.html', context)
 	else:
-		event = get_object_or_404(Event, id=event_id)
-		event.human_impact = mark_urls(event.human_impact)
-		event.economic_impact = mark_urls(event.economic_impact)
-		event.resources_needed = mark_urls(event.resources_needed)
-		event.ways_to_help = mark_urls(event.ways_to_help)
-		people = Person.objects.filter(event__id=event.id)
-		orgs = Organization.objects.filter(event__id=event.id)
+		event = get_entry(Event, event_id, ('human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'))
+		people = get_entries(Person, { 'event__id': event.id })
+		orgs = get_entries(Organization, { 'event__id': event.id }, ('history',))
 		embed = make_embed(event)
 		context = { 'event': event, 'embed': embed, 'people': people, 'orgs': orgs, 'type': 'e' }
 		return render(request, 'crisis_app/event.html', context)
@@ -360,9 +382,9 @@ def people(request, person_id=None):
 		context = { 'content_list': content_list, 'type': 'People', 'dir': 'people' }
 		return render(request, 'crisis_app/list.html', context)
 	else:
-		person = get_object_or_404(Person, id=person_id)
-		events = Event.objects.filter(person__id=person.id)
-		orgs = Organization.objects.filter(person__id=person.id)
+		person = get_entry(Person, person_id)
+		events = get_entries(Event, { 'person__id': person.id }, ('human_impact',))
+		orgs = get_entries(Organization, { 'person__id': person.id }, ('history',))
 		embed = make_embed(person)
 		context = { 'person': person, 'embed': embed, 'events': events, 'orgs': orgs, 'type': 'p' }
 		return render(request, 'crisis_app/person.html', context)
@@ -383,10 +405,9 @@ def orgs(request, org_id=None):
 		context = { 'content_list': content_list, 'type': 'Organizations', 'dir': 'orgs' }
 		return render(request, 'crisis_app/list.html', context)
 	else:
-		org = get_object_or_404(Organization, id=org_id)
-		org.contact_info = mark_urls(org.contact_info)
-		events = Event.objects.filter(organization__id=org.id)
-		people = Person.objects.filter(organization__id=org.id)
+		org = get_entry(Organization, org_id, ('contact_info',))
+		events = get_entries(Event, { 'organization__id': org.id }, ('human_impact',))
+		people = get_entries(Person, { 'organization__id': org.id })
 		embed = make_embed(org)
 		context = { 'org': org, 'embed': embed, 'events': events, 'people': people, 'type': 'o' }
 		return render(request, 'crisis_app/org.html', context)
