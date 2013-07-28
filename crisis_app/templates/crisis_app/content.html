@@ -10,7 +10,7 @@
     {% if events|length %}
       <h3>Influential Events</h3>
       {% for event in events %}
-      <a href="/events/{{ event.id }}">{{ event.name }}</a><p><a href="https://maps.google.com/?q={{ event.location|urlencode }}" target="_blank">{{ event.location }}<span></span></a>, <a href="http://en.wikipedia.org/wiki/Portal:Current_events/{{ event.date_time|date:'Y_F_j' }}" target="_blank">{{ event.date_time|date }}<span></span></a>, {% if event.date_time|time != "midnight" %}{{ event.date_time|time }}{% endif %}</p><p>{{ event.human_impact|safe }}</p>
+      <a href="/events/{{ event.id }}">{{ event.name }}</a><p>{{ event.location }}, {{ event.date_time|date }}{% if event.date_time|time != "midnight" %}, {{ event.date_time|time }}{% endif %}</p><p>{{ event.human_impact|safe }}</p>
       <br />
       {% endfor %}
       <br />
@@ -18,7 +18,7 @@
     {% if people|length %}
       <h3>Influential People</h3>
       {% for person in people %}
-      <a href="/people/{{ person.id }}">{{ person.name }}</a><p>{{ person.kind }}, <a href="https://maps.google.com/?q={{ person.location|urlencode }}" target="_blank">{{ person.location }}<span></span></a></p>
+      <a href="/people/{{ person.id }}">{{ person.name }}</a><p>{{ person.kind }}, {{ person.location }}</p>
       {% endfor %}
       <br />
     {% endif %}
@@ -55,24 +55,16 @@
       {% endif %}
       {% if embed.maps %}
         <h3 class="jtHash" id="maps">Maps</h3>
-        <ul>
           {% for map in embed.maps %}
-          <li>
-            <a href="{{ map.url }}" target="_blank">{{ map.desc }}</a>
-          </li>
+          <a href="{{ map.url }}" target="_blank">{{ map.desc }}</a><br />
           {% endfor %}
-        </ul>
         <br />
       {% endif %}
       {% if embed.feeds %}
         <h3 class="jtHash" id="feeds">Feeds</h3>
-        <ul>
           {% for feed in embed.feeds %}
-          <li>
-            <a href="{{ feed.url }}" target="_blank">{{ feed.desc }}</a>
-          </li>
+          <a href="{{ feed.url }}" target="_blank">{{ feed.desc }}</a><br />
           {% endfor %}
-        </ul>
         <br />
       {% endif %}
       {% if embed.citations %}

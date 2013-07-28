@@ -402,7 +402,7 @@ def orgs(request, org_id=None):
 		context = { 'content_list': content_list, 'type': 'Organizations', 'dir': 'orgs' }
 		return render(request, 'crisis_app/list.html', context)
 	else:
-		org = get_entry(Organization, org_id, ('contact_info',))
+		org = get_entry(Organization, org_id, ('history', 'contact_info'))
 		events = get_entries(Event, { 'organization__id': org.id }, ('human_impact',))
 		people = get_entries(Person, { 'organization__id': org.id })
 		embed = make_embed(org)

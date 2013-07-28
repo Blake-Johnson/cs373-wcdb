@@ -82,25 +82,35 @@ $('#searchModal').on('hide', function(){
   searchbox.blur();
 });
 function scrollTo(id){
-   id = '#' + id;
-   var dest=0;
-   if($(id).offset().top > $(document).height()-$(window).height()){
-        dest=$(document).height()-$(window).height();
-   }else{
-        dest=$(id).offset().top;
-   }
-   $('html,body').animate({scrollTop:dest}, 400, 'swing');
+  id = '#' + id;
+  var dest=0;
+  if($(id).offset().top > $(document).height() - $(window).height()){
+    dest=$(document).height() - $(window).height();
+  }else{
+    dest=$(id).offset().top;
+  }
+  $('html,body').animate({scrollTop:dest}, 400, 'swing');
 }
-var actions = ['@home', '@about', '@events', '@people', '@organizations', '@back', '@forward', '@404'];
+var request = ['home', 'about', 'events', 'people', 'organizations', 'back', 'forward', '404'];
+var actions = ["h.goto('/');", "h.goto('/about');", "h.goto('/events');", "h.goto('/people');", "h.goto('/orgs');", "history.back();", "history.forward();", "h.goto('/404');"];
 function completer(){
   $('.jtAt').each(function(){
-    actions.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim());
+    request.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim());
+    actions.push("window.open('" + $(this).attr('href') + "', '_self');");
   });
   $('.jtHash').each(function(){
-    actions.push($(this).attr('id'));
+    request.push($(this).attr('id'));
+    actions.push("scrollTo('" + $(this).attr('id') + "');");
   });
   $('#justType').inlineComplete({
-    list: actions
+    list: request
   });
 }
 completer();
+
+// Helper Functions
+var h = {
+  goto: function(url){
+    window.open(url, '_self');
+  }
+}

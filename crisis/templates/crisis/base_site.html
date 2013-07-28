@@ -42,7 +42,7 @@
         </li>
         <li class="divider-vertical"></li>
         <li>
-          <form method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
+          <form method="GET" action="/" class="navbar-search" onsubmit="var test = validate(this); return false;">
             <div class="input-append">
               <input id="searchbox" type="text" name="q" class="search-query" placeholder="Search WCDb" value="{% if query %}{{ query }}{% endif %}" />
               <button type="submit" class="btn"><i class="icon-search icon-white"></i></button>
@@ -131,18 +131,27 @@ function validate(f){
     return false;
   }
   /* Preliminary */
-  if(query.charAt(0) == '@' && at(query)){
+  /*if(query.charAt(0) == '@' && at(query)){
     return false;
+  }*/
+  for(var r in request){
+    if(query.toLowerCase() == request[r].toLowerCase()){
+      //alert('in');
+      $('#searchModal').modal('hide');
+      eval(actions[r]);
+      //alert('here');
+      return false;
+    }
   }
-  var match = false;
-  $('.jtAt').each(function(){
+  //var match = false;
+  /*$('.jtAt').each(function(){
     if(query.toLowerCase() == $(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').toLowerCase().trim()){
       window.open($(this).attr('href'), '_self');
       match = true;
       return;
     }
-  });
-  $('.jtHash').each(function(){
+  });*/
+  /*$('.jtHash').each(function(){
     jtHash = $(this).attr('id').toLowerCase();
     if(query.toLowerCase() == jtHash){
       $('#searchModal').modal('hide');
@@ -150,17 +159,18 @@ function validate(f){
       match = true;
       return;
     }
-  });
+  });*/
+  /*return false;
   if(match){
     return false;
-  }
+  }*/
   // Prevents overloading search forms
   var size = query.length < 32;
   if(!size){
     alert('Please limit your search to 31 characters.');
     return false;
   }
-  return true;
+  //return true;
 }
 //window.onunload = function(){};
 {% endblock %}
