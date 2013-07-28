@@ -6,7 +6,7 @@ from subprocess import call, Popen, PIPE
 
 from crisis_app import views
 from views import make_parent, add_child, make_json, parse, querify, \
-	mark_urls, youtube_to_embed
+	mark_anchors, youtube_to_embed
 
 from django.test import TestCase
 from django.core import management
@@ -196,16 +196,16 @@ class RegexTestCase(UsefulTestCase):
 		assert testString_3 == '<a href="http://www.tepco.co.jp/en/news/library/movie-01e.html">youtube_3</a><br />'
 
 	def test_markurls(self):
-		testString_1 = mark_urls('tapkorea@gmail.com')
-		testString_2 = mark_urls('http://www.valvesoftware.com/')
-		testString_3 = mark_urls('URL: http://www.dfps.state.tx.us/child_protection/ address: 701 W. 51st St. Austin, Texas 78751 Phone: (512) 438-4800')
-		testString_4 = mark_urls('FLDS.org')
-		testString_5 = mark_urls('Phone: 1-800-FOR-KIDS')
-		testString_6 = mark_urls('Phone: 720-898-5900 URL: http://www.communityfirstfoundation.org/index.cfm Address: 6870 West 52nd Avenue, Suite 103 Arvada, Colorado 80002')
-		testString_7 = mark_urls('The Salvation Army National Headquarters 615 Slaters Lane P.O. Box 269 Alexandria, VA 22313')
-		testString_8 = mark_urls('http://www.oref.org.il/International/14-en/PAKAR.aspx')
-		testString_9 = mark_urls('(405) 235-3313')
-		testString_10 = mark_urls('http://www.redcross.org/contact-us/general-inquiry')
+		testString_1 = mark_anchors('tapkorea@gmail.com')
+		testString_2 = mark_anchors('http://www.valvesoftware.com/')
+		testString_3 = mark_anchors('URL: http://www.dfps.state.tx.us/child_protection/ address: 701 W. 51st St. Austin, Texas 78751 Phone: (512) 438-4800')
+		testString_4 = mark_anchors('FLDS.org')
+		testString_5 = mark_anchors('Phone: 1-800-FOR-KIDS')
+		testString_6 = mark_anchors('Phone: 720-898-5900 URL: http://www.communityfirstfoundation.org/index.cfm Address: 6870 West 52nd Avenue, Suite 103 Arvada, Colorado 80002')
+		testString_7 = mark_anchors('The Salvation Army National Headquarters 615 Slaters Lane P.O. Box 269 Alexandria, VA 22313')
+		testString_8 = mark_anchors('http://www.oref.org.il/International/14-en/PAKAR.aspx')
+		testString_9 = mark_anchors('(405) 235-3313')
+		testString_10 = mark_anchors('http://www.redcross.org/contact-us/general-inquiry')
 
 		assert testString_1 == '<a href="mailto:tapkorea@gmail.com" target="_blank">tapkorea@gmail.com<span></span></a>'
 

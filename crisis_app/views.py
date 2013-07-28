@@ -267,7 +267,7 @@ def youtube_to_embed(url, name):
 			res = '<a href="%s">%s</a><br />' %(url, name)
 	return res
 
-def mark_urls(text, strict=False):
+def mark_anchors(text):
 	'''
 	Given a text representing an organization's contact information,
 		this function attempts to convert as much of the text as
@@ -280,10 +280,7 @@ def mark_urls(text, strict=False):
 		google.com -> <a href="http://google.com" target="_blank">http://google.com</a>
 	'''
 	text = cgi.escape(text)
-	#Deprecated
-	#match = re.findall(r'(?:(?:http|https)\://|[a-z0-9]+@|www\.)?[a-z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text, re.I)
-	#match = re.findall(r'(?:(?:http|https)\://|[a-z0-9]+@|www\.)?[a-z0-9\-\.]+\.[a-z]{2,3}(?:(?:/|\?)(?:[a-z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*)?(?=[^a-z0-9]|$)', text, re.I)
-	match = re.findall(r'(?:(?:http|https)\://|[a-zA-Z0-9]+@|www\.)?[a-zA-Z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-zA-Z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text)
+	match = re.findall(r'(?:(?:http|https)\://|[a-zA-Z0-9]+@)?[a-zA-Z0-9\-\.]+\.[a-z]{2,3}/?(?:[a-zA-Z0-9\-\._\?\'/\\\+&amp;%\$#\=~])*', text)
 	if match:
 		matched = set()
 		for url in match:
@@ -328,7 +325,7 @@ def get_entry(table, id, attrs=()):
 	'''
 	entry = get_object_or_404(table, id=id)
 	for attr in attrs:
-		setattr(entry, attr, mark_urls(getattr(entry, attr)))
+		setattr(entry, attr, mark_anchors(getattr(entry, attr)))
 	return entry
 
 def get_entries(table, relation, attrs=()):
@@ -340,7 +337,7 @@ def get_entries(table, relation, attrs=()):
 	entries = table.objects.filter(**relation)
 	for entry in entries:
 		for attr in attrs:
-			setattr(entry, attr, mark_urls(getattr(entry, attr)))
+			setattr(entry, attr, mark_anchors(getattr(entry, attr)))
 	return entries
 
 def events(request, event_id=None):
