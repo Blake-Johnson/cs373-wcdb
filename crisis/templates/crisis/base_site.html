@@ -91,11 +91,11 @@
 <div id="searchModal" class="modal hide fade" tabindex="-1" role="dialog">
   <div class="modal-body">
     <div class="navbar">
-      <span class="brand">Just Type</span>
+      <span class="brand noGrav">Just Type</span>
       <form id="modalForm" method="GET" action="/" class="navbar-search" onsubmit="return validate(this);">
         <div class="input-append">
-          <input id="justType" type="text" name="q" class="search-query input-medium" placeholder="Search WCDb" />
-          <button type="submit" class="btn"><i class="icon-search icon-white"></i></button>
+          <input id="justType" type="text" name="q" class="search-query input-medium noGrav" placeholder="Search WCDb" />
+          <button type="submit" class="btn"><i class="icon-search icon-white noGrav"></i></button>
           <select name="t" class="btn input-medium" form="modalForm">
             <option value="events" selected="selected">Events</option>
             <option value="people"{% if type|lower|slice:":1" == 'p' %} selected="selected"{% endif %}>People</option>
@@ -130,12 +130,11 @@ function validate(f){
   if(query == ''){
     return false;
   }
-  for(var r in request){
-    if(query.toLowerCase() == request[r].toLowerCase()){
-      //alert('in');
+  var queryLower = query.toLowerCase();
+  for(var a in actions){
+    if(queryLower == actions[a][0].toLowerCase()){
       $('#searchModal').modal('hide');
-      eval(actions[r]);
-      //alert('here');
+      eval(actions[a][1]);
       return false;
     }
   }

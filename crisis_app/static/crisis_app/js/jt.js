@@ -38,19 +38,25 @@ $('#searchModal').on('hide', function(){
   searchbox.value = '';
   searchbox.blur();
 });
-var request = ['home', 'about', 'events', 'people', 'organizations', 'back', 'forward', '404'];
-var actions = ["h.goto('/');", "h.goto('/about');", "h.goto('/events');", "h.goto('/people');", "h.goto('/orgs');", "history.back();", "history.forward();", "h.goto('/404');"];
+var actions = [['home', "h.go('/');"],
+               ['about', "h.go('/about');"],
+               ['events', "h.go('/events');"],
+               ['people', "h.go('/people');"],
+               ['organizations', "h.go('/orgs');"],
+               ['back', "history.back();"],
+               ['forward', "history.forward();"],
+               ['up', "h.page('up');"],
+               ['down', "h.page('down');"],
+               ['404', "h.go('/404');"]];
 function completer(){
   $('.jtGo').each(function(){
-    request.push($(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim());
-    actions.push("h.go('" + $(this).attr('href') + "');");
+    actions.push([$(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim(), "h.go('" + $(this).attr('href') + "');"]);
   });
   $('.jtScroll').each(function(){
-    request.push($(this).attr('id'));
-    actions.push("h.scroll('" + $(this).attr('id') + "');");
+    actions.push([$(this).attr('id'), "h.scroll('" + $(this).attr('id') + "');"]);
   });
   $('#justType').inlineComplete({
-    list: request
+    list: $.map(actions, function(n){ return n; })
   });
 }
 completer();
