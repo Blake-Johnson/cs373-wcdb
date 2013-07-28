@@ -38,22 +38,23 @@ $('#searchModal').on('hide', function(){
   searchbox.value = '';
   searchbox.blur();
 });
-var actions = [['home', "h.go('/');"],
-               ['about', "h.go('/about');"],
-               ['events', "h.go('/events');"],
-               ['people', "h.go('/people');"],
-               ['organizations', "h.go('/orgs');"],
+var actions = [['home', "h.go('/', '_self');"],
+               ['about', "h.go('/about', '_self');"],
+               ['events', "h.go('/events', '_self');"],
+               ['people', "h.go('/people', '_self');"],
+               ['organizations', "h.go('/orgs', '_self');"],
                ['back', "history.back();"],
                ['forward', "history.forward();"],
-               ['up', "h.page('up');"],
-               ['down', "h.page('down');"],
-               ['404', "h.go('/404');"]];
+               ['up', "h.scroll(-500);"],
+               ['down', "h.scroll(500);"],
+               ['404', "h.go('/404', '_self');"]
+              ];
 function completer(){
   $('.jtGo').each(function(){
-    actions.push([$(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim(), "h.go('" + $(this).attr('href') + "');"]);
+    actions.push([$(this).attr('name').replace(/[^a-zA-Z0-9]/, ' ').trim(), "h.go('" + $(this).attr('href') + "', '" + $(this).attr('target') + "');"]);
   });
   $('.jtScroll').each(function(){
-    actions.push([$(this).attr('id'), "h.scroll('" + $(this).attr('id') + "');"]);
+    actions.push([$(this).attr('id'), "h.scrollto('" + $(this).attr('id') + "');"]);
   });
   $('#justType').inlineComplete({
     list: $.map(actions, function(n){ return n; })
@@ -63,10 +64,10 @@ completer();
 
 // Helper Functions
 var h = {
-  go: function(url){
-    window.open(url, '_self');
+  go: function(url, name){
+    window.open(url, name);
   },
-  scroll: function(id){
+  scrollto: function(id){
     id = '#' + id;
     var dest=0;
     if($(id).offset().top > $(document).height() - $(window).height()){
@@ -74,6 +75,9 @@ var h = {
     }else{
       dest=$(id).offset().top;
     }
-    $('html,body').animate({scrollTop:dest}, 400, 'swing');
+    $('html, body').animate({ scrollTop: dest }, 400, 'swing');
+  },
+  scroll: function(dir){
+    $('html, body').animate({ scrollTop: $(window).scrollTop() + dir }, 400, 'swing');
   }
 }
