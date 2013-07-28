@@ -6326,72 +6326,6 @@ var NodeDim = {
  */
 Layouts.TM = {};
 
-Layouts.TM.SliceAndDice = new Class({
-  compute: function(prop) {
-    var root = this.graph.getNode(this.clickedNode && this.clickedNode.id || this.root);
-    this.controller.onBeforeCompute(root);
-    var size = this.canvas.getSize(),
-        config = this.config,
-        width = size.width,
-        height = size.height;
-    this.graph.computeLevels(this.root, 0, "ignore");
-    //set root position and dimensions
-    root.getPos(prop).setc(-width/2, -height/2);
-    root.setData('width', width, prop);
-    root.setData('height', height + config.titleHeight, prop);
-    this.computePositions(root, root, this.layout.orientation, prop);
-    this.controller.onAfterCompute(root);
-  },
-  
-  computePositions: function(par, ch, orn, prop) {
-    //compute children areas
-    var totalArea = 0;
-    par.eachSubnode(function(n) {
-      totalArea += n.getData('area', prop);
-    });
-    
-    var config = this.config,
-        offst = config.offset,
-        width  = par.getData('width', prop),
-        height = Math.max(par.getData('height', prop) - config.titleHeight, 0),
-        fact = par == ch? 1 : (ch.getData('area', prop) / totalArea);
-
-    var otherSize, size, dim, pos, pos2, posth, pos2th;
-    var horizontal = (orn == "h");
-    if(horizontal) {
-      orn = 'v';
-      otherSize = height;
-      size = width * fact;
-      dim = 'height';
-      pos = 'y';
-      pos2 = 'x';
-      posth = config.titleHeight;
-      pos2th = 0;
-    } else {
-      orn = 'h';    
-      otherSize = height * fact;
-      size = width;
-      dim = 'width';
-      pos = 'x';
-      pos2 = 'y';
-      posth = 0;
-      pos2th = config.titleHeight;
-    }
-    var cpos = ch.getPos(prop);
-    ch.setData('width', size, prop);
-    ch.setData('height', otherSize, prop);
-    var offsetSize = 0, tm = this;
-    ch.eachSubnode(function(n) {
-      var p = n.getPos(prop);
-      p[pos] = offsetSize + cpos[pos] + posth;
-      p[pos2] = cpos[pos2] + pos2th;
-      tm.computePositions(ch, n, orn, prop);
-      offsetSize += n.getData(dim, prop);
-    });
-  }
-
-});
-
 Layouts.TM.Area = {
  /*
     Method: compute
@@ -6703,153 +6637,6 @@ Layouts.TM.Squarified = new Class({
  }
 });
 
-Layouts.TM.Strip = new Class({
-  Implements: Layouts.TM.Area,
-
-    /*
-      Method: compute
-    
-     Called by loadJSON to calculate recursively all node positions and lay out the tree.
-    
-      Parameters:
-    
-         json - A JSON subtree. See also <Loader.loadJSON>. 
-       coord - A coordinates object specifying width, height, left and top style properties.
-    */
-    computePositions: function(node, coord, prop) {
-     var  ch = node.getSubnodes([1, 1], "ignore"), 
-          config = this.config,
-          max = Math.max;
-     if(ch.length > 0) {
-       this.processChildrenLayout(node, ch, coord, prop);
-       for(var i=0, l=ch.length; i<l; i++) {
-         var chi = ch[i];
-         var offst = config.offset,
-             height = max(chi.getData('height', prop) - offst - config.titleHeight, 0),
-             width  = max(chi.getData('width', prop)  - offst, 0);
-         var chipos = chi.getPos(prop);
-         coord = {
-           'width': width,
-           'height': height,
-           'top': chipos.y + config.titleHeight,
-           'left': chipos.x
-         };
-         this.computePositions(chi, coord, prop);
-       }
-     }
-    },
-    
-    /*
-      Method: processChildrenLayout
-    
-     Computes children real areas and other useful parameters for performing the Strip algorithm.
-    
-      Parameters:
-    
-         par - The parent node of the json subtree.  
-         ch - An Array of nodes
-         coord - A coordinates object specifying width, height, left and top style properties.
-    */
-    processChildrenLayout: function(par, ch, coord, prop) {
-     //compute children real areas
-      var parentArea = coord.width * coord.height;
-      var i, l=ch.length, totalChArea=0, chArea = [];
-      for(i=0; i<l; i++) {
-        chArea[i] = +ch[i].getData('area', prop);
-        totalChArea += chArea[i];
-      }
-      for(i=0; i<l; i++) {
-        ch[i]._area = parentArea * chArea[i] / totalChArea;
-      }
-     var side = this.layout.horizontal()? coord.width : coord.height;
-     var initElem = [ch[0]];
-     var tail = ch.slice(1);
-     this.stripify(tail, initElem, side, coord, prop);
-    },
-    
-    /*
-      Method: stripify
-    
-     Performs an heuristic method to calculate div elements sizes in order to have 
-     a good compromise between aspect ratio and order.
-    
-      Parameters:
-    
-         tail - An array of nodes.  
-         initElem - An array of nodes.
-         w - A fixed dimension where nodes will be layed out.
-       coord - A coordinates object specifying width, height, left and top style properties.
-    */
-    stripify: function(tail, initElem, w, coord, prop) {
-     this.computeDim(tail, initElem, w, coord, this.avgAspectRatio, prop);
-    },
-    
-    /*
-      Method: layoutRow
-    
-     Performs the layout of an array of nodes.
-    
-      Parameters:
-    
-         ch - An array of nodes.  
-         w - A fixed dimension where nodes will be laid out.
-         coord - A coordinates object specifying width, height, left and top style properties.
-    */
-    layoutRow: function(ch, w, coord, prop) {
-     if(this.layout.horizontal()) {
-       return this.layoutH(ch, w, coord, prop);
-     } else {
-       return this.layoutV(ch, w, coord, prop);
-     }
-    },
-    
-    layoutV: function(ch, w, coord, prop) {
-     var totalArea = 0; 
-     $.each(ch, function(elem) { totalArea += elem._area; });
-     var width = totalArea / w, top =  0; 
-     for(var i=0, l=ch.length; i<l; i++) {
-       var chi = ch[i];
-       var h = chi._area / width;
-       chi.getPos(prop).setc(coord.left, 
-           coord.top + (w - h - top));
-       chi.setData('width', width, prop);
-       chi.setData('height', h, prop);
-       top += h;
-     }
-    
-     return {
-       'height': coord.height,
-       'width': coord.width - width,
-       'top': coord.top,
-       'left': coord.left + width,
-       'dim': w
-     };
-    },
-    
-    layoutH: function(ch, w, coord, prop) {
-     var totalArea = 0; 
-     $.each(ch, function(elem) { totalArea += elem._area; });
-     var height = totalArea / w,
-         top = coord.height - height, 
-         left = 0;
-     
-     for(var i=0, l=ch.length; i<l; i++) {
-       var chi = ch[i];
-       var s = chi._area / height;
-       chi.getPos(prop).setc(coord.left + left, coord.top + top);
-       chi.setData('width', s, prop);
-       chi.setData('height', height, prop);
-       left += s;
-     }
-     return {
-       'height': coord.height - height,
-       'width': coord.width,
-       'top': coord.top,
-       'left': coord.left,
-       'dim': w
-     };
-    }
- });
 
 /*
  * File: Treemap.js
@@ -7390,96 +7177,6 @@ TM.Plot = new Class({
 TM.Label = {};
 
 /*
- TM.Label.Native
-
- Custom extension of <Graph.Label.Native>.
-
- Extends:
-
- All <Graph.Label.Native> methods
-
- See also:
-
- <Graph.Label.Native>
-*/
-TM.Label.Native = new Class({
-  Implements: Graph.Label.Native,
-
-  initialize: function(viz) {
-    this.config = viz.config;
-    this.leaf = viz.leaf;
-  },
-  
-  renderLabel: function(canvas, node, controller){
-    if(!this.leaf(node) && !this.config.titleHeight) return;
-    var pos = node.pos.getc(true), 
-        ctx = canvas.getCtx(),
-        width = node.getData('width'),
-        height = node.getData('height'),
-        x = pos.x + width/2,
-        y = pos.y;
-        
-    ctx.fillText(node.name, x, y, width);
-  }
-});
-
-/*
- TM.Label.SVG
-
-  Custom extension of <Graph.Label.SVG>.
-
-  Extends:
-
-  All <Graph.Label.SVG> methods
-
-  See also:
-
-  <Graph.Label.SVG>
-*/
-TM.Label.SVG = new Class( {
-  Implements: Graph.Label.SVG,
-
-  initialize: function(viz){
-    this.viz = viz;
-    this.leaf = viz.leaf;
-    this.config = viz.config;
-  },
-
-  /* 
-  placeLabel
-
-  Overrides abstract method placeLabel in <Graph.Plot>.
-
-  Parameters:
-
-  tag - A DOM label element.
-  node - A <Graph.Node>.
-  controller - A configuration/controller object passed to the visualization.
-  
-  */
-  placeLabel: function(tag, node, controller){
-    var pos = node.pos.getc(true), 
-        canvas = this.viz.canvas,
-        ox = canvas.translateOffsetX,
-        oy = canvas.translateOffsetY,
-        sx = canvas.scaleOffsetX,
-        sy = canvas.scaleOffsetY,
-        radius = canvas.getSize();
-    var labelPos = {
-      x: Math.round(pos.x * sx + ox + radius.width / 2),
-      y: Math.round(pos.y * sy + oy + radius.height / 2)
-    };
-    tag.setAttribute('x', labelPos.x);
-    tag.setAttribute('y', labelPos.y);
-
-    if(!this.leaf(node) && !this.config.titleHeight) {
-      tag.style.display = 'none';
-    }
-    controller.onPlaceLabel(tag, node);
-  }
-});
-
-/*
  TM.Label.HTML
 
  Custom extension of <Graph.Label.HTML>.
@@ -7568,10 +7265,6 @@ TM.Label.HTML = new Class( {
 
 */
 TM.Plot.NodeTypes = new Class( {
-  'none': {
-    'render': $.empty
-  },
-
   'rectangle': {
     'render': function(node, canvas, animating){
       var leaf = this.viz.leaf(node),
@@ -7615,14 +7308,6 @@ TM.Plot.NodeTypes = new Class( {
           ctx.restore();
         }
       }
-    },
-    'contains': function(node, pos) {
-      if(this.viz.clickedNode && !node.isDescendantOf(this.viz.clickedNode.id) || node.ignore) return false;
-      var npos = node.pos.getc(true),
-          width = node.getData('width'), 
-          leaf = this.viz.leaf(node),
-          height = leaf? node.getData('height') : this.config.titleHeight;
-      return this.nodeHelper.rectangle.contains({x: npos.x + width/2, y: npos.y + height/2}, pos, width, height);
     }
   }
 });
