@@ -92,6 +92,14 @@ var imp = {
         alert(exception);
       });
     }
+  },
+  spaceship: function(){
+    javascript: var KICKASSVERSION = '2.0';
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    document.body.appendChild(s);
+    s.src = '//hi.kickassapp.com/kickass.js';
+    void(0);
   }
 }
 
@@ -109,8 +117,9 @@ var actions = [['home', "act.go('/', '_self');"],
                ['404', "act.go('/404', '_self');"]
               ];
 var imports = [['lolcats', "imp.lolcats();"],
-               ['ag', "imp.grav(0);"],
-               ['g', "imp.grav(1);"]
+               ['gravity', "imp.grav(1);"],
+               ['antigravity', "imp.grav(0);"],
+               ['spaceship', "imp.spaceship();"]
               ];
 function completer(){
   $('.jtGo').each(function(){
