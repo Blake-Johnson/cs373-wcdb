@@ -173,15 +173,17 @@ def parse(query):
 	parts = re.compile(r'"([^"]+)"|(\S+)')
 	return [space.sub(' ', part[0] or part[1]).strip() for part in parts.findall(query)]
 
-def querify(blocks, cols):
+def querify(blocks, cols, search_type):
 	'''
 	Preconditions: a query is provided with the columns of a table
-		to search for the existence of those queries
+		to search for the existence of those queries; a search type
+		is also provided (see below for how to specify search types)
 	Postconditions: generates a series of Django Q objects to be
 		used in a model search
 	Implementation: logic is built such that only one column of the
 		table needs to contain each part of the query, but each
 		part of the query must be found to in one column
+	Search types: 0 for 'or' searches, 1 for 'and' searches
 	'''
 	assert type(blocks) is list
 	assert type(cols) is list
@@ -193,8 +195,28 @@ def querify(blocks, cols):
 			# block just needs to be found in one of the columns
 			col_query = q if col_query is None else (col_query | q)
 		# all terms need to be found at least once
-		block_query = col_query if block_query is None else (block_query & col_query)
+		block_query = col_query if block_query is None else (block_query & col_query) if search_type else (block_query | col_query)
 	return block_query
+
+def get_results(table, and_query, or_query, ordering=None):
+	'''
+	Given a table to lookup along with the and and or versions
+		of Django's Q objects, the two queries are conducted
+		and the results are ordered such that 'and' queries
+		are returned prior to 'or' queries
+	By default, there is no ordering, however if one is
+		specified then the 'and' and 'or' query separation
+		is lost
+	'''
+	results = Event.objects.filter(and_query) # 'and' results
+	or_results = Event.objects.filter(or_query)
+	if not ordering is None:
+		results = results.order_by(ordering)
+		or_results = or_results.order_by(ordering)
+	for or_res in or_results:
+		if not or_res in results:
+			results._result_cache.append(or_res)
+	return results
 
 def index(request):
 	'''
@@ -205,7 +227,7 @@ def index(request):
 		retrieve a JSON string for the splash on the home page
 		and sends it to the home.html template
 	'''
-	try:
+	if 'q' in request.GET:
 		user_query = request.GET['q']
 		if 't' in request.GET:
 			query_type = request.GET['t']
@@ -214,23 +236,26 @@ def index(request):
 		parsed_query = parse(user_query)
 		events = people = orgs = []
 		if query_type == 'events':
-			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'])
+			and_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'], 1)
+			or_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'], 0)
 			sort = { 'name': 'Name (descending)', '-name': 'Name (ascending)', '-date_time': 'Date (newest - oldest)', 'date_time': 'Date (oldest - newest)' }
-			view = request.GET['v'] if 'v' in request.GET else '-date_time'
-			results = Event.objects.filter(logical_query).order_by(view)
+			view = request.GET['v'] if 'v' in request.GET else None # used to be '-date_time'
+			results = get_results(Event, and_query, or_query, view)
 		elif query_type == 'people':
-			logical_query = querify(parsed_query, ['name', 'kind', 'location'])
+			and_query = querify(parsed_query, ['name', 'kind', 'location'], 1)
+			or_query = querify(parsed_query, ['name', 'kind', 'location'], 0)
 			sort = { 'name': 'Name (descending)', '-name': 'Name (ascending)' }
-			view = request.GET['v'] if 'v' in request.GET else 'name'
-			results = Person.objects.filter(logical_query).order_by(view)
+			view = request.GET['v'] if 'v' in request.GET else None # used to be 'name'
+			results = get_results(Person, and_query, or_query, view)
 		elif query_type == 'orgs':
-			logical_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'])
+			and_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'], 1)
+			or_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'], 0)
 			sort = { 'name': 'Name (descending)', '-name': 'Name (ascending)' }
-			view = request.GET['v'] if 'v' in request.GET else 'name'
-			results = Organization.objects.filter(logical_query).order_by(view)
+			view = request.GET['v'] if 'v' in request.GET else None # used to be 'name'
+			results = get_results(Organization, and_query, or_query, view)
 		context = { 'query': user_query, 'type': query_type, 'results': results, 'view': view, 'sort': sort }
 		return render(request, 'crisis_app/search.html', context, context_instance=RequestContext(request))
-	except:
+	else:
 		json = get_json()
 		context = { 'json': json }
 		return render(request, 'crisis_app/home.html', context)
