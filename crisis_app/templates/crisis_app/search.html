@@ -30,8 +30,9 @@
     </div>
   </ul>
   <div class="span7">
+    <span>Your search - <a id="userQuery" href="#">{{ query }}<span></span></a> - 
     {% if results %}
-      <span>Your search - <a id="userQuery" href="#">{{ query }}<span></span></a> - returned <strong>{{ results|length }}</strong> {% if results|length == 1 %}result{% else %}results{% endif %} in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</span>
+      returned <strong>{{ results|length }}</strong> {% if results|length == 1 %}result{% else %}results{% endif %} in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</span>
       {% for result in results %}
       <h4><a class="jtGo" name="{{ result.name }}" href="/{{ type }}/{{ result.id }}" target="_self">{{ result.name }}</a></h4>
       {% if type == 'events' %}
@@ -46,8 +47,7 @@
       {% endif %}
       {% endfor %}
     {% else %}
-      <br />
-      <p>Your search - <a id="userQuery" href="#">{{ query }}<span></span></a> - did not match anything in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</p>
+      did not match anything in <strong>{% if type == 'orgs' %}Organizations{% else %}{{ type }}{% endif %}</strong>.</p>
       <p>Suggestions</p>
       <ul>
         <li>Make sure all words are spelled correctly.</li>

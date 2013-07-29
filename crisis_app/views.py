@@ -239,19 +239,19 @@ def index(request):
 			and_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'], 1)
 			or_query = querify(parsed_query, ['name', 'kind', 'location', 'human_impact', 'economic_impact', 'resources_needed', 'ways_to_help'], 0)
 			sort = { 'relevance': 'Relevance', 'name': 'Name (descending)', '-name': 'Name (ascending)', '-date_time': 'Date (newest - oldest)', 'date_time': 'Date (oldest - newest)' }
-			view = request.GET['v'] if 'v' in request.GET else 'relevance' # used to be '-date_time'
+			view = request.GET['v'] if 'v' in request.GET else 'relevance'
 			results = get_results(Event, and_query, or_query, view)
 		elif query_type == 'people':
 			and_query = querify(parsed_query, ['name', 'kind', 'location'], 1)
 			or_query = querify(parsed_query, ['name', 'kind', 'location'], 0)
 			sort = { 'relevance': 'Relevance', 'name': 'Name (descending)', '-name': 'Name (ascending)' }
-			view = request.GET['v'] if 'v' in request.GET else 'relevance' # used to be 'name'
+			view = request.GET['v'] if 'v' in request.GET else 'relevance'
 			results = get_results(Person, and_query, or_query, view)
 		elif query_type == 'orgs':
 			and_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'], 1)
 			or_query = querify(parsed_query, ['name', 'kind', 'location', 'contact_info', 'history'], 0)
 			sort = { 'relevance': 'Relevance', 'name': 'Name (descending)', '-name': 'Name (ascending)' }
-			view = request.GET['v'] if 'v' in request.GET else 'relevance' # used to be 'name'
+			view = request.GET['v'] if 'v' in request.GET else 'relevance'
 			results = get_results(Organization, and_query, or_query, view)
 		context = { 'query': user_query, 'type': query_type, 'results': results, 'view': view, 'sort': sort }
 		return render(request, 'crisis_app/search.html', context, context_instance=RequestContext(request))
