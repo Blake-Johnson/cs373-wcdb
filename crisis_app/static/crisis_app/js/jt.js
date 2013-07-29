@@ -98,7 +98,7 @@ var imp = {
     var s = document.createElement('script');
     s.type = 'text/javascript';
     document.body.appendChild(s);
-    s.src = '//hi.kickassapp.com/kickass.js';
+    s.src = STATIC_URL + 'crisis/js/spaceship.js';
     void(0);
   }
 }
