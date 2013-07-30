@@ -437,10 +437,18 @@ def orgs(request, org_id=None):
 		return render(request, 'crisis_app/org.html', context)
 
 def remove_xml_cache():
+	'''
+	Removes the XML cache if it exists
+	'''
 	if os.path.exists(XML_CACHE_PATH):
 		os.remove(XML_CACHE_PATH)
 
 def xml(request):
+	'''
+	An XML string is generated if the file does not exist
+		or if the file is outdated, or it is loaded from the cache file
+		if the file is not outdated
+	'''
 	path = XML_CACHE_PATH
 	if not os.path.isdir(os.path.dirname(path)):
 		os.mkdir(os.path.dirname(path))
@@ -461,6 +469,9 @@ def xml(request):
 	return HttpResponse(content=xml, mimetype='application/xml')
 
 class XmlUploadForm(forms.Form):
+	'''
+	Simple Django form for the XML input
+	'''
 	xml = forms.FileField(required=True)
 
 	def clean(self):
@@ -476,6 +487,9 @@ class XmlUploadForm(forms.Form):
 
 @login_required(login_url='/login')
 def upload_xml(request):
+	'''
+	Allows uploading data in the form of XML through the website
+	'''
 	if request.POST:
 		form = XmlUploadForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -494,6 +508,9 @@ def upload_xml(request):
 	return render(request, 'crisis_app/xml_upload.html', {'form': form})
 
 class LoginForm(forms.Form):
+	'''
+	Creates a Django login form to be used to authenticate users
+	'''
 	username = forms.CharField(required=True, widget=forms.TextInput(attrs={'autofocus': 'autofocus'}))
 	password = forms.CharField(required=True, widget=forms.PasswordInput)
 
@@ -507,6 +524,10 @@ class LoginForm(forms.Form):
 			raise forms.ValidationError('User is not active')
 
 def login_view(request):
+	'''
+	The login page for the site
+	On login the user is taken to the XML upload page
+	'''
 	if request.POST:
 		form = LoginForm(request.POST)
 		if form.is_valid():
@@ -514,7 +535,7 @@ def login_view(request):
 			if 'next' in request.GET:
 				return HttpResponseRedirect(request.GET['next'])
 			else:
-				return HttpResponseRedirect('/')
+				return HttpResponseRedirect('/upload_xml')
 	else:
 		form = LoginForm()
 	return render(request, 'crisis_app/login.html', {
@@ -523,5 +544,10 @@ def login_view(request):
 	})
 
 def logout_view(request):
+	'''
+	Logs out the user and returns to the previous page
+	If the previous page requires a login, the user will be
+		redirected to the login page
+	'''
 	logout(request)
-	return HttpResponseRedirect('/')
+	return HttpResponseRedirect(request.META['HTTP_REFERER'])
