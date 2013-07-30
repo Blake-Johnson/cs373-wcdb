@@ -280,6 +280,8 @@ def youtube_to_embed(url, name):
 		embed, it attempts to provide information about the video's
 		source
 	'''
+	url = cgi.escape(url)
+	name = cgi.escape(name)
 	match = re.search(r'^(?:http|https)\:\/\/www\.youtube\.com\/(?:watch\?(?:feature\=[a-z_]*&)?v\=|embed\/)([\w\-]*)(?:\&(?:.*))?$', url)
 	if match:
 		embed_url = 'http://www.youtube.com/embed/%s' %(match.group(1))
