@@ -259,13 +259,13 @@ class ParseQuerifyTest(TestCase):
 
 	def test_querify_1(self):
 		inp = parse("\"Barack Obama\" US President")
-		assert type(querify(inp, ["column1", "column2", "column3"])) is models.query_utils.Q
+		assert type(querify(inp, ["column1", "column2", "column3"], 0)) is models.query_utils.Q
 
 	def test_querify_2(self):
 		inp = parse("\"Barack Obama\" US Pres POTUS")
-		self.assertEqual(len(querify(inp, ["column1", "column2", "column3"])),4) #len should be the number of things being parsed
+		self.assertEqual(len(querify(inp, ["column1", "column2", "column3"], 0)), 12) #len should be the number of things being parsed
 
 	def test_db_query(self):
 		inp = parse("Sandy")
-		quer = querify(inp,["id","name","kind"])
+		quer = querify(inp,["id","name","kind"], 0)
 		self.assertEqual(str(Event.objects.filter(quer)),"[<Event: Hurricane Sandy>]")
