@@ -10,7 +10,7 @@
     {% if events|length %}
       <h3>Influential Events</h3>
       {% for event in events %}
-      <h4><a href="/events/{{ event.id }}">{{ event.name }}</a></h4><p>{{ event.location }}, {{ event.date_time|date }}{% if event.date_time|time != "midnight" %}, {{ event.date_time|time }}{% endif %}</p><p>{{ event.human_impact|safe }}</p>
+      <h4><a class="jtGo" name="{{ event.name }}" href="/events/{{ event.id }}" target="_self">{{ event.name }}</a></h4><p>{{ event.location }}, {{ event.date_time|date }}{% if event.date_time|time != "midnight" %}, {{ event.date_time|time }}{% endif %}</p><p>{{ event.human_impact|safe }}</p>
       <br />
       {% endfor %}
       <br />
@@ -18,14 +18,14 @@
     {% if people|length %}
       <h3>Influential People</h3>
       {% for person in people %}
-      <h4><a href="/people/{{ person.id }}">{{ person.name }}</a></h4><p>{{ person.kind }}, {{ person.location }}</p>
+      <h4><a class="jtGo" name="{{ person.name }}" href="/people/{{ person.id }}" target="_self">{{ person.name }}</a></h4><p>{{ person.kind }}, {{ person.location }}</p>
       {% endfor %}
       <br />
     {% endif %}
     {% if orgs|length %}
       <h3>Influential Organizations</h3>
       {% for org in orgs %}
-      <h4><a href="/orgs/{{ org.id }}">{{ org.name }}</a></h4><p>{{ org.history|safe }}</p><br />
+      <h4><a class="jtGo" name="{{ org.name }}" href="/orgs/{{ org.id }}" target="_self">{{ org.name }}</a></h4><p>{{ org.history|safe }}</p><br />
       {% endfor %}
       <br />
     {% endif %}
@@ -70,7 +70,7 @@
       {% if embed.citations %}
         <h3 class="jtScroll" id="references">References</h3>
           {% for citation in embed.citations %}
-          <a href="{{ citation.url }}" target="_blank">{{ citation.desc }}</a><br />
+          <a class="jtGo" name="{{ citation.desc }}" href="{{ citation.url }}" target="_blank">{{ citation.desc }}</a><br />
           {% endfor %}
         <br />
       {% endif %}
