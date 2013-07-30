@@ -41,7 +41,7 @@ setTimeout(function () {
     grav();
     init();
     run();
-}, 400);
+}, 800);
 
 
 function init() {

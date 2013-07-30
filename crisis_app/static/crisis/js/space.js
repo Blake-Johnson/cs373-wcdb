@@ -31,7 +31,7 @@ var gravity = { x: 0, y: 0 };
 setTimeout(function () {
 	spac();
 	init();
-}, 400);
+}, 800);
 
 setInterval(loop, 25);
 

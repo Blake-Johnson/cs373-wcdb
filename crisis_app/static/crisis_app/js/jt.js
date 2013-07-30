@@ -87,7 +87,10 @@ var imp = {
         alert(exception);
       });
     }else{
-      $.getScript(STATIC_URL + 'crisis/js/space.js')
+      $.getScript(STATIC_URL + 'crisis/js/space.js', function(){
+        spac();
+        init();
+      })
       .fail(function(jqxhr, settings, exception){
         alert(exception);
       });

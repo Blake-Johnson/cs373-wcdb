@@ -5956,8 +5956,6 @@
             this.explosionManager.game = this;
             this.ui = new UIManager();
             this.ui.game = this;
-            this.bombManager = new BombManager();
-            this.bombManager.game = this;
             this.statisticsManager = new StatisticsManager();
             this.statisticsManager.game = this;
             GameGlobals.stats = this.statisticsManager;
@@ -6028,7 +6026,6 @@
                 player.update(tdelta);
             this.world.update(tdelta);
             this.bulletManager.update(tdelta);
-            this.bombManager.update(tdelta);
             this.explosionManager.update(tdelta);
             this.alienManager.update(tdelta);
             this.ui.update(tdelta);
@@ -6124,9 +6121,6 @@
         newRank: function (rank) {
             this.ui.showMessage("OMG. You leveled up to: <strong>" + rank + '</strong>!<br /><small>Be sure to check what cool new stuff you get in the menu.</small>');
         },
-        fireBomb: function () {
-            this.bombManager.blow();
-        },
         destroy: function () {
             removeEvent(document, 'keydown', this.keydownEvent);
             removeEvent(document, 'keypress', this.keydownEvent);
@@ -6179,107 +6173,6 @@
                 if (this.data.hasOwnProperty(key)) {
                     fragment.push(key + ':' + this.data[key]);
                 }
-        }
-    });
-    var Menu = new Class({
-        initialize: function () {
-            this.size = {
-                height: 300
-            };
-            this.url = GameGlobals.path('intermediate.html?url=' + encodeURIComponent(window.KICKASSURL || document.location.href));
-        },
-        generate: function (parent) {
-            this.container = document.createElement('div');
-            this.container.className = 'KICKASSELEMENT';
-            this.container.id = 'kickass-profile-menu';
-            parent.appendChild(this.container);
-            this.isSocketReady = false;
-            this.socket = new easyXDM.Socket({
-                remote: this.url,
-                remoteHelper: GameGlobals.path('name.html'),
-                swf: GameGlobals.path('easyxdm.swf'),
-                container: this.container,
-                lazy: false,
-                onMessage: bind(this, function (message) {
-                    if (message === "ready") {
-                        this.onGameReady();
-                        return;
-                    }
-                    var t = message.split(':!');
-                    if (t.length !== 2) return;
-                    var type = t.shift().replace(/^./g, function (match) {
-                        return match.charAt(0).toUpperCase();
-                    });
-                    if (this['messageType' + type])
-                        this['messageType' + type](t.join(":!"));
-                }),
-                props: {
-                    frameborder: '0',
-                    'className': 'KICKASSELEMENT',
-                    style: {
-                        width: '100%',
-                        height: this.size.height + 'px'
-                    }
-                }
-            });
-            this.game.registerElement(this.container);
-        },
-        onGameReady: function () {
-            this.isSocketReady = true;
-            this.game.registerElement(this.container.getElementsByTagName('iframe')[0]);
-            this.socket.postMessage("url:!" + (window.KICKASSURL || document.location.href));
-            this.game.statisticsManager.syncWithServer();
-        },
-        sendMessage: function (message) {
-            if (!this.isSocketReady) return;
-            if (message != this.lastMessage) {
-                try {
-                    this.socket.postMessage(message);
-                } catch (e) {}
-                this.lastMessage = message;
-            }
-        },
-        messageTypeChangeShip: function (pieces) {
-            pieces = pieces.split(",");
-            var shipId = pieces[0];
-            var weaponId = pieces[1];
-            var isInitial = pieces[2] === 'initial';
-            if (this.shipId === shipId)
-                return;
-            if (isInitial && window.KICKASSSHIP)
-                return;
-            this.shipId = shipId;
-            JSONP.get(GameGlobals.path('designer/ship/' + shipId + '/construction.jsonp'), {
-                ship_id: shipId,
-                is_initial: isInitial ? '1' : '0'
-            }, bind(this, function (data) {
-                this.game.updateShips(data.data, isInitial);
-                try {
-                    window.focus();
-                } catch (e) {}
-            }));
-            if (!isInitial)
-                this.parent.hideMenu();
-        },
-        messageTypeChangeWeapon: function (weaponId, isInitial) {
-            this.game.changeWeaponById(weaponId, isInitial);
-        },
-        messageTypeSetMultiplier: function (mod) {
-            mod = parseInt(mod, 10);
-            if (isNaN(mod) || !mod)
-                return;
-            this.game.multiplier = mod;
-        },
-        messageTypeNewRank: function (rank) {
-            this.game.newRank(rank);
-        },
-        messageTypePlayerMessage: function (message) {
-            this.game.ui.showMessage(message);
-        },
-        destroy: function () {
-            this.game.unregisterElement(this.container);
-            this.game.unregisterElement(this.iframe);
-            this.container.parentNode.removeChild(this.container);
         }
     });
     var UIManager = new Class({
@@ -6879,53 +6772,6 @@
                 p.sub(pos).rotate(this.angle).add(pos);
             for (var i = 0, p; p = this.flames.y[i]; i++)
                 p.sub(pos).rotate(this.angle).add(pos);
-        }
-    });
-    var BombManager = new Class({
-        initialize: function () {
-            this.bombShowDelay = 30;
-            this.nextBomb = this.bombShowDelay;
-        },
-        update: function (tdelta) {
-            if (this.game.isKeyPressed('F') && this.isReady()) {
-                this.blow();
-            }
-            if (this.nextBomb === -1 || !this.game.sessionManager.isPlaying)
-                return;
-            this.nextBomb -= tdelta;
-            if (this.nextBomb < 0) {
-                this.nextBomb = -1;
-                this.game.ui.showMessage("BOMB IS READY<br />(lower right corner or F)");
-            }
-        },
-        blow: function () {
-            var message = this.game.ui.showMessage("3...", 5000);
-            delay(1000, function () {
-                message.innerHTML = "2...";
-            }, this);
-            delay(2000, function () {
-                message.innerHTML = "1...";
-            }, this);
-            delay(3000, function () {
-                message.innerHTML = "boom";
-            }, this);
-            delay(3000, this.blowStuffUp, this);
-            this.nextBomb = this.bombShowDelay;
-        },
-        blowStuffUp: function () {
-            this.game.bulletManager.updateEnemyIndex();
-            var index = this.game.bulletManager.enemyIndex;
-            for (var i = 0, el;
-                (el = index[i]) && i < 10; i++) {
-                var rect = getRect(el);
-                var center = new Vector(rect.left + rect.width / 2, rect.top + rect.height / 2);
-                this.game.explosionManager.addExplosion(center, el, MegaParticleExplosion);
-                el.parentNode.removeChild(el);
-            }
-            this.nextBomb = this.bombShowDelay;
-        },
-        isReady: function () {
-            return this.nextBomb === -1;
         }
     });
     var ELEMENTSTHATARENOTTOBEINCLUDED = ['BR', 'SCRIPT', 'STYLE', 'TITLE', 'META', 'HEAD', 'OPTION', 'OPTGROUP', 'LINK'];
