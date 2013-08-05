@@ -436,12 +436,14 @@ def orgs(request, org_id=None):
 		context = { 'org': org, 'embed': embed, 'events': events, 'people': people, 'type': 'o' }
 		return render(request, 'crisis_app/org.html', context)
 
-def remove_xml_cache():
+def flush_cache():
 	'''
-	Removes the XML cache if it exists
+	Removes the XML and JSON caches if they exists
 	'''
 	if os.path.exists(XML_CACHE_PATH):
 		os.remove(XML_CACHE_PATH)
+	if os.path.exists(JSON_CACHE_PATH):
+		os.remove(JSON_CACHE_PATH)
 
 def xml(request):
 	'''
@@ -497,7 +499,7 @@ def upload_xml(request):
 			f.seek(0)
 			try:
 				to_db.convert(f.read())
-				remove_xml_cache()
+				flush_cache()
 				return HttpResponseRedirect('/xml')
 			except Exception as e:
 				form._errors.setdefault('__all__', forms.util.ErrorList())
