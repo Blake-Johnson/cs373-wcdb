@@ -282,12 +282,12 @@ def youtube_to_embed(url, name):
 	'''
 	url = cgi.escape(url)
 	name = cgi.escape(name)
-	match = re.search(r'^(?:http|https)\:\/\/www\.youtube\.com\/(?:watch\?(?:feature\=[a-z_]*&)?v\=|embed\/)([\w\-]*)(?:\&(?:.*))?$', url)
+	match = re.search(r'^(?:(?:http|https)\:)?\/\/www\.youtube\.com\/(?:watch\?(?:feature\=[a-z_]*&)?v\=|embed\/)([\w\-]*)(?:\&(?:.*))?$', url, re.I)
 	if match:
-		embed_url = 'http://www.youtube.com/embed/%s' %(match.group(1))
+		embed_url = '//www.youtube.com/embed/%s' %(match.group(1))
 		res = '<iframe width="560" height="315" src="%s" frameborder="0" name="%s?wmode=opaque" allowfullscreen></iframe>' %(embed_url, name)
 	else:
-		match = re.search(r'(?:(?:http|https)\:\/\/|www\.)(?:www\.)?(.*?)\.com', url)
+		match = re.search(r'(?:(?:http|https)\:\/\/|www\.)(?:www\.)?(.*?)\.com', url, re.I)
 		if match:
 			res = '<a href="%s">%s (%s)</a><br />' %(url, name, match.group(1).capitalize())
 		else:
