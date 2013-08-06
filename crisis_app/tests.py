@@ -99,7 +99,7 @@ class ToDbTestCase(UsefulTestCase):
 	def test_import(self):
 		self._clear_db()
 		self.assertEqual(len(Event.objects.all()), 0)
-		to_db.convert(XML['initial_data'])
+		to_db.convert(XML['initial_data'], False)
 		events = Event.objects.all()
 		people = Person.objects.all()
 		orgs = Organization.objects.all()
@@ -120,6 +120,32 @@ class ToDbTestCase(UsefulTestCase):
 		self.assertEqual(len(orgs[0].embed_set.all()), 10)
 
 		self._reset_db()
+		
+	def test_import_merge(self):
+		self._clear_db()
+		self.assertEqual(len(Event.objects.all()), 0)
+		to_db.convert(XML['initial_data'], False)
+		to_db.convert(XML['initial_data'], True)
+		events = Event.objects.all()
+		people = Person.objects.all()
+		orgs = Organization.objects.all()
+
+		self.assertEqual(len(events), 1)
+		self.assertEqual(len(events[0].organization_set.all()), 1)
+		self.assertEqual(len(events[0].person_set.all()), 1)
+		self.assertEqual(len(events[0].embed_set.all()), 8)
+
+		self.assertEqual(len(people), 1)
+		self.assertEqual(len(people[0].event.all()), 1)
+		self.assertEqual(len(people[0].organization_set.all()), 1)
+		self.assertEqual(len(people[0].embed_set.all()), 10)
+
+		self.assertEqual(len(orgs), 1)
+		self.assertEqual(len(orgs[0].event.all()), 1)
+		self.assertEqual(len(orgs[0].person.all()), 1)
+		self.assertEqual(len(orgs[0].embed_set.all()), 10)
+
+		self._reset_db()	
 
 class ImportExportTest(UsefulTestCase):
 	PWD = '123'
@@ -166,15 +192,12 @@ class RegexTestCase(UsefulTestCase):
 		testString_1 = youtube_to_embed("http://www.youtube.com/watch?v=RUKsyA_z7n8","youtube_1")
 		testString_2 = youtube_to_embed("http://www.youtube.com/watch?v=nBzHCVv5GeQ","youtube_2")
 		testString_3 = youtube_to_embed("http://www.youtube.com/watch?v=5gg1hkd5wnI","youtube_3")
-		testString_4 = youtube_to_embed("//www.youtube.com/embed/9nWjNgV_6yc", "youtube_4")
 
-		assert testString_1 == '<iframe width="560" height="315" src="//www.youtube.com/embed/RUKsyA_z7n8" frameborder="0" name="youtube_1?wmode=opaque" allowfullscreen></iframe>'
+		assert testString_1 == '<iframe width="560" height="315" src="http://www.youtube.com/embed/RUKsyA_z7n8" frameborder="0" name="youtube_1?wmode=opaque" allowfullscreen></iframe>'
 
-		assert testString_2 == '<iframe width="560" height="315" src="//www.youtube.com/embed/nBzHCVv5GeQ" frameborder="0" name="youtube_2?wmode=opaque" allowfullscreen></iframe>'
+		assert testString_2 == '<iframe width="560" height="315" src="http://www.youtube.com/embed/nBzHCVv5GeQ" frameborder="0" name="youtube_2?wmode=opaque" allowfullscreen></iframe>'
 
-		assert testString_3 == '<iframe width="560" height="315" src="//www.youtube.com/embed/5gg1hkd5wnI" frameborder="0" name="youtube_3?wmode=opaque" allowfullscreen></iframe>'
-
-		assert testString_4 == '<iframe width="560" height="315" src="//www.youtube.com/embed/9nWjNgV_6yc" frameborder="0" name="youtube_4?wmode=opaque" allowfullscreen></iframe>'
+		assert testString_3 == '<iframe width="560" height="315" src="http://www.youtube.com/embed/5gg1hkd5wnI" frameborder="0" name="youtube_3?wmode=opaque" allowfullscreen></iframe>'
 
 	def test_youtube_semiWorking_embed(self):
 		testString_1 = youtube_to_embed("http://vimeo.com/13595568","youtube_1")
