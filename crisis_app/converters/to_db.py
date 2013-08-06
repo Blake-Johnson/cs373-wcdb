@@ -115,9 +115,42 @@ class ModelToXmlConversion(object):
 	_process_organizations = _process_relation
 
 
-class Event(ModelToXmlConversion): pass
-class Person(ModelToXmlConversion): pass
-class Organization(ModelToXmlConversion): pass
+class Event(ModelToXmlConversion):
+	def merge(self, duplicate):
+		print self.model.name
+		print duplicate.name
+		if len(self.model.name) > len(duplicate.name):
+			duplicate.name=self.model.name
+		if len(self.model.kind) > len(duplicate.kind):
+			duplicate.kind=self.model.kind
+		if len(self.model.location) > len(duplicate.location):
+			duplicate.location=self.model.location
+		#if len(self.model.date_time) > len(str(duplicate.date_time)):
+		#	duplicate.date_time=self.model.date_time
+		duplicate.human_impact = self.model.human_impact + "\n" + duplicate.human_impact
+		duplicate.economic_impact = self.model.economic_impact + "\n" + duplicate.economic_impact
+		duplicate.resources_needed = self.model.resources_needed + "\n" + duplicate.resources_needed
+		duplicate.ways_to_help = self.model.ways_to_help + "\n" + duplicate.ways_to_help
+
+class Person(ModelToXmlConversion): 
+	def merge(self,duplicate):
+		if len(self.model.name) > len(duplicate.name):
+			self.model.name = duplicate.name
+		if len(self.model.kind) > len(duplicate.kind):
+			self.model.kind = duplicate.kind
+		if len(self.model.location) > len(duplicate.location):
+			duplicate.location=self.model.location
+class Organization(ModelToXmlConversion):
+	def merge(self, duplicate):
+		if len(self.model.name) > len(duplicate.name):
+			duplicate.name=self.model.name
+		if len(self.model.kind) > len(duplicate.kind):
+			duplicate.kind=self.model.kind
+		if len(self.model.location) > len(duplicate.location):
+			duplicate.location=self.modellocation
+		if len(self.model.contact_info) > len(duplicate.contact_info):
+			duplicate.contact_info=self.model.contact_info
+		self.model.history = self.model.history + "\n" + duplicate.history
 
 
 mapping = {'Crisis': Event, 'Person': Person, 'Organization': Organization}
@@ -134,13 +167,34 @@ rel_mapping = {
 }
 
 
-def convert(xml):
+def convert(xml, merge):
 	xml = xml.read() if hasattr(xml, 'read') else xml
 	conversions = [mapping[el.tag](el) for el in fromstring(xml)]
-
-	# save all of the models
-	[c.model.save() for c in conversions]
-
+	m=0
+	
+	if not merge:# save all of the models
+		[c.model.save() for c in conversions]
+	else:#get list of pre-existing models
+		cri = models.Event.objects.all()
+		per = models.Person.objects.all()
+		org = models.Organization.objects.all()
+		
+		for c in conversions:
+			print type(c.model)
+			if type(c.model) == models.Event:
+				m = cri.get(xml_id=c.model.xml_id)
+			if type(c.model) == models.Person:
+				m = per.get(xml_id=c.model.xml_id)
+			if type(c.model) == models.Organization:
+				m = org.get(xml_id=c.model.xml_id)
+			
+			if m: #merge duplicated models
+				c.merge(m)
+				m.save()
+			else: #save unique model
+				c.model.save()
+				
+		
 	# save all of the embeds
 	[e.save() for c in conversions for e in c.embeds]
 
@@ -161,8 +215,7 @@ def convert(xml):
 					getattr(c.model, rel_mapping[rel_tag] + '_set').add(item)
 				else:
 					raise Exception('model doesnt have relation set')
-
-
+	
 	return conversions
 
 
