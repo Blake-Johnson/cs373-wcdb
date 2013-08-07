@@ -121,6 +121,32 @@ class ToDbTestCase(UsefulTestCase):
 
 		self._reset_db()
 		
+	def test_import_overwrite(self):
+		self._clear_db()
+		self.assertEqual(len(Event.objects.all()), 0)
+		to_db.convert(XML['initial_data'], False)
+		to_db.convert(XML['initial_data'], False)
+		events = Event.objects.all()
+		people = Person.objects.all()
+		orgs = Organization.objects.all()
+
+		self.assertEqual(len(events), 1)
+		self.assertEqual(len(events[0].organization_set.all()), 1)
+		self.assertEqual(len(events[0].person_set.all()), 1)
+		self.assertEqual(len(events[0].embed_set.all()), 8)
+
+		self.assertEqual(len(people), 1)
+		self.assertEqual(len(people[0].event.all()), 1)
+		self.assertEqual(len(people[0].organization_set.all()), 1)
+		self.assertEqual(len(people[0].embed_set.all()), 10)
+
+		self.assertEqual(len(orgs), 1)
+		self.assertEqual(len(orgs[0].event.all()), 1)
+		self.assertEqual(len(orgs[0].person.all()), 1)
+		self.assertEqual(len(orgs[0].embed_set.all()), 10)
+
+		self._reset_db()
+		
 	def test_import_merge(self):
 		self._clear_db()
 		self.assertEqual(len(Event.objects.all()), 0)
@@ -145,6 +171,37 @@ class ToDbTestCase(UsefulTestCase):
 		self.assertEqual(len(orgs[0].person.all()), 1)
 		self.assertEqual(len(orgs[0].embed_set.all()), 10)
 
+		self._reset_db()
+		
+	def test_import_merge_2(self):
+		self._clear_db()
+		self.assertEqual(len(Event.objects.all()), 0)
+		to_db.convert(XML['initial_data'], False)
+		to_db.convert(XML['initial_data_merge'], True)
+		events = Event.objects.all()
+		people = Person.objects.all()
+		orgs = Organization.objects.all()
+
+		self.assertEqual(len(events), 1)
+		self.assertEqual(len(events[0].organization_set.all()), 1)
+		self.assertEqual(len(events[0].person_set.all()), 1)
+		self.assertEqual(len(events[0].embed_set.all()), 9)# should add a new Lumineers Music video!
+
+		self.assertEqual(len(people), 1)
+		self.assertEqual(len(people[0].event.all()), 1)
+		self.assertEqual(len(people[0].organization_set.all()), 1)
+		self.assertEqual(len(people[0].embed_set.all()), 10)
+
+		self.assertEqual(len(orgs), 1)
+		self.assertEqual(len(orgs[0].event.all()), 1)
+		self.assertEqual(len(orgs[0].person.all()), 1)
+		self.assertEqual(len(orgs[0].embed_set.all()), 10) 		
+		#--------------- Meaty part of test below
+		self.assertEqual(events.get(xml_id="HURSAN").name, "Hurricane Sandy TEST")
+		self.assertEqual(events.get(xml_id="HURSAN").kind, "natural disaster TEST")
+		self.assertEqual(events.get(xml_id="HURSAN").location, "New York metropolitan area TESTTEST")
+		self.assertEqual(events.get(xml_id="HURSAN").human_impact, "This was a terrible tragedy.\nAt least 286 people were killed along the path of the storm in seven countries.")
+		
 		self._reset_db()	
 
 class ImportExportTest(UsefulTestCase):

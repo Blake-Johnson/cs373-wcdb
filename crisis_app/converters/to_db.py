@@ -44,6 +44,18 @@ def _process_relation(self, el):
 class ModelToXmlConversion(object):
 	@property
 	def ModelClass(self): return getattr(models, self.__class__.__name__)
+	
+	def merge(self, duplicate):
+		if len(self.model.name) > len(duplicate.name):
+			duplicate.name=self.model.name
+		if len(self.model.kind) > len(duplicate.kind):
+			duplicate.kind=self.model.kind
+		if len(self.model.location) > len(duplicate.location):
+			duplicate.location=self.model.location
+		for embed in self.embeds:
+			if not models.Embed.objects.filter(desc=embed.desc).exists():
+				embed.save()
+				duplicate.embed_set.add(embed)
 
 	def __init__(self, root):
 		self.root = root
@@ -117,16 +129,7 @@ class ModelToXmlConversion(object):
 
 class Event(ModelToXmlConversion):
 	def merge(self, duplicate):
-		print self.model.name
-		print duplicate.name
-		if len(self.model.name) > len(duplicate.name):
-			duplicate.name=self.model.name
-		if len(self.model.kind) > len(duplicate.kind):
-			duplicate.kind=self.model.kind
-		if len(self.model.location) > len(duplicate.location):
-			duplicate.location=self.model.location
-		#if len(self.model.date_time) > len(str(duplicate.date_time)):
-		#	duplicate.date_time=self.model.date_time
+		super(Event, self).merge(duplicate)
 		duplicate.human_impact = self.model.human_impact + "\n" + duplicate.human_impact
 		duplicate.economic_impact = self.model.economic_impact + "\n" + duplicate.economic_impact
 		duplicate.resources_needed = self.model.resources_needed + "\n" + duplicate.resources_needed
@@ -134,20 +137,11 @@ class Event(ModelToXmlConversion):
 
 class Person(ModelToXmlConversion): 
 	def merge(self,duplicate):
-		if len(self.model.name) > len(duplicate.name):
-			self.model.name = duplicate.name
-		if len(self.model.kind) > len(duplicate.kind):
-			self.model.kind = duplicate.kind
-		if len(self.model.location) > len(duplicate.location):
-			duplicate.location=self.model.location
+		super(Person, self).merge(duplicate)
+
 class Organization(ModelToXmlConversion):
 	def merge(self, duplicate):
-		if len(self.model.name) > len(duplicate.name):
-			duplicate.name=self.model.name
-		if len(self.model.kind) > len(duplicate.kind):
-			duplicate.kind=self.model.kind
-		if len(self.model.location) > len(duplicate.location):
-			duplicate.location=self.modellocation
+		super(Organization, self).merge(duplicate)
 		if len(self.model.contact_info) > len(duplicate.contact_info):
 			duplicate.contact_info=self.model.contact_info
 		self.model.history = self.model.history + "\n" + duplicate.history
@@ -170,16 +164,31 @@ rel_mapping = {
 def convert(xml, merge):
 	xml = xml.read() if hasattr(xml, 'read') else xml
 	conversions = [mapping[el.tag](el) for el in fromstring(xml)]
-	m=0
-	
-	if not merge:# save all of the models
-		[c.model.save() for c in conversions]
-	else:#get list of pre-existing models
-		cri = models.Event.objects.all()
-		per = models.Person.objects.all()
-		org = models.Organization.objects.all()
+	cri = models.Event.objects.all()
+	per = models.Person.objects.all()
+	org = models.Organization.objects.all()
 		
+	if not merge:# save all of the models
 		for c in conversions:
+			m=0
+			if (type(c.model) == models.Event) & (cri.filter(xml_id=c.model.xml_id)).exists():
+				m = cri.get(xml_id=c.model.xml_id)
+			if (type(c.model) == models.Person) & (per.filter(xml_id=c.model.xml_id)).exists():
+				m = per.get(xml_id=c.model.xml_id)
+			if (type(c.model) == models.Organization) & (org.filter(xml_id=c.model.xml_id)).exists():
+				m = org.get(xml_id=c.model.xml_id)
+			
+			if m:
+				m.embed_set.clear()
+				c.model.id = m.id
+				c.model.save(force_update=True)
+			else:
+				c.model.save()
+		#[c.model.save(xml_id=c.model.xml_id,force_update=True) for c in conversions]
+	else:#get list of pre-existing models
+		for c in conversions:
+			m=0
+			
 			print type(c.model)
 			if type(c.model) == models.Event:
 				m = cri.get(xml_id=c.model.xml_id)
@@ -193,28 +202,28 @@ def convert(xml, merge):
 				m.save()
 			else: #save unique model
 				c.model.save()
-				
 		
 	# save all of the embeds
 	[e.save() for c in conversions for e in c.embeds]
-
+	
 	# link all of the embeds to their corresponding model
-	[c.model.embed_set.add(*c.embeds) for c in conversions]
+	[c.model.embed_set.add(*c.embeds) for c in conversions if c.model.id] #if-statement checks to see if c has been added to DB by seeing if the id field has been auto-generated yet
 
 	# set up all of the many-to-many relationships
 	for c in conversions:
-		for rel_tag, ids in c.relations.items():
-			items = tag_mapping[rel_tag]
-			for i in ids:
-				item = items.objects.filter(xml_id=i[4:])[0]
-				if not item:
-					raise Exception('couldnt find model w/ corresponding id')
-				if hasattr(c.model, rel_mapping[rel_tag]):
-					getattr(c.model, rel_mapping[rel_tag]).add(item)
-				elif hasattr(c.model, rel_mapping[rel_tag] + '_set'):
-					getattr(c.model, rel_mapping[rel_tag] + '_set').add(item)
-				else:
-					raise Exception('model doesnt have relation set')
+		if c.model.id: #checks to see if c has been added to DB by seeing if the id field has been auto-generated yet
+			for rel_tag, ids in c.relations.items():
+				items = tag_mapping[rel_tag]
+				for i in ids:
+					item = items.objects.filter(xml_id=i[4:])[0]
+					if not item:
+						raise Exception('couldnt find model w/ corresponding id')
+					if hasattr(c.model, rel_mapping[rel_tag]):
+						getattr(c.model, rel_mapping[rel_tag]).add(item)
+					elif hasattr(c.model, rel_mapping[rel_tag] + '_set'):
+						getattr(c.model, rel_mapping[rel_tag] + '_set').add(item)
+					else:
+						raise Exception('model doesnt have relation set')
 	
 	return conversions
 
