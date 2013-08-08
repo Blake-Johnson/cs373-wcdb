@@ -184,12 +184,10 @@ def convert(xml, merge):
 				c.model.save(force_update=True)
 			else:
 				c.model.save()
-		#[c.model.save(xml_id=c.model.xml_id,force_update=True) for c in conversions]
 	else:#get list of pre-existing models
 		for c in conversions:
 			m=0
 			
-			print type(c.model)
 			if type(c.model) == models.Event:
 				m = cri.get(xml_id=c.model.xml_id)
 			if type(c.model) == models.Person:

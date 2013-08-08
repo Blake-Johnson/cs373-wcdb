@@ -498,10 +498,14 @@ def upload_xml(request):
 			f = form['xml'].value()
 			f.seek(0)
 			try:
-				to_db.convert(f.read())
+				print "1"
+				to_db.convert(f.read(),False)
+				print "2"
 				flush_cache()
+				print "3"
 				return HttpResponseRedirect('/xml')
 			except Exception as e:
+				print e
 				form._errors.setdefault('__all__', forms.util.ErrorList())
 				form._errors['__all__'].append(form.error_class([
 					'Could not save data:\n' + e.message]))

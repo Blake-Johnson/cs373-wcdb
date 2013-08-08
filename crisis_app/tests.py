@@ -204,6 +204,7 @@ class ToDbTestCase(UsefulTestCase):
 		
 		self._reset_db()	
 
+
 class ImportExportTest(UsefulTestCase):
 	PWD = '123'
 
@@ -249,12 +250,15 @@ class RegexTestCase(UsefulTestCase):
 		testString_1 = youtube_to_embed("http://www.youtube.com/watch?v=RUKsyA_z7n8","youtube_1")
 		testString_2 = youtube_to_embed("http://www.youtube.com/watch?v=nBzHCVv5GeQ","youtube_2")
 		testString_3 = youtube_to_embed("http://www.youtube.com/watch?v=5gg1hkd5wnI","youtube_3")
+		testString_4 = youtube_to_embed("//www.youtube.com/embed/9nWjNgV_6yc", "youtube_4")
 
-		assert testString_1 == '<iframe width="560" height="315" src="http://www.youtube.com/embed/RUKsyA_z7n8" frameborder="0" name="youtube_1?wmode=opaque" allowfullscreen></iframe>'
+		assert testString_1 == '<iframe width="560" height="315" src="//www.youtube.com/embed/RUKsyA_z7n8" frameborder="0" name="youtube_1?wmode=opaque" allowfullscreen></iframe>'
 
-		assert testString_2 == '<iframe width="560" height="315" src="http://www.youtube.com/embed/nBzHCVv5GeQ" frameborder="0" name="youtube_2?wmode=opaque" allowfullscreen></iframe>'
+		assert testString_2 == '<iframe width="560" height="315" src="//www.youtube.com/embed/nBzHCVv5GeQ" frameborder="0" name="youtube_2?wmode=opaque" allowfullscreen></iframe>'
 
-		assert testString_3 == '<iframe width="560" height="315" src="http://www.youtube.com/embed/5gg1hkd5wnI" frameborder="0" name="youtube_3?wmode=opaque" allowfullscreen></iframe>'
+		assert testString_3 == '<iframe width="560" height="315" src="//www.youtube.com/embed/5gg1hkd5wnI" frameborder="0" name="youtube_3?wmode=opaque" allowfullscreen></iframe>'
+
+		assert testString_4 == '<iframe width="560" height="315" src="//www.youtube.com/embed/9nWjNgV_6yc" frameborder="0" name="youtube_4?wmode=opaque" allowfullscreen></iframe>'
 
 	def test_youtube_semiWorking_embed(self):
 		testString_1 = youtube_to_embed("http://vimeo.com/13595568","youtube_1")
